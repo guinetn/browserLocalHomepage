@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Experiment</title>    
+    <meta name="description" content="Custom homepage for use locally in your browser"/>
+    <meta name="keyword" content="Nicolas Guinet">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="weather.css">
+  </head>
+
+<body>
+
+<template id="linkTemplate">
+  <a id="link" target="_blank"></a>
+</template>
+
+<template id="VlinkTemplate">  
+   <div>• <a id="link" target="_blank"></a></div>  
+</template>
+
+<div><div id="clock">--:--:--</div> <div id="hlinks_header"></div> </div>
+
+<div id="home" class="active view">
+  <h1>Home</h1>           
+
+  <div class="container">    
+    <div id="vlinks_tasks" class="containerItem"></div>        
+    <div id="vlinks_social" class="containerItem"></div>        
+    <div id="vlinks_blogs" class="containerItem"></div>        
+    <div id="vlinks_notebooks" class="containerItem"></div>        
+    <div id="vlinks_accounts" class="containerItem"></div>        
+    <div id="vlinks_help" class="containerItem"></div>        
+    <div id="vlinks_online" class="containerItem"></div>        
+  </div>
+
+</div>
+
+<div id="web" class="view">
+  <h1>Web</h1>  
+
+  <div class="container">    
+    <div id="text_chrome" class="containerItem">    
+    <h4>Tips</h4>Shift+ESC: Viewing RAM<br>CTRL+Shift+B: hide bookmarks</div>
+    
+    <div id="vlinks_mywebsites" class="containerItem"></div>        
+    <div id="vlinks_seo" class="containerItem"></div>        
+    <div id="vlinks_node" class="containerItem"></div>   
+    <div id="vlinks_code_api" class="containerItem"></div>   
+    <div id="vlinks_code_api_auth" class="containerItem"></div>   
+
+
+  </div>
+
+</div>
+
+<div id="ml" class="view">
+  <h1>ML</h1>  
+
+  <div class="container">    
+    <div id="vlinks_ml" class="containerItem"></div>            
+  </div>
+
+</div>
+
+<div id="cloud" class="view">
+  <h1>Cloud</h1>  
+
+  <div class="container">
+    <div id="vlinks_hosting" class="containerItem"></div>
+  </div>
+
+</div>
+
+<div id="code" class="view">
+  <h1>Code</h1>  
+
+  <div class="container">
+    <div id="vlinks_code" class="containerItem"></div>        
+    <div id="vlinks_microsoft" class="containerItem"></div>        
+    <div id="vlinks_code_sample" class="containerItem"></div>        
+    <div id="vlinks_repos" class="containerItem"></div>        
+  </div>
+
+</div>
+
+<div id="mobile" class="view">
+  <h1>Mobile</h1>  
+
+  <div class="container">
+    <div id="vlinks_mobile" class="containerItem"></div>            
+    <div id="vlinks_mobile_android" class="containerItem"></div>            
+  </div>
+
+</div>
+
+<div id="science" class="view">
+  <h1>Science</h1>  
+
+  <div class="container">
+    <div id="vlinks_science" class="containerItem"></div>        
+  </div>
+
+</div>
+
+<div id="math" class="view">
+  <h1>Math</h1>  
+
+  <div class="container">
+    <div id="vlinks_maths" class="containerItem"></div>        
+    <div id="vlinks_maths_latex" class="containerItem"></div>        
+  </div>
+
+</div>
+
+<div id="plane" class="view">
+  <h1>Plane</h1>  
+
+  <div class="container">
+    <div id="vlinks_plane" class="containerItem"></div>        
+  </div>
+
+</div><div id="dataviz" class="view">
+  <h1>Dataviz</h1>  
+
+  <div class="container">
+    <div id="vlinks_dataviz" class="containerItem"></div>        
+  </div>
+
+</div>
+
+</div><div id="jobs" class="view">
+  <h1>Jobs</h1>  
+
+  <div class="container">
+    <div id="vlinks_jobs" class="containerItem"></div>        
+  </div>
+
+</div>
+
+
+ 
+<div style="transform: scale(.75); display: none">
+
+  <div class="weatherWidget">
+    <div class="weatherContent weatherContentGrid">
+      <div class="weatherContentBackimg"></div>
+      <div class="dayPos">
+        <div class="dt"><span id="dt"></span></div>
+        <div class="sun">
+          <small
+            >sr <span id="sunrise"></span> &nbsp;
+            <nobr>ss <span id="sunset"></span></nobr
+          ></small>
+        </div>
+        <div class="windCurrentPos windCurrent wind">
+          <small><span id="deg"></span>° @<span id="speed"></span> kt</small>
+          <div class="windir" id="windir">➤</div>
+        </div>
+      </div>
+      <div class="temperatureGridPos">
+        <div class="temperatureGrid alignCenter">
+          <div class="tempCurrent">
+            <span id="temp"></span><sup><small>°c</small></sup>
+          </div>
+          <div class="tempFeel alignRight">
+            <span id="feels_like"></span><sup><small>°c</small></sup> feels
+          </div>
+          <div class="tempMin">
+            <span id="temp_min"></span><sup><small>°c</small></sup>
+          </div>
+          <div class="tempMax">
+            <span id="temp_max"></span><sup><small>°c</small></sup>
+          </div>
+        </div>
+
+        <div class="locality alignRight">
+          <div>
+            <span id="name"></span> <span class="country" id="country"></span>
+          </div>
+        </div>
+
+        <div class="localityInfos alignRight">
+          <span id="lat">x</span>, <span id="lon">x</span>
+        </div>
+        <div class="localityInfos alignRight">
+          <span id="pressure"></span>hPa / <span id="humidity"></span>%
+        </div>
+        <div class="localityInfos alignRight" title="visibility">
+          <span id="visibility"></span> m
+        </div>
+      </div>
+      <img class="iconCurrentWeather" id="icon" />
+      <div class="weatherCurrentDescription alignCenter">
+        <span id="description"></span>
+      </div>
+      <div class="forecast" id="forecast"></div>
+    </div>
+  </div>
+
+  <div id="forecast"></div>
+  <div>
+    <small>Weather app by Nicolas Guinet & <a target="_blank" href="https://api.openweathermap.org">openweathermap.org</a></small>
+  </div>
+</div>
+
+<template id="forecastWidgetTemplate">
+<div class="forecastWidget">
+  <div class="dt"><span id="dt"></span></div>
+  <div class="dtTimeForecast"><span id="dtTimeForecast"></span></div>
+  <div class="tempMax tempForecast">
+    <span id="temp_max"></span><sup><small>°c</small></sup>
+  </div>
+  <img class="iconForecastWeather" id="icon" />
+  <div class="tempMin tempForecast">
+    <span id="temp_min"></span><sup><small>°c</small></sup>
+  </div>
+
+  <div class="weatherForecastDescriptionPos">
+    <div class="weatherForecastDescription alignCenter">
+      <span id="description"></span>
+    </div>
+    <div class="localityInfos alignCenter mbot10">
+      <span id="pressure"></span>hPa &nbsp; <span id="humidity"></span>%
+    </div>
+    <div class="localityInfos alignCenter wind">
+      <span id="deg"></span>°@<span id="speed"></span> kt
+    </div>
+  </div>
+  <div class="windirForecast wind" id="windir">➤</div>
+</div>
+</template>
+
+<script src="weather.js"></script>
+<script type="module" src="views.js"></script>
+
+</body>
+
+</html>

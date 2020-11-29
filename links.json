@@ -1,0 +1,191 @@
+{
+	"hlinks_header": [
+		 { "name": "github", "ref":"https://github.com/guinetn", "class":"fab fa-github" },
+		 { "name": "coggle", "ref":"https://coggle.it", "class":"fas fa-sitemap" },
+		 { "name": "twitter", "ref":"https://twitter.com", "class":"fab fa-twitter" },
+		 { "name": "linkedin", "ref":"www.linkedin.com", "class":"fab fa-linkedin" }, 	 
+	 	 { "name": "gmail", "ref":"https://gmail.com", "class":"fas fa-envelope" },
+	 	 { "name": "pinterest", "ref":"https://www.pinterest.fr/nguinet", "class":"fab fa-pinterest" },
+	 	 { "name": "facebook", "ref":"https://www.facebook.com/profile.php?id=100008401895918", "class":"fab fa-facebook" },
+	 	 { "name": "youtube", "ref":"https://youtube.com", "class":"fab fa-youtube" }],
+
+	"vlinks_notebooks": [
+		{ "name": "", "ref": "" },
+		{ "name": "wolframcloud.com", "ref": "https://wolframcloud.com" },
+		{ "name": "observablehq.com", "ref": "https://observablehq.com/@guinetn" },
+		 { "name": "colab google", "ref":"https://colab.research.google.com" }
+		],	
+	
+	"vlinks_social": [
+		{ "name": "", "ref": "" },
+		{ "name": "instagram", "ref": "https://www.instagram.com/" },
+		{ "name": "skype.com", "ref": "http://www.skype.com" },
+		 { "name": "discord", "ref":"https://discord.com/channels/@me" }
+		],
+
+	"vlinks_mywebsites": [
+		{ "name": "", "ref": "" },
+		 { "name": "hotellespalmiers.com", "ref":"https://hotellespalmiers.com/" }
+		],
+
+	"vlinks_seo": [
+		{ "name": "", "ref": "" },
+		 { "name": "woorank.com", "ref":"https://www.woorank.com/en/www/hotellespalmiers.com" }
+		],		
+
+	"vlinks_node": [
+		{ "name": "", "ref": "" },
+		 { "name": "npmjs", "ref":"https://www.npmjs.org" }
+		],		
+
+	"vlinks_aaa": [
+		{ "name": "", "ref": "" },
+		 { "name": "aa", "ref":"aa" }
+		],	
+
+	"vlinks_maths": [
+		{ "name": "", "ref": "" }
+		 ],
+
+	"vlinks_maths_latex": [
+		{ "name": "", "ref": "" },
+		 { "name": ".tex files: overleaf.com", "ref":"https://www.overleaf.com/" }
+		],		
+
+	"vlinks_science": [
+		{ "name": "", "ref": "" }
+		 ],
+
+
+	"vlinks_online": [
+		{ "name": "", "ref": "" },
+		{ "name": "cloud.mongodb.com", "ref": "https://cloud.mongodb.com" },
+		{ "name": "fauna DB", "ref": "https://dashboard.fauna.com" }
+		],		
+
+
+
+
+
+	"vlinks_mobile": [
+		{ "name": "", "ref": "" }
+		 ],
+
+	"vlinks_mobile_android": [
+		 { "name": "", "ref": "" },
+		 { "name": "swiftic.com (como)", "ref": "https://my.swiftic.com" },
+		 { "name": "appsgeyser.com", "ref":"https://appsgeyser.com" }
+		],	
+
+
+
+
+
+
+	"vlinks_ml": [
+		 { "name": "", "ref": "" },
+		 { "name": "Anaconda", "ref":"https://anaconda.org" }
+		],	
+
+
+
+	"vlinks_blogs": [
+		 { "name": "", "ref": "" },
+		 { "name": "guinetn.github.io/", "ref":"https://guinetn.github.io" }
+		],	
+
+	"vlinks_tasks": [
+		{ "name": "", "ref": "" },
+		 { "name": "trello", "ref":"https://trello.com/guinetn" },
+		 { "name": "az devops/<user>.visualstudio.com", "ref":"https://nguinet.visualstudio.com"}
+		],	
+
+	"vlinks_accounts": [
+		{ "name": "", "ref": "" },		 		 
+		 { "name": "myaccount.google.com", "ref":"https://myaccount.google.com" },
+		 { "name": "google timeline", "ref":"https://www.google.com/maps/timeline" },
+		 { "name": "google ads settings", "ref":"https://adssettings.google.com/" },
+		 { "name": "office.com/microsoftonline.com", "ref":"https://login.microsoftonline.com" }
+		],	
+
+	"vlinks_help": [
+		{ "name": "", "ref": "" },
+		{ "name": "stackoverflow", "ref":"https://stackoverflow.com" }
+		],	
+	
+	"vlinks_jobs": [
+		 { "name": "", "ref": "" },
+		 { "name": "viadeo", "ref":"http://www.viadeo.com" },
+		 { "name": "hired", "ref":"https://hired.com" },
+		 { "name": "humaniance", "ref":"www.humaniance.com" },
+		 { "name": "dogfinance", "ref":"https://www.dogfinance.com" },
+		 { "name": "codingame", "ref":"https://www.codingame.com" }
+		],	
+
+	"vlinks_dataviz": [
+		 { "name": "", "ref": "" },
+		 { "name": "canva", "ref":"https://www.canva.com" }
+		],	
+	"vlinks_hosting": [
+		 { "name": "", "ref": "" },
+		 { "name": "Netlify.com", "ref": "https://nguinet.netlify.com" },
+		 { "name": "Firebase", "ref":"https://console.firebase.google.com" },
+		 { "name": "Aws", "ref":"https://console.aws.amazon.com" },
+		 { "name": "Google Cloud platform", "ref":"https://cloud.google.com" },
+	 	 { "name": "Google Search Console", "ref":"https://search.google.com" }],
+	
+	"text_chrome": [
+	    { "name": "", "ref": "" },		 
+		{"name": "chrome://bookmarks", "class": "copy"},
+		{"name": "chrome://flags", "class": "copy"},
+		{"name": "chrome://help", "class": "copy"},
+		{"name": "chrome://inspect", "class": "copy"},
+		{"name": "chrome://settings", "class": "copy"}, 
+		{"name": "chrome://version", "class": "copy"},		
+		{"name": "chrome://extensions", "class":"copy"},
+		{"name": "chrome://gpu", "class":"copy"},
+		{"name": "chrome://histograms", "class":"copy"},
+		{"name": "chrome://indexeddb-internals", "class":"copy"},
+		{"name": "chrome://inspect", "class":"copy"},
+		{"name": "chrome://nacl", "class":"copy"},
+		{"name": "chrome://omnibox", "class":"copy"},		
+		{"name": "chrome://tracing", "class":"copy"}],
+	
+	"vlinks_plane": [
+		{ "name": "", "ref": "" },
+		{ "name": "aviation-civile.gouv.fr", "ref": "https://www.sia.aviation-civile.gouv.fr" }
+	],
+
+	"vlinks_code_api": [
+	 	{ "name": "", "ref": "" },
+	 	{ "name": "swaggerhub.com", "ref": "https://app.swaggerhub.com" }
+		],	
+
+	"vlinks_code_api_auth": [
+	 	{ "name": "", "ref": "" },
+	 	{ "name": "", "auth0.com": "https://manage.auth0.com/#/" },
+	 	{ "name": "oktapreview.com", "ref": "https://dev-589321.oktapreview.com" }
+		],	
+
+	"vlinks_microsoft": [
+	 	{ "name": "", "ref": "" },
+	 	{ "name": "developer.microsoft.com", "ref": "https://developer.microsoft.com" }
+	],
+
+	"vlinks_code_sample": [
+	 	{ "name": "", "ref": "" },
+	 	{ "name": "microsoft samples", "ref": "https://docs.microsoft.com/fr-fr/samples/" }
+	],
+	
+	"vlinks_code": [
+		{ "name": "", "ref": "" },
+	 	{ "name": "dotnet", "ref":"https://docs.microsoft.com/en-us/dotnet/core/introduction" }
+ 	 	],
+
+	"vlinks_repos": [
+		 { "name": "", "ref": "" },
+		 { "name": "github.io", "ref":"https://github.io" }
+		]
+}
+
+
