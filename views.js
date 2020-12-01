@@ -163,6 +163,8 @@ let utils = {
 	mainbox : document.querySelector(".mainbox"),
 	modalContent: document.getElementById("modalContent"),
 	modalTitle: document.getElementById("modalTitle"),
+	
+	alarm: document.getElementById("alarm"),
 
 	modal: function(title, content) {	  
 	  this.modalTitle.innerText = title;
@@ -172,6 +174,10 @@ let utils = {
 
 	modalClose: function() {
 		this.mainbox.classList.remove("visible");
+	},
+
+	remainderOpenClose: function() {
+		this.alarm.classList.toggle("alarm");
 	},
 
 	snackbar: function(msg) {
@@ -307,15 +313,21 @@ document.addEventListener('DOMContentLoaded', function () {
 			utils.modal("Hey", "help....aa");
 		}
 		else if (e.target.matches('.modal-close')) {
-			utils.modalClose();
+			utils.modalClose();		
 		}
+		else if (e.target.matches('#clock') || e.target.matches('#alarm') ) {
+			utils.remainderOpenClose();			
+		}				
+		else if (e.target.matches('.alarmItem') ) {
+			utils.remainderOpenClose();			
+			utils.snackbar(`Alarm in ${e.target.innerText}`);	
+		}		
+		
 	});
 
 	getLinks();
 	initTools();
 	
-	//resetHash();
-
 	if (showdown)
 		showdown.setFlavor('github');
 	// weather()
