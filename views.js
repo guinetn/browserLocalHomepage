@@ -30,12 +30,12 @@ class app {
 		// Navigate in views by [+] or [CTRL + →]
 		if (e.key=="+" || (e.ctrlKey && e.keyCode==39  /*right*/)) { 
 			this.currentView = this.views[this.views.length <= this.currentView.id+1 ? 0 : this.currentView.id+1];	
-			key = this.currentView.name.slice(0,2);
+			key = this.currentView.name.slice(0,3);
 		}
 		// Navigate in views by "-" or [CTRL + ←]	
 		else if (e.key=="-" || (e.ctrlKey && e.keyCode==37  /*left*/)) { 
 			this.currentView = this.views[this.currentView.id-1 < 0 ? this.views.length-1 : this.currentView.id-1];	
-			key = this.currentView.name.slice(0,2);
+			key = this.currentView.name.slice(0,3);
 		}
 		else if (e.ctrlKey || ! [...this.views].some(v=>v.name[0]==key))
 			return; // no key match a view name
@@ -198,6 +198,15 @@ let utils = {
 		}
 	},
 
+	copyToClipboard: async function(stringToCopy) {		
+		  try {
+		    await navigator.clipboard.writeText(stringToCopy);        
+		    this.snackbar("copied");
+		  } catch (err) {
+		    console.error(`Failed to copy ${stringToCopy}`, err);
+		  }		
+	},
+
 	modal: function(title, content) {	  
 	  this.modalTitle.innerText = title;
 	  this.modalContent.innerHTML = content;
@@ -261,10 +270,8 @@ let utils = {
 	                 || elem.mozRequestFullScreen
 	                 || elem.msRequestFullscreen;
 	    request.call(elem);
-	}
-	  
+	}	  
 }
-
 
 async function getLinks() {
   try {
@@ -277,91 +284,69 @@ async function getLinks() {
   }
 }
 
-function createLink(l, prefix) {
-	if (l.name=='')
-		return null;
+function createLink(link, classes, description) {
 
-	const fragment = document.getElementById( `${prefix}linkTemplate`);        
-	// Create an instance of the template content
+	const prefix = (classes || 'block').indexOf('inline') >=0 ? "inline" : "block";
+	const fragment = document.getElementById( `${prefix}LinkTemplate`);        
     const instance = document.importNode(fragment.content, true);
-    // Add relevant content to the template
-    let a = instance.querySelector("#link");
-    a.href = l.ref;             
-    a.classList.add("jsonlink");
-    if (prefix != '') // for vlinks: o xxxxx
-    	a.classList.add("mark");
-    a.title = l.name;
-    if (l.class != undefined)
-    	l.class.split(' ').forEach(cl => a.classList.add(cl)); // classlist doesn't accept spaces...  
-    else 
-    	a.innerText=l.name;  
+
+    let a = instance.querySelector(".link");
+    a.href = link;                     
+    a.title = description || '';
+    if (classes != undefined)
+    	classes.split(' ').forEach(cl => a.classList.add(cl)); // classlist doesn't accept spaces...  
+    
+    if (prefix != 'inline')
+    	a.innerText = description || link || '???';  
     
     return instance;
 }
 
-function createText(l) {
-	let elem = document.createElement("div");
-	elem.innerText = l.name;
-	elem.classList.add("text");
-	if (l.class != undefined)
-    	l.class.split(' ').forEach(cl => elem.classList.add(cl));
-    return elem;
-}
-
 function extractLinks(links) {
-	  		
+	  	
+	const regex = /(?<link>[^\[\(]*)+(\[+(?<classes>[^\]]*)?\]+)*(\(+(?<description>[^\)]*)?\)+)*/;
+	
 	for (var key in links) {
       if (typeof links[key] == "object" || typeof links[key] == "array") {          	
-		const target = document.querySelector(`#${key}`);		
-		const isVLinks = (key.slice(0,6) == 'vlinks' || key.slice(0,4)=="text");
-		if (isVLinks && target!=undefined)
+		
+		const container = document.querySelector(`#${key}`);				
+		if (container == undefined)
+			continue;
+		
+		const containerAttr = container.getAttribute("data-info");
+		if (containerAttr==null || (containerAttr!=null && containerAttr.toLowerCase().indexOf('-t')<0))
 		{
+			// Add title
 			let h3 = document.createElement("h3");				
-			h3.innerText = key.split("_").pop().toUpperCase();
-			target.appendChild(h3);
+			h3.innerText = key.toUpperCase();
+			container.appendChild(h3);
 		}
 
-		if (target==undefined)
-			continue;
-		links[key].forEach(function(l){ 		
-			let elem = null;
-			switch(key.split('_')[0])
+		links[key].forEach(function(item){ 		
+
+			var m = regex.exec(item);   // ex: "https://gmail.com[fas fa-envelope](GMAIL)"
+			if (m != null)	
 			{
-        		case "text":
-					elem = createText(l);
-        			break;
-        		case "hlinks":
-        		case "vlinks":
-					elem = createLink(l, isVLinks ? "V" : "");
-        			break;
-			}
-			if (elem != null)
-        		target.appendChild(elem);
+				let link = m.groups["link"];
+				let classes = m.groups["classes"];
+				let description = m.groups["description"];
+				
+				let elem = createLink(link, classes, description);        	
+				if (elem != null)
+	        		container.appendChild(elem);
+        	}
+        	else
+        		console.log(`Error in parsing ${item}`);
 		});
 	  }
     }	
 }		
-
-function onClick(e) {
-
-}
-
-async function copyToClipboard(stringToCopy) {
-	if (navigator.clipboard) {
-	  try {
-	    await navigator.clipboard.writeText(stringToCopy);        
-	  } catch (err) {
-	    console.error(`Failed to copy ${stringToCopy}`, err);
-	  }
-	}
-}
 
 function initTools() {
 	document.querySelector("#timestamp").value = Math.floor(new Date().getTime()/1000.0);		
 	document.querySelector("#timestampDecode").value = Math.floor(new Date().getTime()/1000.0);		
 	document.querySelector("#timestampEncode").value = new Date().toISOString();
 }
-
 
 document.addEventListener('DOMContentLoaded', function () {
 	
@@ -380,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	document.addEventListener("click", function(e) {
 		
 		if (e.target.matches('.copy')) {
-			copyToClipboard(e.target.innerText);		
+			utils.copyToClipboard(e.target.innerText);		
 		}
 		else if (e.target.matches('#help')) {
 			utils.modal("Hey", "help....aa");

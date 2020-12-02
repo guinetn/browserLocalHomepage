@@ -14,12 +14,12 @@
 <body>
 
  
-<template id="linkTemplate">
-  <a id="link" target="_blank"></a>
+<template id="inlineLinkTemplate">
+  <a class="link" target="_blank"></a>
 </template>
 
-<template id="VlinkTemplate">  
-   <div>• <a id="link" target="_blank"></a></div>  
+<template id="blockLinkTemplate">  
+   <div>• <a class="link" target="_blank"></a></div>  
 </template>
 
 <header id="header">
@@ -27,7 +27,7 @@
     <span id="clock" title="click to set up alarms">……:……:……</span> 
     <div id="alarmSign"></div>
   </div>
-  <span id="hlinks_header"></span> 
+  <span id="headerIcons" data-info='-t'></span> 
   <div id="help" class="far fa-question-circle"></div>
 </header>
 
@@ -38,17 +38,17 @@
     <h1>Home</h1>           
 
     <div class="container">    
-      <div id="vlinks_tasks" class="containerItem"></div>        
-      <div id="vlinks_notebooks" class="containerItem"></div>        
-      <div id="vlinks_online" class="containerItem"></div>        
-      <div id="vlinks_news" class="containerItem"></div>        
-      <div id="vlinks_social" class="containerItem"></div>        
-      <div id="vlinks_videos" class="containerItem"></div>        
-      <div id="vlinks_blogs" class="containerItem"></div>        
-      <div id="vlinks_microsoft" class="containerItem"></div>        
-      <div id="vlinks_google" class="containerItem"></div>        
-      <div id="vlinks_help" class="containerItem"></div>        
-      <div id="vlinks_games" class="containerItem"></div>     
+      <div id="tasks" class="containerItem"></div>        
+      <div id="notebooks" class="containerItem"></div>        
+      <div id="online" class="containerItem"></div>        
+      <div id="news" class="containerItem"></div>        
+      <div id="social" class="containerItem"></div>        
+      <div id="videos" class="containerItem"></div>        
+      <div id="blogs" class="containerItem"></div>        
+      <div id="microsoft" class="containerItem"></div>        
+      <div id="google" class="containerItem"></div>        
+      <div id="helpers" class="containerItem"></div>        
+      <div id="games" class="containerItem"></div>     
     </div>
 
   </div>
@@ -60,19 +60,19 @@
     <h1>Web</h1>  
 
     <div class="container">    
-      <div id="text_chrome" class="containerItem">    
+      <div id="chrome" class="containerItem">    
       <h4>Tips</h4>Shift+ESC: Viewing RAM<br>CTRL+Shift+B: hide bookmarks</div>
 
-      <div id="vlinks_localhost" class="containerItem"></div>        
-      <div id="vlinks_json" class="containerItem"></div>        
-      <div id="vlinks_seo" class="containerItem"></div>        
-      <div id="vlinks_analytics" class="containerItem"></div>        
-      <div id="vlinks_node" class="containerItem"></div>       
-      <div id="vlinks_webPlayground" class="containerItem"></div>       
-      <div id="vlinks_html" class="containerItem"></div>       
-      <div id="vlinks_javascript" class="containerItem"></div>       
-      <div id="vlinks_css" class="containerItem"></div>       
-      <div id="vlinks_mywebsites" class="containerItem"></div>        
+      <div id="localhost" class="containerItem"></div>        
+      <div id="json" class="containerItem"></div>        
+      <div id="seo" class="containerItem"></div>        
+      <div id="analytics" class="containerItem"></div>        
+      <div id="node" class="containerItem"></div>       
+      <div id="webplayground" class="containerItem"></div>       
+      <div id="html" class="containerItem"></div>       
+      <div id="javascript" class="containerItem"></div>       
+      <div id="css" class="containerItem"></div>       
+      <div id="mywebsites" class="containerItem"></div>        
     </div>
 
   </div>
@@ -86,12 +86,12 @@
     <p>“Learn concepts and not languages”</p>
 
     <div class="container">
-      <div id="vlinks_codenews" class="containerItem"></div>            
-      <div id="vlinks_code_sample" class="containerItem"></div>        
-      <div id="vlinks_repos" class="containerItem"></div>        
-      <div id="vlinks_dotnet" class="containerItem"></div>        
-      <div id="vlinks_cpluplus" class="containerItem"></div>        
-      <div id="vlinks_documentation" class="containerItem"></div>        
+      <div id="codenews" class="containerItem"></div>            
+      <div id="code_sample" class="containerItem"></div>        
+      <div id="repos" class="containerItem"></div>        
+      <div id="dotnet" class="containerItem"></div>        
+      <div id="cpluplus" class="containerItem"></div>        
+      <div id="documentation" class="containerItem"></div>        
     </div>
 
   </div>
@@ -104,13 +104,13 @@
     <h1>Cloud</h1>  
 
     <div class="container">    
-      <div id="vlinks_providers" class="containerItem"></div>
-      <div id="vlinks_hosting" class="containerItem"></div>
-      <div id="vlinks_serverless" class="containerItem"></div>
-      <div id="vlinks_azure" class="containerItem"></div>
-      <div id="vlinks_tokens" class="containerItem"></div>        
-      <div id="vlinks_maps" class="containerItem"></div>        
-      <div id="vlinks_code_api" class="containerItem"></div>        
+      <div id="providers" class="containerItem"></div>
+      <div id="hosting" class="containerItem"></div>
+      <div id="serverless" class="containerItem"></div>
+      <div id="azure" class="containerItem"></div>
+      <div id="tokens" class="containerItem"></div>        
+      <div id="maps" class="containerItem"></div>        
+      <div id="code_api" class="containerItem"></div>        
     </div>
 
   </div>
@@ -120,12 +120,12 @@
 
 
 
-  <div id="mobile" class="view">
+  <div id="mobiles" class="view">
     <h1>Mobile</h1>  
 
     <div class="container">
-      <div id="vlinks_mobile" class="containerItem"></div>            
-      <div id="vlinks_mobile_android" class="containerItem"></div>            
+      <div id="mobile" class="containerItem"></div>            
+      <div id="android" class="containerItem"></div>            
     </div>
 
   </div>
@@ -139,11 +139,11 @@
 
 
   <div id="math" class="view">
-    <h1>Math</h1>  
+    <h1>Maths</h1>  
 
     <div class="container">
-      <div id="vlinks_maths" class="containerItem"></div>        
-      <div id="vlinks_maths_latex" class="containerItem"></div>        
+      <div id="maths" class="containerItem"></div>        
+      <div id="latex" class="containerItem"></div>        
     </div>
 
   </div>
@@ -151,11 +151,11 @@
 
 
 
-  <div id="ml" class="view">
+  <div id="ia" class="view">
     <h1>ML</h1>  
 
     <div class="container">    
-      <div id="vlinks_ml" class="containerItem"></div>            
+      <div id="ml" class="containerItem"></div>            
     </div>
 
   </div>
@@ -166,7 +166,7 @@
     <h1>Dataviz</h1>  
 
     <div class="container">
-      <div id="vlinks_dataviz" class="containerItem"></div>        
+      <div id="data_vizu" class="containerItem"></div>        
     </div>
 
   </div>
@@ -175,14 +175,14 @@
 
 
 
-  <div id="science" class="view">
+  <div id="sciences" class="view">
     <h1>Science</h1>  
 
     <div class="container">
-      <div id="vlinks_science" class="containerItem"></div>        
-      <div id="vlinks_physic" class="containerItem"></div>        
-      <div id="vlinks_geology" class="containerItem"></div>        
-      <div id="vlinks_mechanic" class="containerItem"></div>        
+      <div id="science" class="containerItem"></div>        
+      <div id="physic" class="containerItem"></div>        
+      <div id="geology" class="containerItem"></div>        
+      <div id="mechanic" class="containerItem"></div>        
     </div>
 
   </div>
@@ -193,40 +193,41 @@
 
 
 
-  <div id="plane" class="view">
-    <h1>Plane</h1>  
+  <div id="aviation" class="view">
+    <h1>Aviation</h1>  
 
     <div class="container">
-      <div id="vlinks_plane" class="containerItem"></div>        
+      <div id="plane" class="containerItem"></div>        
     </div>
   </div>
 
 
-  <div id="security" class="view">
+  <div id="securisation" class="view">
     <h1>Security</h1>  
 
     <div class="container">
-      <div id="vlinks_security" class="containerItem"></div>            
+      <div id="security" class="containerItem"></div>            
+      <div id="online_paiement" class="containerItem"></div>            
     </div>
 
   </div>
 
-  <div id="crowdfunding" class="view">
+  <div id="money" class="view">
     <h1>Crowdfunding</h1>  
 
-    <div class="container">
-      <div id="vlinks_crowdfunding" class="containerItem"></div>            
+    <div class="container">      
+      <div id="crowdfunding" class="containerItem"></div>            
     </div>
 
   </div>
 
 
-  <div id="jobs" class="view">
+  <div id="job" class="view">
     <h1>Jobs</h1>  
 
     <div class="container">
-      <div id="vlinks_jobs" class="containerItem"></div>        
-      <div id="vlinks_freelance" class="containerItem"></div>        
+      <div id="jobs" class="containerItem"></div>        
+      <div id="freelance" class="containerItem"></div>        
     </div>
 
   </div>
@@ -251,7 +252,7 @@
     </div>
 
     <div class="container">
-      <div id="vlinks_tools" class="containerItem"></div>        
+      <div id="tools" class="containerItem"></div>        
     </div>
 
 

@@ -1,243 +1,210 @@
 {
-	"hlinks_header": [
-	 	 { "name": "gmail", "ref":"https://gmail.com", "class":"fas fa-envelope" },
-		 { "name": "linkedin", "ref":"https://www.linkedin.com", "class":"fab fa-linkedin" }, 	 
-		 { "name": "twitter", "ref":"https://twitter.com", "class":"fab fa-twitter" },
-		 { "name": "github", "ref":"https://github.com/guinetn", "class":"fab fa-github" },
-		 { "name": "coggle", "ref":"https://coggle.it", "class":"fas fa-sitemap" },
-	 	 { "name": "pinterest", "ref":"https://www.pinterest.fr/nguinet", "class":"fab fa-pinterest" },
-	 	 { "name": "facebook", "ref":"https://www.facebook.com/profile.php?id=100008401895918", "class":"fab fa-facebook" },
-	 	 { "name": "youtube", "ref":"https://youtube.com", "class":"fab fa-youtube" }
-	 	 ],
-
-
-
-	"vlinks_tasks": [
-		{ "name": "", "ref": "" },
-		{ "name": "developer roadmap", "ref": "https://roadmap.sh" },
-		 { "name": "trello", "ref":"https://trello.com/guinetn" },
-		 { "name": "az devops/<user>.visualstudio.com", "ref":"https://nguinet.visualstudio.com"}
-		],	
-
-	"vlinks_blogs": [
-		 { "name": "", "ref": "" },
-		 { "name": "medium.com", "ref": "https://medium.com" },
-		 { "name": "guinetn.github.io", "ref":"https://guinetn.github.io" }
-		],	
-
-	"vlinks_news": [
-		 { "name": "", "ref": "" },
-		 { "name": "wsj.com", "ref": "https://www.wsj.com/" },
-		 { "name": "nytimes.com", "ref": "https://www.nytimes.com/" },
-		 { "name": "washingtonpost.com", "ref": "https://www.washingtonpost.com/" },
-		 { "name": "lefigaro.fr", "ref":"http://www.lefigaro.fr/" },
-		 { "name": "nasaspaceflight.com", "ref": "https://www.nasaspaceflight.com" }
-		],	
-
-	"vlinks_google": [
-		{ "name": "", "ref": "" },		 		 
-		{ "name": "translate.google.com", "ref": "https://translate.google.com" },		 		 
-		{ "name": "trends.google.com", "ref": "https://trends.google.com" },		 		 
-		{ "name": "photos.google.com", "ref":"https://photos.google.com" },
-		{ "name": "drive.google.com", "ref":"https://drive.google.com" },
-		{ "name": "developers.google.com", "ref": "https://developers.google.com" },		 		 
-		{ "name": "developers.google.com/products", "ref": "https://developers.google.com/products/" },		 		 
-		{ "name": "myaccount.google.com", "ref":"https://myaccount.google.com" },
-		{ "name": "google maps timeline", "ref":"https://www.google.com/maps/timeline" },
-		{ "name": "google ads settings", "ref":"https://adssettings.google.com" },
-		{ "name": "developers.google.com/analytics", "ref":"https://developers.google.com/analytics" }
-	],
-	"vlinks_microsoft": [
-		{ "name": "", "ref": "" },		 		 		 
-		{ "name": "visualstudiomagazine.com", "ref": "https://visualstudiomagazine.com/" },		 		 		 
-		{ "name": "msdn-magazine", "ref": "https://docs.microsoft.com/en-us/archive/msdn-magazine/msdn-magazine-issues" },		 		 		 
-		 { "name": "microsoftonline.com/office.com", "ref":"https://login.microsoftonline.com" },
-		 { "name": "developer.microsoft.com", "ref": "https://developer.microsoft.com" }
-		],	
-
-	"vlinks_social": [
-		{ "name": "", "ref": "" },
-		{ "name": "meetup.com", "ref": "https://www.meetup.com" },
-		{ "name": "whatsapp.com", "ref": "https://web.whatsapp.com" },
-		{ "name": "instagram", "ref": "https://www.instagram.com/" },
-		{ "name": "skype", "ref": "http://www.skype.com" },
-	    { "name": "discord", "ref":"https://discord.com/channels/@me" }
-		],
-
-	"vlinks_help": [
-		{ "name": "", "ref": "" },
-		{ "name": "gitter.im", "ref": "https://gitter.im" },
-		{ "name": "quora.com", "ref": "https://www.quora.com" },
-		{ "name": "stackoverflow", "ref":"https://stackoverflow.com" }
-		],	
-	
-	"vlinks_online": [
-		{ "name": "", "ref": "" },
-		{ "name": "countdown, alarm", "ref": "https://vclock.com" },
-		{ "name": "asciiflow", "ref": "http://asciiflow.com/" },
-		{ "name": "draw.io", "ref": "https://app.diagrams.net" },
-		{ "name": "code flow", "ref": "https://app.code2flow.com" },
-		{ "name": "pastebin.com", "ref": "https://pastebin.com" },
-		{ "name": "cloud.mongodb.com", "ref": "https://cloud.mongodb.com" },
-		{ "name": "fauna DB", "ref": "https://dashboard.fauna.com" }
-		],	
-	"vlinks_notebooks": [
-		{ "name": "", "ref": "" },
-		{ "name": "wolframcloud.com", "ref": "https://wolframcloud.com" },
-		{ "name": "observablehq.com", "ref": "https://observablehq.com/@guinetn" },
-		 { "name": "colab google", "ref":"https://colab.research.google.com" }
-		],		
-	"vlinks_videos": [
-		{ "name": "", "ref": "" },
-		{ "name": "youtube", "ref":"https://youtube.com" },
-		{ "name": "TEDx", "ref":"https://www.ted.com" }
-		],		
-	"vlinks_games": [
-		{ "name": "", "ref": "" },		
-		{ "name": "countries", "ref": "https://fable.io/samples-browser/d3map/" },		
-		{ "name": "doom like", "ref": "https://kripken.github.io/BananaBread/cube2/bb.html" },		
-		{ "name": "duck hunt with facial rec", "ref": "https://duckface-hunt.glitch.me/" },		
-		{ "name": "chess jsfiddle", "ref": "https://jsfiddle.net/q76uzxwe/1/" }
-		],	
-	"vlinks_crowdfunding": [
-		{ "name": "", "ref": "" },
-		{ "name": "patreon.com", "ref": "https://www.patreon.com" },
-		{ "name": "tudigo.co", "ref":"https://www.tudigo.co" },
-		{ "name": "kickstarter.com", "ref":"http://www.kickstarter.com" }
-		],	
-
-
-
-
-
-
-	"text_chrome": [
-	    { "name": "", "ref": "" },		 
-		{"name": "chrome://bookmarks", "class": "copy"},
-		{"name": "chrome://flags", "class": "copy"},
-		{"name": "chrome://help", "class": "copy"},
-		{"name": "chrome://inspect", "class": "copy"},
-		{"name": "chrome://settings", "class": "copy"}, 
-		{"name": "chrome://version", "class": "copy"},		
-		{"name": "chrome://extensions", "class":"copy"},
-		{"name": "chrome://gpu", "class":"copy"},
-		{"name": "chrome://histograms", "class":"copy"},
-		{"name": "chrome://indexeddb-internals", "class":"copy"},
-		{"name": "chrome://inspect", "class":"copy"},
-		{"name": "chrome://nacl", "class":"copy"},
-		{"name": "chrome://omnibox", "class":"copy"},		
-		{"name": "chrome://tracing", "class":"copy"},
-		{"name": "https://v8.dev", "class":"copy"},
-		{"name": "https://github.com/GoogleChrome", "ref": "https://github.com/GoogleChrome"},
-		{"name": "https://github.com/samdutton/samples", "ref": "https://github.com/samdutton/samples"},
-		{"name": "chromeexperiments.com", "ref": "http://www.chromeexperiments.com"},
-		{"name": "chrome web store", "ref": "https://chrome.google.com/webstore/category/extensions"}
+	"headerIcons": [
+		"https://gmail.com[inline fas fa-envelope]",
+		"https://www.linkedin.com[inline fab fa-linkedin]",
+		"https://twitter.com[inline fab fa-twitter]",
+		"https://github.com/guinetn[inline fab fa-github]",
+		"https://coggle.it[inline fas fa-sitemap]",
+		"https://www.pinterest.fr/nguinet[inline fab fa-pinterest]",
+		"https://www.facebook.com/profile.php?id=100008401895918[inline fab fa-facebook]",
+		"https://youtube.com[inline fab fa-youtube]"
 	],
 
-	"vlinks_mywebsites": [
-		{ "name": "", "ref": "" },
-		 { "name": "hotellespalmiers.com", "ref":"https://hotellespalmiers.com/" }
-		],
+	"tasks": [
+		"https://roadmap.sh(developer roadmap)",
+		"https://trello.com/guinetn",
+		"https://nguinet.visualstudio.com(az devops/you.visualstudio.com)"
+	],	
 
-	"vlinks_seo": [
-		{ "name": "", "ref": "" },
-		 { "name": "woorank.com", "ref":"https://www.woorank.com/en/www/hotellespalmiers.com" }
-		],			
-	"vlinks_analytics": [
-		{ "name": "", "ref": "" },
-		 { "name": "developers.google.com/analytics", "ref":"https://developers.google.com/analytics" }
-		],		
-	"vlinks_node": [
-		{ "name": "", "ref": "" },
-		 { "name": "npmjs", "ref":"https://www.npmjs.org" }
-		],	
-	"vlinks_html": [
-		{ "name": "", "ref": "" },
-		{ "name": "simpl.info", "ref": "https://simpl.info" }
+	"blogs": [
+		"https://medium.com",
+		"https://guinetn.github.io"
+	],	
+
+	"news": [
+		"https://www.wsj.com(Wall Street Journal)",
+		"https://www.nytimes.com",
+		"https://www.washingtonpost.com",
+		"https://www.lefigaro.fr",
+		"https://www.nasaspaceflight.com"
+	],	
+
+	"google": [
+		"https://translate.google.com",		 
+		"https://trends.google.com",		 
+		"https://photos.google.com",
+		"https://drive.google.com",
+		"https://myaccount.google.com",
+		"https://www.google.com/maps/timeline(google maps timeline)",
+		"https://adssettings.google.com(google ads settings)",
+		"https://developers.google.com",		 
+		"https://developers.google.com/products",		 
+		"https://developers.google.com/analytics(developers.google.com/analytics)"
 	],
-	"vlinks_css": [
-		{ "name": "", "ref": "" },
-		{ "name": "css-tricks.com", "ref": "https://css-tricks.com" }
+	"microsoft": [
+		"https://visualstudiomagazine.com",		 		 
+		"https://docs.microsoft.com/en-us/archive/msdn-magazine/msdn-magazine-issues(msdn-magazine)",		 		 		 
+		"https://login.microsoftonline.com(microsoftonline * office)",
+		"https://developer.microsoft.com"
+	],	
+
+	"social": [
+		"https://www.meetup.com",
+		"https://web.whatsapp.com",
+		"https://www.instagram.com",
+		"https://www.skype.com",
+		"https://discord.com/channels/@me"
 	],
-	"vlinks_javascript": [
-		{ "name": "", "ref": "" },
-		{ "name": "You-Dont-Need-JavaScript", "ref": "https://github.com/you-dont-need/You-Dont-Need-JavaScript" },
-		{ "name": "Airbnb JavaScript Style Guide", "ref": "https://github.com/airbnb/javascript" }
+
+	"helpers": [
+		"https://gitter.im",
+		"https://www.quora.com",
+		"https://stackoverflow.com"
+	],	
+
+	"online": [
+		"https://vclock.com(countdown, alarms)",
+		"https://asciiflow.com",
+		"https://app.diagrams.net(draw.io)",
+		"https://app.code2flow.com(code flow)",
+		"https://pastebin.com",
+		"https://cloud.mongodb.com",
+		"https://dashboard.fauna.com(fauna DB)"
+	],	
+	"notebooks": [
+		"https://wolframcloud.com",
+		"https://observablehq.com/@guinetn",
+		"https://colab.research.google.com(colaboratory)"
+	],		
+	"videos": [
+		"https://youtube.com",
+		"https://www.ted.com(TEDx)"
+	],		
+	"games": [
+		"https://fable.io/samples-browser/d3map(countries name on globe)",		
+		"https://kripken.github.io/BananaBread/cube2/bb.html(doom like)",		
+		"https://duckface-hunt.glitch.me(duck hunt with facial reco)",		
+		"https://jsfiddle.net/q76uzxwe/1(jsfiddle chess)"
+	],	
+	"crowdfunding": [
+		"https://www.patreon.com",
+		"https://www.tudigo.co",
+		"https://www.kickstarter.com"
+	],	
+
+
+	"chrome": [
+		"chrome://bookmarks[copy]",
+		"chrome://flags[copy]",
+		"chrome://help[copy]",
+		"chrome://inspect[copy]",
+		"chrome://settings[copy]", 
+		"chrome://version[copy]",		
+		"chrome://extensions[copy]",
+		"chrome://gpu[copy]",
+		"chrome://histograms[copy]",
+		"chrome://indexeddb-internals[copy]", 
+		"chrome://inspect[copy]", 
+		"chrome://nacl[copy]", 
+		"chrome://omnibox[copy]", 		
+		"chrome://tracing[copy]", 
+		"https://v8.dev", 
+		"https://github.com/GoogleChrome",
+		"https://github.com/samdutton/samples",
+		"https://www.chromeexperiments.com",
+		"https://chrome.google.com/webstore/category/extensions(chrome web store)"
 	],
-	"vlinks_webPlayground": [
-		 { "name": "Playground: css-transformations", "ref":"https://css-transform.moro.es/" }
-		],		
-	"vlinks_json": [
-		{ "name": "", "ref": "" },
-		{ "name": "jwt.io", "ref": "https://jwt.io" },
-		 { "name": "jsonlint.com", "ref":"https://jsonlint.com" }
-		],	
-	"vlinks_localhost": [
-		{ "name": "", "ref": "" },
-		{ "name": "192.168.0.1", "ref": "http://192.168.0.1" },
-		{ "name": ":1234", "ref": "localhost:1234" },
-		{ "name": ":1313", "ref": "localhost:1313" },
-		{ "name": ":1337", "ref": "localhost:1337" },
-		{ "name": ":3000", "ref": "localhost:3000" },
-		{ "name": ":3333", "ref": "localhost:3333" },
-		{ "name": ":4444", "ref": "localhost:4444" },
-		{ "name": ":5000", "ref": "localhost:5000" },
-		{ "name": ":8000", "ref": "localhost:8000" },
-		{ "name": ":8080", "ref": "localhost:8080" },
-		{ "name": ":8888", "ref": "localhost:8888" },
-		{ "name": ":10000", "ref": "localhost:10000" },
-		{ "name": "View my ip, request header", "ref": "http://www.locallhost.com" }		
+
+	"mywebsites": [
+		"https://hotellespalmiers.com"
+	],
+
+	"seo": [
+		"https://www.woorank.com/en/www/hotellespalmiers.com(woorank.com)"
+	],			
+	"analytics": [
+		"https://developers.google.com/analytics"
+	],		
+	"node": [
+		"https://www.npmjs.org"
+	],	
+	"html": [
+		"https://simpl.info"
+	],
+	"css": [
+		"https://css-tricks.com"
+	],
+	"javascript": [
+		"https://github.com/you-dont-need/You-Dont-Need-JavaScript(You-Dont-Need-JavaScript)",
+		"https://github.com/airbnb/javascript(Airbnb JavaScript Style Guide)"
+	],
+	"webplayground": [
+		"https://css-transform.moro.es(css-transformations)"
+	],		
+	"json": [
+		"https://jwt.io",
+		"https://jsonlint.com"
+	],	
+	"localhost": [
+		"192.168.0.1",
+		"localhost:1234(:1234)",
+		"localhost:1313(:1313)",
+		"localhost:1337(:1337)",
+		"localhost:3000(:3000)",
+		"localhost:3333(:3333)",
+		"localhost:4444(:4444)",
+		"localhost:5000(:5000)",
+		"localhost:8000(:8000)",
+		"localhost:8080(:8080)",
+		"localhost:8888(:8888)",
+		"localhost:10000(:10000)",
+		"http://www.locallhost.com(View ip, request headers…)"		
 	],	
 
 
 
 
-	"vlinks_providers": [
-		 	{ "name": "", "ref": "" },
-			{ "name": "Amazon Web Services (AWS)", "ref": "https://"},
-			{ "name": "Microsoft Azure", "ref": "https://portal.azure.com" },
-			{ "name": "Google Cloud", "ref": "https://"},
-			{ "name": "Alibaba Cloud", "ref": "https://"},
-			{ "name": "IBM Cloud", "ref": "https://"},
-			{ "name": "Oracle", "ref": "https://"},
-			{ "name": "Salesforce", "ref": "https://"},
-			{ "name": "SAP", "ref": "https://"},
-			{ "name": "Rackspace Cloud", "ref": "https://"},
-			{ "name": "VMWare", "ref": "https://"}		 	
+	"providers": [
+		"https://aws.amazon.com(Amazon Web Services AWS)",
+		"https://portal.azure.com(Microsoft Azure)",
+		"https://cloud.google.com(Google Cloud)",
+		"https://www.alibabacloud.com(Alibaba Cloud)",
+		"https://www.ibm.com/cloud(IBM Cloud)",
+		"https://www.oracle.com/cloud/(Oracle Cloud Infrastructure OCI)",
+		"https://www.salesforce.com(Salesforce)",
+		"https://www.sap.com(SAP)",
+		"https://www.rackspace.com/cloud(Rackspace Cloud)",
+		"https://www.vmware.com(VMWare)",	
+		"https://www.confluent.io(Confluent)"	
 	],	
-	"vlinks_azure": [
-		 { "name": "", "ref": "" },
-		 { "name": "azure.com", "ref": "https://portal.azure.com" }
+	"azure": [
+		"https://portal.azure.com(Microsoft Azure)"
 	],
-	"vlinks_serverless": [
-		 { "name": "", "ref": "" },
-		 { "name": "Firebase cloud.google.com", "ref": "https://console.cloud.google.com/functions" }
+	"serverless": [
+		"https://console.cloud.google.com/functions(Firebase cloud.google.com)"
 	],
-	"vlinks_hosting": [
-		 { "name": "", "ref": "" },
-		 { "name": "Netlify.com", "ref": "https://nguinet.netlify.com" },
-		 { "name": "Firebase", "ref":"https://console.firebase.google.com" },
-		 { "name": "Aws", "ref":"https://console.aws.amazon.com" },
-		 { "name": "Google Cloud platform", "ref":"https://cloud.google.com" },
-	 	 { "name": "Google Search Console", "ref":"https://search.google.com" },
-		 { "name": "gandi.net", "ref": "https://www.gandi.net" }],
-	"vlinks_code_api": [
-	 	{ "name": "", "ref": "" },
-	 	{ "name": "developers.google.com/api-client-library", "ref": "https://developers.google.com/api-client-library" },
-	 	{ "name": "console.developers.google.com", "ref": "https://console.developers.google.com" },
-	 	{ "name": "swaggerhub.com", "ref": "https://app.swaggerhub.com" }
-		],	
-	"vlinks_tokens": [
-		{ "name": "", "ref": "" },
-		{ "name": "github", "ref": "https://github.com/settings/tokens" },
-		{ "name": "mapbox", "ref": "https://www.mapbox.com/account" },
-		{ "name": "openweathermap", "ref": "https://openweathermap.org" },
-		{ "name": "", "auth0.com": "https://manage.auth0.com/#/" },
-	 	{ "name": "oktapreview.com", "ref": "https://dev-589321.oktapreview.com" }
+	"hosting": [
+		"https://nguinet.netlify.com",
+		"https://console.firebase.google.com(Firebase)",
+		"https://console.aws.amazon.com(Aws)",
+		"https://cloud.google.com(Google Cloud platform)",
+		"https://search.google.com(Google Search Console)",
+		"https://www.gandi.net"
 	],
-	"vlinks_maps": [
-		{ "name": "", "ref": "" },
-		{ "name": "developers.google.com/maps", "ref": "https://developers.google.com/maps" }
+	"code_api": [
+		"https://developers.google.com/api-client-library",
+		"https://console.developers.google.com",
+		"https://app.swaggerhub.com(swagger hub)"
+	],	
+	"tokens": [
+		"https://github.com/settings/tokens(github)",
+		"https://www.mapbox.com/account(mapbox)",
+		"https://openweathermap.org(openweathermap)",
+		"https://manage.auth0.com(auth0)",
+		"https://dev-589321.oktapreview.com(oktapreview.com)"
+	],
+	"maps": [
+		"https://developers.google.com/maps"
 	],
 
 
@@ -245,191 +212,157 @@
 
 
 
-	"vlinks_code_sample": [
-	 	{ "name": "", "ref": "" },
-	 	{ "name": "microsoft samples", "ref": "https://docs.microsoft.com/fr-fr/samples/" }
+	"code_sample": [
+		"https://docs.microsoft.com/fr-fr/samples(microsoft samples)"
 	],
+
+	"codenews": [
+		"https://vas3k.com",
+		"https://anthonychu.ca",
+		"http://www.codeproject.com",
+		"https://neelbhatt.com",
+		"https://gunnarpeipman.com",
+		"http://www.johnpapa.net",
+		"http://www.hanselman.com/blog",
+		"https://martinfowler.com",
+		"https://dev.to",
+		"https://tutorialzine.com",
+		"https://alligator.io/explore",
+		"https://dzone.com",
+		"https://www.toptal.com/developers/blog",
+		"https://www.blinkingcaret.com",
+		"https://blog.soat.fr",
+		"https://www.smashingmagazine.com",
+		"https://scotch.io",
+		"https://www.telerik.com/blogs",
+		"https://hackaday.com",
+		"https://www.dotnetcurry.com",
+		"https://freecodecamp.com",
+		"https://www.hackster.io",
+		"https://hackernoon.com",
+		"https://pioneercode.com",
+		"https://developpez.com",
+		"https://www.hongkiat.com"
+	],
+
+
+	"cpluplus": [
+		"https://github.com/onelonecoder(onelonecoder)"
+	],
+
+	"dotnet": [
+		"https://www.c-sharpcorner.com",
+		"https://dotnet.microsoft.com",
+		"https://docs.microsoft.com/en-us/dotnet/core/introduction",
+		"https://dotnet.microsoft.com/learn",
+		"http://anthonygiretti.com"
+	],
+
+	"repos": [
+		"https://github.io"
+	],
+	"documentation": [
+		"https://readthedocs.io"
+	],
+
+
+	"mobile": [
+		"https://appsgeyser.com"
+	],
+
+	"android": [
+		"https://platform.appgyver.com(appgyver.com)",
+		"https://my.swiftic.com(swiftic.com, old como)",
+		"https://appsgeyser.com"
+	],	
+
+
+
+
+
+
+	"maths": [
 	
-	"vlinks_codenews": [
-		{ "name": "", "ref": "" },
-		{ "name": "vas3k.com", "ref": "https://vas3k.com" },
-		{ "name": "anthonychu.ca", "ref": "https://anthonychu.ca" },
-		{ "name": "codeproject.com", "ref": "http://www.codeproject.com" },
-		{ "name": "neelbhatt.com", "ref": "https://neelbhatt.com/" },
-		{ "name": "gunnarpeipman.com", "ref": "https://gunnarpeipman.com" },
-		{ "name": "johnpapa.net", "ref": "http://www.johnpapa.net/" },
-		{ "name": "hanselman.com", "ref": "http://www.hanselman.com/blog/" },
-		{ "name": "martinfowler.com", "ref": "https://martinfowler.com" },
-		{ "name": "dev.to", "ref": "https://dev.to" },
-		{ "name": "tutorialzine.com", "ref": "https://tutorialzine.com" },
-		{ "name": "alligator.io", "ref": "https://alligator.io/explore" },
-		{ "name": "dzone.com", "ref": "https://dzone.com" },
-		{ "name": "toptal.com", "ref": "https://www.toptal.com/developers/blog" },
-		{ "name": "blinkingcaret.com", "ref": "https://www.blinkingcaret.com" },
-		{ "name": "blog.soat.fr", "ref": "https://blog.soat.fr" },
-		{ "name": "smashingmagazine.com", "ref": "https://www.smashingmagazine.com" },
-		{ "name": "https://scotch.io", "ref": "https://scotch.io"},
-		{ "name": "https://www.telerik.com/blogs", "ref": "https://www.telerik.com/blogs"},
-		{ "name": "https://hackaday.com", "ref": "https://hackaday.com"},
-		{ "name": "http://www.dotnetcurry.com", "ref": "http://www.dotnetcurry.com"},
-		{ "name": "https://freecodecamp.com", "ref": "https://freecodecamp.com"},
-		{ "name": "https://www.hackster.io", "ref": "https://www.hackster.io"},
-		{ "name": "https://hackernoon.com", "ref": "https://hackernoon.com"},
-		{ "name": "pioneercode.com", "ref": "https://pioneercode.com" },
-		{ "name": "https://developpez.com", "ref": "https://developpez.com"},
-		{ "name": "https://www.hongkiat.com", "ref": "https://www.hongkiat.com"}
- 	 	],
-
-
-	"vlinks_cpluplus": [
-		{ "name": "", "ref": "" },  
-		{ "name": "onelonecoder", "ref": "https://github.com/onelonecoder" }
 	],
 
-	"vlinks_dotnet": [
-		{ "name": "", "ref": "" },
-		{ "name": "c-sharpcorner.com", "ref": "https://www.c-sharpcorner.com" },
-	 	{ "name": "dotnet.microsoft.com", "ref":"https://dotnet.microsoft.com" },
-	 	{ "name": "dotnet intro", "ref":"https://docs.microsoft.com/en-us/dotnet/core/introduction" },
-	 	{ "name": "dotnet learn", "ref":"https://dotnet.microsoft.com/learn" },
-		{ "name": "anthonygiretti.com", "ref": "http://anthonygiretti.com" }
- 	 	],
-
-	"vlinks_repos": [
-		 { "name": "", "ref": "" },
-		 { "name": "github.io", "ref":"https://github.io" }
-		],
-	"vlinks_documentation": [
-		 { "name": "", "ref": "" },
-		 { "name": "readthedocs.io", "ref":"https://readthedocs.io" }
-		],
+	"latex": [
+		"https://www.overleaf.com(overleaf: online .tex files)"
+	],		
 
 
 
 
+	"ml": [
+		"https://www.datasciencecentral.com",
+		"https://www.datasciencecentral.com/profiles/blogs/data-science-cheat-sheet(datasciencecentral cheat-sheet)",
+		"https://www.analyticsvidhya.com",
+		"https://anaconda.org"
+	],	
 
 
 
-	"vlinks_mobile": [
-		{ "name": "", "ref": "" }
-		 ],
 
-	"vlinks_mobile_android": [
-		 { "name": "", "ref": "" },
-		 { "name": "appgyver.com", "ref": "https://platform.appgyver.com" },
-		 { "name": "swiftic.com (como)", "ref": "https://my.swiftic.com" },
-		 { "name": "appsgeyser.com", "ref":"https://appsgeyser.com" }
-		],	
+	"data_vizu": [
+		"https://setosa.io",
+		"https://app.diagrams.net(draw.io)",
+		"https://codepen.io/DonKarlssonSan/post/particles-in-simplex-noise-flow-field(particles field weather ****)",
+		"https://css-tricks.com/exploring-data-with-serverless-and-vue-part-2(css-tricks)", 
+		"https://webdesigner.withgoogle.com",
+		"https://www.canva.com"
+	],	
 
 
 
 
 
-
-	"vlinks_maths": [
-		{ "name": "", "ref": "" }
-		 ],
-
-	"vlinks_maths_latex": [
-		{ "name": "", "ref": "" },
-		 { "name": ".tex files: overleaf.com", "ref":"https://www.overleaf.com/" }
-		],		
-
-
-
-
-
-
-
-	"vlinks_ml": [
-		 { "name": "", "ref": "" },
-		 { "name": "datasciencecentral.com", "ref": "https://www.datasciencecentral.com/profiles/blogs/data-science-cheat-sheet" },
-		 { "name": "analyticsvidhya.com", "ref": "https://www.analyticsvidhya.com" },
-		 { "name": "Anaconda", "ref":"https://anaconda.org" }
-		],	
-
-
-
-
-	"vlinks_dataviz": [
-		 { "name": "", "ref": "" },
-		 { "name": "setosa.io", "ref": "https://setosa.io" },
-		 { "name": "draw.io", "ref": "https://app.diagrams.net" },
-		 { "name": "particles field weather ****", "ref": "https://codepen.io/DonKarlssonSan/post/particles-in-simplex-noise-flow-field" },
-		 { "name": "css-tricks.com", "ref": "https://css-tricks.com/exploring-data-with-serverless-and-vue-part-2/" },		 
-		 { "name": "webdesigner.withgoogle.com", "ref": "https://webdesigner.withgoogle.com" },
-		 { "name": "canva", "ref":"https://www.canva.com" }
-		],	
-	
-
-
-
-
-	"vlinks_science": [
-		{ "name": "", "ref": "" },
-		{ "name": "arxiv.org", "ref": "https://arxiv.org" },
-		{ "name": "eos.org", "ref": "https://eos.org" },
-		{ "name": "newscientist.com", "ref": "https://www.newscientist.com" }
-		],	
-	"vlinks_geology": [
-		{ "name": "", "ref": "" },
-		{ "name": "geologycafe.com", "ref": "http://www.geologycafe.com" }		
-		],	
-	"vlinks_physic": [
-		{ "name": "", "ref": "" },
-		{ "name": "splung.com", "ref": "http://www.splung.com" }		
-		],	
-	"vlinks_mechanic": [
-		{ "name": "", "ref": "" },
-		{ "name": "biomechanic ****", "ref": "https://github.com/rajathkmp/BMC" }		
-		],
-
-
-
-
-
-	
-	"vlinks_plane": [
-		{ "name": "", "ref": "" },
-		{ "name": "aviation-civile.gouv.fr", "ref": "https://www.sia.aviation-civile.gouv.fr" }
-	],
-
-	
-
-
-	"vlinks_security": [
-		{ "name": "", "ref": "" },		
-		{ "name": "paypal.com", "ref": "https://www.paypal.com" }		
+	"science": [
+		"https://arxiv.org",
+		"https://eos.org",
+		"https://www.newscientist.com"
+	],	
+	"geology": [
+		"http://www.geologycafe.com"		
+	],	
+	"physic": [
+		"http://www.splung.com"		
+	],	
+	"mechanic": [
+		"https://github.com/rajathkmp/BMC(BMC biomechanic ****)"		
 	],
 
 
 
 
-
-	
-
-	"vlinks_jobs": [
-		 { "name": "", "ref": "" },
-		 { "name": "verduron.com", "ref": "https://verduron.com" },
-		 { "name": "viadeo", "ref":"http://www.viadeo.com" },
-		 { "name": "hired", "ref":"https://hired.com" },
-		 { "name": "humaniance", "ref":"www.humaniance.com" },
-		 { "name": "dogfinance", "ref":"https://www.dogfinance.com" },
-		 { "name": "codingame", "ref":"https://www.codingame.com" }
-		],	
-
-
-	"vlinks_freelance": [
-		{ "name": "", "ref": "" },
-		{ "name": "freelancer.com", "ref": "https://www.freelancer.com/jobs" }		
+	"plane": [
+		"https://www.sia.aviation-civile.gouv.fr(aviation-civile.gouv.fr)"
 	],
 
-	
+
+
+	"security": [
+	],
+	"online_paiement": [
+		"https://www.paypal.com"		
+	],
 
 
 
-	"vlinks_tools": [
-		{ "name": "", "ref": "" },
-		{ "name": "", "ref":"aa" }
+
+	"jobs": [
+		"https://verduron.com",
+		"http://www.viadeo.com",
+		"https://hired.com",
+		"https://www.humaniance.com",
+		"https://www.dogfinance.com",
+		"https://www.codingame.com"
+	],	
+
+
+	"freelance": [
+		"https://www.freelancer.com/jobs"		
+	],
+
+
+	"tools": [
 		]
 }
