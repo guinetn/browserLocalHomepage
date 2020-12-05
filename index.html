@@ -311,9 +311,9 @@
 
 </div>
 
-<div class="mainbox">
+<div class="modalContainer">
 
-  <div class="modal">   
+  <div class="modalBox">   
     <div>
       <h1 id="modalTitle"></h1>      
       <div id="modalContent">       
@@ -352,20 +352,24 @@
 </template>
 
 <template id="helpTemplate">  
- <p>Navigate in views</p>
-        <ul> 
-          <li><kbd>CTRL</kbd>+<kbd>←</kbd> or <kbd>-</kbd></li>
-          <li><kbd>CTRL</kbd>+<kbd>→</kbd> or <kbd>+</kbd></li>
-        </ul>
-        
-        <p>Navigate in slides</p>
-        <ul>
-          <li><kbd>→</kbd> Slide view: on</li>
-          <li><kbd>→</kbd> Next slide</li>
-          <li><kbd>←</kbd> Previous slide</li>
-          <li><kbd>←</kbd> Slide view: off (when on 1<sup>st</sup> slide)</li>
-          <li><kbd>Shift</kbd> Slide view: off</li>
-        </ul>   
+  <p>Navigate in views</p>
+  <ul> 
+    <li><kbd>CTRL</kbd>+<kbd>→</kbd> or <kbd>+</kbd></li>
+    <li><kbd>CTRL</kbd>+<kbd>←</kbd> or <kbd>-</kbd></li>
+  </ul>
+
+  <p>Navigate in slides</p>
+  <ul>
+    <li><kbd>→</kbd> Next slide (Enter slide mode when on 1<sup>st</sup> slide)</li>
+    <li><kbd>←</kbd> Previous slide (Exit slide mode when on 1<sup>st</sup> slide)</li>                              
+    <li><kbd>Shift</kbd> Exit Slide mode</li>
+  </ul>   
+  <p>Others</p>
+  <ul>
+    <li><kbd>F</kbd> Go Full screen</li>
+    <li><kbd>ESC</kbd> Exit Full screen</li>
+    <li>Selection done with the mouse is automatically copied every 3 sec (snackbar warning)</li>
+  </ul>   
 </template>
 
 </body>

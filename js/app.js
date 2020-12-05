@@ -2,428 +2,501 @@ import * as assets from "./addons.js"
 
 const getTime = () => new Date().toLocaleTimeString();
 
-class app {
+const config = {
+  mouseDownDurationForCopySec: 3,
+};
+class bka {
 
 	currentView = null;
 	views = []; // [{ id:0, dom: null, name: '', slideId: 0 }, …]
 	currentSlide = 0;
 	currentSlidesFile = null;
 	slidesVisible = null;
-	slides = [];	
+	slides = [];
 	slidesFolder = '';
 
-	constructor(slidesFolder, elem) { 		
-		document.querySelectorAll(elem).forEach((v,i) => this.views.push( {'id':i, 'name':v.id, 'dom':v, 'slideId':0} ));
+	isMouseDown = false;
+	mouseDownTime = null;
+
+	constructor(slidesFolder, viewsSelector) {
+		document.querySelectorAll(viewsSelector).forEach((v, i) =>
+			this.views.push({ id: i, name: v.id, dom: v, slideId: 0 }) );
 		this.currentView = this.views[0];
 		this.slidesFolder = slidesFolder;
+
+		utils.downloadJsonFile("assets/topics.json", this.extractTopics);
 	}
 
-	scrollTo(y=0) {
-		document.documentElement.scrollTo({top: y,behavior: "smooth"});			
+	heartbeat() {
+		if (! this.isMouseDown)
+			return;
+
+		const mouseDownDurationSec = (new Date() - this.mouseDownTime) / 1000;
+		if (config.mouseDownDurationForCopySec <= mouseDownDurationSec)
+		{
+			  utils.copyToClipboard(document.getSelection());					
+			  this.mouseDownTime = new Date();
+		}
 	}
 
-	onViewKeydown(e) {
+	scrollTo (y=0) {
+		document.documentElement.scrollTo({ top: y, behavior: "smooth" });
+	}
+
+	onViewKeydown (e) {
 		if (e.shiftKey)
 			return;
 
 		let key = e.key.toLowerCase();
-		
+
 		// Navigate in views by [+] or [CTRL + →]
-		if (e.key=="+" || (e.ctrlKey && e.keyCode==39  /*right*/)) { 
-			this.currentView = this.views[this.views.length <= this.currentView.id+1 ? 0 : this.currentView.id+1];	
-			key = this.currentView.name.slice(0,3);
+		if (e.key == "+" || (e.ctrlKey && e.keyCode == 39  /*right*/)) {
+			this.currentView = this.views[this.views.length <= this.currentView.id + 1 ? 0 : this.currentView.id + 1];
+			key = this.currentView.name.slice(0, 3);
 		}
 		// Navigate in views by "-" or [CTRL + ←]	
-		else if (e.key=="-" || (e.ctrlKey && e.keyCode==37  /*left*/)) { 
-			this.currentView = this.views[this.currentView.id-1 < 0 ? this.views.length-1 : this.currentView.id-1];	
-			key = this.currentView.name.slice(0,3);
+		else if (e.key == "-" || (e.ctrlKey && e.keyCode == 37  /*left*/)) {
+			this.currentView = this.views[this.currentView.id - 1 < 0 ? this.views.length - 1 : this.currentView.id - 1];
+			key = this.currentView.name.slice(0, 3);
 		}
-		else if (e.ctrlKey || ! [...this.views].some(v=>v.name[0]==key))
+		else if (e.ctrlKey || ![...this.views].some(v => v.name[0] == key))
 			return; // no key match a view name
-		
+
 		e.preventDefault();
 		this.scrollTo(0);
 		// hide slides
-		this.toggleSlidesVisibility(false);				
+		this.toggleSlidesVisibility(false);
 		// display view
-		this.views.forEach(view=> view.name.slice(0,key.length)==key ? view.dom.classList.add("active") : view.dom.classList.remove("active"));
+		this.views.forEach(view => view.name.slice(0, key.length) == key ? view.dom.classList.add("active") : view.dom.classList.remove("active"));
 	}
 
-	onSlideKeydown(e) {
+	onSlideKeydown (e) {
 		if (e.keyCode == 27 || e.shiftKey) {
-		 	// [ESC] or [shift]	key 	
-		 	this.toggleSlidesVisibility(false);		 	
-		 	if (this.currentSlide>0)
-		 		this.currentSlide--; // to come back on the same slide after [esc]] (as we do [→] to show it again, we don't want slide+0)
-		 	 this.currentView.slideId = this.currentSlide+1; // memo thz slide id to retrieve after anothers view navigation and come back 
-		 }
-		 else {	 	
+			// [ESC] or [shift]	key 	
+			this.toggleSlidesVisibility(false);
+			if (this.currentSlide > 0)
+				this.currentSlide--; // to come back on the same slide after [esc]] (as we do [→] to show it again, we don't want slide+0)
+			this.currentView.slideId = this.currentSlide + 1; // memo thz slide id to retrieve after anothers view navigation and come back 
+		}
+		else {
 			switch (e.keyCode) {
-		        case 37: // left arrow key          	        	          
-		          this.changeSlide(-1);
-		          break;
-		        case 39: // right arrow key	        	          
-		          this.changeSlide(+1);	          
-		          break;
+				case 37: // left arrow key          	        	          
+					this.changeSlide(-1);
+					break;
+				case 39: // right arrow key	        	          
+					this.changeSlide(+1);
+					break;
 				case 70: // f key
 					if (this.slidesVisible)
 						utils.fullScreen(this.slides[this.currentSlide]);
 					else
-					  	utils.fullScreen(this.currentView.dom);
-		          break;
-		    }
-		 } 
+						utils.fullScreen(this.currentView.dom);
+					break;
+			}
+		}
 	}
-	async changeSlide(direction) { 
+	async changeSlide (direction) {
 
-		if (this.currentSlidesFile != this.currentView.name)
-		{	    		
-	    	this.createSlidesInDom(this.currentSlidesFile);
-	    	this.currentSlide = this.currentView.slideId;
+		if (this.currentSlidesFile != this.currentView.name) {
+			this.createSlidesInDom(this.currentSlidesFile);
+			this.currentSlide = this.currentView.slideId;
 			return;
 		}
-		
+
 		// Press [←] while on first slide: hide		
-		if (this.currentSlide==0 && direction==-1)  
-		{
-			this.toggleSlidesVisibility(false);					
+		if (this.currentSlide == 0 && direction == -1) {
+			this.toggleSlidesVisibility(false);
 			return;
 		}
 		// Press [→] while slides are not visible: show			
-		else if (!this.slidesVisible && this.currentSlide==0 && direction==+1)	
-		{
+		else if (!this.slidesVisible && this.currentSlide == 0 && direction == +1) {
 			this.scrollTo(0);
-			this.toggleSlidesVisibility(true);      		
+			this.toggleSlidesVisibility(true);
 			return;
 		}
 
-		 this.currentSlide += direction;
+		this.currentSlide += direction;
 		if (this.slides.length <= this.currentSlide)
-	       this.currentSlide = 0;   
-	 	else if (this.currentSlide < 0) 
-	       this.currentSlide = 0;   
-	    	    
-	   	this.scrollTo(0);
-	    this.toggleSlidesVisibility(true);
+			this.currentSlide = 0;
+		else if (this.currentSlide < 0)
+			this.currentSlide = 0;
+
+		this.scrollTo(0);
+		this.toggleSlidesVisibility(true);
 	}
-	async downloadViewSlides(folder, slideFile) {
-	  try {	  		  	
-	    let response = await fetch(`${folder}/${slideFile}.md`);
-	    let markdown = await response.text();		
-	    
-	    const html = this.markdownToHtml(markdown);
-	    const htmlSides = html.split("<hr />");		
-	    return htmlSides;
-	  }
-	  catch(e) {
-	    console.log(`Error in downloadViewSlides(${slideFile})`, e);
-	  }
+	async downloadViewSlides (folder, slideFile) {
+		try {
+			let response = await fetch(`${folder}/${slideFile}.md`);
+			let markdown = await response.text();
+
+			const html = this.markdownToHtml(markdown);
+			const htmlSides = html.split("<hr />");
+			return htmlSides;
+		}
+		catch (e) {
+			console.log(`Error in downloadViewSlides(${slideFile})`, e);
+		}
 	}
 	createSlidesInDom() {
-		
+
 		this.deleteExistingSlides();
 
-		this.currentSlidesFile = this.currentView.name;		
-		
+		this.currentSlidesFile = this.currentView.name;
+
 		this.downloadViewSlides(this.slidesFolder, this.currentSlidesFile)
-	        .then((htmlSlides)=>{         
-	          this.appendSlides(htmlSlides);                  
-			  this.slides = document.querySelectorAll(".slide");          
-	          this.toggleSlidesVisibility(true);
-	          this.renderCurrentSlide();
-	        });
+			.then((htmlSlides) => {
+				this.appendSlides(htmlSlides);
+				this.slides = document.querySelectorAll(".slide");
+				this.toggleSlidesVisibility(true);
+				this.renderCurrentSlide();
+			});
 	}
-	appendSlides(slides) {
-	    slides.forEach((html, i) => {
-	      const slide = document.createElement("div");
-	      slide.innerHTML = `<div>${slides[i]}</div>`;
-	      slide.id = `p${i+1}`;
-	      slide.className = "slide";
-	      document.querySelector("#main").appendChild(slide);
-	    });
-	} 
-	markdownToHtml(data) {
-	  // Transform md → html
-	  var converter = new showdown.Converter();
-	  return converter.makeHtml(data);
+	appendSlides (slides) {
+		slides.forEach((html, i) => {
+			const slide = document.createElement("div");
+			slide.innerHTML = `<div>${slides[i]}</div>`;
+			slide.id = `p${i + 1}`;
+			slide.className = "slide";
+			document.querySelector("#main").appendChild(slide);
+		});
 	}
-	renderCurrentSlide() { 		
-		this.slides.forEach((s,i)=> (this.slidesVisible && i==this.currentSlide) ? s.classList.add("current") : s.classList.remove("current"));
+	markdownToHtml (data) {
+		// Transform md → html
+		var converter = new showdown.Converter();
+		return converter.makeHtml(data);
 	}
-	toggleSlidesVisibility(forceVisibility) { 		
-		if (forceVisibility!=undefined)
+	renderCurrentSlide () {
+		this.slides.forEach((s, i) => (this.slidesVisible && i == this.currentSlide) ? s.classList.add("current") : s.classList.remove("current"));
+	}
+	toggleSlidesVisibility (forceVisibility) {
+		if (forceVisibility != undefined)
 			this.slidesVisible = forceVisibility;
 		else
-			this.slidesVisible = ! this.slidesVisible;				
-	    
-	    this.renderCurrentSlide();		
+			this.slidesVisible = !this.slidesVisible;
+
+		this.renderCurrentSlide();
 		// this.progress.setProgress("#progress-page", this.pageCount(), this.current);
 	}
-	deleteExistingSlides() {
-		if (this.slides.length>0)
-			this.slides.forEach(s=>s.remove());
+	deleteExistingSlides () {
+		if (this.slides.length > 0)
+			this.slides.forEach(s => s.remove());
 
-		this.slides = null;				
-		this.currentSlide = 0;	
-	}	
-}
-
-let utils = {
-
-	clock: document.querySelector("#clock"),
+		this.slides = null;
+		this.currentSlide = 0;
+	}
 	
-	snackbar: document.getElementById("snackbar"),
+	extractTopics(topics, callback) {
+		const regex = /(?<link>[^\[\(]*)+(\[+(?<classes>[^\]]*)?\]+)*(\(+(?<description>[^\)]*)?\)+)*/;
 
-	mainbox : document.querySelector(".mainbox"),
-	modalContent: document.getElementById("modalContent"),
-	modalTitle: document.getElementById("modalTitle"),
-	
-	alarm: document.getElementById("alarm"),
-	alarmSign: document.getElementById("alarmSign"),
-	alarmTimer: null,	
-	alarmReason: 0,
-	alarmVisible: false,
-	alarmRate:0,
-	alarmRemainder:0,
+		for (var topic in topics) {
+			
+			const topicType = typeof topics[topic];
+			if (topicType == "object" || topicType == "array") {
+			
+			const container = document.querySelector(`#${topic}`);
+			if (container == undefined) continue;
 
-	init: function(){
-		setInterval(()=> this.heartbeat(), 1000 );
-	},
+			const containerAttr = container.getAttribute("data-info");
+			if (
+				containerAttr == null ||
+				(containerAttr != null && containerAttr.toLowerCase().indexOf("-t") < 0)
+			) {
+				// Add topic title
+				let h3 = document.createElement("h3");
+				h3.innerText = topic.toUpperCase().replace("_", " ");
+				container.appendChild(h3);
+			}
 
-	heartbeat: function() {		
-		clock.innerText = getTime();
-		if (this.alarmTimer)
-		{
-			this.alarmRemainder -= this.alarmRate;
-			this.alarmSign.style.width = `${Math.trunc(this.alarmRemainder)}%`;				
-		}
-	},
-
-	copyToClipboard: async function(stringToCopy) {		
-		  try {
-		    await navigator.clipboard.writeText(stringToCopy);        
-		    this.snackbar("copied");
-		  } catch (err) {
-		    console.error(`Failed to copy ${stringToCopy}`, err);
-		  }		
-	},
-
-	modal: function(title, content) {	  
-	  this.modalTitle.innerText = title;
-	  this.modalContent.querySelectorAll("*").forEach((n) => n.remove());
-	  this.modalContent.appendChild(content);
-	  this.mainbox.classList.add("visible");
-	},
-
-	modalClose: function() {
-		this.mainbox.classList.remove("visible");
-	},
-
-	alarmOpenClose: function() {
-		this.alarm.classList.toggle("alarm");
-		this.alarmVisible = this.alarm.classList.contains("alarm");
-	},
-
-	alarmSet: function(minutes, reason) {
-
-		if (minutes==0) {
-			clearTimeout(this.alarmTimer);
-			const msg = `Alarm canceled: ${this.alarmReason}`;
-			document.querySelector(".alarmItem.alarm-active").classList.remove("alarm-active");
-			this.speak(msg);
-			this.snackbar(msg);			
-			this.alarmSign.classList.remove("active");
-			this.alarmRate = 0;
-			return;
-		}
-
-		// Start Countdown
-		this.alarmSign.classList.add("active");		
-		this.alarmRemainder = 100;	
-		this.alarmRate = 100/(minutes*60); // rate at wich, each sec, thecountdown progressbar must be reduced
-
-		this.alarmReason = reason;
-		this.alarmTimer = setTimeout(() => {  
-						const msg = `Alarm (${minutes} min elapsed)<br/>${reason != '' ? '"'+reason+'"' : ''}`;
-					 	this.snackbar(msg, 5000);	
-						if (msg.trim().slice(0,2)!="//") // dot not speak msg prefixed by //
-							this.speak(msg.replace("<br/>",""));					 	
-						document.querySelector(".alarmItem.alarm-active").classList.remove("alarm-active");
-						this.alarmSign.classList.remove("active");						
-					 }, minutes*60*1000);						      
-	},
-
-	speak: function(msg) {                
-		if (msg != "" && window.speechSynthesis) {
-        	var to_speak = new SpeechSynthesisUtterance(msg);
-     	   	window.speechSynthesis.speak(to_speak);
-        }
-    },
-
-	snackbar: function(msg, duration=2500) {
-	  snackbar.innerHTML = msg;
-	  snackbar.classList.add('show');
-	  setTimeout(() => snackbar.classList.remove('show'), duration);
-	},
-
-	fullScreen: function(elem) {	    
-	    const request = elem.requestFullscreen
-	                 || elem.webkitRequestFullScreen
-	                 || elem.mozRequestFullScreen
-	                 || elem.msRequestFullscreen;
-	    request.call(elem);
-	}	  
-}
-
-async function downloadLinks(file) {
-  try {
-    let response = await fetch(file);
-    let jsonLinks = await response.json();		    
-    extractLinks(jsonLinks);
-  }
-  catch(e) {
-    console.log('Error!', e);
-  }
-}
-
-function extractLinks(links) {
-	  	
-	const regex = /(?<link>[^\[\(]*)+(\[+(?<classes>[^\]]*)?\]+)*(\(+(?<description>[^\)]*)?\)+)*/;
-	
-	for (var key in links) {
-      if (typeof links[key] == "object" || typeof links[key] == "array") {          	
-		
-		const container = document.querySelector(`#${key}`);				
-		if (container == undefined)
-			continue;
-		
-		const containerAttr = container.getAttribute("data-info");
-		if (containerAttr==null || (containerAttr!=null && containerAttr.toLowerCase().indexOf('-t')<0))
-		{
-			// Add title
-			let h3 = document.createElement("h3");				
-			h3.innerText = key.toUpperCase().replace('_',' ');
-			container.appendChild(h3);
-		}
-
-		links[key].forEach(function(item){ 		
-
-			var m = regex.exec(item);   // ex: "https://gmail.com[fas fa-envelope](GMAIL)"
-			if (m != null)	
-			{
+			topics[topic].forEach(function (item) {
+				var m = regex.exec(item); // ex: "https://gmail.com[fas fa-envelope](GMAIL)"
+				if (m != null) {
 				let link = m.groups["link"];
 				let classes = m.groups["classes"];
 				let description = m.groups["description"];
-				
-				let elem = createLink(link, classes, description);        	
-				if (elem != null)
-	        		container.appendChild(elem);
-        	}
-        	else
-        		console.log(`ExtractLinks(): Error in parsing ${item}`);
-		});
-	  }
-    }	
-}	
-let simplifyLink = (link) => {
-  /*
-	https://developers.google.com/analytics → developers.google.com/analytics
-	https://www.nasaspaceflight.com			→ nasaspaceflight.com 
 
-	*/ 
-	let match = /((?<prot>https?):\/{2}(w{3})?\.?(?<domain>[^/]*)\/?(?<query>.*)?|(?<link>.*))?/.exec(link);
-	if (match != null)
-	{
-		if (match.groups["link"] != undefined) return match.groups["link"];
-    else return match.groups["domain"];
+				let elem = bka.createTopic(link, classes, description);
+				if (elem != null) container.appendChild(elem);
+				} else console.log(`ExtractTopics(): Error in parsing ${item}`);
+			});
+			}
+		}
 	}
-}
-function createLink(link, classes, description) {
 
-	const prefix = (classes || 'block').indexOf('inline') >=0 ? "inline" : "block";
-	const fragment = document.getElementById( `${prefix}LinkTemplate`);        
-    const instance = document.importNode(fragment.content, true);
-
-    let a = instance.querySelector(".topicLink");
-    a.href = link;                     
-    a.title = link;
-    if (classes != undefined)
-    	classes.split(' ').forEach(cl => a.classList.add(cl)); // classlist doesn't accept spaces...  
-    
-    if (prefix != 'inline')
-    	a.innerText = description || simplifyLink(link) || "???";  
-    
-    return instance;
-}
-
+	static simplifyLink(link) {
+		/*
+		https://developers.google.com/analytics → developers.google.com/analytics
+		https://www.nasaspaceflight.com			→ nasaspaceflight.com 
 	
-
-function initTools() {
-	document.querySelector("#timestamp").value = Math.floor(new Date().getTime()/1000.0);		
-	document.querySelector("#timestampDecode").value = Math.floor(new Date().getTime()/1000.0);		
-	document.querySelector("#timestampEncode").value = new Date().toISOString();
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-	
-	utils.init();
-
-	let application = new app('assets/slides', '.view');
-	
-	document.addEventListener("keydown", function(e) {
-		if (utils.alarmVisible)
-			return; // we need all the keys to enter alarm msg
-
-		application.onViewKeydown(e);
-		if (! e.defaultPrevented)
-			application.onSlideKeydown(e);
-	});
-	document.addEventListener("click", function(e) {
-		
-		if (e.target.matches('.copy')) {
-			utils.copyToClipboard(e.target.innerText);		
+		*/
+		let match = /((?<prot>https?):\/{2}(w{3})?\.?(?<domain>[^/]*)\/?(?<query>.*)?|(?<link>.*))?/.exec(link);
+		if (match != null) {
+			if (match.groups["link"] != undefined) return match.groups["link"];
+			else return match.groups["domain"];
 		}
-		else if (e.target.matches('#help')) {
-			if (utils.mainbox.classList.contains("visible"))
-				utils.modalClose();		
-			else
-			{				
-				const fragment = document.getElementById('helpTemplate');        
-    			const instance = document.importNode(fragment.content, true);    			
-				utils.modal("HELP", instance);
-			}
-		}
-		else if (e.target.matches('.modal-close') || e.target.className=='mainbox visible') {
-			utils.modalClose();		
-		}
-		else if ( e.target.matches('#clock') || e.target.matches('#alarm') || (utils.alarmVisible && e.target.className=='active view')) {
-			utils.alarmOpenClose();			
-		}				
-		else if (e.target.matches('.alarmItem') ) {
+	}
 
-			// alarm already set ? → Cancel it
-			if (e.target.classList.contains("alarm-active")) {
-				utils.alarmSet(0);
-				document.querySelector(".alarmItem.alarm-active").classList.remove("alarm-active");
-				return;
-			}
+	static createTopic(link, classes, description) {
+		const prefix = (classes || 'block').indexOf('inline') >= 0 ? "inline" : "block";
+		const fragment = document.getElementById(`${prefix}LinkTemplate`);
+		const instance = document.importNode(fragment.content, true);
 
-			// set alarm
-			const alarmSelected = document.querySelector(".alarmMessage");
-			const alarmReason = alarmSelected.value || "";
-			const alarmDurationMin = e.target.getAttribute("data-duration");
-			e.target.classList.toggle("alarm-active");
-			utils.alarmOpenClose();			
-			utils.snackbar(`Alarm in ${alarmDurationMin} min<br/>${alarmReason}`);	
-			utils.speak(`Alarm in ${alarmDurationMin} min`);	
-			utils.alarmSet(alarmDurationMin, alarmReason);
-		}		
-	});
+		let a = instance.querySelector(".topicLink");
+		a.href = link;
+		a.title = link;
+		if (classes != undefined)
+			classes.split(' ').forEach(cl => a.classList.add(cl)); // classlist doesn't accept spaces...  
 
-	downloadLinks('assets/topics.json');
-	initTools();
+		if (prefix != 'inline')
+			a.innerText = description || this.simplifyLink(link) || "???";
+
+		return instance;
+	}
+
+	onMouseDown(e) {
+		this.mouseDownTime = new Date();
+		this.isMouseDown = true;
+	}
+	onMouseUp(e) {
+		this.isMouseDown = false;		
+		this.mouseDownTime = null;
+	}
+
+}
+
+let utils = {
+  clock: document.querySelector("#clock"),
+
+  snackbar: document.getElementById("snackbar"),
+
+  modalContainer: document.querySelector(".modalContainer"),
+  modalContent: document.getElementById("modalContent"),
+  modalTitle: document.getElementById("modalTitle"),
+
+  alarm: document.getElementById("alarm"),
+  alarmSign: document.getElementById("alarmSign"),
+  alarmTimer: null,
+  alarmReason: 0,
+  alarmVisible: false,
+  alarmRate: 0,
+  alarmRemainder: 0,
+  externalHeartbeat: null,
+
+  init: function(context=null) {
+	this.externalHeartbeat = context.heartbeat.bind(context);
+    setInterval( () => this.heartbeat(), 1000);    
+  },
+
+  heartbeat: function() {
+	this.clock.innerText = getTime();
+	if (this.externalHeartbeat != null) 
+		this.externalHeartbeat();
+    if (this.alarmTimer) {
+      this.alarmRemainder -= this.alarmRate;
+      this.alarmSign.style.width = `${Math.trunc(this.alarmRemainder)}%`;
+    }
+  },
+
+  copyToClipboard: async function (stringToCopy, show=null) {
+    try {
+      await navigator.clipboard.writeText(stringToCopy);
+      this.snackbar(`copied ${show==true ? stringToCopy : ''}`);
+    } catch (err) {
+      console.error(`Failed to copy ${stringToCopy}`, err);
+    }
+  },
+
+  isModalVisible: function () {
+    return this.modalContainer.classList.contains("visible");
+  },
+
+  modalShow: function (title, content) {
+    this.modalTitle.innerText = title;
+    this.modalContent.querySelectorAll("*").forEach((n) => n.remove());
+    this.modalContent.appendChild(content);
+    this.modalContainer.classList.add("visible");
+  },
+
+  modalClose: function () {
+    this.modalContainer.classList.remove("visible");
+  },
+
+  alarmOpenClose: function () {
+    this.alarm.classList.toggle("alarm");
+    this.alarmVisible = this.alarm.classList.contains("alarm");
+  },
+
+  alarmSet: function (minutes, reason) {
+    if (minutes == 0) {
+      clearTimeout(this.alarmTimer);
+      const msg = `Alarm canceled: ${this.alarmReason}`;
+      document
+        .querySelector(".alarmItem.alarm-active")
+        .classList.remove("alarm-active");
+      this.speak(msg);
+      this.snackbar(msg);
+      this.alarmSign.classList.remove("active");
+      this.alarmRate = 0;
+      return;
+    }
+
+    // Start Countdown
+    this.alarmSign.classList.add("active");
+    this.alarmRemainder = 100;
+    this.alarmRate = 100 / (minutes * 60); // rate at wich, each sec, thecountdown progressbar must be reduced
+
+    this.alarmReason = reason;
+    this.alarmTimer = setTimeout(() => {
+      const msg = `Alarm (${minutes} min elapsed)<br/>${
+        reason != "" ? '"' + reason + '"' : ""
+      }`;
+      this.snackbar(msg, 5000);
+      if (msg.trim().slice(0, 2) != "//")
+        // dot not speak msg prefixed by //
+        this.speak(msg.replace("<br/>", ""));
+      document
+        .querySelector(".alarmItem.alarm-active")
+        .classList.remove("alarm-active");
+      this.alarmSign.classList.remove("active");
+    }, minutes * 60 * 1000);
+  },
+
+  speak: function (msg) {
+    if (msg != "" && window.speechSynthesis) {
+      var to_speak = new SpeechSynthesisUtterance(msg);
+      window.speechSynthesis.speak(to_speak);
+    }
+  },
+
+  snackbar: function (msg, duration = 2500) {
+    snackbar.innerHTML = msg;
+    snackbar.classList.add("show");
+    setTimeout(() => snackbar.classList.remove("show"), duration);
+  },
+
+  fullScreen: function (elem) {
+    const request =
+      elem.requestFullscreen ||
+      elem.webkitRequestFullScreen ||
+      elem.mozRequestFullScreen ||
+      elem.msRequestFullscreen;
+    request.call(elem);
+  },
+
+  downloadJsonFile: async function (file, callback) {
+    try {
+      let response = await fetch(file);
+      let jsonData = await response.json();
+      callback(jsonData);
+    } catch (e) {
+      console.log(`downloadJsonFile: error: ${file}`, e);
+    }
+  },
+  downloadTextFile: function (file, callback) {
+    try {
+      fetch(file)
+        .then((resp) => {
+          return resp.text();
+        })
+        .then(function (text) {
+          callback(text);
+        });
+    } catch (e) {
+      console.log(`downloadTextFile: error: ${file}`, e);
+    }
+  }
+
+};
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
 	
-	if (showdown)
-		showdown.setFlavor('github');
-	// weather()
+	let app = new bka("assets/slides", ".view");
+	utils.init(app);
+
+  document.addEventListener("mousedown", function (e) {
+	  app.onMouseDown(e);
+  });
+  document.addEventListener("mouseup", function (e) {
+	  app.onMouseUp(e);
+  });
+  document.addEventListener("keydown", function (e) {
+	if (utils.alarmVisible || utils.isModalVisible()) 
+		return; // we need all the keys to enter alarm msg
+
+    app.onViewKeydown(e);
+	if (!e.defaultPrevented) 
+		app.onSlideKeydown(e);
+  });
+  document.addEventListener("click", function (e) {
+    if (e.target.matches(".copy")) {
+      utils.copyToClipboard(e.target.innerText);
+    } else if (e.target.matches("#help")) {
+      if (utils.isModalVisible()) utils.modalClose();
+      else {
+        // show help
+
+        // let res = downloadTextFile("readme.md", function(res) {
+        // 	const instance = document.createElement("div");
+        // 	instance.innerHTML = application.markdownToHtml(res);
+        // 	utils.modalShow("HELP", instance);
+        // });
+
+        const fragment = document.getElementById("helpTemplate");
+        const instance = document.importNode(fragment.content, true);
+        utils.modalShow("HELP", instance);
+      }
+    } else if (e.target.className == "modalContainer visible") {
+      // click on the modalContainer to close it
+      utils.modalClose();
+    } else if (
+      e.target.matches("#clock") ||
+      e.target.matches("#alarm") ||
+      (utils.alarmVisible && e.target.className == "active view")
+    ) {
+      utils.alarmOpenClose();
+    } else if (e.target.matches(".alarmItem")) {
+      // alarm already set ? → Cancel it
+      if (e.target.classList.contains("alarm-active")) {
+        utils.alarmSet(0);
+        document
+          .querySelector(".alarmItem.alarm-active")
+          .classList.remove("alarm-active");
+        return;
+      }
+
+      // set alarm
+      const alarmSelected = document.querySelector(".alarmMessage");
+      const alarmReason = alarmSelected.value || "";
+      const alarmDurationMin = e.target.getAttribute("data-duration");
+      e.target.classList.toggle("alarm-active");
+      utils.alarmOpenClose();
+      utils.snackbar(`Alarm in ${alarmDurationMin} min<br/>${alarmReason}`);
+      utils.speak(`Alarm in ${alarmDurationMin} min`);
+      utils.alarmSet(alarmDurationMin, alarmReason);
+    }
+  });
+
+  // INIT CUSTOMIZED VIEWS	
+  view_tools_init();
+
+  if (showdown) 
+  	showdown.setFlavor("github");  
 });
+
+
+/* CUSTOMIZE VIEWS */ 
+
+function view_tools_init() {
+  document.querySelector("#timestamp").value = Math.floor(
+    new Date().getTime() / 1000.0
+  );
+  document.querySelector("#timestampDecode").value = Math.floor(
+    new Date().getTime() / 1000.0
+  );
+  document.querySelector("#timestampEncode").value = new Date().toISOString();
+}
+
+

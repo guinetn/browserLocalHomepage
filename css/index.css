@@ -205,7 +205,7 @@ a {
 
 /* MODAL */
 
-  .mainbox {
+  .modalContainer {
     position: absolute;
     background-color: #CCCCCC;    
     display: flex;
@@ -220,7 +220,7 @@ a {
     visibility: visible;
   }
 
-  .modal {
+  .modalBox {
     position: fixed;
     opacity: 0.5;    
     width: 80%;

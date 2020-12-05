@@ -11,6 +11,7 @@ Never open you're .md notes again, it's automatic and as fast as your fingers ca
 * Set alarms
 * Customize & enrich: add views, topics, links, slides to views
 * Fullscreen mode
+* Automatic repeat copy when mousedown > 3sec
 
 |Key|Action|  
 |---|---|  
