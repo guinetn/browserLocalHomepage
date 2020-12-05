@@ -1,16 +1,16 @@
-# Basecamp: new explorer
+# Brain cache
 
-![](assets/img/nex.png)  
-You dream about this basecamp that offers a huge time savings.   
-Never open you're .md notes again, it's automatic and as fast as your fingers.  
+![](assets/img/bka.png)  
+Never open you're .md notes again, it's automatic and as fast as your fingers can move.  
 
-![screenshoot](assets/img/screenshoot01.png)
+![screenshoot](assets/img/bka_sreenshoot_01.png)
 
 # Features
 * Navigate in views   
 * Navigate in view's slides 
 * Set alarms
 * Customize & enrich: add views, topics, links, slides to views
+* Fullscreen mode
 
 |Key|Action|  
 |---|---|  
@@ -19,10 +19,12 @@ Never open you're .md notes again, it's automatic and as fast as your fingers.
 |<kbd>→</kbd> | Start slides navigation for current view|  
 |<kbd>←</kbd> <kbd>→</kbd> | Navigate in slides of the current view|   
 |<kbd>SHIFT</kbd><br>or <kbd>←</kbd> on 1st slide | Exit slide navigation<br>Slide page is memorized: come back to it with <kbd>→</kbd> |  
+|<kbd>F</kbd> key | Fullscreen mode|  
+|<kbd>ESC</kbd> key | Exit Fullscreen mode|  
 
 # Configuration
 
-![configuration](assets/img/config.png)
+![configuration](assets/img/bka_config.png)
 
 ### Use from server side
 1. Clone-it on github  
@@ -42,7 +44,7 @@ Never open you're .md notes again, it's automatic and as fast as your fingers.
 
 # Customize
 
-Refer to config.png for a global view of the process.
+Refer to bka_config.png for a global view of the process.
 
 ## Adding a view
 
@@ -86,13 +88,11 @@ Topics are defined in assets/topics.json
 an unique option: 
  
     <div class="topics">   
-       <div id="news" data-info='-t'></div>   ← '-t' will remove the topic's title (it display online the links, tou won't see the "News" in aqua color below)
+       <div id="news" data-info='-t'></div>   ← '-t' will remove the topic's title (it display the links 'inline', you won't see the 'News' in aqua color below)
     </div>    
-
-
 ```
 ***Result***  
-![view+topic](assets/img/view-topic.png)      
+![view+topic](assets/img/bka_view-topic.png)      
 
 > You can change colors in ```css/index.css```
 
@@ -148,7 +148,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 * Audio (speaker)
 * Visual message
 
-![](assets/img/alarms.png)
+![](assets/img/bka_alarms.png)
 
 * Click the clock  
 * Optionally enter a text in relation to the alarm  

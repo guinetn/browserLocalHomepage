@@ -51,7 +51,7 @@ class app {
 
 	onSlideKeydown(e) {
 		if (e.keyCode == 27 || e.shiftKey) {
-		 	// [ESC] or [shift]	 	
+		 	// [ESC] or [shift]	key 	
 		 	this.toggleSlidesVisibility(false);		 	
 		 	if (this.currentSlide>0)
 		 		this.currentSlide--; // to come back on the same slide after [esc]] (as we do [→] to show it again, we don't want slide+0)
@@ -59,14 +59,17 @@ class app {
 		 }
 		 else {	 	
 			switch (e.keyCode) {
-		        case 37: // left          	        	          
+		        case 37: // left arrow key          	        	          
 		          this.changeSlide(-1);
 		          break;
-		        case 39: // right	        	          
+		        case 39: // right arrow key	        	          
 		          this.changeSlide(+1);	          
 		          break;
-		        case 70: // f
-		          utils.fullScreen(this.currentView);
+				case 70: // f key
+					if (this.slidesVisible)
+						utils.fullScreen(this.slides[this.currentSlide]);
+					else
+					  	utils.fullScreen(this.currentView.dom);
 		          break;
 		    }
 		 } 
