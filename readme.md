@@ -123,13 +123,29 @@ Just create a .md file having the same name of the view in ```assets/slides```
 ```md
 home.md
 
-Next <iFrame> show you a playable/fullscrennable video:
-<iframe src="//www.youtube.com/embed/I0eVwo1VCuU?rel=0" frameborder="0" allowfullscreen></iframe>
-
+Slide 1.
 # My Awesome Slide #1
 
+lorem.........  
+  
 How to add an image with the right path to:
 ![](assets/img/cloud.png)
+
+----
+Slide 2.
+
+### Add a video
+<iframe src="//www.youtube.com/embed/I0eVwo1VCuU?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+### Add a markdown file   
+download.md(assets/slides/code.md)
+
+### Add raw data   
+download.div(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
+
+### Add a code file  
+download.code(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

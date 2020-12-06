@@ -1,19 +1,31 @@
-# D
+# K
+
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis similique itaque iste laboriosam officia doloribus voluptate unde! Ut, recusandae error neque quam facere facilis maxime! Tempore quaerat quas necessitatibus excepturi!
 Laudantium iusto, quibusdam placeat, inventore aspernatur eligendi vitae quod quis ducimus praesentium nam nobis dolor dolorum nesciunt. Autem culpa, facilis recusandae non provident accusantium sit iste velit rem repellat ipsam?
 Aperiam magni voluptatibus veniam illum quaerat numquam esse, consectetur doloremque ipsum amet nostrum fugiat dolorem voluptas tenetur facilis laboriosam dignissimos assumenda vitae? Veniam, perferendis! Nihil nisi quia ad voluptas consectetur!
 Fuga unde laudantium inventore et esse magnam? Ratione exercitationem quisquam tempore corporis minima, ea molestias cumque eum quis assumenda quae aut error dicta et, maiores nisi enim ipsam excepturi dolores.
 Dicta quam error dolore hic maiores provident delectus quidem nam quasi facere assumenda, aliquid laboriosam expedita, odit, nulla neque ad officiis quo! Error qui atque illum amet tempore libero eos. 
-    
-----
-# c++ 2.0
+```js
+var a = 1;
+const pi = 3.14;
+```
 
-bka.raw(https://github.com/mortennobel/cpp-cheatsheet/blob/master/cheatsheet-as-sourcefile.cpp)
-bka.code(https://github.com/mortennobel/cpp-cheatsheet/blob/master/cheatsheet-as-sourcefile.cpp)
+----
+
+# Code .md
+
+download.md(assets/slides/web.md);
+
+----
+
+# c++ 2.0 CODE
+
+download.code(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
 
 ----
 
 # C
+
 lorem.........
 lorem.........#include  <stdio.h>         // Insert standard header file
 #include "myfile.h"         // Insert file in current directory
@@ -29,8 +41,11 @@ lorem.........#include  <stdio.h>         // Insert standard header file
 <iframe src="//www.youtube.com/embed/I0eVwo1VCuU?rel=0" frameborder="0" allowfullscreen></iframe>
 
 <div class="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor, nemo suscipit, mollitia quod omnis adipisci temporibus quaerat eum tenetur, cupiditate porro animi quis? Sit, eos quis. Odit quam non fugit?</div>
+
 ----
+
 # C++
+
 ```cpp
 // This is a source version of the cpp cheatsheet available here. Note that this does not compile but may have better
 // color-highlight than the markdown version in an editor.
