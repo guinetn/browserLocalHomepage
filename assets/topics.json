@@ -38,7 +38,7 @@
 		"https://www.google.com/maps/timeline(google maps timeline)",
 		"https://adssettings.google.com(google ads settings)",
 		"https://developers.google.com",		 
-		"https://developers.google.com/products",		 
+		"https://developers.google.com/products(developers.google.com/products)",		 
 		"https://developers.google.com/analytics(developers.google.com/analytics)"
 	],
 	"microsoft": [
@@ -85,7 +85,8 @@
 		"https://fable.io/samples-browser/d3map(countries name on globe)",		
 		"https://kripken.github.io/BananaBread/cube2/bb.html(doom like)",		
 		"https://duckface-hunt.glitch.me(duck hunt with facial reco)",		
-		"https://jsfiddle.net/q76uzxwe/1(jsfiddle chess)"
+		"https://jsfiddle.net/q76uzxwe/1(jsfiddle chess)",
+		"https://p5js.org(p5js: browser's sketch)"
 	],	
 	"crowdfunding": [
 		"https://www.patreon.com",
@@ -299,6 +300,15 @@
 		"https://www.analyticsvidhya.com",
 		"https://anaconda.org"
 	],	
+
+	"ml_samples": [
+		"https://teachablemachine.withgoogle.com(Google Teachable Machine)",
+		"https://www.analyticsvidhya.com/blog/2020/12/deep-learning-with-google-teachable-machine(Head Mouse Control using Google Teachable Machine)"
+	],
+
+	"embedded_ml": [
+		"https://coral.ai(coral.ai: toolkit to build products with local AI)"
+	],
 
 
 
