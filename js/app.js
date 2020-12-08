@@ -8,263 +8,283 @@ const config = {
   mouseDownDurationForCopySec: 3,
 };
 class bka {
+  currentView = null;
+  views = []; // [{ id:0, dom: null, name: '', slideId: 0 }, …]
+  viewName = null;
+  viewMeter = null;
+  currentSlide = 0;
+  currentSlidesFile = null;
+  slidesVisible = null;
+  slides = [];
+  slidesFolder = "";
 
-	currentView = null;
-	views = []; // [{ id:0, dom: null, name: '', slideId: 0 }, …]
-	currentSlide = 0;
-	currentSlidesFile = null;
-	slidesVisible = null;
-	slides = [];
-	slidesFolder = '';
+  isMouseDown = false;
+  mouseDownTime = null;
 
-	isMouseDown = false;
-	mouseDownTime = null;
+  constructor(slidesFolder, viewsSelector) {
+    document
+      .querySelectorAll(viewsSelector)
+      .forEach((v, i) =>
+        this.views.push({ id: i, name: v.id, dom: v, slideId: 0 })
+      );
+    this.currentView = this.views[0];
+    this.slidesFolder = slidesFolder;
 
-	constructor(slidesFolder, viewsSelector) {
-		document.querySelectorAll(viewsSelector).forEach((v, i) =>
-			this.views.push({ id: i, name: v.id, dom: v, slideId: 0 }) );
-		this.currentView = this.views[0];
-		this.slidesFolder = slidesFolder;
+    this.viewName = document.getElementById("viewName");
+    this.viewMeter = document.getElementById("viewMeter");
+    utils.downloadJsonFile("assets/topics.json", this.extractTopics);
+  }
 
-		utils.downloadJsonFile("assets/topics.json", this.extractTopics);
-	}
+  heartbeat() {
+    if (!this.isMouseDown) return;
 
-	heartbeat() {
-		if (! this.isMouseDown)
-			return;
+    const mouseDownDurationSec = (new Date() - this.mouseDownTime) / 1000;
+    if (config.mouseDownDurationForCopySec <= mouseDownDurationSec) {
+      utils.copyToClipboard(document.getSelection());
+      this.mouseDownTime = new Date();
+    }
+  }
 
-		const mouseDownDurationSec = (new Date() - this.mouseDownTime) / 1000;
-		if (config.mouseDownDurationForCopySec <= mouseDownDurationSec)
-		{
-			  utils.copyToClipboard(document.getSelection());					
-			  this.mouseDownTime = new Date();
-		}
-	}
+  scrollTo(y = 0) {
+    document.documentElement.scrollTo({ top: y, behavior: "smooth" });
+  }
 
-	scrollTo (y=0) {
-		document.documentElement.scrollTo({ top: y, behavior: "smooth" });
-	}
+  onViewKeydown(e) {
+    if (e.shiftKey) return;
 
-	onViewKeydown (e) {
-		if (e.shiftKey) 
-			return;		
-			
-		let key = e.key.toLowerCase();
+    let key = e.key.toLowerCase();
 
-		// Navigate in views by [+] or [CTRL + →]
-		if (e.key == "+" || (e.ctrlKey && e.keyCode == 39  /*right*/)) {
-			this.currentView = this.views[this.views.length <= this.currentView.id + 1 ? 0 : this.currentView.id + 1];
-			key = this.currentView.name.slice(0, 3);
-		}
-		// Navigate in views by "-" or [CTRL + ←]	
-		else if (e.key == "-" || (e.ctrlKey && e.keyCode == 37  /*left*/)) {
-			this.currentView = this.views[this.currentView.id - 1 < 0 ? this.views.length - 1 : this.currentView.id - 1];
-			key = this.currentView.name.slice(0, 3);
-		}
-		else if (e.ctrlKey || ![...this.views].some(v => v.name[0] == key))
-			return; // no key match a view name
+    // Navigate in views by [+] or [CTRL + →]
+    if (e.key == "+" || (e.ctrlKey && e.keyCode == 39) /*right*/) {
+      this.currentView = this.views[
+        this.views.length <= this.currentView.id + 1
+          ? 0
+          : this.currentView.id + 1
+      ];
+      key = this.currentView.name.slice(0, 3);
+    }
+    // Navigate in views by "-" or [CTRL + ←]
+    else if (e.key == "-" || (e.ctrlKey && e.keyCode == 37) /*left*/) {
+      this.currentView = this.views[
+        this.currentView.id - 1 < 0
+          ? this.views.length - 1
+          : this.currentView.id - 1
+      ];
+      key = this.currentView.name.slice(0, 3);
+    } else if (e.ctrlKey || ![...this.views].some((v) => v.name[0] == key))
+      return; // no key match a view name
 
-		e.preventDefault();
-		this.scrollTo(0);
-		// hide slides
-		this.toggleSlidesVisibility(false);
-		// display view
-		this.views.forEach(view => view.name.slice(0, key.length) == key ? view.dom.classList.add("active") : view.dom.classList.remove("active"));
-	}
+    e.preventDefault();
+    this.scrollTo(0);
+    // hide slides
+    this.toggleSlidesVisibility(false);
+    // display view
+    this.views.forEach((view) =>
+      view.name.slice(0, key.length) == key
+        ? view.dom.classList.add("active")
+        : view.dom.classList.remove("active")
+    );
+  }
 
-	onSlideKeydown (e) {
-		if (e.keyCode == 27 || e.shiftKey) {
-			// [ESC] or [shift]	key 	
-			this.toggleSlidesVisibility(false);
-			if (this.currentSlide > 0)
-				this.currentSlide--; // to come back on the same slide after [esc]] (as we do [→] to show it again, we don't want slide+0)
-			this.currentView.slideId = this.currentSlide + 1; // memo thz slide id to retrieve after anothers view navigation and come back 
-		}
-		else {
-			switch (e.keyCode) {
-				case 37: // left arrow key          	        	          
-					this.changeSlide(-1);
-					break;
-				case 39: // right arrow key	        	          
-					this.changeSlide(+1);
-					break;
-				case 70: // f key
-					if (this.slidesVisible)
-						utils.fullScreen(this.slides[this.currentSlide]);
-					else
-						utils.fullScreen(this.currentView.dom);
-					break;
-			}
-		}
-	}
-	async changeSlide (direction) {
+  onSlideKeydown(e) {
+    if (e.keyCode == 27 || e.shiftKey) {
+      // [ESC] or [shift]	key
+      this.toggleSlidesVisibility(false);
+      if (this.currentSlide > 0) this.currentSlide--; // to come back on the same slide after [esc]] (as we do [→] to show it again, we don't want slide+0)
+      this.currentView.slideId = this.currentSlide + 1; // memo thz slide id to retrieve after anothers view navigation and come back
+    } else {
+      switch (e.keyCode) {
+        case 37: // left arrow key
+          this.changeSlide(-1);
+          break;
+        case 39: // right arrow key
+          this.changeSlide(+1);
+          break;
+        case 70: // f key
+          if (this.slidesVisible)
+            utils.fullScreen(this.slides[this.currentSlide]);
+          else utils.fullScreen(this.currentView.dom);
+          break;
+      }
+    }
+  }
+  async changeSlide(direction) {
+    if (this.currentSlidesFile != this.currentView.name) {
+      this.createSlidesInDom(this.currentSlidesFile);
+      this.currentSlide = this.currentView.slideId;
+      return;
+    }
 
-		if (this.currentSlidesFile != this.currentView.name) {
-			this.createSlidesInDom(this.currentSlidesFile);
-			this.currentSlide = this.currentView.slideId;
-			return;
-		}
+    // Press [←] while on first slide: hide
+    if (this.currentSlide == 0 && direction == -1) {
+      this.toggleSlidesVisibility(false);
+      return;
+    }
+    // Press [→] while slides are not visible: show
+    else if (!this.slidesVisible && this.currentSlide == 0 && direction == +1) {
+      this.scrollTo(0);
+      this.toggleSlidesVisibility(true);
+      return;
+    }
 
-		// Press [←] while on first slide: hide		
-		if (this.currentSlide == 0 && direction == -1) {
-			this.toggleSlidesVisibility(false);
-			return;
-		}
-		// Press [→] while slides are not visible: show			
-		else if (!this.slidesVisible && this.currentSlide == 0 && direction == +1) {
-			this.scrollTo(0);
-			this.toggleSlidesVisibility(true);
-			return;
-		}
+    this.currentSlide += direction;
+    if (this.slides.length <= this.currentSlide) this.currentSlide = 0;
+    else if (this.currentSlide < 0) this.currentSlide = 0;
 
-		this.currentSlide += direction;
-		if (this.slides.length <= this.currentSlide)
-			this.currentSlide = 0;
-		else if (this.currentSlide < 0)
-			this.currentSlide = 0;
+    this.scrollTo(0);
+    this.toggleSlidesVisibility(true);
+  }
+  async downloadViewSlides(folder, slideFile) {
+    try {
+      let response = await fetch(`${folder}/${slideFile}.md`);
+      let markdown = await response.text();
 
-		this.scrollTo(0);
-		this.toggleSlidesVisibility(true);
-	}
-	async downloadViewSlides (folder, slideFile) {
-		try {
-			let response = await fetch(`${folder}/${slideFile}.md`);
-			let markdown = await response.text();
+      const html = this.markdownToHtml(markdown);
+	  const htmlSides = html.split("<hr />");
+	  this.viewMeter.value = 0;
+	  this.viewMeter.max = htmlSides.length;
+      return htmlSides;
+    } catch (e) {
+      console.log(`Error in downloadViewSlides(${slideFile})`, e);
+    }
+  }
+  createSlidesInDom() {
+    this.deleteExistingSlides();
 
-			const html = this.markdownToHtml(markdown);
-			const htmlSides = html.split("<hr />");
-			return htmlSides;
-		}
-		catch (e) {
-			console.log(`Error in downloadViewSlides(${slideFile})`, e);
-		}
-	}
-	createSlidesInDom() {
+    this.currentSlidesFile = this.currentView.name;
 
-		this.deleteExistingSlides();
+    this.downloadViewSlides(this.slidesFolder, this.currentSlidesFile).then(
+      (htmlSlides) => {
+        this.appendSlides(htmlSlides);
+        this.slides = document.querySelectorAll(".slide");
+        this.toggleSlidesVisibility(true);
+        this.renderCurrentSlide();
+        PR.prettyPrint();
+      }
+    );
+  }
+  appendSlides(slides) {
+    slides.forEach((html, i) => {
+      const slide = document.createElement("div");
+      slide.innerHTML = `<div>${slides[i]}</div>`;
+      slide.id = `p${i + 1}`;
+      slide.className = "slide";
+      document.querySelector("#main").appendChild(slide);
+    });
+  }
+  markdownToHtml(data) {
+    // Transform md → html
+    var converter = new showdown.Converter({
+      extensions: ["BkaShowDownExtension"],
+    });
+    // var converter = new showdown.Converter();
+    return converter.makeHtml(data);
+  }
+  renderCurrentSlide() {
+	this.viewMeter.value = this.currentSlide+1;
+    this.slides.forEach((s, i) =>
+      this.slidesVisible && i == this.currentSlide
+        ? s.classList.add("current")
+        : s.classList.remove("current")
+    );
+  }
+  toggleSlidesVisibility(forceVisibility) {
+    if (forceVisibility != undefined) this.slidesVisible = forceVisibility;
+    else this.slidesVisible = !this.slidesVisible;
 
-		this.currentSlidesFile = this.currentView.name;
+    // ViewName animation
+    this.viewName.childNodes[0].innerText = `${this.currentView.name}'s slides`;
+    this.slidesVisible
+      ? this.viewName.classList.add("visible")
+      : this.viewName.classList.remove("visible");
 
-		this.downloadViewSlides(this.slidesFolder, this.currentSlidesFile)
-			.then((htmlSlides) => {
-				this.appendSlides(htmlSlides);
-				this.slides = document.querySelectorAll(".slide");
-				this.toggleSlidesVisibility(true);
-				this.renderCurrentSlide();	
-				PR.prettyPrint();			 
-			});
-	}
-	appendSlides (slides) {
-		slides.forEach((html, i) => {
-			const slide = document.createElement("div");
-			slide.innerHTML = `<div>${slides[i]}</div>`;
-			slide.id = `p${i + 1}`;
-			slide.className = "slide";
-			document.querySelector("#main").appendChild(slide);
-		});
-	}
-	markdownToHtml (data) {
-		// Transform md → html
-		var converter = new showdown.Converter({extensions: ["BkaShowDownExtension"]});
-		// var converter = new showdown.Converter();
-		return converter.makeHtml(data);
-	}
-	renderCurrentSlide () {
-		this.slides.forEach((s, i) => (this.slidesVisible && i == this.currentSlide) ? s.classList.add("current") : s.classList.remove("current"));
-	}
-	toggleSlidesVisibility (forceVisibility) {
-		if (forceVisibility != undefined)
-			this.slidesVisible = forceVisibility;
-		else
-			this.slidesVisible = !this.slidesVisible;
+    this.renderCurrentSlide();
+    // this.progress.setProgress("#progress-page", this.pageCount(), this.current);
+  }
+  deleteExistingSlides() {
+    if (this.slides.length > 0) this.slides.forEach((s) => s.remove());
 
-		this.renderCurrentSlide();
-		// this.progress.setProgress("#progress-page", this.pageCount(), this.current);
-	}
-	deleteExistingSlides () {
-		if (this.slides.length > 0)
-			this.slides.forEach(s => s.remove());
+    this.slides = null;
+    this.currentSlide = 0;
+  }
 
-		this.slides = null;
-		this.currentSlide = 0;
-	}
-	
-	extractTopics(topics, callback) {
-		const regex = /(?<link>[^\[\(]*)+(\[+(?<classes>[^\]]*)?\]+)*(\(+(?<description>[^\)]*)?\)+)*/;
+  extractTopics(topics, callback) {
+    const regex = /(?<link>[^\[\(]*)+(\[+(?<classes>[^\]]*)?\]+)*(\(+(?<description>[^\)]*)?\)+)*/;
 
-		for (var topic in topics) {
-			
-			const topicType = typeof topics[topic];
-			if (topicType == "object" || topicType == "array") {
-			
-			const container = document.querySelector(`#${topic}`);
-			if (container == undefined) continue;
+    for (var topic in topics) {
+      const topicType = typeof topics[topic];
+      if (topicType == "object" || topicType == "array") {
+        const container = document.querySelector(`#${topic}`);
+        if (container == undefined) continue;
 
-			const containerAttr = container.getAttribute("data-info");
-			if (
-				containerAttr == null ||
-				(containerAttr != null && containerAttr.toLowerCase().indexOf("-t") < 0)
-			) {
-				// Add topic title
-				let h3 = document.createElement("h3");
-				h3.innerText = topic.toUpperCase().replace("_", " ");
-				container.appendChild(h3);
-			}
+        const containerAttr = container.getAttribute("data-info");
+        if (
+          containerAttr == null ||
+          (containerAttr != null &&
+            containerAttr.toLowerCase().indexOf("-t") < 0)
+        ) {
+          // Add topic title
+          let h3 = document.createElement("h3");
+          h3.innerText = topic.toUpperCase().replace("_", " ");
+          container.appendChild(h3);
+        }
 
-			topics[topic].forEach(function (item) {
-				var m = regex.exec(item); // ex: "https://gmail.com[fas fa-envelope](GMAIL)"
-				if (m != null) {
-				let link = m.groups["link"];
-				let classes = m.groups["classes"];
-				let description = m.groups["description"];
+        topics[topic].forEach(function (item) {
+          var m = regex.exec(item); // ex: "https://gmail.com[fas fa-envelope](GMAIL)"
+          if (m != null) {
+            let link = m.groups["link"];
+            let classes = m.groups["classes"];
+            let description = m.groups["description"];
 
-				let elem = bka.createTopic(link, classes, description);
-				if (elem != null) container.appendChild(elem);
-				} else console.log(`ExtractTopics(): Error in parsing ${item}`);
-			});
-			}
-		}
-	}
+            let elem = bka.createTopic(link, classes, description);
+            if (elem != null) container.appendChild(elem);
+          } else console.log(`ExtractTopics(): Error in parsing ${item}`);
+        });
+      }
+    }
+  }
 
-	static simplifyLink(link) {
-		/*
+  static simplifyLink(link) {
+    /*
 		https://developers.google.com/analytics → developers.google.com/analytics
 		https://www.nasaspaceflight.com			→ nasaspaceflight.com 
 	
 		*/
-		let match = /((?<prot>https?):\/{2}(w{3})?\.?(?<domain>[^/]*)\/?(?<query>.*)?|(?<link>.*))?/.exec(link);
-		if (match != null) {
-			if (match.groups["link"] != undefined) return match.groups["link"];
-			else return match.groups["domain"];
-		}
-	}
+    let match = /((?<prot>https?):\/{2}(w{3})?\.?(?<domain>[^/]*)\/?(?<query>.*)?|(?<link>.*))?/.exec(
+      link
+    );
+    if (match != null) {
+      if (match.groups["link"] != undefined) return match.groups["link"];
+      else return match.groups["domain"];
+    }
+  }
 
-	static createTopic(link, classes, description) {
-		const prefix = (classes || 'block').indexOf('inline') >= 0 ? "inline" : "block";
-		const fragment = document.getElementById(`${prefix}LinkTemplate`);
-		const instance = document.importNode(fragment.content, true);
+  static createTopic(link, classes, description) {
+    const prefix =
+      (classes || "block").indexOf("inline") >= 0 ? "inline" : "block";
+    const fragment = document.getElementById(`${prefix}LinkTemplate`);
+    const instance = document.importNode(fragment.content, true);
 
-		let a = instance.querySelector(".topicLink");
-		a.href = link;
-		a.title = link;
-		if (classes != undefined)
-			classes.split(' ').forEach(cl => a.classList.add(cl)); // classlist doesn't accept spaces...  
+    let a = instance.querySelector(".topicLink");
+    a.href = link;
+    a.title = link;
+    if (classes != undefined)
+      classes.split(" ").forEach((cl) => a.classList.add(cl)); // classlist doesn't accept spaces...
 
-		if (prefix != 'inline')
-			a.innerText = description || this.simplifyLink(link) || "???";
+    if (prefix != "inline")
+      a.innerText = description || this.simplifyLink(link) || "???";
 
-		return instance;
-	}
+    return instance;
+  }
 
-	onMouseDown(e) {
-		this.mouseDownTime = new Date();
-		this.isMouseDown = true;
-	}
-	onMouseUp(e) {
-		this.isMouseDown = false;		
-		this.mouseDownTime = null;
-	}
-
+  onMouseDown(e) {
+    this.mouseDownTime = new Date();
+    this.isMouseDown = true;
+  }
+  onMouseUp(e) {
+    this.isMouseDown = false;
+    this.mouseDownTime = null;
+  }
 }
 
 let utils = {
