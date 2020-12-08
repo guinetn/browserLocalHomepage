@@ -205,18 +205,23 @@
 
     <div class="mgl20"> 
 
-      <h4>⚙️ Unix Timestamp (Unix epoch, Unix time, POSIX time)</h4>
-      <small>Seconds elapsed since 01/01/1970 (midnight UTC/GMT). ⚠ Issue on 32bits after 19/01/2038</small><br>
-      <input type="text" id="timestamp"><button onclick="this.previousSibling.value=Math.floor(new Date().getTime()/1000.0)">Get current timestamp</button><br>
-      <input type="text" id="timestampDecode"><button onclick="this.nextSibling.innerText=(new Date(1000*this.previousSibling.value)).toISOString()">Decode unixtimestamp</button><cite></cite><br>
-      <input type="text" id="timestampEncode"><button onclick="this.nextSibling.innerText=Date.parse(this.previousSibling.value)/1000">Encode to unixtimestamp</button><cite></cite><br>
-      <small>&nbsp; &nbsp; &nbsp;└── Iso 8601 Date: 2020-11-29T14:09:25.333Z</small><br>
-      <small>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.epochconverter.com" target="_blank">epochconverter.com</a></small>
-      
-      <h4>⚙️ Base64</h4>
-      <input type="text" name=""><button>Encode</button>
-      <input type="text" name=""><button>Decode</button>
-      <pre></pre>
+      <div class='box3d'>
+        <h4>⭐Unix Timestamp (Unix epoch, Unix time, POSIX time)</h4>
+        <small>Seconds elapsed since 01/01/1970 (midnight UTC/GMT). ⚠ Issue on 32bits after 19/01/2038</small><br>
+        <input type="text" id="timestamp"><button onclick="this.previousSibling.value=Math.floor(new Date().getTime()/1000.0)">Get current timestamp</button><br>
+        <input type="text" id="timestampDecode"><button onclick="this.nextSibling.innerText=(new Date(1000*this.previousSibling.value)).toISOString()">Decode unixtimestamp</button><cite></cite><br>
+        <input type="text" id="timestampEncode"><button onclick="this.nextSibling.innerText=Date.parse(this.previousSibling.value)/1000">Encode to unixtimestamp</button><cite></cite><br>
+        <small>&nbsp; &nbsp; &nbsp;└── Iso 8601 Date: 2020-11-29T14:09:25.333Z</small><br>
+        <small>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.epochconverter.com" target="_blank">epochconverter.com</a></small>
+      </div>
+
+      <div class='box3d'>
+        <h4>⭐Base64</h4>
+        <input type="text" name=""><button>Encode</button>
+        <input type="text" name=""><button>Decode</button>
+        <pre></pre>
+      </div>
+
     </div>
 
     <div class="topics">

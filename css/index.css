@@ -71,7 +71,7 @@ body {
 .topics {    
   display: flex;
   flex-direction: row;
-	flex-wrap: wrap;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: baseline;  
 }
@@ -90,6 +90,20 @@ body {
   font-variant: all-small-caps;
 } 
 
+.box3d {    
+  min-width: 200px;  
+  margin-bottom: 1rem;
+  padding: 5px;
+  /* border: solid 1px #cccccc63; */
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgb(0 0 0), 0 3px 12px rgb(0 0 0), 0 4px 4px rgba(0,0,0,0.11), 0 6px 8px rgba(0,0,0,0.11), 0 8px 16px rgba(0,0,0,0.11);   
+  break-inside: avoid;
+  width: fit-content;
+}
+
+.box3d > h4 {
+  margin: 0 0 1em 0;
+}
 
 /* LINKS */
 
