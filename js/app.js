@@ -138,16 +138,15 @@ class bka {
     try {
       let relativePath = `${folder}/${slideFile}.md`;
       let response = await fetch(relativePath);
-      let markdown = await response.text();
-      const ok = response.statusText.toLowerCase() == "ok";
-      if (!ok)
+      let markdown = await response.text();      
+      if (!response.ok)
         markdown = markdown.replace(relativePath, `${relativePath} ⚠️`);
       const html = this.markdownToHtml(markdown);
       const htmlSides = html.split("<hr />");
       
       // slides meter
 	    this.viewMeter.value = 0;
-	    this.viewMeter.max = ok ? htmlSides.length : 100000;
+	    this.viewMeter.max = response.ok ? htmlSides.length : 1e5;
       
       return htmlSides;
     } catch (e) {
