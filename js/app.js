@@ -12,7 +12,7 @@ class bka {
   views = []; // [{ id:0, dom: null, name: '', slideId: 0 }, …]
   viewName = null;
   viewMeter = null;
-  currentSlide = 0;
+  currentSlideId = 0;
   currentSlidesFile = null;
   slidesVisible = null;
   slides = [];
@@ -90,8 +90,8 @@ class bka {
     if (e.keyCode == 27 || e.shiftKey) {
       // [ESC] or [shift]	key
       this.toggleSlidesVisibility(false);
-      if (this.currentSlide > 0) this.currentSlide--; // to come back on the same slide after [esc]] (as we do [→] to show it again, we don't want slide+0)
-      this.currentView.slideId = this.currentSlide + 1; // memo thz slide id to retrieve after anothers view navigation and come back
+      if (this.currentSlideId > 0) this.currentSlideId--; // to come back on the same slide after [esc]] (as we do [→] to show it again, we don't want slide+0)
+      this.currentView.slideId = this.currentSlideId + 1; // memo thz slide id to retrieve after anothers view navigation and come back
     } else {
       switch (e.keyCode) {
         case 37: // left arrow key
@@ -102,7 +102,7 @@ class bka {
           break;
         case 70: // f key
           if (this.slidesVisible)
-            utils.fullScreen(this.slides[this.currentSlide]);
+            utils.fullScreen(this.slides[this.currentSlideId]);
           else utils.fullScreen(this.currentView.dom);
           break;
       }
@@ -111,38 +111,44 @@ class bka {
   async changeSlide(direction) {
     if (this.currentSlidesFile != this.currentView.name) {
       this.createSlidesInDom(this.currentSlidesFile);
-      this.currentSlide = this.currentView.slideId;
+      this.currentSlideId = this.currentView.slideId;
       return;
     }
 
     // Press [←] while on first slide: hide
-    if (this.currentSlide == 0 && direction == -1) {
+    if (this.currentSlideId == 0 && direction == -1) {
       this.toggleSlidesVisibility(false);
       return;
     }
     // Press [→] while slides are not visible: show
-    else if (!this.slidesVisible && this.currentSlide == 0 && direction == +1) {
+    else if (!this.slidesVisible && this.currentSlideId == 0 && direction == +1) {
       this.scrollTo(0);
       this.toggleSlidesVisibility(true);
       return;
     }
 
-    this.currentSlide += direction;
-    if (this.slides.length <= this.currentSlide) this.currentSlide = 0;
-    else if (this.currentSlide < 0) this.currentSlide = 0;
+    this.currentSlideId += direction;
+    if (this.slides.length <= this.currentSlideId) this.currentSlideId = 0;
+    else if (this.currentSlideId < 0) this.currentSlideId = 0;
 
     this.scrollTo(0);
     this.toggleSlidesVisibility(true);
   }
   async downloadViewSlides(folder, slideFile) {
     try {
-      let response = await fetch(`${folder}/${slideFile}.md`);
+      let relativePath = `${folder}/${slideFile}.md`;
+      let response = await fetch(relativePath);
       let markdown = await response.text();
-
+      const ok = response.statusText.toLowerCase() == "ok";
+      if (!ok)
+        markdown = markdown.replace(relativePath, `${relativePath} ⚠️`);
       const html = this.markdownToHtml(markdown);
-	  const htmlSides = html.split("<hr />");
-	  this.viewMeter.value = 0;
-	  this.viewMeter.max = htmlSides.length;
+      const htmlSides = html.split("<hr />");
+      
+      // slides meter
+	    this.viewMeter.value = 0;
+	    this.viewMeter.max = ok ? htmlSides.length : 100000;
+      
       return htmlSides;
     } catch (e) {
       console.log(`Error in downloadViewSlides(${slideFile})`, e);
@@ -176,14 +182,14 @@ class bka {
     // Transform md → html
     var converter = new showdown.Converter({
       extensions: ["BkaShowDownExtension"],
-    });
-    // var converter = new showdown.Converter();
+    });    
     return converter.makeHtml(data);
   }
   renderCurrentSlide() {
-	this.viewMeter.value = this.currentSlide+1;
-    this.slides.forEach((s, i) =>
-      this.slidesVisible && i == this.currentSlide
+  this.viewMeter.value = this.currentSlideId+1;
+  this.viewName.childNodes[0].innerHTML = `${this.currentView.name}'s slides <sup><small>${this.currentSlideId+1}/${this.slides.length}</small></sup>`;
+  this.slides.forEach((s, i) =>
+      this.slidesVisible && i == this.currentSlideId
         ? s.classList.add("current")
         : s.classList.remove("current")
     );
@@ -198,14 +204,13 @@ class bka {
       ? this.viewName.classList.add("visible")
       : this.viewName.classList.remove("visible");
 
-    this.renderCurrentSlide();
-    // this.progress.setProgress("#progress-page", this.pageCount(), this.current);
+    this.renderCurrentSlide();    
   }
   deleteExistingSlides() {
     if (this.slides.length > 0) this.slides.forEach((s) => s.remove());
 
     this.slides = null;
-    this.currentSlide = 0;
+    this.currentSlideId = 0;
   }
 
   extractTopics(topics, callback) {
