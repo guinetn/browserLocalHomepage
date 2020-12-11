@@ -306,9 +306,13 @@
 		"https://anaconda.org"
 	],	
 
+	"ml_maths": [
+		"https://ml-cheatsheet.readthedocs.io"
+	],
 	"ml_samples": [
 		"https://teachablemachine.withgoogle.com(Google Teachable Machine)",
-		"https://www.analyticsvidhya.com/blog/2020/12/deep-learning-with-google-teachable-machine(Head Mouse Control using Google Teachable Machine)"
+		"https://www.analyticsvidhya.com/blog/2020/12/deep-learning-with-google-teachable-machine(Head Mouse Control using Google Teachable Machine)",
+		"https://jairiidriss.medium.com/gradient-descent-algorithm-from-scratch-using-python-2b36c1548917"
 	],
 
 	"embedded_ml": [

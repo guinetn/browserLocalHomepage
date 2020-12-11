@@ -451,7 +451,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	  app.onMouseUp(e);
   });
   document.addEventListener("keydown", function (e) {
-    if (utils.alarmVisible || utils.isModalVisible() || e.target.type == "text")
+    if (
+      utils.alarmVisible ||
+      utils.isModalVisible() ||
+      e.target.type == "text" ||
+      e.target.type == "textarea"
+    )
       return; // we need all the keys to enter alarm msg. Exit if on a form input)
 
     app.onViewKeydown(e);
@@ -515,13 +520,22 @@ document.addEventListener("DOMContentLoaded", function () {
 /* CUSTOMIZE VIEWS */ 
 
 function view_tools_init() {
-  document.querySelector("#timestamp").value = Math.floor(
-    new Date().getTime() / 1000.0
-  );
-  document.querySelector("#timestampDecode").value = Math.floor(
-    new Date().getTime() / 1000.0
-  );
+  document.querySelector("#timestamp").value = Math.floor( new Date().getTime() / 1000.0 );
+  document.querySelector("#timestampDecode").value = Math.floor( new Date().getTime() / 1000.0 );
   document.querySelector("#timestampEncode").value = new Date().toISOString();
+
+  var b64PlainText = document.getElementById("b64PlainText");
+  var b64EncodedText = document.getElementById("b64EncodedText");
+  document.getElementById("b64Encode").addEventListener("click", function () {
+    b64EncodedText.value = btoa(b64PlainText.value);
+  });
+  document.getElementById("b64Decode").addEventListener("click", function () {
+    b64PlainText.value = atob(b64EncodedText.value);
+  });
+
+  btoa(text);
+  atob(text);  
+
 }
 
 
