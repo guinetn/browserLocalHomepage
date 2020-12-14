@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,500,600,700');
+
 :root {
   --slideBg: #1d1b18;
 }
@@ -37,10 +39,6 @@
 }
 
 
-
-.current {
-  display: block;
-}  
 
 .slide a {
   text-decoration: underline;
@@ -98,4 +96,39 @@
   #progress {
     display: none;
   }
+}
+
+
+/* TOC  */
+
+.sticky {
+  display: none; 
+  position: fixed;
+  top: 3em;
+  left: 82%;
+  width: 250px;
+  background-color: #0008;
+  text-overflow: ellipsis;
+  height: fit-content;  
+  font-family: 'Cabin';
+  border: solid 1px #707164;
+  border-radius: 20px;
+}  
+
+.sticky a {
+  color: white;
+}
+
+.pl-1 {
+  padding-left: 1rem;
+}
+
+/* MUST STAY HERE (CSS PRIORITY) */
+.current {
+  display: block;
+}  
+
+.sticky a.active-title {
+  font-weight: 700;
+  color: #bb2205;
 }

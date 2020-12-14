@@ -35,7 +35,7 @@ class bka {
     utils.downloadJsonFile("assets/topics.json", null, this.extractTopics);
   }
 
-  heartbeat() {
+  tick() {
     if (!this.isMouseDown) return;
 
     const mouseDownDurationSec = (new Date() - this.mouseDownTime) / 1000;
@@ -210,6 +210,7 @@ class bka {
         ? s.classList.add("current")
         : s.classList.remove("current")
     );
+    initToc();
   }
   toggleSlidesVisibility(forceVisibility) {
     if (forceVisibility != undefined) this.slidesVisible = forceVisibility;
@@ -281,43 +282,77 @@ class bka {
     }
   }
 
-  static createTopicFromApi(prefix, typeOfCall ,link, classes) {
+
+
+  static createTopicFromApi(prefix, typeOfCall, link, classes, description) {
     var hash = `api_${utils.getHash(link)}`;
     let apiElement =
-      prefix == "block" ? document.createElement("div") : document.createElement("span");
+      prefix == "block"
+        ? document.createElement("div")
+        : document.createElement("span");
     apiElement.id = hash;
     apiElement.className = "topicLink";
+    if (description) apiElement.innerHTML = description;
 
-    switch(typeOfCall) {
-      
-      case 'json':
-        utils.downloadJsonFile(link, [hash, classes], function (options, res) {    
-        const hash = options[0];
-        const classes = options[1];
-        const tag = document.getElementById(hash);
-
-        const regex = /(?<=\=)\w*/g;
-        let matches = classes.match(regex);
-        if (matches != null) {
-            matches.forEach((classKey) => {
-              for (var k in res) {
-                if (k == classKey) tag.innerHTML += res[classKey];
-              }
-            });
-          }
-        });
-        break;
-        
-      case 'text':
-          utils.downloadTextFile(link, [hash, classes], function (options, res) {    
-            const hash = options[0];        
+    switch (typeOfCall) {
+      case "json":
+        utils.downloadJsonFile(
+          link,
+          [hash, classes, description, this],
+          function (options, jsonObject) {
+            const hash = options[0];
+            const classes = options[1];
+            const description = options[2];
             const tag = document.getElementById(hash);
-            tag.innerHTML = res;        
-          });
-          break;
 
+            const regex = /(?<=\=)\w*/g;
+            let matches = classes.match(regex);
+            if (matches != null) {
+              let content = tag.innerHTML;
+              matches.forEach((stringToExtract) => {
+                options[3].jsonExplorer(
+                  jsonObject,
+                  stringToExtract,
+                  function (found) {
+                    if (content.indexOf(stringToExtract) >= 0) {
+                      content = content.replace(`$${stringToExtract}`, found);
+                      tag.innerHTML = content;
+                    } else 
+                      tag.innerHTML += found;
+                    
+                    tag.title = link;                    
+                  }
+                );
+              });
+            }
+          }
+        );
+        break;
+
+      case "text":
+        utils.downloadTextFile(
+          link,
+          [hash, classes, description],
+          function (options, jsonObject) {
+            const hash = options[0];
+            const tag = document.getElementById(hash);
+            tag.innerHTML = jsonObject;
+            tag.title = link;
+          }
+        );
+        break;
     }
     return apiElement;
+  }
+
+  static jsonExplorer(jsonObject, stringToExtract, callback) {
+    for (var key in jsonObject) {
+      const topicType = typeof jsonObject[key];
+      if (topicType == "object" || topicType == "array") 
+        this.jsonExplorer(jsonObject[key], stringToExtract, callback);
+      else if (key == stringToExtract) 
+            callback(jsonObject[stringToExtract]);
+    }
   }
 
   static createTopic(link, classes, description) {
@@ -325,10 +360,21 @@ class bka {
       (classes || "block").indexOf("inline") >= 0 ? "inline" : "block";
 
     if (classes && classes.indexOf("!getjson") >= 0)
-      return this.createTopicFromApi( prefix, 'json', link, classes );
+      return this.createTopicFromApi(
+        prefix,
+        "json",
+        link,
+        classes,
+        description
+      );
     else if (classes && classes.indexOf("!gettext") >= 0)
-      return this.createTopicFromApi(prefix, "text", link, classes);      
-    
+      return this.createTopicFromApi(
+        prefix,
+        "text",
+        link,
+        classes,
+        description
+      );
 
     const fragment = document.getElementById(`${prefix}LinkTemplate`);
     const instance = document.importNode(fragment.content, true);
@@ -374,11 +420,11 @@ let utils = {
   externalHeartbeat: null,
 
   init: function (context = null) {
-    this.externalHeartbeat = context.heartbeat.bind(context);
-    setInterval(() => this.heartbeat(), 1000);
+    this.externalHeartbeat = context.tick.bind(context);
+    setInterval(() => this.tick(), 1000);
   },
 
-  heartbeat: function () {
+  tick: function () {
     this.clock.innerText = getTime();
     if (this.externalHeartbeat != null) this.externalHeartbeat();
     if (this.alarmTimer) {
@@ -391,7 +437,7 @@ let utils = {
 
   copyToClipboard: async function (stringToCopy, show = null) {
     try {
-      await navigator.clipboard.writeText(stringToCopy);
+      await navigator.clipboard.writeText(stringToCopy.toString());
       this.snackbar(`copied ${show == true ? stringToCopy : ""}`);
     } catch (err) {
       console.error(`Failed to copy ${stringToCopy}`, err);
@@ -703,3 +749,116 @@ function view_tools_init() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+async function initToc() {
+  // Part 1
+  const currentSlide = document.querySelector(".slide.current");
+  const slideToc = document.querySelector("#slide_toc");
+  if (!currentSlide) {           
+    slideToc.classList.remove("current");
+    return;
+  }
+
+  slideToc.classList.add("current");
+
+  // Part 2
+  const $headings = [...currentSlide.querySelectorAll("h1, h2")];
+  const linkHtml = generateLinkMarkup($headings);
+  slideToc.innerHTML = linkHtml;
+
+  // Part 3
+  const $links = [...slideToc.querySelectorAll("a")];
+  const observer = createObserver($links);
+  $headings.map((heading) => observer.observe(heading));
+
+  // Part 4
+  const motionQuery = window.matchMedia("(prefers-reduced-motion)");
+  $links.map((link) => {
+    link.addEventListener("click", (evt) =>
+      handleLinkClick(evt, $headings, motionQuery)
+    );
+  });
+}
+
+
+function generateLinkMarkup($headings) {
+  console.log($headings);
+  const parsedHeadings = $headings.map((heading) => {
+    return {
+      title: heading.innerText,
+      depth: heading.nodeName.replace(/\D/g, ""),
+      id: heading.getAttribute("id"),
+    };
+  });
+  const htmlMarkup = parsedHeadings.map(
+    (h) => `
+  <li class="${h.depth > 1 ? "pl-1" : ""}">
+    <a href="#${h.id}">${h.title}</a>
+  </li>
+  `
+  );
+  const finalMarkup = `
+    <ul>${htmlMarkup.join("")}</ul>
+  `;
+  return finalMarkup;
+}
+
+function updateLinks(visibleId, $links) {
+  $links.map((link) => {
+    let href = link.getAttribute("href");
+    link.classList.remove("active-title");
+    if (href === visibleId) link.classList.add("active-title");
+  });
+}
+
+function handleObserver(entries, observer, $links) {
+  entries.forEach((entry) => {
+    const { target, isIntersecting, intersectionRatio } = entry;
+    if (isIntersecting && intersectionRatio >= 1) {
+      const visibleId = `#${target.getAttribute("id")}`;
+      updateLinks(visibleId, $links);
+    }
+  });
+}
+
+function createObserver($links) {
+  const options = {
+    rootMargin: "0px 0px 0px 0px",
+    threshold: 1,
+  };
+
+  const callback = (e, o) => handleObserver(e, o, $links);
+  return new IntersectionObserver(callback, options);
+}
+
+function handleLinkClick(evt, $headings, motionQuery) {
+  evt.preventDefault();
+  let id = evt.target.getAttribute("href").replace("#", "");
+  let section = $headings.find((heading) => heading.getAttribute("id") === id);
+  section.setAttribute("tabindex", -1);
+  section.focus();
+
+  window.scroll({
+    behavior: motionQuery.matches ? "instant" : "smooth",
+    top: section.offsetTop - 20,
+  });
+}

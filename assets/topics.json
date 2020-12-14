@@ -7,8 +7,7 @@
 		"https://coggle.it[inline fas fa-sitemap]",
 		"https://www.pinterest.fr/nguinet[inline fab fa-pinterest]",
 		"https://www.facebook.com/profile.php?id=100008401895918[inline fab fa-facebook]",
-		"https://youtube.com[inline fab fa-youtube]",
-		"https://httpbin.org/ip[inline !getjson =origin]"
+		"https://youtube.com[inline fab fa-youtube]"		
 	],
 
 	"Productivity_Tools": [
@@ -50,11 +49,13 @@
 		"https://developer.microsoft.com"
 	],	
 
-	"social": [
+	"communication": [
+		"https://www.skype.com",
 		"https://www.meetup.com",
+		"https://zoom.us",
+		"https://www.slack.com",
 		"https://web.whatsapp.com",
 		"https://www.instagram.com",
-		"https://www.skype.com",
 		"https://discord.com/channels/@me"
 	],
 
@@ -65,6 +66,10 @@
 	],	
 
 	"online": [
+		"https://httpbin.org/ip[!getjson =origin](my ip: $origin)",
+		"http://ip-api.com/json/[!getjson =lat =lon](my lat/lon: $lat $lon)",
+		"http://api.open-notify.org/iss-now.json[!getjson =latitude =longitude](iss: $latitudeN $longitude)",
+
 		"https://docs.w3cub.com",
 		"https://vclock.com(countdown, alarms)",
 		"https://asciiflow.com",
@@ -126,9 +131,7 @@
 	"seo": [
 		"https://www.woorank.com/en/www/hotellespalmiers.com(woorank.com)"
 	],			
-	"analytics": [
-		"https://developers.google.com/analytics"
-	],		
+	
 	"node": [
 		"https://www.npmjs.org"
 	],	
@@ -204,7 +207,8 @@
 	"code_api": [
 		"https://developers.google.com/api-client-library",
 		"https://console.developers.google.com",
-		"https://app.swaggerhub.com(swagger hub)"
+		"https://app.swaggerhub.com(swagger hub)",
+		"https://swagger.io/tools/swagger-editor(swagger-editor)"
 	],	
 	"tokens": [
 		"https://github.com/settings/tokens(github)",
@@ -334,7 +338,11 @@
 		"https://webdesigner.withgoogle.com",
 		"https://www.canva.com"
 	],	
-
+	"analytics": [
+		"https://www.tableau.com/(tableau: see/understand data)",
+		"https://developers.google.com/analytics"
+	],
+	
 
 
 
