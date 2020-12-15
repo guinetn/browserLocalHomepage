@@ -101,10 +101,10 @@
 
 /* TOC  */
 
-.sticky {
+.stickytoc {
   display: none; 
   position: fixed;
-  top: 3em;
+  top: 3.2em;
   left: 82%;
   width: 250px;
   background-color: #0008;
@@ -113,9 +113,10 @@
   font-family: 'Cabin';
   border: solid 1px #707164;
   border-radius: 20px;
+  font-size: small;
 }  
 
-.sticky a {
+.stickytoc a {
   color: white;
 }
 
@@ -128,7 +129,7 @@
   display: block;
 }  
 
-.sticky a.active-title {
+.stickytoc a.active-title {
   font-weight: 700;
-  color: #bb2205;
+  color: gold;  
 }

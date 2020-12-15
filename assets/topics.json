@@ -190,6 +190,9 @@
 	"azure": [
 		"https://portal.azure.com(Microsoft Azure)"
 	],
+	"workflow": [
+		"https://www.pulumi.com(pulumi.com: Many clouds, one workflow)"
+	],
 	"serverless": [
 		"https://console.cloud.google.com/functions(Firebase cloud.google.com)"
 	],
