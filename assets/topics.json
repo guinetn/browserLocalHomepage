@@ -66,9 +66,9 @@
 	],	
 
 	"online": [
-		"https://httpbin.org/ip[!getjson =origin](my ip: $origin)",
-		"http://ip-api.com/json/[!getjson =lat =lon](my lat/lon: $lat $lon)",
-		"https://api.wheretheiss.at/v1/satellites/25544[!getjson =latitude =longitude](iss: $latitudeN $longitude)",
+		"https://httpbin.org/ip[!getjson](my ip: $origin)",
+		"http://ip-api.com/json/[!getjson](my lat/lon: $lat $lon)",
+		"https://api.wheretheiss.at/v1/satellites/25544[!getjson15](iss: $latitude N $longitude)",
 
 		"https://docs.w3cub.com",
 		"https://vclock.com(countdown, alarms)",

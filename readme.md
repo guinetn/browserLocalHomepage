@@ -99,15 +99,30 @@ an unique option:
 
 ***Topics options***  
 * Replace links by a friendly name
-* Add icons from [fontawesome](https://fontawesome.com/icons?d=gallery)
+* Add icons from [fontawesome](https://fontawesome.com/icons?d=gallery) with 'fa… fa-…'
 
 ```json
 "news": [		
-		"https://www.nytimes.com",                      ← Display "https://www.nytimes.com"  
-		"https://www.nytimes.com(THE NY TIMES)",        ← Display "THE NY TIMES"
-        "https://www.nytimes.com[fas fa-newspaper]",  ← Display an icon
-        "https://www.nytimes.com[inline fab fa-newspaper]",  ← To have icon inline (no rows)..hmm buggy
-        "https://www.washingtonpost.com"		
+		"https://www.nytimes.com",                             ← Display "https://www.nytimes.com"  
+		"https://www.nytimes.com(THE NY TIMES)",               ← Display "THE NY TIMES"
+        "https://www.nytimes.com[fas fa-newspaper]",         ← Display an icon
+        "https://www.nytimes.com[inline fab fa-newspaper]",  ← To have icon inline (no rows)
+        "https://www.washingtonpost.com"	
+
+      GET DATA FROM API
+                                      ____ !getjson60  Fetch json data every 60 sec (in sec)
+                                     /____ !getjson    Fetch json data a single time
+                                    / 
+                                   /         _____ Topic Text to render is between ()
+                                  /         /                                             
+      "https://httpbin.org/ip[!getjson](my ip: $origin)",
+                                               \
+                                                \____ Variable to search for in the json object 
+                                                      Must be $ prefixed
+                                                      Recursive search trough the json object
+      samples:
+		"http://ip-api.com/json/[!getjson =lat =lon](my lat/lon: $lat $lon)",
+		"https://api.wheretheiss.at/v1/satellites/25544[!getjson3600 =latitude =longitude](iss: $latitudeN $longitude)"
         ], 
 …	
 ```

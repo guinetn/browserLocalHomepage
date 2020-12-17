@@ -282,7 +282,64 @@ class bka {
     }
   }
 
+  static createTopicFromApiWithJson(hash, link, classes, description) {
+    utils.downloadJsonFile(
+      link,
+      [hash, classes, description, this],
+      function (options, jsonObject) {
+        const hash = options[0];        
+        let cronInterval = null;
+        if (typeof description == "array" || typeof description == "object") {
+          cronInterval = description[1];
+          description = description[0];
+        }
+        const tag = document.getElementById(hash);
 
+        if (jsonObject.error) {
+          tag.innerHTML += " ❌";
+          tag.title = jsonObject.error;
+          return;
+        }
+
+        // Look for variables prefixed by '$' 
+        // http://ip-api.com/json/[!getjson](my lat/lon: $lat $lon)
+        const regex = /(?<=\$)\w*/g; 
+        let variablesFound = description.match(regex);
+        if (variablesFound != null) {          
+          let tagContent = description;
+          
+          variablesFound.forEach((stringToExtract) => {
+            options[3].jsonExplorer(jsonObject, stringToExtract, 
+              
+              function (found) {
+                if (tagContent.indexOf(stringToExtract) >= 0) {
+                  tagContent = tagContent.replace(`$${stringToExtract}`, found);
+                  tag.innerHTML = tagContent;
+                } 
+                else 
+                  tag.innerHTML += found;
+                tag.title = link + (cronInterval == null ? "" : `${cronInterval}`);
+              }
+
+            );
+          });
+        }
+      }
+    );
+  }
+
+  static createTopicFromApiWithText(hash, link, classes, description) {
+    utils.downloadTextFile(
+      link,
+      [hash, classes, description],
+      function (options, jsonObject) {
+        const hash = options[0];
+        const tag = document.getElementById(hash);
+        tag.innerHTML = jsonObject;
+        tag.title = link;
+      }
+    );
+  }
 
   static createTopicFromApi(prefix, typeOfCall, link, classes, description) {
     var hash = `api_${utils.getHash(link)}`;
@@ -296,56 +353,24 @@ class bka {
 
     switch (typeOfCall) {
       case "json":
-        utils.downloadJsonFile(
-          link,
-          [hash, classes, description, this],
-          function (options, jsonObject) {
-            
-            const hash = options[0];
-            const classes = options[1];            
-            const tag = document.getElementById(hash);
+        // Look for cron defined by !getjsonxxx   xx… = digit[s]
+        // http://ip-api.com/json/[!getjson =lat =lon](my lat/lon: $lat $lon)    single call
+        // http://ip-api.com/json/[!getjson60 =lat =lon](my lat/lon: $lat $lon)  call every 60 sec
+        let cronInterval = classes.match(/(?<=!getjson)\d+/);
+        let enrichedDescription = description;
+        if (cronInterval != null) {
+          enrichedDescription = [description, `. Fetch frequency: ${cronInterval[0]} sec`];
+          setInterval(() => {
+            this.createTopicFromApiWithJson( hash, link, classes, enrichedDescription ); 
+          }, cronInterval[0] * 1000);                            
+        } 
 
-            if (jsonObject.error) {
-              tag.innerHTML += ' ❌';            
-              tag.title = jsonObject.error;
-              return;
-            }
-                      
-            const regex = /(?<=\=)\w*/g;
-            let matches = classes.match(regex);
-            if (matches != null) {
-              let content = tag.innerHTML;
-              matches.forEach((stringToExtract) => {
-                options[3].jsonExplorer(
-                  jsonObject,
-                  stringToExtract,
-                  function (found) {
-                    if (content.indexOf(stringToExtract) >= 0) {
-                      content = content.replace(`$${stringToExtract}`, found);
-                      tag.innerHTML = content;
-                    } else tag.innerHTML += found;
-
-                    tag.title = link;
-                  }
-                );
-              });
-            }
-          }
-        );
-        break;
+        this.createTopicFromApiWithJson( hash, link, classes, enrichedDescription );
+      break;
 
       case "text":
-        utils.downloadTextFile(
-          link,
-          [hash, classes, description],
-          function (options, jsonObject) {
-            const hash = options[0];
-            const tag = document.getElementById(hash);
-            tag.innerHTML = jsonObject;
-            tag.title = link;
-          }
-        );
-        break;
+        this.createTopicFromApiWithText(hash, link, classes, description);
+      break;
     }
     return apiElement;
   }
@@ -353,10 +378,9 @@ class bka {
   static jsonExplorer(jsonObject, stringToExtract, callback) {
     for (var key in jsonObject) {
       const topicType = typeof jsonObject[key];
-      if (topicType == "object" || topicType == "array") 
+      if (topicType == "object" || topicType == "array")
         this.jsonExplorer(jsonObject[key], stringToExtract, callback);
-      else if (key == stringToExtract) 
-            callback(jsonObject[stringToExtract]);
+      else if (key == stringToExtract) callback(jsonObject[stringToExtract]);
     }
   }
 
@@ -364,7 +388,11 @@ class bka {
     const prefix =
       (classes || "block").indexOf("inline") >= 0 ? "inline" : "block";
 
-    if (classes && classes.indexOf("!getjson") >= 0)
+    // link[classes](description)
+    // "https://httpbin.org/ip[inline !getjson !tic3 =origin](my ip: $origin)",
+    // "https://www.ted.com(TEDx)"
+
+    if (classes && classes.indexOf("!getjson") >= 0) {
       return this.createTopicFromApi(
         prefix,
         "json",
@@ -372,7 +400,7 @@ class bka {
         classes,
         description
       );
-    else if (classes && classes.indexOf("!gettext") >= 0)
+    } else if (classes && classes.indexOf("!gettext") >= 0) {
       return this.createTopicFromApi(
         prefix,
         "text",
@@ -380,6 +408,7 @@ class bka {
         classes,
         description
       );
+    }
 
     const fragment = document.getElementById(`${prefix}LinkTemplate`);
     const instance = document.importNode(fragment.content, true);
@@ -533,11 +562,14 @@ let utils = {
       response = await fetch(file);
       jsonData = await response.json();
     } catch (e) {
-      console.log(`downloadJsonFile: error: ${file}`, e);
+      let error = null;
       if (response)
-        jsonData = {'error': `${file} FAILED - ${response.status} - ${response.statusText}`};
+        error = `${file} FAILED - ${response.status} - ${response.statusText} / ${e}`;
       else
-        jsonData = {error: `Error with ${file}: ${e}`};
+        error = `Error with ${file}: ${e}`;      
+      
+      console.log(`downloadJsonFile: ${error}`);
+      jsonData = {'error': error};
     }
     finally {
       callback(options, jsonData);
