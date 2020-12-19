@@ -47,8 +47,19 @@
       type: "output",
       regex: bkaYoutubeRegex,
       replace: function (s, videoid, videotitle) {
-        return `<h4>${videotitle}</h4><iframe src='//www.youtube.com/embed/${videoid}' frameborder="0" allowfullscreen></iframe>`;
-      },
+        return `<table class='youtube'>
+                  <tr>
+                    <td>
+                       <iframe src='//www.youtube.com/embed/${videoid}' frameborder='0' allowfullscreen></iframe>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href='${videotitle}' target='_blank'>${videotitle}</a>
+                    </td>
+                  </tr>
+                </table>`;
+      }
     };
 
     var bkaDownloadMarkdownExtension = {
