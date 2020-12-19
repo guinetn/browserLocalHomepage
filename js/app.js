@@ -349,7 +349,8 @@ class bka {
         : document.createElement("span");
     apiElement.id = hash;
     apiElement.className = "topicLink";
-    if (description) apiElement.innerHTML = description;
+    if (description) 
+      apiElement.innerHTML = description;
 
     switch (typeOfCall) {
       case "json":
@@ -588,6 +589,45 @@ let utils = {
       console.log(`downloadTextFile: error: ${file}`, e);
     }
   },
+  
+  setMasonry: function (container, cols) {
+
+    var masonryWrapper = container.parentNode;
+    var masonryItems = container.children;    
+    container.parentNode.removeChild(container);
+
+    // <div id='xxx_topics' class='masonry-layout column-x'>
+    var newContainer = document.createElement("div");
+    newContainer.setAttribute("id", `${masonryWrapper.id}_topics`),
+      newContainer.classList.add("masonry-layout", "topics", "columns-" + cols),
+      masonryWrapper.appendChild(newContainer);
+
+    /* <div class='masonry-column-1'>
+       <div class='masonry-column-2'>
+       ...
+    */
+    for (var col = 1; col <= cols; col++) {
+      var divColumn = document.createElement("div");
+      divColumn.classList.add("masonry-column-" + col);
+      newContainer.appendChild(divColumn);
+    }
+
+    // Assign topic's subjects to columns
+    var col = 1;
+    [...masonryItems].forEach(function (r) {
+      newContainer.querySelector(`#${newContainer.id} > .masonry-column-${col}`).appendChild(r);
+      col = col < cols ? col + 1 : 1;
+    });
+
+  },
+
+  fetchMasonry: function (container, cols) {    
+    [...document.querySelectorAll(container)].map( c => {
+      this.setMasonry(c, cols);    
+    });
+  }
+  
+
 };
 
 
@@ -667,8 +707,10 @@ document.addEventListener("DOMContentLoaded", function () {
   view_tools_init();
 
   if (showdown) 
-  	showdown.setFlavor("github");  
-});
+    showdown.setFlavor("github");  
+       
+  utils.fetchMasonry(".topics", 4);   
+  });
 
 })();
 
@@ -845,8 +887,7 @@ async function initToc() {
 }
 
 
-function generateLinkMarkup($headings) {
-  console.log($headings);
+function generateLinkMarkup($headings) {  
   const parsedHeadings = $headings.map((heading) => {
     return {
       title: heading.innerText,

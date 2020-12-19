@@ -1,9 +1,5 @@
 # UML (UNIFIED MODELING LANGUAGE)
 
-http://www.tutorialspoint.com/uml/uml_overview.htm
-https://www.youtube.com/watch?v=OkC7HKtiZC0
-https://www.smartdraw.com/uml-diagram/
-
 A picture is worth a thousand words  
 general-purpose, developmental, modeling language in the field of software engineering, that is intended to provide a standard way to visualize the design of a system.  
 
@@ -25,7 +21,7 @@ general-purpose, developmental, modeling language in the field of software engin
 * 	Timing diagram
 
 
-Notation
+## Notation
 Object. A specific entity or concept that has meaning in an application domain.
 Class. A definition of a set of potential objects that have the same data, behavior, and relationships.
 Attribute. A data value defined in a class and held within an object that has meaning within the application domain.
@@ -87,3 +83,9 @@ class diagrams notation (uml)
         A reference an instance of B. B survive if A is disposed
 
     Most of the time you will use composition, and DI you get to use it via Setter injection, or constructor injection which then fill properties.
+
+## Resources
+
+* http://www.tutorialspoint.com/uml/uml_overview.htm
+* https://www.smartdraw.com/uml-diagram/
+* https://www.youtube.com/watch?v=OkC7HKtiZC0

@@ -69,14 +69,8 @@ body {
 }
 
 
-.topics {    
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: baseline;  
-}
-.topics > div, .box3d {    
+
+.topics > div[class*="masonr"] > div, .box3d {    
   min-width: 200px;
   margin-bottom: 1rem;
   margin-left: 1rem;
@@ -87,7 +81,7 @@ body {
   break-inside: avoid;
   width: fit-content;
 }
-.topics > div > h3 {
+.topics > div[class*="masonr"] > div > h3 {
   color: var(--topicTitleFg);
   margin: 0;
   font-variant: all-small-caps;
@@ -461,4 +455,34 @@ input[id^=timestamp] {
 
 #toolbox {
   background: var(--toolboxBg);  
+}
+
+
+
+
+.masonry-layout {
+  box-sizing: border-box;
+  --columns: 1;
+  --gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-gap: var(--gap);
+  padding: 2rem;
+}
+.masonry-layout > div > img,
+.masonry-layout > div > div {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.masonry-layout.columns-1 {
+  --columns: 1;
+}
+.masonry-layout.columns-2 {
+  --columns: 2;
+}
+.masonry-layout.columns-3 {
+  --columns: 3;
+}
+.masonry-layout.columns-4 {
+  --columns: 4;
 }

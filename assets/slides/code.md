@@ -6,7 +6,7 @@ const pi = 3.14;
 ```
 ----
 
-download.md(assets/slides/code/uml.md);
+download.md(assets/slides/code/uml.md)
 
 ----
 
