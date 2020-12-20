@@ -693,19 +693,18 @@ let utils = {
 };
 
 
+function initApplication(options, mainContent) {
 
+  document.getElementById("mainContent").innerHTML = mainContent;
 
-
-document.addEventListener("DOMContentLoaded", function () {
-	
-	let app = new bka("assets/slides", ".view");
-	utils.init(app);
+  let app = new bka("assets/slides", ".view");
+  utils.init(app);
 
   document.addEventListener("mousedown", function (e) {
-	  app.onMouseDown(e);
+    app.onMouseDown(e);
   });
   document.addEventListener("mouseup", function (e) {
-	  app.onMouseUp(e);
+    app.onMouseUp(e);
   });
   document.addEventListener("keydown", function (e) {
     if (
@@ -720,7 +719,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!e.defaultPrevented) app.onSlideKeydown(e);
   });
   document.addEventListener("click", function (e) {
-    if (e.target.matches(".blogLink")) {      
+    if (e.target.matches(".blogLink")) {
       e.preventDefault();
       app.ShowBlog(e.target);
     } else if (e.target.matches(".copy")) {
@@ -728,8 +727,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (e.target.matches(".view.active")) {
       app.HideBlog();
     } else if (e.target.matches("#help")) {
-      if (utils.isModalVisible()) 
-        utils.modalClose();
+      if (utils.isModalVisible()) utils.modalClose();
       else {
         // show help
 
@@ -745,7 +743,7 @@ document.addEventListener("DOMContentLoaded", function () {
         utils.modalShow("HELP", instance);
       }
     } else if (e.target.className == "modalContainer visible") {
-      // click on the modalContainer to close it      
+      // click on the modalContainer to close it
       utils.modalClose();
     } else if (
       e.target.matches("#clock") ||
@@ -772,17 +770,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // INIT CUSTOMIZED VIEWS	
+  // INIT CUSTOMIZED VIEWS
   view_tools_init();
 
-  if (showdown) 
-    showdown.setFlavor("github");      
-  
-  utils.fetchMasonry(".topics", config.masonryColumns);   
-  });
+  if (showdown) showdown.setFlavor("github");
 
+  utils.fetchMasonry(".topics", config.masonryColumns);
   utils.fetchGithub(config.blogRepoApi);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  utils.downloadTextFile("index-main.html", null, initApplication);
+});
+
 })();
+
+
 
 /* CUSTOMIZE VIEWS */ 
 
@@ -904,6 +907,7 @@ function view_tools_init() {
   canvas.addEventListener("dragover", (e) => e.preventDefault(), false);
   canvas.addEventListener("drop", onImageDrop, false);  
 }
+
 
 
 
