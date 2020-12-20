@@ -6,8 +6,8 @@ const config = {
   mouseDownDurationForCopySec: 4,  
   masonryColumns : 4,
   snackbarDurationSec : 2500,
-  blogRepo: "https://api.github.com/repos/guinetn/braincache/contents/assets/slides",
-  blogRepo2: "https://api.github.com/repos/guinetn/braincache/contents/assets/blog"
+  blogRepo:    "https://github.com/guinetn/braincache/blob/main/assets/blog",
+  blogRepoApi: "https://api.github.com/repos/guinetn/braincache/contents/assets/blog",                      
 };
 class bka {
   currentView = null;
@@ -37,8 +37,10 @@ class bka {
     this.slidesFolder = slidesFolder;
 
     this.currentBlog = document.getElementById("blogItem");
+    document.getElementById("blogRepoLink").href = config.blogRepo;
     this.viewName = document.getElementById("viewName");
     this.slideMeter = document.getElementById("slideMeter");
+
     utils.downloadJsonFile("assets/topics.json", null, this.extractTopics);
   }
 
@@ -217,9 +219,12 @@ class bka {
         ? s.classList.add("current")
         : s.classList.remove("current")
     );
-    initToc(".slide.current", "#slide_toc");
+    setTableOfContentVisibility(".slide.current", "#slide_toc");
   }
   toggleSlidesVisibility(forceVisibility) {
+
+    this.HideBlog();
+
     if (forceVisibility != undefined) this.slidesVisible = forceVisibility;
     else this.slidesVisible = !this.slidesVisible;
 
@@ -442,15 +447,24 @@ class bka {
     this.mouseDownTime = null;
   }
 
+  HideBlog() {
+    this.currentBlog.classList.remove('active');
+    setTableOfContentVisibility(".stickyBlog.active", "#slide_toc" );
+  }
+
   async ShowBlog(target){
     try {
       this.currentBlog.classList.toggle("active");
       let response = await fetch(target.href);
       let markdown = await response.text();
-      const preMarkdown = `<h4><a href='${target.href}' class='topicLink' target='_blank'>${target.innerText}</a></h4>`;
+      const preMarkdown = `<h4><a href='${target.tag}' class='blogLinkEdit' title='edit blog' target='_blank'>${target.innerText}</a></h4>`;
       let html = this.markdownToHtml(`${preMarkdown}${markdown}`);
       this.currentBlog.innerHTML = html;
-      initToc(".stickyBlog.active", "#slide_toc", "h1, h2, h3");
+      setTableOfContentVisibility(
+        ".stickyBlog.active",
+        "#slide_toc",
+        "h1, h2, h3"
+      );
 
     } catch (e) {
         console.log(`Error in downloadViewSlides(${slideFile})`, e);
@@ -660,6 +674,7 @@ let utils = {
         aElement.innerText = x['name'];
         aElement.classList = "blogLink";
         aElement.href = x["download_url"];        
+        aElement.tag = x["html_url"];        
         liElement.appendChild(aElement);
         blogContainer.appendChild(liElement);
       });
@@ -701,8 +716,11 @@ document.addEventListener("DOMContentLoaded", function () {
       app.ShowBlog(e.target);
     } else if (e.target.matches(".copy")) {
       utils.copyToClipboard(e.target.innerText);
+    } else if (e.target.matches(".view.active")) {
+      app.HideBlog();
     } else if (e.target.matches("#help")) {
-      if (utils.isModalVisible()) utils.modalClose();
+      if (utils.isModalVisible()) 
+        utils.modalClose();
       else {
         // show help
 
@@ -712,12 +730,13 @@ document.addEventListener("DOMContentLoaded", function () {
         // 	utils.modalShow("HELP", instance);
         // });
 
+        app.HideBlog();
         const fragment = document.getElementById("helpTemplate");
         const instance = document.importNode(fragment.content, true);
         utils.modalShow("HELP", instance);
       }
     } else if (e.target.className == "modalContainer visible") {
-      // click on the modalContainer to close it
+      // click on the modalContainer to close it      
       utils.modalClose();
     } else if (
       e.target.matches("#clock") ||
@@ -753,8 +772,7 @@ document.addEventListener("DOMContentLoaded", function () {
   utils.fetchMasonry(".topics", config.masonryColumns);   
   });
 
-  utils.fetchGithub(config.blogRepo);
-
+  utils.fetchGithub(config.blogRepoApi);
 })();
 
 /* CUSTOMIZE VIEWS */ 
@@ -899,7 +917,7 @@ function view_tools_init() {
 
 
 
-async function initToc(source, tocContainer, elementToToc = "h1, h2") {
+async function setTableOfContentVisibility(source, tocContainer, elementToToc = "h1, h2") {
   // Part 1  ".slide.current", "#slide_toc"
   const currentSource = document.querySelector(source);
   const ToC = document.querySelector(tocContainer);
@@ -910,17 +928,14 @@ async function initToc(source, tocContainer, elementToToc = "h1, h2") {
 
   ToC.classList.add("current");
 
-  // Part 2
   const $tocs = [...currentSource.querySelectorAll(elementToToc)];
   const linkHtml = generateLinkMarkup($tocs);
   ToC.innerHTML = linkHtml;
 
-  // Part 3
   const $links = [...ToC.querySelectorAll("a")];
   const observer = createObserver($links);
   $tocs.map((heading) => observer.observe(heading));
 
-  // Part 4
   const motionQuery = window.matchMedia("(prefers-reduced-motion)");
   $links.map((link) => {
     link.addEventListener("click", (evt) =>
