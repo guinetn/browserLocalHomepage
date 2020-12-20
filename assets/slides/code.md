@@ -18,6 +18,9 @@ download.code(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/maste
 
 # C
 
+## strings
+## pointers
+
 ----
 # C++
 

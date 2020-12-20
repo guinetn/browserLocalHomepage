@@ -3,7 +3,11 @@
 const getTime = () => new Date().toLocaleTimeString();
 
 const config = {
-  mouseDownDurationForCopySec: 3,
+  mouseDownDurationForCopySec: 4,  
+  masonryColumns : 4,
+  snackbarDurationSec : 2500,
+  blogRepo: "https://api.github.com/repos/guinetn/braincache/contents/assets/slides",
+  blogRepo2: "https://api.github.com/repos/guinetn/braincache/contents/assets/blog"
 };
 class bka {
   currentView = null;
@@ -17,6 +21,8 @@ class bka {
   slidesVisible = null;
   slides = [];
   slideMeter = null;
+  
+  currentBlog = null;
 
   isMouseDown = false;
   mouseDownTime = null;
@@ -30,6 +36,7 @@ class bka {
     this.currentView = this.views[0];
     this.slidesFolder = slidesFolder;
 
+    this.currentBlog = document.getElementById("blogItem");
     this.viewName = document.getElementById("viewName");
     this.slideMeter = document.getElementById("slideMeter");
     utils.downloadJsonFile("assets/topics.json", null, this.extractTopics);
@@ -210,7 +217,7 @@ class bka {
         ? s.classList.add("current")
         : s.classList.remove("current")
     );
-    initToc();
+    initToc(".slide.current", "#slide_toc");
   }
   toggleSlidesVisibility(forceVisibility) {
     if (forceVisibility != undefined) this.slidesVisible = forceVisibility;
@@ -434,6 +441,22 @@ class bka {
     this.isMouseDown = false;
     this.mouseDownTime = null;
   }
+
+  async ShowBlog(target){
+    try {
+      this.currentBlog.classList.toggle("active");
+      let response = await fetch(target.href);
+      let markdown = await response.text();
+      const preMarkdown = `<h4><a href='${target.href}' class='topicLink' target='_blank'>${target.innerText}</a></h4>`;
+      let html = this.markdownToHtml(`${preMarkdown}${markdown}`);
+      this.currentBlog.innerHTML = html;
+      initToc(".stickyBlog.active", "#slide_toc", "h1, h2, h3");
+
+    } catch (e) {
+        console.log(`Error in downloadViewSlides(${slideFile})`, e);
+      }
+  }
+
 }
 
 let utils = {
@@ -541,7 +564,7 @@ let utils = {
     }
   },
 
-  snackbar: function (msg, duration = 2500) {
+  snackbar: function (msg, duration = config.snackbarDurationSec) {
     snackbar.innerHTML = msg;
     snackbar.classList.add("show");
     setTimeout(() => snackbar.classList.remove("show"), duration);
@@ -625,8 +648,23 @@ let utils = {
     [...document.querySelectorAll(container)].map( c => {
       this.setMasonry(c, cols);    
     });
-  }
+  },
   
+  fetchGithub: async function(repo) {
+    this.downloadJsonFile(repo, null, function(options, filesList) {
+      
+      const blogContainer = document.getElementById("blog_items");      
+      filesList.map((x) => { 
+        let liElement = document.createElement("li");
+        let aElement = document.createElement("a");
+        aElement.innerText = x['name'];
+        aElement.classList = "blogLink";
+        aElement.href = x["download_url"];        
+        liElement.appendChild(aElement);
+        blogContainer.appendChild(liElement);
+      });
+    });
+  }
 
 };
 
@@ -658,7 +696,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!e.defaultPrevented) app.onSlideKeydown(e);
   });
   document.addEventListener("click", function (e) {
-    if (e.target.matches(".copy")) {
+    if (e.target.matches(".blogLink")) {      
+      e.preventDefault();
+      app.ShowBlog(e.target);
+    } else if (e.target.matches(".copy")) {
       utils.copyToClipboard(e.target.innerText);
     } else if (e.target.matches("#help")) {
       if (utils.isModalVisible()) utils.modalClose();
@@ -687,7 +728,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (e.target.matches(".alarmItem")) {
       // alarm already set ? → Cancel it
       if (e.target.classList.contains("alarm-active")) {
-        utils.alarmSet(0);       
+        utils.alarmSet(0);
         return;
       }
 
@@ -707,10 +748,12 @@ document.addEventListener("DOMContentLoaded", function () {
   view_tools_init();
 
   if (showdown) 
-    showdown.setFlavor("github");  
-       
-  utils.fetchMasonry(".topics", 4);   
+    showdown.setFlavor("github");      
+  
+  utils.fetchMasonry(".topics", config.masonryColumns);   
   });
+
+  utils.fetchGithub(config.blogRepo);
 
 })();
 
@@ -856,32 +899,32 @@ function view_tools_init() {
 
 
 
-async function initToc() {
-  // Part 1
-  const currentSlide = document.querySelector(".slide.current");
-  const slideToc = document.querySelector("#slide_toc");
-  if (!currentSlide) {           
-    slideToc.classList.remove("current");
+async function initToc(source, tocContainer, elementToToc = "h1, h2") {
+  // Part 1  ".slide.current", "#slide_toc"
+  const currentSource = document.querySelector(source);
+  const ToC = document.querySelector(tocContainer);
+  if (!currentSource) {
+    ToC.classList.remove("current");
     return;
   }
 
-  slideToc.classList.add("current");
+  ToC.classList.add("current");
 
   // Part 2
-  const $headings = [...currentSlide.querySelectorAll("h1, h2")];
-  const linkHtml = generateLinkMarkup($headings);
-  slideToc.innerHTML = linkHtml;
+  const $tocs = [...currentSource.querySelectorAll(elementToToc)];
+  const linkHtml = generateLinkMarkup($tocs);
+  ToC.innerHTML = linkHtml;
 
   // Part 3
-  const $links = [...slideToc.querySelectorAll("a")];
+  const $links = [...ToC.querySelectorAll("a")];
   const observer = createObserver($links);
-  $headings.map((heading) => observer.observe(heading));
+  $tocs.map((heading) => observer.observe(heading));
 
   // Part 4
   const motionQuery = window.matchMedia("(prefers-reduced-motion)");
   $links.map((link) => {
     link.addEventListener("click", (evt) =>
-      handleLinkClick(evt, $headings, motionQuery)
+      handleLinkClick(evt, $tocs, motionQuery)
     );
   });
 }

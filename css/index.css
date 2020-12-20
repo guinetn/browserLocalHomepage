@@ -59,7 +59,7 @@ body {
 .view h4,h5,h6 {
   text-align: left;
 }
-.view > h1 {
+.view > h1, .view ul {
   color: var(--viewTitleFg);
   margin: 1.4em 0 0.3em 0;
 }
@@ -68,7 +68,9 @@ body {
   display:block !important;  
 }
 
-
+.view ul {
+  margin-left: 2em;
+}
 
 .topics > div[class*="masonr"] > div, .box3d {    
   min-width: 200px;
@@ -120,16 +122,16 @@ a {
 .originOfLink:hover {  
   color: var(--originOfLinkHoverFg) !important;
 }
-.topicLink {
+.topicLink, .blogLink {
   color: var(--topicLinkFg);
 }
-.topicLink:hover {  
+.topicLink:hover, .blogLink:hover {  
   border-bottom: solid 1px var(--topicLinkHoverFg);  
 }
-.topicLink:visited {
+.topicLink:visited, .blogLink:visited {
   color: var(--topicLinkFg);
 }    
-.view .topicLink {
+.view .topicLink, .view  .blogLink {
   font-size: small;
 }
 
@@ -141,7 +143,30 @@ a {
   font-size: 0.9em;
 }
 
+.blogLink:after {
+  content:' ↓'
+}
 
+
+.stickyBlog {
+  display: none; 
+  position: fixed;
+  top: 3.2em;
+  left: 20%;
+  width: fit-content;
+  min-width: 50%;
+  max-width: 75%;
+  padding: 10px;
+  background-color: #0008;  
+  height: 90vh;
+  font-family: 'Cabin';
+  border: solid 1px #7f807c;
+  border-radius: 8px;
+  font-size: small;
+  z-index: 1010;
+  overflow: scroll;
+  color:white;
+}  
 
 
 #header {

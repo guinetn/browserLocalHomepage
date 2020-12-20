@@ -127,6 +127,7 @@
   border: solid 1px #707164;
   border-radius: 20px;
   font-size: small;
+  z-index: 1011;
 }  
 
 .stickytoc a {
