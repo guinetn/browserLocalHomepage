@@ -76,8 +76,16 @@
     "https://p5js.org(p5js: browser's sketch)"
   ],
 
-  "repos": ["https://github.io"],
+  "algorithms": ["https://www.interviewbit.com/tutorial/sorting-algorithms/"],
+  "architectures": [
+    "https://levelup.gitconnected.com/software-architecture-the-important-architectural-patterns-you-need-to-know-a1f5ea7e4e3d"
+  ],
+  "regex": [""],
+  "best_practices": [""],
+  "design_patterns": [""],
+  "hardware": [""],
 
+  "repos": ["https://github.io"],
   "codenews": [
     "https://roadmap.sh(developer roadmap)",
     "https://dev.to",
@@ -128,10 +136,18 @@
   "code_sample": [
     "https://docs.microsoft.com/fr-fr/samples(microsoft samples)"
   ],
+  "internationalization": [""],
+  "depency_injection_ioc": [""],
+  "testing": [""],
+  
 
   "javascript": [
     "https://github.com/you-dont-need/You-Dont-Need-JavaScript(You-Dont-Need-JavaScript)",
     "https://github.com/airbnb/javascript(Airbnb JavaScript Style Guide)"
+  ],
+  "linters": [
+    "https://eslint.org(ESLint: lint ts, js)",
+    "https://palantir.github.io/tslint(TSLint)"
   ],
   "json": ["https://jwt.io", "https://jsonlint.com"],
   "html": ["https://simpl.info"],
@@ -178,6 +194,12 @@
   "seo": ["https://www.woorank.com/en/www/hotellespalmiers.com(woorank.com)"],
   "webplayground": ["https://css-transform.moro.es(css-transformations)"],
   "maps": ["https://developers.google.com/maps"],
+  "ui_automation": [
+    "https://www.selenium.dev(selenium automate brwosers)",
+    "https://github.com/puppeteer/puppeteer(puppeteer: Headless Chrome Node.js API)",
+    "https://phantomjs.org(phantomjs - soon off?)",
+    "https://www.lambdatest.com/blog/selenium-webdriver-with-python"
+  ],
 
   "cors": ["https://flaviocopes.com/cors"],
   "code_api": [
@@ -270,15 +292,20 @@
     "https://coral.ai(coral.ai: toolkit to build products with local AI)"
   ],
 
+  "electronic": [""],
+
   "science": [
     "https://arxiv.org",
     "https://eos.org",
     "https://www.newscientist.com",
     "https://newatlas.com"
   ],
-  "geology": ["http://www.geologycafe.com"],
   "physic": ["http://www.splung.com"],
+  "geology": ["http://www.geologycafe.com"],
+  "biology": [""],
   "mechanic": ["https://github.com/rajathkmp/BMC(BMC biomechanic ****)"],
+  "physic_quantic": [""],
+  "thermodynamic": [""],
 
   "crowdfunding": [
     "https://www.patreon.com",
@@ -288,15 +315,15 @@
 
   "plane": ["https://www.sia.aviation-civile.gouv.fr(aviation-civile.gouv.fr)"],
 
-
   "jobs": [
-	"https://www.freelancer.com/jobs",
-	"https://verduron.com",
+    "https://www.freelancer.com/jobs",
+    "https://verduron.com",
     "http://www.viadeo.com",
     "https://hired.com",
     "https://www.humaniance.com",
     "https://www.dogfinance.com",
-    "https://www.codingame.com"
+    "https://www.codingame.com",
+    "https://remoteok.io",
+    "https://www.cremedelacreme.io"
   ]
-   
 }

@@ -23,20 +23,18 @@
 .stickyBlog h1:before, .stickyBlog h2:before, .stickyBlog h3:before,  
 .slide h1:before, .slide h2:before, .slide h3:before 
 {
-  content: '• '
+  content: ' ';
 }
 
 .stickyBlog h1, .stickyBlog h2, .stickyBlog h3, .stickyBlog h4, .stickyBlog h5, .stickyBlog h6, 
 .slide h1, .slide h2, .slide h3, .slide h4, .slide h5, .slide h6 {
     color:gold;    
 }
-.slide h1 {
-    border-bottom:inset 1px gold;
+
+.slide h1 {    
     width: fit-content;
-    margin: 0 0 7px 0;
-}
-.slide h1 {
-  margin-bottom: 14px;
+    margin: 0 0 14px 0;    
+    color: #9e3f3f;
 }
 .slide h2 {
   margin-bottom: 6px;
@@ -58,15 +56,21 @@
 
 
 .slide table {
-  margin: 5px auto;
-  color: inherit;
+    border-radius: 8px;
+    margin: 5px 0 0 3em;
+    color: inherit;
+    border: solid 1px #ffd70063;
+    border-collapse: collapse;
 }
 
 .slide table th,
-.slide table td {
-  border: 1px solid white;
+.slide table td {  
   padding: 6px 12px;
   font-size: 0.8em;
+}
+
+.slide table td {
+  border: 1px solid #ffd70063;  
 }
 
 .slide .youtube {

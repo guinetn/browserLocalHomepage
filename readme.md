@@ -156,10 +156,13 @@ Slide 2.
 ### Add a markdown file   
 download.md(assets/slides/code.md)
 
-### Add raw data   
-download.div(https://httpbin.org/ip)
+### Add html data: will be integrated as 'innerHTML' (interpreted html)   
+download.html(https://httpbin.org/ip)
 
-### Add a code file (will be prettyfied)
+### Add raw data: will be integrated as 'innerText' (NOT interpreted html/text)   
+download.raw(https://httpbin.org/ip)
+
+### Add a code file (will be prettyfied, not interpreted)
 download.code(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

@@ -1,14 +1,18 @@
-# D
-lorem.........
-	
-# E 
-lorem.........
-lorem.........
-
-# F
-lorem.........
-lorem.........
+# Web
 
 ----
-
-download.md(https://gist.githubusercontent.com/lisilinhart/e9dcf5298adff7c2c2a4da9ce2a3db3f/raw/2f1a0d47eba64756c22460b5d2919d45d8118d42/red_panda.md)
+download.md(assets/slides/web/networks.md)
+----
+download.md(assets/slides/web/javascript.md)
+---- 
+download.md(assets/slides/web/json.md)
+---- 
+download.md(assets/slides/web/node.md)
+---- 
+download.md(assets/slides/web/automation.md)
+---- 
+download.md(assets/slides/web/front/react.md)
+---- 
+download.md(assets/slides/web/front/vue.md)
+---- 
+download.md(assets/slides/web/front/svelte.md)
