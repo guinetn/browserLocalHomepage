@@ -9,7 +9,7 @@
 ----
 download.md(assets/slides/computer_science/os.md)
 ----
-download.md(assets/slides/computer_science/os_Linux.md)
+download.md(assets/slides/computer_science/os_linux.md)
 ----
 download.md(assets/slides/computer_science/os_windows.md)
 ----
