@@ -30,7 +30,8 @@
 
     // usage:
     // download.md(assets/slides/code.md)
-    // download.div(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
+    // download.html(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.html)
+    // download.raw(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
     // download.code(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
     // [video title](https://www.youtube.com/watch?xyzabc)  --> <iframe src="//www.youtube.com/embed/xyzabc" frameborder="0" allowfullscreen=""></iframe>
     // setup:[The Map of Physics](ZihywtixUYo)
@@ -38,6 +39,7 @@
     // var converter = new showdown.Converter({extensions: ["BkaShowDownExtension"])
 
     var bkaRawRegex = /(?:download\.)(?<bkatype>raw)\((?<link>[^)]*)\)/gi,
+      bkaHtmlRegex = /(?:download\.)(?<bkatype>html)\((?<link>[^)]*)\)/gi,
       bkaCodeRegex = /(?:download\.)(?<bkatype>code)\((?<link>[^)]*)\)/gi,
       bkaMdRegex = /(?:download\.)(?<bkatype>md)\((?<link>[^)]*)\)/gi,
       bkaPrettyPrintRegex = /(<pre[^>]*>)?[\n\s]?<code([^>]*)>/gi,
@@ -78,6 +80,18 @@
     var bkaDownloadRawExtension = {
       type: "lang",
       regex: bkaRawRegex,
+      replace: function (s, bkatype, link) {
+        var hash = getHash(link);
+        downloadFile(link, hash, null, function (res, file) {
+          document.getElementById(hash).innerText = res;
+        });
+        return `<div id='${hash}'></div>`;
+      },
+    };
+
+    var bkaDownloadHtmlExtension = {
+      type: "lang",
+      regex: bkaHtmlRegex,
       replace: function (s, bkatype, link) {
         var hash = getHash(link);
         downloadFile(link, hash, null, function (res, file) {
