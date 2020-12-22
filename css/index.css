@@ -69,11 +69,10 @@ body {
     color: var(--viewTitleFg);
     margin: 1.4em 0 0.3em -6px;
     background-color: var(--viewTitleBg);
-    width: fit-content;
+    width: fit-content;   
     padding: 0 50px 7px 10px;
     border-radius: 0 8px 8px 0;
     border: solid 1px gray;
-    perspective: 1000;
     box-shadow: 10px 1px 70px rgb(169 169 169 / 63%);
 }
 
@@ -86,7 +85,6 @@ body {
   margin-bottom: 1rem;
   margin-left: 1rem;
   padding: 5px;
-  /* border: solid 1px #cccccc63; */
   border-radius: 5px;
   box-shadow: 0 1px 1px rgb(0 0 0), 0 3px 12px rgb(0 0 0), 0 4px 4px rgba(0,0,0,0.11), 0 6px 8px rgba(0,0,0,0.11), 0 8px 16px rgba(0,0,0,0.11);   
   break-inside: avoid;
@@ -235,7 +233,7 @@ ul#blog_items li {
   top: 0.2em;
   font-size: 5.1em;
   color: var(--viewTitleFg);
-  animation: viewNameAnimation ease 0.46s;  
+  animation: viewNameAnimation ease 0.25s;  
   z-index: 1001;
   opacity: 0;
   text-align: center;
@@ -256,9 +254,9 @@ ul#blog_items li {
   border-right: 1px solid #cea0a0;
 }
 @keyframes viewNameAnimation {
-  0% { left:0; top:0; }
-  20% { left:20%; top:2em; opacity:0.4; font-size: large; }
-  100% { left:50%; top:0; font-size: x-large;}
+  0% { left:0; top:2em;  border-radius: 0 8px 8px 0; border: solid 1px gray; }
+  20% { left:20%; top:2em; opacity:0.4; font-size: large;  border: solid 1px gray; }
+  100% { left:50%; top:0; font-size: x-large;  border: solid 1px gray;}
 }
 #viewName progress {
   position:relative;

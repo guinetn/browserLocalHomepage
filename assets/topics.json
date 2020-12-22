@@ -80,10 +80,10 @@
   "architectures": [
     "https://levelup.gitconnected.com/software-architecture-the-important-architectural-patterns-you-need-to-know-a1f5ea7e4e3d"
   ],
-  "regex": [""],
-  "best_practices": [""],
-  "design_patterns": [""],
-  "hardware": [""],
+  "regex": [],
+  "best_practices": [],
+  "design_patterns": [],
+  "hardware": [],
 
   "repos": ["https://github.io"],
   "codenews": [
@@ -136,9 +136,9 @@
   "code_sample": [
     "https://docs.microsoft.com/fr-fr/samples(microsoft samples)"
   ],
-  "internationalization": [""],
-  "depency_injection_ioc": [""],
-  "testing": [""],
+  "internationalization": [],
+  "depency_injection_ioc": [],
+  "testing": [],
   
 
   "javascript": [
@@ -292,7 +292,7 @@
     "https://coral.ai(coral.ai: toolkit to build products with local AI)"
   ],
 
-  "electronic": [""],
+  "electronic": [],
 
   "science": [
     "https://arxiv.org",
@@ -302,10 +302,10 @@
   ],
   "physic": ["http://www.splung.com"],
   "geology": ["http://www.geologycafe.com"],
-  "biology": [""],
+  "biology": [],
   "mechanic": ["https://github.com/rajathkmp/BMC(BMC biomechanic ****)"],
-  "physic_quantic": [""],
-  "thermodynamic": [""],
+  "physic_quantic": [],
+  "thermodynamic": [],
 
   "crowdfunding": [
     "https://www.patreon.com",
