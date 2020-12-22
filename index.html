@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    
     <title>bka - brain kache</title>    
     <meta name="description" content="my personal brain helper"/>
     <meta name="keyword" content="my blog, my personal notes in one click">
+
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/slides.css">
-    <link rel="stylesheet" type="text/css" href="css/weather.css">    
+    <link rel="stylesheet" type="text/css" href="css/slides.css">    
     
-    <!-- skins for code-prettier -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/from_others/codeskins/desert.css">     -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/from_others/codeskins/sons-of-obsidian.css">     -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/from_others/codeskins/doxy.css">     -->
+    <!-- Skins for code-prettier: https://raw.githack.com/google/code-prettify/master/styles/index.html  -->
+    <!--   <link rel="stylesheet" type="text/css" href="css/from_others/codeskins/desert.css">           -->
+    <!--   <link rel="stylesheet" type="text/css" href="css/from_others/codeskins/sons-of-obsidian.css"> -->
+    <!--   <link rel="stylesheet" type="text/css" href="css/from_others/codeskins/doxy.css">             -->
     <link rel="stylesheet" type="text/css" href="css/from_others/codeskins/sunburst.css">    
   </head>
 
@@ -28,109 +29,18 @@
   <span id="navIcons" data-info='-t'></span>   
   <div id="help" class="far fa-question-circle"></div>
 </header>
+
 <div id="viewName"><div></div><progress id='slideMeter' min=0 max=10 value="7"></progress></div>   
 
-<div id='main'>
-  
+<div id='main'>  
   <div id='mainContent'></div>
-  <div style="transform: scale(.75); display: none">
-
-    <div class="weatherWidget">
-      <div class="weatherContent weatherContentGrid">
-        <div class="weatherContentBackimg"></div>
-        <div class="dayPos">
-          <div class="dt"><span id="dt"></span></div>
-          <div class="sun">
-            <small
-              >sr <span id="sunrise"></span> &nbsp;
-              <nobr>ss <span id="sunset"></span></nobr
-            ></small>
-          </div>
-          <div class="windCurrentPos windCurrent wind">
-            <small><span id="deg"></span>° @<span id="speed"></span> kt</small>
-            <div class="windir" id="windir">➤</div>
-          </div>
-        </div>
-        <div class="temperatureGridPos">
-          <div class="temperatureGrid alignCenter">
-            <div class="tempCurrent">
-              <span id="temp"></span><sup><small>°c</small></sup>
-            </div>
-            <div class="tempFeel alignRight">
-              <span id="feels_like"></span><sup><small>°c</small></sup> feels
-            </div>
-            <div class="tempMin">
-              <span id="temp_min"></span><sup><small>°c</small></sup>
-            </div>
-            <div class="tempMax">
-              <span id="temp_max"></span><sup><small>°c</small></sup>
-            </div>
-          </div>
-
-          <div class="locality alignRight">
-            <div>
-              <span id="name"></span> <span class="country" id="country"></span>
-            </div>
-          </div>
-
-          <div class="localityInfos alignRight">
-            <span id="lat">x</span>, <span id="lon">x</span>
-          </div>
-          <div class="localityInfos alignRight">
-            <span id="pressure"></span>hPa / <span id="humidity"></span>%
-          </div>
-          <div class="localityInfos alignRight" title="visibility">
-            <span id="visibility"></span> m
-          </div>
-        </div>
-        <img class="iconCurrentWeather" id="icon" />
-        <div class="weatherCurrentDescription alignCenter">
-          <span id="description"></span>
-        </div>
-        <div class="forecast" id="forecast"></div>
-      </div>
-    </div>
-
-    <div id="forecast"></div>
-    <div>
-      <small>Weather app by Nicolas Guinet & <a target="_blank" href="https://api.openweathermap.org">openweathermap.org</a></small>
-    </div>
-  </div>
-
-  <template id="forecastWidgetTemplate">
-  <div class="forecastWidget">
-    <div class="dt"><span id="dt"></span></div>
-    <div class="dtTimeForecast"><span id="dtTimeForecast"></span></div>
-    <div class="tempMax tempForecast">
-      <span id="temp_max"></span><sup><small>°c</small></sup>
-    </div>
-    <img class="iconForecastWeather" id="icon" />
-    <div class="tempMin tempForecast">
-      <span id="temp_min"></span><sup><small>°c</small></sup>
-    </div>
-
-    <div class="weatherForecastDescriptionPos">
-      <div class="weatherForecastDescription alignCenter">
-        <span id="description"></span>
-      </div>
-      <div class="localityInfos alignCenter mbot10">
-        <span id="pressure"></span>hPa &nbsp; <span id="humidity"></span>%
-      </div>
-      <div class="localityInfos alignCenter wind">
-        <span id="deg"></span>°@<span id="speed"></span> kt
-      </div>
-    </div>
-    <div class="windirForecast wind" id="windir">➤</div>
-  </div>
-  </template>
-
 </div>
 
 <aside id="blogItem" class="stickyBlog"></aside>
 <aside id="slide_toc" class="stickytoc"></aside>
 
+<!-- MODALBOX -->
 <div class="modalContainer">
-
   <div class="modalBox">   
     <div>
       <h1 id="modalTitle"></h1>      
@@ -138,11 +48,11 @@
       </div>
     </div>
   </div>
-
 </div>
 
 <div id="snackbar"></div>  
 
+<!-- ALARMS POPUP -->
 <div id="alarm">
   <h3 class="fa fa-business-time" title="Alarms set up"></h3>
   <div class="alarmItem" data-duration='5'>5 min</div>
@@ -157,55 +67,26 @@
   <input class="alarmMessage" type="text" placeholder="msg to show & speak" title="msg to show & to speak (// prefix to not speak)"></input>
 </div>
 
-<!-- thirds parts scripts -->
+<!-- THIRD PARTS SCRIPTS -->
 <!-- GOOGLE CODE PRETTYFIER -->
 <script src="js/from_others/prettify.min.js"></script>
 <script src="js/from_others/run_prettify.min.js"></script>
+
 <!-- MARDOWN ENGINE -->
 <script src="js/from_others/showdown.min.js"></script>
 
-<!-- bka scripts -->
+<!-- BKA SCRIPTS -->
 <script src="js/showdown.extension.bka.js"></script>
-<script src="js/weather.js"></script>
 <script type="module" src="js/app.js"></script>
 
+
+<!-- TEMPLATES -->
 <template id="inlineLinkTemplate">
   <a class="topicLink" target="_blank"></a>
 </template>
 
 <template id="blockLinkTemplate">  
    <div>★ <a class="topicLink" target="_blank"></a></div>  
-</template>
-
-<template id="helpTemplate">  
-  <div id="bkahelp">
-    <p>Navigate in views</p>
-    <ul> 
-      <li><kbd>CTRL</kbd>+<kbd>→</kbd> or <kbd>+</kbd></li>
-      <li><kbd>CTRL</kbd>+<kbd>←</kbd> or <kbd>-</kbd></li>
-    </ul>
-
-    <p>Navigate in slides</p>
-    <ul>
-      <li><kbd>→</kbd> Next slide (Enter slide mode when on 1<sup>st</sup> slide)</li>
-      <li><kbd>←</kbd> Previous slide (Exit slide mode when on 1<sup>st</sup> slide)</li>                              
-      <li><kbd>Shift</kbd> Exit Slide mode</li>
-    </ul>   
-    <p>Others</p>
-    <ul>
-      <li><kbd>F</kbd> Go Full screen</li>
-      <li><kbd>ESC</kbd> Exit Full screen</li>
-      <li>Selection done with the mouse is automatically copied every 3 sec (snackbar warning)</li>
-    </ul>   
-    <p>Slides: standard markdown syntax + additionl syntax:</p>
-    <ul>        
-      <li>Include a markdown file in the slide: <strong>download.md(assets/slides/myfile.md)</strong></li>
-      <li>Include a file (raw, not prettified): <strong>download.raw(https://githubusercontent.com/abcdef/sourcefile.txt)</strong></li>
-      <li>Include an html (interpreted in innerHTML): <strong>download.html(https://githubusercontent.com/abcdef/sourcefile.txt)</strong></li>
-      <li>Include code file (prettified by extension) <strong>download.code(https://githubusercontent.com/abcdef.cpp)</strong></li>
-      <li>Include youtube video: <strong>[video title](https://www.youtube.com/watch?xyzabc)</strong></li>
-    </ul>
-  </div>
 </template>
 
 </body>

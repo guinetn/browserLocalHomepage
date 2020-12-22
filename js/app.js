@@ -214,11 +214,12 @@ class bka {
       document.querySelector("#main").appendChild(slide);
     });
   }
-  markdownToHtml(data) {
+  markdownToHtml(data, useExtensions=true) {
     // Transform md → html
-    var converter = new showdown.Converter({
-      extensions: ["BkaShowDownExtension"],
-    });
+    // useExtensions allow to avoid to trasnform files like help wich can include extensions syntax themselves (so not to render)
+    const extensions = useExtensions ? {
+      extensions: ['BkaShowDownExtension'] } : null;
+    var converter = new showdown.Converter(extensions);
     return converter.makeHtml(data);
   }
   renderCurrentSlide() {
@@ -749,17 +750,12 @@ function initApplication(options, mainContent) {
       if (utils.isModalVisible()) utils.modalClose();
       else {
         // show help
-
-        // let res = downloadTextFile("readme.md", null, function(data, res) {
-        // 	const instance = document.createElement("div");
-        // 	instance.innerHTML = application.markdownToHtml(res);
-        // 	utils.modalShow("HELP", instance);
-        // });
-
-        app.HideBlog();
-        const fragment = document.getElementById("helpTemplate");
-        const instance = document.importNode(fragment.content, true);
-        utils.modalShow("HELP", instance);
+        utils.downloadTextFile("help.md", null, function (options, helpContent) {
+          const helpContainer = document.createElement("div");
+          helpContainer.classList = 'bkahelp';
+        	helpContainer.innerHTML = app.markdownToHtml(helpContent, false);
+        	utils.modalShow("HELP", helpContainer);
+        });        
       }
     } else if (e.target.className == "modalContainer visible") {
       // click on the modalContainer to close it
