@@ -313,10 +313,14 @@ import { utils } from "./utils.js";
             description = description[0];
           }
           const tag = document.getElementById(hash);
+          const tagAnchor = document.createElement("a");
 
           if (jsonObject.error) {
-            tag.innerHTML += " ❌";
-            tag.title = jsonObject.error;
+            tagAnchor.innerHTML += " ❌";
+            tagAnchor.title = jsonObject.error;
+            tagAnchor.href = link;
+            tagAnchor.target = "_blank";
+            tag.appendChild(tagAnchor);
             return;
           }
 
@@ -333,11 +337,16 @@ import { utils } from "./utils.js";
                 function (found) {
                   if (tagContent.indexOf(stringToExtract) >= 0) {
                     tagContent = tagContent.replace(`$${stringToExtract}`, found);
-                    tag.innerHTML = tagContent;
+                    tagAnchor.innerHTML = tagContent;
                   } 
-                  else 
-                    tag.innerHTML += found;
+                  else {
+                    tagAnchor.innerHTML += found;
+                  }
+                  tagAnchor.href = link;
+                  tagAnchor.target = "_blank";
+                  tagAnchor.className = "topicLink";
                   tag.title = link + (cronInterval == null ? "" : `${cronInterval}`);
+                  tag.appendChild(tagAnchor);
                 }
 
               );
@@ -354,8 +363,13 @@ import { utils } from "./utils.js";
         function (options, jsonObject) {
           const hash = options[0];
           const tag = document.getElementById(hash);
-          tag.innerHTML = jsonObject;
-          tag.title = link;
+          const tagAnchor = document.createElement("a");
+          tagAnchor.innerHTML = jsonObject;
+          tagAnchor.title = link;
+          tagAnchor.href = link;
+          tagAnchor.target = "_blank";
+          tagAnchor.className = "topicLink";
+          tag.appendChild(tagAnchor);
         }
       );
     }
@@ -368,8 +382,6 @@ import { utils } from "./utils.js";
           : document.createElement("span");
       apiElement.id = hash;
       apiElement.className = "topicLink";
-      if (description) 
-        apiElement.innerHTML = description;
 
       switch (typeOfCall) {
         case "json":
