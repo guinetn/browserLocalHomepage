@@ -6,4 +6,6 @@
 download.code(assets/slides/web/front/react_samples/react01/script.js)
 
 ### LIVE Result
-<iframe src="assets/slides/web/front/react_samples/react01/index.html"></iframe>
+download.iframe(assets/slides/web/front/react_samples/react01/index.html,500,200)
+
+

@@ -33,6 +33,10 @@
     // download.html(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.html)
     // download.raw(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
     // download.code(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
+    // download.iframe(url,[w,h]) :
+    //    download.iframe(assets/slides/web/front/react_samples/react01/index.html)
+    //    download.iframe(assets/slides/web/front/react_samples/react01/index.html,500,200)
+    //
     // [video title](https://www.youtube.com/watch?xyzabc)  --> <iframe src="//www.youtube.com/embed/xyzabc" frameborder="0" allowfullscreen=""></iframe>
     // setup:[The Map of Physics](ZihywtixUYo)
     // <script src="js/showdown.extension.bka.js"></script>
@@ -42,6 +46,7 @@
       bkaHtmlRegex = /(?:download\.)(?<bkatype>html)\((?<link>[^)]*)\)/gi,
       bkaCodeRegex = /(?:download\.)(?<bkatype>code)\((?<link>[^)]*)\)/gi,
       bkaMdRegex = /(?:download\.)(?<bkatype>md)\((?<link>[^)]*)\)/gi,
+      bkaIFrameRegex = /(?:download\.)(?<bkatype>iframe)\((?<link>.*?) ?(?: ?, ?(?<width>\d{0,4}) ?, ?(?<height>\d{0,4}) ?)?\)/gi,
       bkaPrettyPrintRegex = /(<pre[^>]*>)?[\n\s]?<code([^>]*)>/gi,
       bkaYoutubeRegex = /<a href="(?:(?:https?:)?(?:\/\/)?)(?:(?:www)?\.)?youtube\.(?:.+?)\/(?:(?:watch\?v=)|(?:embed\/))(?<videoid>[a-zA-Z0-9_-]{11})(?:[^"'])*(?:"|')+\s*>(?<videotitle>[^<]*)/gi;
 
@@ -61,7 +66,7 @@
                     </td>
                   </tr>
                 </table>`;
-      }
+      },
     };
 
     var bkaDownloadMarkdownExtension = {
@@ -74,6 +79,25 @@
           });
           return `<div id='${hash}'></div>`;
         });
+      },
+    };
+
+    function addAttribute(attributeName, value, suffix) {
+      return value == null ? "" : `${attributeName}='${value}${suffix}'`;
+    }
+    var bkaDownloadIframeExtension = {
+      type: "lang",
+      filter: function (text, converter, options) {
+        return text.replace(
+          bkaIFrameRegex,
+          function (s, bkatype, link, width, height) {
+            return `<iframe src='${link}'  ${addAttribute(
+              "width",
+              width,
+              "px"
+            )} ${addAttribute("height", height, "px")}></iframe>`;
+          }
+        );
       },
     };
 
@@ -131,7 +155,8 @@
       bkaDownloadRawExtension,
       bkaDownloadCodeExtension,
       bkaPrettyPrintExtension,
-      bkaYoutubeExtension,
+      bkaDownloadIframeExtension,
+      bkaYoutubeExtension
     ];
   });
 });

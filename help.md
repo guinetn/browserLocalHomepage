@@ -18,10 +18,13 @@ OTHERS
 * <kbd>ESC</kbd> Exit Full screen
 * Selection done with the mouse is automatically copied every 3 sec (snackbar warning)
 
-Slides syntax: standard markdown + additional syntax:
+Slides syntax: standard markdown + additional syntax to include…
     
-* Include a markdown file in the slide: <strong>download.md(assets/slides/myfile.md)</strong>
-* Include a file as it is (raw, not prettified): <strong>download.raw(https://githubusercontent.com/abcdef/sourcefile.txt)</strong>
-* Include an html (interpreted in innerHTML): <strong>download.html(https://githubusercontent.com/abcdef/sourcefile.txt)</strong>
-* Include code file (prettified by extension) <strong>download.code(https://githubusercontent.com/abcdef.cpp)</strong>
-* Include youtube video: <strong>[video title](https://www.youtube.com/watch?xyzabc)</strong>
+* <strong>download.md(assets/slides/myfile.md)</strong> : a markdown file:
+* <strong>download.raw(https://<span>githubusercontent.com/abcdef/sourcefile.txt</span>)</strong> : a file as it is (raw, not prettified)
+* <strong>download.html(https://<span>githubusercontent.com/abcdef/sourcefile.txt</span>)</strong> : an html (interpreted in innerHTML)
+* <strong>download.code(https://<span>githubusercontent.com/abcdef.cpp</span>)</strong> : a code file (prettified by extension)
+* <strong>download.iframe(url,[w,h])</strong> : an iframe 
+* &nbsp; download.iframe(assets/slides/web/front/react_samples/react01/index.html)
+* &nbsp; download.iframe(assets/slides/web/front/react_samples/react01/index.html,500,200)
+* <strong>[video_title]<span>(https://www.</span><span>youtube.com/watch?xyzabc)</span></strong> : a youtube video: any link containing 'youtube' 

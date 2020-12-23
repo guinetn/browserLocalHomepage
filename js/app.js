@@ -45,7 +45,7 @@ import { utils } from "./utils.js";
       [...document.querySelectorAll(".view")].forEach((v, i) => {
         [...v.querySelectorAll("h1")].map((x) => {
           let div = document.createElement("div");
-          div.innerText = `${("0" + i).slice(-2)}. ${x.innerText}`;
+          div.innerText = `${("0" + (1+i)).slice(-2)}. ${x.innerText}`;
           viewsListBox.appendChild(div);
         });
       });
@@ -56,7 +56,7 @@ import { utils } from "./utils.js";
       [...document.querySelectorAll(".slide")].forEach((s, i) => {
         [...s.querySelectorAll("h1")].map((x) => {
           let div = document.createElement("div");
-          div.innerText = `${("0" + i).slice(-2)}. ${x.innerText}`;
+          div.innerText = `${("0" + (1+i)).slice(-2)}. ${x.innerText}`;
           this.slidesToc.appendChild(div);
         });
       });

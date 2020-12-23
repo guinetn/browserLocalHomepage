@@ -15,6 +15,8 @@ download.md(assets/slides/computer_science/os_windows.md)
 ----
 download.md(assets/slides/computer_science/os_unix.md)
 ----
+download.md(assets/slides/computer_science/os_unix-bash.md)
+----
 download.md(assets/slides/computer_science/algorithmes.md)
 ----
 download.md(assets/slides/computer_science/architecture.md)

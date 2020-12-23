@@ -183,6 +183,8 @@
     "chrome://nacl[copy]",
     "chrome://omnibox[copy]",
     "chrome://tracing[copy]",
+    "https://www.chromestatus.com",
+    "https://www.chromestatus.com/samples",
     "https://v8.dev",
     "https://github.com/GoogleChrome",
     "https://github.com/samdutton/samples",
