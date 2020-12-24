@@ -25,8 +25,6 @@ download.md(assets/slides/web/javascript_ES2020.md)
 ---- 
 download.md(assets/slides/web/json.md)
 ---- 
-download.md(assets/slides/web/back/node.md)
-----
 download.md(assets/slides/web/back/aspnet.md)
 ----
 download.md(assets/slides/web/back/aspnetcore.md)

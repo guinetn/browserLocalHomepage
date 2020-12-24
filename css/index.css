@@ -503,59 +503,59 @@ pre.prettyprint {
 
 /* VIEWS */
 
-#home {
+.view #home {
   background-color: var(--homeBg);
 }
 
-#web {
+.view #web {
   background-color: var(--webBg);
 }
 
-#cloud {
+.view #cloud {
   background-color: var(--cloudBg);
 }
 
-#code {
+.view #code {
   background-color: var(--codeBg);
 }
 
-#mobiles {
+.view #mobiles {
   background-color: var(--mobilesBg);
 }
 
-#math {
+.view #math {
   background: var(--mathBg);  
 }
 
-#ia {
+.view #ia {
   background: var(--iaBg);  
 }
 
-#dataviz {
+.view #dataviz {
   background: var(--datavizBg);  
 }
 
-#sciences {
+.view #sciences {
   background: var(--sciencesBg);  
 }
 
-#aviation {
+.view #aviation {
   background: var(--aviationBg);  
 }
 
-#securisation {
+.view #securisation {
   background: var(--securisationBg);  
 }
 
-#money {
+.view #money {
   background: var(--moneyBg);  
 }
 
-#job {
+.view #job {
   background: var(--jobBg);  
 }
 
-#toolbox {
+.view #toolbox {
   background: var(--toolboxBg);  
 }
 

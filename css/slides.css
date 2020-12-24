@@ -90,6 +90,7 @@
 
 .slide pre {
   margin: 5px;
+  padding:10px !important;
 }
 
 #progress {  
@@ -117,4 +118,9 @@
   #progress {
     display: none;
   }
+}
+
+
+.slide iframe { 
+  margin-left: 3em; 
 }

@@ -29,6 +29,9 @@
     "https://colab.research.google.com(colaboratory)"
   ],
   "videos": ["https://youtube.com", "https://www.ted.com(TEDx)"],
+
+  "daily_routine":[
+  ],
   "online_tools": [
     "https://docs.w3cub.com",
     "https://vclock.com(countdown, alarms)",

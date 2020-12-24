@@ -1,11 +1,9 @@
 # CS
 
-
-# binary
 ----
-
-# ascii
-
+download.md(assets/slides/computer_science/binary.md)
+----
+download.md(assets/slides/computer_science/ascii.md)
 ----
 download.md(assets/slides/computer_science/os.md)
 ----
@@ -32,3 +30,7 @@ download.md(assets/slides/computer_science/design_patterns.md)
 download.md(assets/slides/computer_science/antipatterns.md)
 ----
 download.md(assets/slides/computer_science/hardware.md)
+----
+download.md(assets/slides/computer_science/software_quality.md)
+----
+download.md(assets/slides/computer_science/the_developer.md)

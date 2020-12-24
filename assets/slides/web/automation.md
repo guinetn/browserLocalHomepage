@@ -22,3 +22,30 @@ HEADLESS WEBSITE TESTING 	Run functional tests with frameworks such as Jasmine, 
 		NETWORK MONITORING 			Monitor page loading and export as standard HAR files. Automate performance analysis using YSlow and Jenkins. Learn more
 
 ### https://www.lambdatest.com/blog/selenium-webdriver-with-python
+
+# SELENIUM
+```js
+> Launch a Selenium chrome driver
+from selenium import webdriver
+driver = webdriver.Chrome('/usr/local/bin/chromedriver')
+### Open a webpage (i.e. google.com),
+driver.get('http://www.google.com')
+### Get an element (‘q’ means something),
+driver.find_element_by_name('q')           # via name
+driver.find_element_by_id('q')             # via id
+driver.find_element_by_class_name('q')     # via class
+>via css format: i.e. <input type="password" />
+driver.find_element_by_css_selector('input[type='password']') 
+>via xpath: i.e. <input name="username" type="text" />
+driver.find_elements_by_xpath('//input[@name='username']')
+### Write in a text box and submit
+query = 'something'           # things we want to post
+box.send_keys(query)
+box.submit()
+### Click a button
+btn.click()
+Scrolling down the page,
+driver.execute_script("window.scrollTo(0, 10000);")
+Quit the driver,
+driver.quit()
+```

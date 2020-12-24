@@ -8,11 +8,11 @@ const pi = 3.14;
 ```
 ----
 
-
 # c++ 2.0 CODE
 
 download.code(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
-
+----
+download.md(assets/slides/code/microsoft.md)
 ----
 download.md(assets/slides/code/repos.md)
 ----

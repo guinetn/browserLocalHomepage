@@ -1,5 +1,3 @@
 # Containers
 
-## docker 
 
-## kubernetes

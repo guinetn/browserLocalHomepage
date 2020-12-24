@@ -18,3 +18,10 @@ download.md(assets/slides/computer_science/architecture_pipefilter.md)
 
 ## MESSAGING & QUEUING
 messaging-pubsub
+
+### tech stack
+
+* Web
+package manager (npm or yarn), language (JavaScript or Typescript), linting and formatting rules (ESLint presets or Prettier), unit testing framework (jest or jasmine), CSS preprocessor (Sass or Less).
+
+*
