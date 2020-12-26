@@ -28,3 +28,13 @@ Slides syntax: standard markdown + additional syntax to include…
 * &nbsp; download.iframe(assets/slides/web/front/react_samples/react01/index.html)
 * &nbsp; download.iframe(assets/slides/web/front/react_samples/react01/index.html,500,200)
 * <strong>[video_title]<span>(https://www.</span><span>youtube.com/watch?xyzabc)</span></strong> : a youtube video: any link containing 'youtube' 
+* Slide Show: a slideShowContainer contains slideShowSlide items
+<pre><code><div class="slideShowContainer">   
+  <div class="slideShowSlide">  
+    ...  content #1
+  </div>  
+  <div class="slideShowSlide">  
+    ...  content #2
+  </div>  
+</div>  
+</code></pre>

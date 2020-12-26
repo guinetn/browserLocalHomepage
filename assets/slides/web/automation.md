@@ -24,6 +24,9 @@ HEADLESS WEBSITE TESTING 	Run functional tests with frameworks such as Jasmine, 
 ### https://www.lambdatest.com/blog/selenium-webdriver-with-python
 
 # SELENIUM
+
+https://www.lambdatest.com/blog/selenium-with-python
+
 ```js
 > Launch a Selenium chrome driver
 from selenium import webdriver

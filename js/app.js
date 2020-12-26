@@ -1,5 +1,6 @@
 import { config } from "./config.js";
 import { utils } from "./utils.js";
+import { slideShow } from "./slideShow.js";
 
 ( function() {
 	 
@@ -37,6 +38,7 @@ import { utils } from "./utils.js";
 
       utils.downloadJsonFile(config.topicsFile, null, this.extractTopics);
       this.renderViewsList();
+      if (slideShow) slideShow.init();
     }
 
     renderViewsList() {
@@ -183,6 +185,8 @@ import { utils } from "./utils.js";
 
       this.scrollTo(0);
       this.toggleSlidesVisibility(true);
+
+      if (slideShow) slideShow.init();
     }
     async downloadViewSlides(folder, slideFile) {
       try {
@@ -583,14 +587,26 @@ import { utils } from "./utils.js";
       if (!e.defaultPrevented) app.onSlideKeydown(e);
     });
     document.addEventListener("click", function (e) {
-      if (e.target.matches(".blogLink")) {
+      
+      if (e.target.matches(".slideShowSlidePrev") && slideShow) {
+        slideShow.plusSlides(e.target.parentNode.id, -1);
+        return;
+      } else if (e.target.matches(".slideShowSlideNext") && slideShow) {
+        slideShow.plusSlides(e.target.parentNode.id, 1);
+        return;
+      } else if (e.target.matches(".slideShowDot")) {
+        slideShow.currentSlide(e.target.parentNode.parentNode.id, e.target.getAttribute('data-dotSpan'));        
+      }
+      else if (e.target.matches(".blogLink")) {
         e.preventDefault();
         app.ShowBlog(e.target);
       } else if (e.target.matches(".copy")) {
         utils.copyToClipboard(e.target.innerText);
       } else if (
         e.target.matches(`${config.viewsCssSelector}.active`) ||
-        e.target.parentNode.matches(`${config.viewsCssSelector}.active, .topics`)
+        e.target.parentNode.matches(
+          `${config.viewsCssSelector}.active, .topics`
+        )
       ) {
         // Click on empty element => close opened windows (alarm, blog)
         app.HideBlog();
@@ -641,6 +657,7 @@ import { utils } from "./utils.js";
     initViews();
     
     if (showdown) showdown.setFlavor("github");
+    if (slideShow) slideShow.showSlides();
 
     utils.fetchMasonry(".topics", config.masonryColumns);
     utils.fetchGithub(config.blogRepoApi);

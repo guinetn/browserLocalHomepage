@@ -9,11 +9,11 @@
   background-color: #0008;
   text-overflow: ellipsis;
   height: fit-content;  
-  font-family: 'Cabin';
   border: solid 1px #707164;
   border-radius: 20px;
-  font-size: small;
+  font-size: medium;
   z-index: 1011;
+  font-family: monospace;
 }  
 
 .stickytoc a {
@@ -30,6 +30,15 @@
 }  
 
 .stickytoc a.active-title {
-  font-weight: 700;
+  border-bottom: 1px solid gold;
   color: gold;  
 }
+
+.stickytoc ul li {
+  list-style-type: decimal-leading-zero;  
+}
+
+.stickytoc ul {  
+  color: white;  
+  text-align: left;
+} 
