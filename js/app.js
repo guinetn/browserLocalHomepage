@@ -1,6 +1,6 @@
 import { config } from "./config.js";
 import { utils } from "./utils.js";
-import { slideShow } from "./slideShow.js";
+import { slideShow } from "./slideshow.js";
 
 ( function() {
 	 
