@@ -1,19 +1,23 @@
 # CS
 
 ----
-download.md(assets/slides/computer_science/binary.md)
+# Number Bases
+
+Decimal is the base number system we're most used to dealing with
+But computers usually work with 
+
+download.md(assets/slides/computer_science/numbers_binary.md)
+download.md(assets/slides/computer_science/numbers_hexadecimal.md)
+
 ----
-download.md(assets/slides/computer_science/ascii.md)
+download.md(assets/slides/computer_science/processors.md)
 ----
 download.md(assets/slides/computer_science/os.md)
 ----
-download.md(assets/slides/computer_science/os_linux.md)
+download.md(assets/slides/computer_science/ascii.md)
 ----
-download.md(assets/slides/computer_science/os_windows.md)
-----
-download.md(assets/slides/computer_science/os_unix.md)
-----
-download.md(assets/slides/computer_science/os_unix-bash.md)
+download.md(assets/slides/computer_science/programming_paradigms.md)
+
 ----
 download.md(assets/slides/computer_science/algorithmes.md)
 ----

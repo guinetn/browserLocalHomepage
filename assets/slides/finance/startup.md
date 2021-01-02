@@ -4,8 +4,14 @@ Organisation temporaire à la recherche d'un business model industrialisable, re
 * IPO* (Initial Public Offering = introduction en Bourse). Rare
 
 ## hard lessons learned
-* “Make something people want” 
-* “We coded alone, without real user feedback”
+* Make something people want”
+* We coded alone, without real user feedback
+* Done is better than perfect
+* The member is the boss
+* Start small, then extend
+* Change one thing at a time
+* Add logging and error handling early
+* Test the parts before the whole
 
 ## VCs «venture capitalists»
 
