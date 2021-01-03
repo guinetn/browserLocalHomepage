@@ -4,6 +4,7 @@
         new 
         open source architecture 
         norme ISA (Instruction Set Architecture)
+        Simplify central processor, dedicated co-rpocessors 
 * ARM 	Advanced RISC Machine
         Family of reduced instruction set computing (RISC) architectures for computer processors
         power efficiency (not too much heat). 
@@ -11,10 +12,10 @@
         mobile-friendly: smartphones
         Cortex-A9	
         M1 		Apple 
-        ARM SoC (System on a Chip, which includes the CPU, the GPU and the MMU, etc.)
+        ARM SoC (Advanced RISC Machines - System on a Chip, which includes the CPU, the GPU and the MMU, etc.)
 * AMD
-        Ryzen xxx  16 coeurs
-* x64 	x86/x64 processors are CISC (Complex Instruction Set Computing)
+        Ryzen 5000   16 coeurs, 7nm
+* x64 	x86/x64 processors are CISC (Complex Instruction Set Computing: many instructions set)
 * x86
 
 #### CoreMark

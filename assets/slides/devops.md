@@ -1,7 +1,16 @@
 # DevOps
 
-1990 - Waterfall Development
-2001 - Agile Manifesto: new method of development. But fails joining developers and operations team
+Software development methodology history
+
+1990 - Waterfall 
+        1. Make product requirement documentation
+        2. Build
+        3. Start Tests 
+        Testing and bug fixing can take time...
+        Rigidity: What if the roadmap changes?
+2001 - Agile Manifesto
+        Iterative approach: continuously build features that add value, then test and release
+        But agile fails joining developers and operations team
 2008 - DevOpsDays to “evolving” Agile to create a bridge between two siloed teams
 
 download.md(assets/slides/devops/agility.md)

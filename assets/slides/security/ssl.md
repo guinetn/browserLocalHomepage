@@ -1,5 +1,7 @@
 #  SSL (Secure Sockets Layer)
 
+Deprecated protocol. Now use TLS.
+
 - Building customer trust
 - Obtaining customers’ confidence in your business website
 = install an SSL certificate

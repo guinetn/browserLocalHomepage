@@ -143,5 +143,37 @@ DataBases > phpMyAdmin > Exporter
 	warnings  (\W) Show warnings after every statement.
 	nowarning (\w) Don't show warnings after every statement.
 
+### Reset lost password
+
+# /etc/init.d/mysql stop
+
+
+2) On va redémarrer MySQL en désactivant l'identification et l'écoute du réseau pour que personne ne puissent y accéder sans mot de passe pendant l'exécution de notre petite opération:
+ mysqld --skip-grant-tables --skip-networking &
+
+ [1] 11580
+ root@pc-octetmalin:/home/cedric/# 110607 12:21:43 [Note] Plugin 'FEDERATED' is disabled.
+ 110607 12:21:43  InnoDB: Started; log sequence number 0 294267
+ 110607 12:21:43 [Note] mysqld: ready for connections.
+ Version: '5.1.49-3'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  (Debian)
+
+
+3) Maintenant on va ce connecter à la base de données système "mysql" de MySQL:
+ mysql mysql -u root
+ mysql>
+
+
+4) Voici la commande pour mettre à jour le mot de passe du compte root:
+Dans mon exemple le nouveau mot de passe sera "tototiti".
+ mysql> UPDATE user SET password=PASSWORD('tototiti') WHERE user="root";
+
+
+5) On valide les changements:
+ mysql> FLUSH PRIVILEGES;
+
+
+6) On peut maintenant redémarrer le serveur MySQL:
+ /etc/init.d/mysql restart
+## More
 - http://www.mysqltutorial.org
 - http://www.mysqltutorial.org/mysql-copy-database/

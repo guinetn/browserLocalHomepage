@@ -35,7 +35,7 @@ Connect to mongodb
             MongoClient.connect('mongodb+srv://max:9u...be@cluster0-ntrwp.mongodb.net/shop?retryWrites=true')
 
         mongodb+srv://<user>:<pwd>@mycluster.bidxb.mongodb.net/<dbname>?retryWrites=true&w=majority
-        mongodb://root:password123@171.114.12.23:27017/databasename
+        mongodb://root:p123@171.114.12.23:27017/databasename
 
 	.NetCore: MongoDB.Driver
 
@@ -107,7 +107,7 @@ https://www.sitepoint.com/a-guide-to-serverless-deployment-with-express-and-mong
 
 
 	mongodb+srv://<user>:<pwd>@mycluster.bidxb.mongodb.net/<dbname>?retryWrites=true&w=majority
-	mongodb://root:password123@171.114.12.23:27017/databasename
+	mongodb://root:p123@171.114.12.23:27017/databasename
 
 	JS: npm i mongodb
 		see node_modules\mongodb\README.md  for all explanations

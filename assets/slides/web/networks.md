@@ -133,7 +133,7 @@ DNS Zone File
     It contains all the records for every domain within that zone. 
     It is mandatory for the zone file to have the TTL (Time to Live) listed before any other information. The TTL specifies how long a DNS record is in the server’s cache memory. The zone file can only list one record per line. It will display the Start of Authority (SOA) record listed first. The SOA record contains essential domain name information including the primary authoritative name server for the DNS Zone.
 
-# DNS RECORD (A, CNAME, MX, TXT…)
+## DNS RECORD (A, CNAME, MX, TXT…)
 	
 - Stored in authoritative servers
 - Information about a domain (associated IP address)
@@ -180,7 +180,7 @@ DNS Zone File
         _sip._tcp.example.com.   3600 IN SRV 10 50 5060 serviceone.example.com.
         _sip is the name of the service and _tcp is the transport protocol.
 
-## Computer Network cli
+## NETWORKING WITH CLI
 // check the DNS solution
 $ nslookup www.dgate.org
 // get the laptop's host name
@@ -235,12 +235,103 @@ print(cnn.text)
 
 ----
 
-### TCP (Transmission Control Protocol)
+### TCP - Transmission Control Protocol
 A connection-based protocol that provides a reliable flow of data between two computers.
 Example: HTTP, FTP, Telnet
 Use socket
 
-### UDP (User Datagram Protocol)
+### UDP - User Datagram Protocol
 A protocol that sends independent packets of data, called datagrams, from one computer to another with no guarantees about arrival. UDP is not connection-based like TCP.
 Example: time request, ping
 Use datagram
+
+## ROUTER: IPV4 addressing
+
+* Has a public IP address of 183.23.100.34 to which all incoming and outgoing traffic is associated.
+* acts as a Dynamic Host Configuration Protocol (DHCP) server
+Assigning private IP addresses to all the PCs, laptops, smartphones, and servers in the house. The devices will use those addresses whenever they talk to each other.
+* Traffic requests directed at your devices from external networks will be scanned and filtered to help prevent unauthorized and potentially dangerous access.
+
+```txt
+    INTERNET ←---→ Public IP: 183.23.100.34     ROUTER  
+                                            DHCP Server 
+                                                |
+                                        Private IP: 192.168.1.1 
+                                                |
+                                                ├─── 192.168.1.24  PC
+                                                ├─── 192.168.1.4   WebServer
+                                                └─── 192.168.1.12  Smartphone
+                                            
+                                            Local devices using NAT IP Addresses
+```
+
+Get my public IP: https://httpbin.org/ip
+Get my private IP: 
+
+### LAN - LOCAL AREA NETWORK
+
+Organize and protect network communications for devices running within a single home or office.
+
+### NAT - Network Address Translation
+
+Organize devices within a private LAN
+
+IPv4 addresses are 32-bit: 192.168.1.10
+4 billion unique addresses  1.0.0.0 - 255.255.255.255
+
+IPv6 addresses are 128-bit: 2002:0df6:0001:004b:0100:6c2e:0370:7234
+Hexadecimal
+Forever we won't running out of addresses 
+That means from the perspective of address allocation, there's no longer any need for private NAT networks. But, for security, you can give your devices some protection within your LAN.
+
+#### Subnet notation (IPv4)
+A subnet is a sub section of a network 
+Split IPv4 addresses: wich octets are part of the network and which are available for devices
+
+* CIDR (Classless Inter-Domain Routing)
+1st Network
+192.168.1.0/24  First three octets (8×3=24) make up the network portion
+                Leaving only the fourth octet for device addresses (256)
+2nd network (subnet)
+    192.168.2.0/24                    
+
+* Netmask
+
+#### Private networks (IPv4)
+Because of the limited number of IPv4 addresses 
+Devices using any address from those ranges will 
+    * Not be directly reachable from the public internet 
+    * Not be able to access internet resources
+
+IPv4 addresses used exclusively in private networks:
+10.0.0.0    - 10.255.255.255
+172.16.0.0  - 172.31.255.255
+192.168.0.0 - 192.168.255.255
+
+A NAT-enabled router will take the private IP addresses used in traffic requests between the LAN and the internet and "Translate" them to the router's own public address. The router, true to its name, will then route those requests to their appropriate destinations.
+
+## VPN - VIRTUAL PRIVATE NETWORK 
+
+Remote locations are by their nature insecure
+VPN permit secure and invisible remote connections
+Provides a direct connection between remote clients and a server in a way that hides data as it’s transferred across an insecure network
+
+||| 
+|---|---| 
+|SSH and SCP|protect data transferred through remote connections |
+|File encryption|protect data at rest|
+|TLS/SSL certificates| protect data between websites / client browsers|
+|VPN|protection across a broader range of connections|
+
+1. Have a tunnel
+Don't guarantee security
+once you’ve opened a tunnel, it’s possible to connect remote networks as though they’re all together locally
+2. Add encryption
+Choose one of a number of encryption standards
+
+[OpenVPN](https://openvpn.net/)
+. the best known
+. open source 
+. TLS/SSL encryption
+. install on one of you're VM: https://www.freecodecamp.org/news/securing-your-network-connections-using-openvpn/
+

@@ -57,6 +57,7 @@ https://aws.amazon.com/serverless/sam/
 
 ##### ARTICLES
 
+- https://www.freecodecamp.org/news/author/david/
 - [node-js-to-display-images-in-a-private-aws-s3-bucket](https://medium.com/javascript-in-plain-english/using-node-js-to-display-images-in-a-private-aws-s3-bucket-4c043ed5c5d0)
 - https://developer.okta.com/blog/2019/04/16/graphql-api-with-aspnetcore
 - https://developer.okta.com/blog/2019/03/21/build-secure-microservices-with-aspnet-core

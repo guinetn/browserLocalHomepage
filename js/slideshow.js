@@ -53,10 +53,10 @@ export let slideShow = {
           this.slideIndex[`sshow${i + 1}`] = 1;
         }
         
-        [...slideShowContainers].map((c,i)=> {
-            c.classList = 'slideShowKontainer';
+        [...slideShowContainers].map((kont,i)=> {
+            kont.classList = 'slideShowKontainer';
             const id = `sshow${i + 1}`;
-            c.id = id;
+            kont.id = id;
             
             // Add dots/bullets/indicators
             let dotContainer = document.createElement("div");
@@ -70,10 +70,10 @@ export let slideShow = {
                 let bt = document.createElement("a");
                 bt.classList = element.class;
                 bt.innerHTML = element.text;    
-                c.appendChild(bt);
+                kont.appendChild(bt);
             });
 
-            const slidesShow = c.querySelectorAll(`.slideShowSlide`);
+            const slidesShow = kont.querySelectorAll(`.slideShowSlide`);
             [...slidesShow].map( (s,is) => {
             let dotSpan = document.createElement("div");
             dotSpan.className = 'slideShowDot';
@@ -81,11 +81,11 @@ export let slideShow = {
             dotContainer.appendChild(dotSpan);
             })
             
-            c.appendChild(dotContainer);
+            kont.appendChild(dotContainer);
         })
        
-        for (var i = 0; i <= slideShowContainers.length; i++) 
-            this.showSlides(`sshow${i + 1}`);
+        for (let sid = 0; sid <= slideShowContainers.length; sid++) 
+            this.showSlides(`sshow${sid + 1}`);
     }
 }
 
