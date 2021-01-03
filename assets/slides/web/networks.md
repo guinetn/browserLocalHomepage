@@ -275,6 +275,8 @@ Organize and protect network communications for devices running within a single 
 ### NAT - Network Address Translation
 
 Organize devices within a private LAN
+Enables instances inside Private Subnet to get Internet access.
+Instances behind NAT Gateway cannot send outgoing traffic but can receive incoming traffic.
 
 IPv4 addresses are 32-bit: 192.168.1.10
 4 billion unique addresses  1.0.0.0 - 255.255.255.255
@@ -285,19 +287,26 @@ Forever we won't running out of addresses
 That means from the perspective of address allocation, there's no longer any need for private NAT networks. But, for security, you can give your devices some protection within your LAN.
 
 #### Subnet notation (IPv4)
-A subnet is a sub section of a network 
+A subnet is a sub section of a network, a 'logical' partition.
+Break a Network into multiple small Network Segments called subnets.
 Split IPv4 addresses: wich octets are part of the network and which are available for devices
 
 * CIDR (Classless Inter-Domain Routing)
+A way to represent a Subnet mask: / + subnet mask's number of bits
+
 1st Network
-192.168.1.0/24  First three octets (8×3=24) make up the network portion
+192.168.1.0/24  First three octets (8×3=24 bits) make up the network portion
                 Leaving only the fourth octet for device addresses (256)
 2nd network (subnet)
     192.168.2.0/24                    
 
+IP 10.0.0.0 + mask 255.0.0.0        → CIDR 10.0.0.0/8
+IP 10.1.0.0 + mask 255.255.0.0      → CIDR 10.1.0.0/16
+IP 10.10.1.1 + mask 255.255.255.255 → CIDR 10.10.1.1/32
+
 * Netmask
 
-#### Private networks (IPv4)
+#### Private (virtual) networks (IPv4)
 Because of the limited number of IPv4 addresses 
 Devices using any address from those ranges will 
     * Not be directly reachable from the public internet 
@@ -310,28 +319,22 @@ IPv4 addresses used exclusively in private networks:
 
 A NAT-enabled router will take the private IP addresses used in traffic requests between the LAN and the internet and "Translate" them to the router's own public address. The router, true to its name, will then route those requests to their appropriate destinations.
 
-## VPN - VIRTUAL PRIVATE NETWORK 
+#### VPC - Virtual Private Cloud 
 
-Remote locations are by their nature insecure
-VPN permit secure and invisible remote connections
-Provides a direct connection between remote clients and a server in a way that hides data as it’s transferred across an insecure network
+Within a vpc all your Subnets can communicate.
 
-||| 
-|---|---| 
-|SSH and SCP|protect data transferred through remote connections |
-|File encryption|protect data at rest|
-|TLS/SSL certificates| protect data between websites / client browsers|
-|VPN|protection across a broader range of connections|
+download.md(assets/slides/security/vpn.md)
 
-1. Have a tunnel
-Don't guarantee security
-once you’ve opened a tunnel, it’s possible to connect remote networks as though they’re all together locally
-2. Add encryption
-Choose one of a number of encryption standards
+### Internet Gateway
 
-[OpenVPN](https://openvpn.net/)
-. the best known
-. open source 
-. TLS/SSL encryption
-. install on one of you're VM: https://www.freecodecamp.org/news/securing-your-network-connections-using-openvpn/
+Enable instances inside Public Subnet to get Internet access.
+Enables Public Subnet,  publicly accessible over the Internet.
+Instances behind Internet Gateway can send outgoing traffic as well as can receive incoming traffic.
 
+Internet Gateway is the only component that allows communication between your VPC and Internet.
+I is attached to route table of NAT gateway and Public Subnet to enable them to communicate with Internet.
+
+### Route Table
+
+Every VPC has an implicit Router and that router use route table to controls  network traffic or directs the traffic to a destination.
+You can associate the Route Table with an Internet Gateway or Nat Gateway for Internet access.

@@ -15,6 +15,10 @@ download.md(assets/slides/security/ssl.md)
 ----
 download.md(assets/slides/security/tls.md)
 ----
+download.md(assets/slides/security/vpn.md)
+----
 download.md(assets/slides/security/openssl.md)
 ----
 download.md(assets/slides/security/rdc.md)
+----
+download.md(assets/slides/security/csr.md)

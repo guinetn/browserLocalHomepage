@@ -177,3 +177,4 @@ Dans mon exemple le nouveau mot de passe sera "tototiti".
 ## More
 - http://www.mysqltutorial.org
 - http://www.mysqltutorial.org/mysql-copy-database/
+- https://devopsmyway.com/install-mysql-ubuntu/

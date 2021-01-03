@@ -1,4 +1,4 @@
-## jenkins
+## JENKINS
 
 https://jenkins.io/
 
@@ -9,4 +9,7 @@ Software build using build systems such as Gradle, Maven, and more.
 Automation testing using test frameworks such as Nose2, PyTest, Robot, Selenium, and more.  
 Execute test scripts (using Windows terminal, Linux shell, etc.  
 
-https://www.lambdatest.com/blog/what-is-jenkins  
+### More
+- https://www.lambdatest.com/blog/what-is-jenkins  
+- https://devopsmyway.com/jenkins-github-integration
+- https://devopsmyway.com/jenkins-job-create-your-first-build-job/

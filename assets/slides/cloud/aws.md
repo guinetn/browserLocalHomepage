@@ -1,6 +1,8 @@
 # AWS
 
 https://aws.amazon.com
+https://devopsmyway.com
+https://devopsmyway.com/list-of-aws-services/
 
 |Concepts| Meaning | |
 |---|---|
@@ -14,7 +16,19 @@ https://aws.amazon.com
 https://medium.com/adamedelwiess/data-acquisition-7-an-introduction-to-the-amazon-web-services-e927c68132cb
 
 ## Free tier t2.micro instance
-Play with a micro instance for 12 months. Simply create a new account on http://aws.amazon.com/, and create a new t2.micro instance. https://www.hackingnote.com/en/cloud/aws
+Play with a micro instance for 12 months. Simply create a new account on http://aws.amazon.com/, and create a new t2.micro instance. 
+
+https://www.hackingnote.com/en/cloud/aws
+https://aws.amazon.com/fr/free
+
+## AZ - Availability Zone
+One or more discrete Data Centers in an AWS Region with redundant power, networking, and connectivity.
+The no of AZs may varies from 2 to 5 in different AWS Regions.
+Good practice to distribute your web/applications/databases in multiple subnets in multiple AZs. In case , one AZ goes down due to power outage, lightning, earthquake etc, your application will be still running in another AZ.
+
+## Elastic IP
+
+Elastic IP address is a Public IP(IPv4) address provided by AWS Cloud and this Public IP address is static and easily attachable and de-attachable to any instance. You can attach or de-attach an Elastic IP any time(without shutting down the instance) and,  to any Instance as per your requirement.Due to this flexible behavior, AWS named this IP address as Elastic IP.
 
 ## WS Nitro System
 Offload network, storage and management to dedicated hardware, so CPU can be used for more important computing jobs. Thanks to the ASIC(Application-specific integrated circuit) from Annapurna Labs, a company that Amazon acquired.

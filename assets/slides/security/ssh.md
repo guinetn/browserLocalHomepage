@@ -7,6 +7,7 @@ Windows 10 uses OpenSSH as its default SSH client and SSH server
 
 ssh nom_utilisateur@ip_ou_nom_machine -p numero_de_port
 ssh -i /path/my-key-pair.pem my-instance-user-name@my-instance-public-dns-name
+                                                                             100%  636    23.1KB/s   00:00
 
 ## Have a SSH Directory
 
@@ -118,10 +119,13 @@ Contains rows, each is a server public key the user connect to
     vps47217.inhosting.com,173.145.215.11 ecdsa-sha2-nistp256 AAAA...TDFbRs=
 
 ### FILE TRANSFER: SCP-SECURE COPY 
-	
     Remote file copy program
 
-	SSH Transfer
+    Transfer local--> server
+    scp -i ~\.ssh\i-029b44db36e034bd1.pem  I:\_langs\python-flask\02_routing\main.py ec2-user@ec2-3-10-170-46.eu-west-2.compute.amazonaws.com:/var/www/html
+    main.py  
+
+
 	Copy something from another system to this system:
 	scp username@hostname:/path/to/remote/file /path/to/local/file
 

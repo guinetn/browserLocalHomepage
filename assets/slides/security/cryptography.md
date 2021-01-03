@@ -2,9 +2,11 @@
 
 ## ASYMMETRIC CRYPTOGRAPHY (public-key encryption)
 For authentication
-A pair of keys
-Public key: you distribute it. To encrypt
-Private key: hidden from public. To decrypt
+
+|A pair of keys|||
+|---|---|---|
+|Public key|Distribute to anyone|To encrypt|
+|Private key|hidden from public. Don’t share it with anyone.|To decrypt|
 
 Asymmetric: it's a one-way trip
 Alice can send messages encrypted with your public key to you, but neither of your keys will help you send an encrypted message to Alice.

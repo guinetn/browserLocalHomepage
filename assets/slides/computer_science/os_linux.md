@@ -20,6 +20,9 @@
 |/var | Contient toutes les données variables du système|
 
 
+## Install
+$ sudo apt-get install openssl*     Ubuntu/Debian
+$ sudo yum install openssl*         Amazon Linux/Centos/RHEL
 
 ## logs
 

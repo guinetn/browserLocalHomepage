@@ -2,15 +2,17 @@
 
 https://www.ansible.com/
 
-System for describing and managing configurations
+Automation tool to manage remote machines. 
+Agentless configuration management tool: doesn't require to install agents on remote machines for remote management. It manages remote machines over the SSH (RDP on Windows) protocols to open a connection to the client servers to execute  predefined commands.   
 
+Ansible is installed on a Centralized Server and from there all other remote Machines are managed. Centralized Server where Ansible is installed is known as Control node and remote Machines are known as a Managed node.
+
+System for describing and managing configurations
 Python open-source tool that uses playbooks to enable configuration management, software provisioning, and application deployment.
 Consistent, secure, reliable, and it requires a minimal learning curve. Simply put, Ansible is a powerful tool for automating apps and infrastructure. 
 Red Hat IaC friendly tool
 The enterprise version of this tool is called Ansible Tower, and it is capable of performing automation and orchestration tasks. 
 
-Agentless configuration management tool  
-Ansible uses the SSH (or RDP for Windows) protocols to open a connection to the client servers to execute  predefined commands.   
 Has transformed the industry. It is one of the critical components of modern technology firms that rely on a large number of machines or servers they need to maintain in their daily business.
 
 Ansible is usually configured as a single active master server (referred to as a Primary Instance) as no agents are required to connect to it. A secondary master can be configured to take over if the master server goes down. Because Ansible uses an agent-less approach, it can deploy changes or push updates relatively quickly to all the nodes by an engineer. A downside to Ansible is that the client computers do not check for any periodic configuration changes on the primary master.
@@ -103,8 +105,9 @@ Ex: run /etc/ansible/playbooks/playbook.yml file at 0400 a.m
     0 4 * * * /usr/bin/ansible-playbook /etc/ansible/playbooks/playbook.yml
 
 
+- https://devopsmyway.com/how-to-install-ansible-on-amazon-linuxec2/
+- https://devopsmyway.com/install-ansible-ubuntu-18-04/
 - https://www.liquidweb.com/kb/how-to-use-ansible/
 - https://www.liquidweb.com/kb/how-to-install-and-configure-ansible/
 - https://www.liquidweb.com/kb/using-ansible-in-devops-a-beginners-guide/
-
 

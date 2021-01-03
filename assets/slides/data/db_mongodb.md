@@ -444,7 +444,7 @@ MongoDB is recognized as the leading NoSQL database it delivers faster time to m
 
 
 
-MONGOOSE
+## MONGOOSE
 
 	http://mongoosejs.com/
 	https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
@@ -452,7 +452,7 @@ MONGOOSE
 	elegant mongodb object modeling for node.js
 	Mongoose adds a schema to your MongoDB objects
 
-## Mongoose which primarily enforces a Schema, basic type checks and validation to our documents before saving them to Mongo. It acts as a middleman between Mongo and Node.
+Mongoose which primarily enforces a Schema, basic type checks and validation to our documents before saving them to Mongo. It acts as a middleman between Mongo and Node.
 
 	npm install mongoose
 
@@ -710,4 +710,6 @@ C:\Program Files\MongoDB\Server\3.2\README
 
 
 
+## More
 
+- https://devopsmyway.com/install-mongodb-on-ec2/
