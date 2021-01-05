@@ -21,23 +21,28 @@ Distributed database system has to make a tradeoff between consistency and avail
 
 Pick 2 out of these 3: only 2 of the 3 are possible at the same time: 
 * CONSISTENCY - COHÉRENCE
+All client has same view of data irrespective of delete or update .
 A data has only one visible state whatever the number of replicas
 All the nodes in the system see exactly the same data at the same time
 User retrieves the same information no matter wich node he connect to
 Important for: finance (accounts) 
 * AVAILABILITY
-guarantee that all queries are answered.
+Guarantee that all queries are answered.
 Every user is able to get the data
+Each client can always read and write.
 Response of the system even if its a "unsuccessful" operation
 Important when need to access a data at all times (whatsapp status when offline...)
 As long as the system is running (distributed or not), the data must be available
 * PARTITION TOLERANCE (DISTRIBUTION)
+All system works well despite of physical network partitioned.
 Regardless of the number of servers, any request must provide a correct result
 No less important failure than a total cut-off of the network must prevent the system from responding correctly (or again: in the event of division into subnets, each must be able to operate independently).
 Partition = communication break between nodes (network failure, server crash)
 The system should still be able to work even if there is a partition meaning that if a node fails to communicate, then one of the replicas of the nodes should be able to retrieve the data
 
 ![cap_theorem](assets/slides/data/assets/cap_theorem.png)    
+![cap_theorem](assets/slides/data/assets/cap_theorem_couples.jpg)    
+![cap_theorem](assets/slides/data/assets/cap-theorem-triangle.png)    
 
 ## Couples
 

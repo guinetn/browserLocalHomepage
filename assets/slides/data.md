@@ -24,7 +24,7 @@ PRIMARY KEY, UNIQUE, INDEX, and FULLTEXT are stored in B+trees
 spatial data types use R-trees;
 
 
-
+## History
 * 1970 Relational model: SQL
     Not for high volumes (slow responses, heavy and complex data distribution)
     Ex: Sql Server, Oracle, MySQL
@@ -52,6 +52,9 @@ spatial data types use R-trees;
 |Scalability| 		High|						High (but more expensive)|
 
 
+![](assets/slides/data/assets/db_choose.png)
+
+
 TREES (B - BTREE)
 Tree structure, leaves are the links to the data
 non-dense B tree (clustered index): data are sorted → tree = dictionary 
@@ -76,8 +79,8 @@ download.md(assets/slides/data/db_sql.md)
 
 
 ----
-download.md(assets/slides/data/no_sql.md)
-download.md(assets/slides/data/no_sql_db.md)
+download.md(assets/slides/data/db_nosql.md)
+download.md(assets/slides/data/db_nosql_databases.md)
 
 
 ----

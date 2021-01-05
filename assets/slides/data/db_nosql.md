@@ -1,11 +1,93 @@
-# NoSQL
+# NoSQL - Not Only SQL
 
+A new way to store and request data
+
+Relational database cannot manage big data: Volume, Velocity, Variety
+NoSql relaxes some ACID constrainsts of RDBMS to allow data distribution
 Response to the scale and agility challenges that face modern applications. 
 Wide database technologies
 More data is being collected and more users are accessing this data concurrently: the way web applications deal with data has changed significantly. Scalability and performance are more of a challenge than ever for relational databases that are schema-based and therefore can be harder to scale.
 
-https://www.toptal.com/database/the-definitive-guide-to-nosql-databases
+## NoSQL Families
 
+### KEY-VALUE 
+Hash table on the network
+Simple, efficient
+Key 	→ Hash function → index
+Value	→ anyhing
+No language possible → CRUD only: 
+- Create (key,value)
+- Read (key)
+- Update (key,value)
+- Delete (key) 
+
+**Applications**
+Realtime fraud detection
+IoT
+E-commerce
+Cache
+Fast transactions
+Logs
+Chat
+
+**Who?**
+- Redis (VMWare) : Vodafone, Trip Advisor, Nokia, Samsung, Docker
+- Memcached (Danga) : LiveJournal, Wikipédia, Flickr, Wordpress
+- Azure Cosmos DB (Microsoft) : Real Madrid, Orange tribes, MSN, LG, Schneider Electric
+- SimpleDB (Amazon)
+
+### COLUMNS ORIENTED
+Attribut (column) focus: ignore others columns
+**Applications**
+Analytics
+Aggregations
+Not for found a single value
+Counter (online voting)
+Journalisation
+Categorie search
+Large reporting 
+
+**Who?**
+BigTable (Google)
+HBase (Apache, Hadoop)
+Spark SQL (Apache)
+Elasticsearch (elastic) -> moteur de recherche
+
+### DOCUMENTS
+
+Handle documents containing information with a complex structure (types, lists, nestings). It is based on the key/value principle, but with an extension on the fields that make up this document
+Structured approach to each value, thus forming a document
+Rich query languages allowing complex manipulations on each attribute of the document (and sub-documents) like in relational but in a distributed fashion.
+
+**Applications**
+Content management (digital libraries, product collections, software repositories, multimedia collections, etc.)
+Framework for storing objects
+Collection of complex events
+Management of user histories on social networks.
+
+**Who?**
+MongoDB (MongoDB) : ADP, Adobe, Bosch, Cisco, eBay, Electronic Arts, Expedia, Foursquare
+CouchBase (Apache, Hadoop) : AOL, AT&T, Comcast, Disney, PayPal, Ryanair
+DynamoDB (Amazon) : BMW, Dropcam, Duolingo, Supercell, Zynga
+Cassandra (Facebook -> Apache) : NY Times, eBay, Sky, Pearson Education
+Cassandra is "wide-column store" = document oriented
+
+### GRAPH
+Store nodes: links, attributs
+Requests: distance, paths, recommandations
+
+**Applications**
+Social networks (recommendation, shortest path, cluster ...)
+GIS networks (roads, electricity network, freight ...)
+Social web (Linked Data).
+
+**Who?**
+Neo4j : eBay, Cisco, UBS, HP, TomTom, The National Geographic Society
+OrientDB (Apache) : Comcast, Warner Music Group, Cisco, Sky, United Nations, VErisign
+FlockDB (Twitter) : Twitter
+
+
+https://www.toptal.com/database/the-definitive-guide-to-nosql-databases
 
 * Elasticity
 * Sharding
@@ -37,6 +119,8 @@ https://db-engines.com/en/ranking_trend
 
 constitency + rich language → MongoDB
 ElasticSearch good but bad for consistency
+
+![](assets/slides/data/assets/nosql-store-decision-flow.png)
 
 * 1970 	Relational model: SQL
 	Not for high volumes (slow responses, heavy and complex data distribution)
