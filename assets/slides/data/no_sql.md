@@ -1,14 +1,18 @@
 # NoSQL
 
-## NoSQL
-
-NoSQL encompasses a wide variety of different database technologies that were developed in response to the scale and agility challenges that face modern applications. 
-
+Response to the scale and agility challenges that face modern applications. 
+Wide database technologies
 More data is being collected and more users are accessing this data concurrently: the way web applications deal with data has changed significantly. Scalability and performance are more of a challenge than ever for relational databases that are schema-based and therefore can be harder to scale.
 
 https://www.toptal.com/database/the-definitive-guide-to-nosql-databases
 
 
+* Elasticity
+* Sharding
+
+download.md(assets/slides/data/base.md)
+
+## NoSQL candidates
 
 |           |   Storage Type|	Query Method	Interface	Programming |Language	|Open |Source Replication|
 |Cassandra	|	Column Store|	Thrift API		 |Thrift		|Java		           |Yes			|Async|
@@ -18,6 +22,21 @@ https://www.toptal.com/database/the-definitive-guide-to-nosql-databases
 |BigTable	|	Column Store|	MapReduce		 |TCP/|IP		|C++		           |No			|Async|
 |HBase		|	Column Store|	MapReduce		 |REST			|Java		           |Yes			|Async|
 
+**NoSQL candidates selection**
+criteria [0-5]
+https://db-engines.com/en/ranking_trend
+
+|Score|MongoDB|Cassandra|ElasticSearch|
+|----|----|----|----|----|
+|Cost|0.5|4|4|4|
+|Consistency|1|4|2|2|
+|Availability|0.5|2|4|3|
+|Language|1|4|2|3|
+|Functionalities|2|4|2|4|
+|Total|5|19|12|16.5|
+
+constitency + rich language → MongoDB
+ElasticSearch good but bad for consistency
 
 * 1970 	Relational model: SQL
 	Not for high volumes (slow responses, heavy and complex data distribution)
@@ -222,59 +241,3 @@ Leaf-nodes are blocks that have between ⌈m/2⌉ and m “key-value, record-poi
 If a tree has a single node, then it must be a leaf, which is the root of the tree, and it can have between 1 to m key data items.
 Leaf nodes are double-linked in forward and backward directions.
 
-
-
-
-
-# MongoDB (c++)
-Document Store	
-Great database which I love and is the main inspiration behind RaptorDB, although I have issues with its 32bit 4Gb database size limit and the memory map file design which could potentially corrupt easily. (Polymorphism has a workaround in mongodb if anyone wants to know).
-flexible schema storage, which means stored objects are not necessarily required to have the same structure or fields. MongoDB also has some optimization features, which distributes the data collections across, resulting in overall performance improvement and a more balanced system.
-
-schema-free, document-oriented database written in C++. The database is document store based, which means it stores values (referred to as documents) in the form of encoded data.
-The choice of encoded format in MongoDB is JSON. This is powerful, because even if the data is nested inside JSON documents, it will still be queryable and indexable.
-
-
-# Apache CouchDB / CouchBase (erlang)
-Document Store
-Another standard in document databases. The design is elegant.
-Share a lot of features with MongoDB, with the exception that the database can be accessed using RESTful APIs.
-
-# RavenDB (.net)
-Document Store
-Work done by Ayende which is a .net document database built on the Windows ESENT storage system.
-http://ravendb.net
-
-RavenDB is a document database for the .NET platform, offering a flexible data model design to fit the needs of real world systems.
-
-Forget about tables, rows, mappings or complicated data-layers. RavenDB is a document-oriented database you can just dump all your objects into.
-Queries are amazingly fast and flexible.
-
-RavenDB is a document database, which stores each document in JSON format. In a document database any entity can be stored as a document.
-You don’t have to define in advance the schema of your data in order to store it, all you have to do is to give RavenDB an object and RavenDB will store it. Later in this post, I’ll show you what does a document looks like.
-
-# OrientDB (java)
-The performance specs are impressive.
-
-
-# Cassandra
-Column Store
-developed by Facebook
-includes a lot of features aimed at reliability and fault tolerance.
-The goal behind Cassandra was to create a DBMS that has no single point of failure and provides maximum availability.
-Inspired by Google’s BigTable, which is a column store database, and Amazon’s DynamoDB, which is a key-value database.
-by providing a key-value system, but the keys in Cassandra point to a set of column families, with reliance on Google’s BigTable distributed file system and Dynamo’s availability features (distributed hash table).
-
-designed to store huge amounts of data distributed across different nodes. Cassandra is a DBMS designed to handle massive amounts of data, spread out across many servers, while providing a highly available service with no single point of failure, which is essential for a big service like Facebook.
-
-
-# HyperTable
-Column Store
-C++ 
-is based on Google’s BigTable
-
-# BigTable
-Column Store
-
-# HBase	
-Column Store

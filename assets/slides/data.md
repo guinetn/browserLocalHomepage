@@ -8,9 +8,12 @@ Organize the database objects into logical groups to make them more manageable. 
 >SELECT * FROM information_schema.columns; Or we can choose to see the schema for a specific table,
 >SELECT * FROM information_schema.columns WHERE table_name = 'boats';
 
-### INDEX TYPES
+### INDEXES
+To access directly to the requested data = book's table of content: word ←→ page
+No need to browse all the pages to find a word
 
 Indexing is the process of associating a key with the location of a corresponding data record in a DBMS. 
+### INDEX TYPES
 
 * PRIMARY   unique, one per table
 * UNIQUE    unique, no two rows have the same combination of the values
@@ -19,6 +22,8 @@ Indexing is the process of associating a key with the location of a correspondin
 
 PRIMARY KEY, UNIQUE, INDEX, and FULLTEXT are stored in B+trees
 spatial data types use R-trees;
+
+
 
 * 1970 Relational model: SQL
     Not for high volumes (slow responses, heavy and complex data distribution)
@@ -46,28 +51,39 @@ spatial data types use R-trees;
 |DataStorage| 		Optimized for huge data|		Medium sized to large|
 |Scalability| 		High|						High (but more expensive)|
 
+
+TREES (B - BTREE)
+Tree structure, leaves are the links to the data
+non-dense B tree (clustered index): data are sorted → tree = dictionary 
+
+HASH
+data go into buckets
+hash function make the bucket
+
+----
+download.md(assets/slides/data/acid.md)
+download.md(assets/slides/data/base.md)
+
+
 ----
 download.md(assets/slides/data/data_structures.md)
+
+
 ----
 download.md(assets/slides/data/sql.md)
 ----
-download.md(assets/slides/data/db_sqlserver.md)
-----
-download.md(assets/slides/data/db_sybase.md)
-----
-download.md(assets/slides/data/db_oracle.md)
-----
-download.md(assets/slides/data/db_sqlite.md)
-----
-download.md(assets/slides/data/db_mysql.md)
-----
-download.md(assets/slides/data/db_postgre_sql.md)
+download.md(assets/slides/data/db_sql.md)
+
+
 ----
 download.md(assets/slides/data/no_sql.md)
-----
-download.md(assets/slides/data/db_mongodb.md)
+download.md(assets/slides/data/no_sql_db.md)
+
+
 ----
 download.md(assets/slides/data/distributed_database.md)
+
+
 ----
 download.md(assets/slides/data/blockchain.md)
 ----
@@ -78,3 +94,6 @@ download.md(assets/slides/data/redux.md)
 download.md(assets/slides/data/geodata.md)
 ----
 download.md(assets/slides/data/infludb.md)
+
+----
+download.md(assets/slides/data/big_data.md)

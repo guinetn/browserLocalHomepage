@@ -31,7 +31,7 @@ manage the data and created resources
 
 Examples: Azure App Service, Amazon Web Service, Google App Engine…
 
- ## 🔱 SaaS - Software as a Service 
+## 🔱 SaaS - Software as a Service 
 
 "On demand applications"
 Use as service by pay as go or fixed pay model without worrying about building, deploying and managing the application. 
@@ -42,7 +42,7 @@ Use as service by pay as go or fixed pay model without worrying about building, 
 - Google Docs
 - Google Drive etc.
 
- ## 🔱 FaaS - Funtion as a Service 
+## 🔱 FaaS - Funtion as a Service 
 
 Serverless computing
 

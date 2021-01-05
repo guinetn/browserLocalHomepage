@@ -100,19 +100,9 @@ High level modules should not depend upon low level modules
                         The dependencies have been inverted. 
                         Now we can create new types of ways for Employee data to be written                        
 
-### ACID (DataBases): Atomic Coherent Isolation Durable
-The 4 ACID properties garantee a transaction execution reliability
-Transaction: operations modifying data
-* Atomic
-Operations sequence is not divisible: one (or system) fails, all rollback. Change all or nothing
-* Coherent
-Transaction will respect data integrity constrainst: debit if credit
-* Isolated
-optimist transaction: rollback if r/w order interference
-pessimist transaction: locked resources to avoid r/w interference. Perf ↓
-* Durable
-Succedded transactions are not lost by system faiure. They are permanent.   
-Simple disk write is unsufficient: The DBMS must write in logs the changes made.
+download.md(assets/slides/data/acid.md)
+
+download.md(assets/slides/data/base.md)
 
 ### GTD (Getting Things Done) - organise for success
 * Harvesting

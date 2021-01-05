@@ -1,11 +1,15 @@
-# MongoDB
+# MongoDB (c++)
 
 http://www.mongodb.org/
 
-NoSQL - MongoDB (Document database)
-Schemaless (documents can have different structure) = no structure required
+C++
+NoSQL - MongoDB (document-oriented database)
+Document Store (json): stores values (referred to as documents) in the form of encoded data. The choice of encoded format in MongoDB is JSON. This is powerful, because even if the data is nested inside JSON documents, it will still be queryable and indexable.
+Popular, powerful language, easy to integrate
+Schemaless (schema-free documents can have different structure) = no structure required
 Fewer data relations
-Document are json
+Great database which I love and is the main inspiration behind RaptorDB, although I have issues with its 32bit 4Gb database size limit and the memory map file design which could potentially corrupt easily. (Polymorphism has a workaround in mongodb if anyone wants to know).
+flexible schema storage, which means stored objects are not necessarily required to have the same structure or fields. MongoDB also has some optimization features, which distributes the data collections across, resulting in overall performance improvement and a more balanced system.
 
 • Nested/Embedded Document
 • References
@@ -22,8 +26,37 @@ MongoDB Atlas (free)
                  → "IP Whitelist" → Add you current ip address   
     !!! Overview tab → Connect → your app → Choose connector method (java, python, ruby, node)
     mongodb+srv://anet:<PASSWORD>@mycluster-bidxb.mongodb.net/test?retryWrites=true
-    
-Connect to mongodb
+
+https://openclassrooms.com/fr/courses/4462426-maitrisez-les-bases-de-donnees-nosql/4474601-decouvrez-le-fonctionnement-de-mongodb
+
+### Distributed mongo db
+
+Cluster: servers physical architecture distribution 
+- Request Routers: mongos
+- configuration servers: Config Server
+- Data servers: Shard
+
+Min archi: 2 mongos, 3 Config Serversn, 2 shards
+
+- https://openclassrooms.com/fr/courses/4462426-maitrisez-les-bases-de-donnees-nosql/4474616-distribuez-vos-donnees-avec-mongodb
+
+### Sample
+
+$ curl https://s3-eu-west-1.amazonaws.com/course.oc-static.com/courses/4462426/tour-Pedia_paris.json.zip    
+$ mongoimport --db tourPedia --collection paris tourPedia_paris.json
+$ db.paris.find({"services":"blanchisserie", "category":"accommodation"})
+$ db.paris.find({"category" : "accommodation"}, {"location.address":1})
+$ db.paris.find({"reviews" : {$elemMatch : {"language":"en", "rating" : {$gt : 3}}}})
+$ db.paris.aggregate( [ {$group : {_id:"$category", "tot":{$sum:1}} } ] ) ;
+$db.paris.aggregate ([
+    {$match :  {"category" : "accommodation"} },
+    {$unwind : "$services" },
+    {$group : {_id:"$services", "tot":{$sum:1}} }
+])
+
+- https://openclassrooms.com/fr/courses/4462426-maitrisez-les-bases-de-donnees-nosql/6734731-entrainez-vous-a-creer-et-a-interroger-une-base-de-donnees-mongodb
+
+### Connect to mongodb
     npm i -S mongodb
 	see node_modules\mongodb\README.md  for all explanations
 

@@ -12,6 +12,11 @@ download.md(assets/slides/cloud/cloud_monitoring_grafana.md)
 
 download.md(assets/slides/cloud/cloud_monitoring_prometheus.md)
 
+download.md(assets/slides/cloud/cloud_monitoring_kibana.md)
+
+download.md(assets/slides/cloud/cloud_monitoring_telegraph.md)
+
+Azure Monitor
 Google Cloud Monitoring
 ELK
 Splunk

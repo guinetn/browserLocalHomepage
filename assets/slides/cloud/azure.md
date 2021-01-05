@@ -130,3 +130,23 @@ GitHub Personal Access Token.
 
 ## API Management
 https://www.youtube.com/watch?v=k_1391989z0
+
+### Azure API Management - Transformation Policies
+
+inboud policies
+outboud policies
+backend  policies
+on-error  policies
+
+- Replace in Body
+- Set Http Header (add/remove)
+- Set query string parameter
+- Rewrite url
+- Xslt Transform
+- Convert Json ←→ xlm
+
+Ex: https://www.youtube.com/watch?v=X6PqZ0HzG_c
+
+## Azure Cloud identity
+https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates
+https://github.com/Daniel-Krzyczkowski/Cars-Island-On-Azure
