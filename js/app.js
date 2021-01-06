@@ -558,18 +558,30 @@ import { slideShow } from "./slideshow.js";
     showDownloadedBlogs(filesList) {
       const blogContainer = document.getElementById("blog_items");
       filesList.map((x) => {
-        let liElement = document.createElement("li");
-        let aElement = document.createElement("a");
-        aElement.innerText = x["name"]
-          .replace(".md", "")
-          .replace(/\d{4}-\d\d-\d\d-/, "");
-        aElement.classList = "blogLink"; // To drive the click to ShowBlog( clicked_link )
-        aElement.href = x["download_url"];
-        aElement.tag = x["html_url"];
-        aElement.setAttribute("blog_file", x["name"]);
-        
-        liElement.appendChild(aElement);
-        blogContainer.appendChild(liElement);
+        if (x["name"] != 'assets') {            
+          let liElement = document.createElement("li");
+          let aElement = document.createElement("a");
+          
+          let date = x["name"].match(/(?<year>\d{4})-?(?<month>\d{2})-?(?<day>\d{2})-?/);
+          if (date) {
+           let blogDate = `${date.groups["day"]}.${date.groups["month"]}.${date.groups["year"]}  `;            
+            let small = document.createElement("small");
+            small.innerText = blogDate;
+            aElement.appendChild(small);
+          }
+          
+          let blogTitleElement = document.createElement("span");          
+          let blogTitle = x["name"].replace(".md", "").replace(/\d{4}-\d\d-\d\d-/, "").replace(/[-_]/g,' ');
+          blogTitleElement.innerText = utils.capitalize(blogTitle);
+          aElement.appendChild(blogTitleElement);
+          aElement.classList = "blogLink"; // To drive the click to ShowBlog( clicked_link )
+          aElement.href = x["download_url"];
+          aElement.tag = x["html_url"];
+          aElement.setAttribute("blog_file", x["name"]);
+          
+          liElement.appendChild(aElement);
+          blogContainer.appendChild(liElement);
+        }
       });
     }
    
@@ -616,10 +628,16 @@ import { slideShow } from "./slideshow.js";
       } else if (e.target.matches(".slideShowDot")) {
         slideShow.currentSlide(e.target.parentNode.parentNode.id, e.target.getAttribute('data-dotSpan'));        
       }
-      else if (e.target.matches(".blogLink")) {
+      else if (e.target.parentNode.matches(".blogLink") || e.target.matches(".blogLink")) {
+        // Click a blog link
         e.preventDefault();
-        app.ShowBlog(e.target);
-      } else if (e.target.matches(".copy")) {
+        
+        if (e.target.parentNode.matches(".blogLink"))
+          app.ShowBlog(e.target.parentNode);      
+        else
+          app.ShowBlog(e.target);      
+      }             
+      else if (e.target.matches(".copy")) {
         utils.copyToClipboard(e.target.innerText);
       } else if (
         e.target.matches(`${config.viewsCssSelector}.active`) ||

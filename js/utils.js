@@ -41,6 +41,8 @@ export let utils = {
 
   getHash: (str) => window.btoa(str),
 
+  capitalize: (string) => string[0].toUpperCase() + string.slice(1),
+
   copyToClipboard: async function (stringToCopy, show = null) {
     try {
       await navigator.clipboard.writeText(stringToCopy.toString());
