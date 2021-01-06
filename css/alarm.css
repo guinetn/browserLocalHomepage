@@ -1,0 +1,50 @@
+
+#alarm {
+    position: fixed;
+    top: 2.8em;
+    left: -240px;
+    width: 200px;    
+    border: solid 2px white;
+    border-radius: 4px;    
+    color: white;
+    background: #a51919;
+    display: flex;
+    flex-flow: wrap;    
+    padding: 16px;
+    transition: 0.62s;
+}
+#alarm.alarm {
+  left: 0;
+}
+#alarm h3 {
+  position: relative;
+  top:4px;
+  width: 3em;
+  font-size: xx-large;
+  margin: 0;
+  text-align: center;
+}
+.alarmItem {
+    background: #000;
+    width: 5em;
+    border: solid 1px white;    
+    border-radius: 6px;
+    text-align: center;
+    margin: 3px;
+    padding: 5px;
+}
+.alarmItem:hover {
+  color: yellow;
+}
+.alarm-active {
+     background: #FFEB3B;
+     color:black;
+}
+.alarmMessage {    
+    width: 100%;
+    border: solid 1px white;    
+    border-radius: 2px;
+    text-align: center;
+    margin: 3px;
+    padding: 5px;
+}

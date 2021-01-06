@@ -1,0 +1,41 @@
+
+
+.view .blogLink {
+  font-size: larger;
+}
+.blogLink:before {
+  content:'⭐ ';  
+}
+
+.blogLinkEdit {
+  font-size: xx-large;
+}
+
+.blogLinkEdit:hover:after {
+  content:' ✏️'
+}
+
+ul#blog_items li {
+  list-style-type: none;
+}
+
+
+.stickyBlog {
+  display: none; 
+  position: fixed;
+  top: 3.2em;
+  left: 20%;
+  width: fit-content;
+  min-width: 50%;
+  max-width: 75%;
+  padding: 10px;
+  background-color: #000000f5;  
+  height: 90vh;
+  font-family: 'Cabin';
+  border: solid 1px #7f807c;
+  border-radius: 8px;
+  font-size: small;
+  z-index: 1010;
+  overflow: scroll;
+  color:white;
+}  

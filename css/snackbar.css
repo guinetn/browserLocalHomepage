@@ -1,0 +1,32 @@
+
+#snackbar {
+  display: none;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #e8d232;
+  color: #000;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 3em;
+  font-size: 17px;
+  border: solid 3px white;
+}
+
+#snackbar.show {
+  display: block;  
+  animation: snackbar-fadein 0.5s, snackbar-fadeout 0.5s 10s; /* 10s to avoid display issues */
+}
+
+@keyframes snackbar-fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 3em; opacity: 1;}
+}
+
+@keyframes snackbar-fadeout {
+  from {top: 3em; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}

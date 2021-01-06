@@ -1,0 +1,34 @@
+.fs-medium {
+  font-size: medium;
+}
+
+.bka-bt {
+  width: 150px;
+  height: 30px;
+  margin: 5px 0;
+  background-color: var(--toolboxBt);
+  border-radius: 4px;
+  font-size: large; 
+}
+
+.bka-bt2 {
+  width: 200px;
+  height: 27px;
+  margin: 5px 10px;
+  background-color: var(--toolboxBt);
+  border-radius: 4px;
+}
+
+input[id^=timestamp] {
+  font-size: large; 
+}
+#b64Canvas:hover {
+  height:150px;
+}
+#b64Canvas { 
+  width:200px;
+  height:30px;
+  border: 1px dotted var(--toolboxBt); 
+  margin: auto;   
+}
+ 
