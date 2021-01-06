@@ -10,8 +10,8 @@ The PID controller
 - PID algorithm will increase engine speed to target the measured speed to the desired speed with minimal delay.
 - Historic: 1920, automatic steering systems for ships
 
-download.code(https://github.com/pms67/PID/blob/master/PID.h)
-download.code(https://github.com/pms67/PID/blob/master/PID.c)
+download.code((https://raw.githubusercontent.com/pms67/PID/master/PID.h)
+download.code((https://raw.githubusercontent.com/pms67/PID/master/PID.c)
 
 - https://github.com/pms67/PID
 - https://github.com/pms67/ControlSystemDesign-Tutorial/tree/master/BalancedAeropendulum
