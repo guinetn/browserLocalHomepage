@@ -211,7 +211,7 @@ async function doubleAndAdd(a, b) {
 }
 // Usage:
 doubleAndAdd('one', 2).then(console.log)
-.catch(console.log); // 👈👈🏼<------- use "catch"
+.catch(console.log); // 👈👈🏼<──── use "catch"
 ```
 
 

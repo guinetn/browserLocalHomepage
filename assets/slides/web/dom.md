@@ -3,6 +3,7 @@
 Api: HTML programming interface 
 Represents the document as nodes and objects (structure, style, content) that can be changed 
 
+- https://vanillajstoolkit.com/reference/#DOM-Injection
 
 # data-* custom attributes
 

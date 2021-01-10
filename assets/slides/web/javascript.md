@@ -3,6 +3,10 @@
 https://github.com/ProgrammingHero1/oop-object-oriented-programming
 https://github.com/ProgrammingHero1/data-structure-algorithm-time-complexity
 https://github.com/microsoft/Web-Dev-For-Beginners
+https://www.dofactory.com/products/dofactory-js
+https://www.dofactory.com/javascript/reference
+https://dev.to/rahxuls/17-pro-javascript-tricks-you-didn-t-know-5gog
+https://davidwalsh.name/cache
 
 Specifications: Standard ECMA-262
 ## PLAYGROUND
@@ -142,7 +146,7 @@ Browser internal softwares that are compiled by JIT to bytecode
         .                   EVENT LOOP     is – calls top event handler and removes it from queue.
         .                       ↓
         .                   CALL STACK         HEAP: where objects resides (name = memory region)        .                       ↓  \
-    Browser API - C++ ←----------   \___Function calls form a stack of frames
+    Browser API - C++ ←────────  \___Function calls form a stack of frames
                                         The single thread of js code
                                         where the currently running functions get added. If function A() runs function B(), well you’re two levels deep in the stack. EACH TIME ONE OF THESE FUNCTIONS IS ADDED TO THE STACK, IT IS CALLED A FRAME. These frames contain pointers to the functions in the heap, as well as the objects available to the function depending on its current scope, and of course the arguments to the function itself. Different JavaScript engines likely have different maximum stack sizes, and unless you have a runaway recursive function, you’ve probably never hit this limit. Once a function call is complete, it gets removed from the stack. Once the stack is empty, we’re ready for the next item in the Queue.
 

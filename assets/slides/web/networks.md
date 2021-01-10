@@ -244,7 +244,7 @@ import requests
 cnn = requests.get('http://www.cnn.com')
 print(cnn.text)
 
-----
+::::
 
 ### TCP - Transmission Control Protocol
 A connection-based protocol that provides a reliable flow of data between two computers.

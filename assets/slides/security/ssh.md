@@ -7,8 +7,7 @@ Windows 10 uses OpenSSH as its default SSH client and SSH server
 
 ssh nom_utilisateur@ip_ou_nom_machine -p numero_de_port
 ssh -i /path/my-key-pair.pem my-instance-user-name@my-instance-public-dns-name
-                                                                             100%  636    23.1KB/s   00:00
-
+                                                                             
 ## Have a SSH Directory
 
 mkdir -p $HOME/.ssh chmod 0700 $HOME/.ssh
@@ -184,3 +183,11 @@ https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_o
 * ssh-keyscan.exe     aids in collecting the public SSH host keys from a number of hosts
 * sftp.exe            is the service that provides the Secure File Transfer Protocol, and runs over SSH
 * scp.exe             is a file copy utility that runs on SSH
+
+## FORWARDING 
+
+* Local forwarding 
+
+* Remote forwarding 
+
+https://www.youtube.com/watch?v=ZFp-FKPpUQc&feature=youtu.be

@@ -899,6 +899,7 @@ function* generator(i) {
 const gen = generator(1);
 console.log(gen.next().value);  // 1
 console.log(gen.next().value);  // 2
+console.log(gen.next().value);  // undefined
 
 
 
@@ -1671,13 +1672,13 @@ WeakMap.prototype.delete(key) : boolean
 		}
 	}
 
-	//----- Example: attach listeners to an object
+	// Example: attach listeners to an object
 
 	const obj = {};
 	addListener(obj, () => console.log('hello'));
 	addListener(obj, () => console.log('world'));
-
-	//----- Example: trigger listeners
+ 
+	// Example: trigger listeners
 
 	triggerListeners(obj);
 	// hello

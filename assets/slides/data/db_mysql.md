@@ -22,11 +22,11 @@ x509 for authentication, away from username + pw
 >$ mysql -u root -p
 
 ### Engines
-
+ 
 mysql> SHOW ENGINES;
-+--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
++---+---+---+---+---+---+
 | Engine             | Support | Comment                                                        | Transactions | XA   | Savepoints |
-+--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
++---+---+---+---+---+---+
 | MRG_MYISAM         | YES     | Collection of identical MyISAM tables                          | NO           | NO   | NO         |
 | CSV                | YES     | CSV storage engine                                             | NO           | NO   | NO         |
 | InnoDB             | DEFAULT | Supports transactions, row-level locking, and foreign keys     | YES          | YES  | YES        |
@@ -36,7 +36,7 @@ mysql> SHOW ENGINES;
 | ARCHIVE            | YES     | Archive storage engine                                         | NO           | NO   | NO         |
 | MyISAM             | YES     | MyISAM storage engine                                          | NO           | NO   | NO         |
 | FEDERATED          | NO      | Federated MySQL storage engine                                 | NULL         | NULL | NULL       |
-+--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
++---+---+---+---+---+---+
 
 ## Log in to MySQL database server:
 >mysql -u root -p
@@ -178,3 +178,4 @@ Dans mon exemple le nouveau mot de passe sera "tototiti".
 - http://www.mysqltutorial.org
 - http://www.mysqltutorial.org/mysql-copy-database/
 - https://devopsmyway.com/install-mysql-ubuntu/
+- https://dev.to/rahulku48837211/set-up-mysql-with-sequelize-in-nodejs-3a59

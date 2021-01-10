@@ -61,9 +61,9 @@ Cloud services are popular because they reduce the cost and complexity of owning
     MULTICLOUD: use several public clouds
 
 ![cloud-devops-modele-deploiement](assets/slides/cloud/assets/cloud-devops-modele-deploiement.webp)
-----
+::::
 download.md(assets/slides/cloud/cloud_models.md)
-----
+::::
 ## The Stack
 * Servers (including bare metal, VMs, containers, serverless functions to run the applications and backends: AWS EC2 or GCP GCE
 * Databases to store data and make them readily available for appliations, and indexes to speed up searches and filters.
@@ -78,9 +78,9 @@ download.md(assets/slides/cloud/cloud_models.md)
 * Package format: a common way to package all the applications, e.g. Docker
 * Code management: git or hg
 * CI/CD: continuous integration and deployment
-----
+::::
 download.md(assets/slides/cloud/edge_computing.md)
-----
+::::
 ## CLOUD ROLES
 
 - System administrator
@@ -94,29 +94,29 @@ Define functionnal tests strategy and tests automation
 - DevOps
 Define integration systems automation and continuous deployement. Guide development teams and daily collaborate with operations for a better quality service
 
-----
+::::
 download.md(assets/slides/cloud/infrastructure_as_code.md)
-----
+::::
 download.md(assets/slides/cloud/cloud_automation.md)
-----
+::::
 download.md(assets/slides/cloud/cloud_orchestration.md)
-----
+::::
 download.md(assets/slides/cloud/cloud_monitoring.md)
-----
+::::
 download.md(assets/slides/cloud/containers.md)
-----
+::::
 download.md(assets/slides/cloud/vm.md)
-----
+::::
 download.md(assets/slides/cloud/containers_docker.md)
-----
+::::
 download.md(assets/slides/cloud/containers_kubernetes.md)
-----
+::::
 download.md(assets/slides/cloud/containers_vagrant.md)
-----
+::::
 download.md(assets/slides/cloud/aws.md)
-----
+::::
 download.md(assets/slides/cloud/azure.md)
-----
+::::
 download.md(assets/slides/cloud/google_cloud.md)
-----
+::::
 

@@ -384,16 +384,16 @@ charindex          similar to instring       charindex('two','onetwothree')=4
 char_length        length of string          charlength('onetwo')=6
 lower              lower case                lower('ONE')='one'
 ltrim              trim left blanks          ltrim('   one')='one'
-replicate          repeat chars              replicate('-',8)='--------'
+replicate          repeat chars              replicate('*',8)='********'
 reverse            flip string               reverse('salad')='dalas'
 right              right chunk of string     right('Chicago',2)='go'
 rtrim              trim right blanks         rtrim('test   ')='test'
 space              spaces                    space(5)='     '
 str                float->char               str(5.6,12,2)='        5.60'
-stuff              insert chars within str   stuff('onetwothree',4,3,'-----')='one-----three'
+stuff              insert chars within str   stuff('onetwothree',4,3,'*****')='one*****three'
 substring          get piece of string       substring('sybase',1,2)='sy'
 upper              upper case                upper('one')='ONE'
-
+ 
 ## Transact SQL: date/time functions
 
 datepart*        get part of a date         datepart(MM,'10/21/98')=10
@@ -413,7 +413,7 @@ getdate          todays date and time       getdate()=Nov 16 1998-2000  7:27PM
  from employee
 
  Sample Date            Format
- --------------------------------
+_________________________________
  04/05/2000                   101
  2000.04.05                   102
  05/04/2000                   103

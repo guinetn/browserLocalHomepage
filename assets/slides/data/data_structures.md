@@ -4,8 +4,7 @@ A schema is a collection of types, interfaces, enums, and unions that make up yo
 Accessing, inserting, deleting, finding, and sorting the data are some of the well-known operations that one can perform using data structures.
 
 http://www.cs.otago.ac.nz/cosc242/lectures.php
-
-
+https://medium.com/@binyamin/data-structures-and-big-o-notation-ec7ac060f186
 # FUNDAMENTALS
 
 	most are position-oriented: i
@@ -362,8 +361,34 @@ http://xbox.create.msdn.com/downloads/?id=123&filename=DataStructures_CheatSheet
 				each node can have at most 2 children
 				For fast search
 
-			Binary Search Tree 
+			BST - Binary Search Tree 
 				composed of nodes with 0, 1, or 2 subtrees. Elements in the left subtree are lesser than the node value. Elements in the right subtree are greater than the node value.
+				
+				A left child node must be less than its parent and a right child node must be more than its parent. This rule follows all the way down.
+				left child < parent
+				right child > parent
+				As we insert new nodes with values, the tree must always stay sorted.
+				A BST is often used to store key-value pairs, so in this case, what we’d be storing is the key to an object.
+					   50
+						| 
+				______________
+				|            |
+				25           75
+				________     _________
+				|      |     |       |
+				10     40   60       90
+
+				Search
+				Each time we head down a path, we discard entire sections of the tree, so it is very quick to find a specific element.
+				To keep this optimized, the tree MUST
+				
+				More nodes on one side of the tree than the other: unbalanced BST
+
+				Big-O for BSTs
+					Balanced BST: Logarithmic time — O(log n)
+					Unbalanced BST: Linear time — O(n)
+					
+				Although dictionaries are often implemented with hash tables, if you want to keep your keys in a sorted order, hash tables aren’t really good at that while binary search trees do a great job.
 
 			Trie (digital tree, radix tree or prefix tree)
 				no node in the tree stores the key associated with that node

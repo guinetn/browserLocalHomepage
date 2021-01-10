@@ -6,3 +6,7 @@ Modelised solutions of common problems
 2. Enterprise Patterns
 3. SOA and Messaging Patterns
 4. Model-View Patterns
+
+:::
+download.md(assets/slides/computer_science/design_patterns_gof.md)
+:::

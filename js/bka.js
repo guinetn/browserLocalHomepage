@@ -9,7 +9,8 @@ export class Bka extends Blog {
   viewName = null;
 
   currentSlideId = 0;
-  currentSlidesFile = null;
+  // When [→] is pressed we need to know if the current view slide have been loaded. Load the view slide if names are differents
+  currentSlidesFile = null;   
   slideHasError = false;
   slidesVisible = null;
   slides = [];
@@ -21,7 +22,7 @@ export class Bka extends Blog {
 
   constructor() {
     super("blogPlaceHolder");
-    
+
     document
       .querySelectorAll(config.viewsCssSelector)
       .forEach((v, i) =>
@@ -29,16 +30,32 @@ export class Bka extends Blog {
       );
     this.currentView = this.views[0];
 
-    document.getElementById("blogRepoLink").href = config.blogRepo;    
+    document.getElementById("blogRepoLink").href = config.blogRepo;
     this.viewName = document.getElementById("viewName");
-    this.slidesToc = document.querySelector(".slidesListBox");
+    this.slidesToc = document.querySelector(".slidesToc");
     this.slideMeter = document.getElementById("slideMeter");
 
     utils.downloadJsonFile(config.topicsFile, null, this.extractTopics);
     this.renderViewsList();
     if (slideShow) slideShow.init();
   }
-
+  
+  updateSlides() {     
+    this.slides = document.querySelectorAll(".slide");
+    // Configure slide meter [min-value-max]
+    this.slideMeter.value = 0;
+    this.slideMeter.max = this.slideHasError ? 0 : this.slides.length;
+    
+    this.renderSlidesToc();
+    this.renderViewName();    
+  }
+  
+  slidesChanged(e) {
+    if (e.data != "slides changed") 
+      return;    
+    this.updateSlides();
+  }
+    
   renderViewsList() {
     let viewsListBox = document.querySelector(".viewsListBox");
 
@@ -51,7 +68,7 @@ export class Bka extends Blog {
     });
   }
 
-  renderSlidesListBox() {
+  renderSlidesToc() {
     this.slidesToc.innerHTML = null;
     [...document.querySelectorAll(".slide")].forEach((s, i) => {
       [...s.querySelectorAll("h1")].map((x) => {
@@ -152,19 +169,22 @@ export class Bka extends Blog {
       }
     }
   }
+
   async changeSlide(direction) {
+    
+    // If view has change and dom has slides of another view, load the current view slides
     if (this.currentSlidesFile != this.currentView.name) {
-      this.createSlidesInDom(this.currentSlidesFile);
+      this.createSlidesInDom(config.slidesContainer);
       this.currentSlideId = this.currentView.slideId;
       return;
     }
 
-    // Press [←] while on first slide: hide
+    // Press [←] while on first slide: hide slides
     if (this.currentSlideId == 0 && direction == -1) {
       this.toggleSlidesVisibility(false);
       return;
     }
-    // Press [→] while slides are not visible: show
+    // Press [→] while slides are not visible: show slides
     else if (
       !this.slidesVisible &&
       this.currentSlideId == 0 &&
@@ -178,12 +198,13 @@ export class Bka extends Blog {
     this.currentSlideId += direction;
     if (this.slides.length <= this.currentSlideId) this.currentSlideId = 0;
     else if (this.currentSlideId < 0) this.currentSlideId = 0;
-
+    console.log("this.currentSlideId:" + this.currentSlideId);
     this.toggleSlidesVisibility(true);
     utils.scrollTo(0, "auto");
 
     if (slideShow) slideShow.init();
   }
+
   async downloadViewSlides(folder, slideFile) {
     try {
       let relativePath = `${folder}/${slideFile}.md`;
@@ -198,40 +219,40 @@ export class Bka extends Blog {
         ];
       } else {
         html = this.markdownToHtml(markdown);
-        htmlSlides = html.split("<hr />");
+        // nested download.md(...) must be extracted and promoted to slide
+        htmlSlides = html.split(config.slidesSeparator); // separator is :::: = <p>::::</p> in markdown
       }
-
-      // Configure slide meter [min-value-max]
-      this.slideMeter.value = 0;
-      this.slideMeter.max = this.slideHasError ? 0 : htmlSlides.length;
 
       return htmlSlides;
     } catch (e) {
       console.log(`Error in downloadViewSlides(${slideFile})`, e);
     }
   }
-  createSlidesInDom() {
+
+  
+  createSlidesInDom(slidesContainer) {
     this.deleteExistingSlides();
 
     this.currentSlidesFile = this.currentView.name;
 
     this.downloadViewSlides(config.slidesFolder, this.currentSlidesFile).then(
       (htmlSlides) => {
-        this.appendSlides(htmlSlides);
-        this.slides = document.querySelectorAll(".slide");
+        this.appendSlides(htmlSlides, slidesContainer);        
+        this.updateSlides();
         this.toggleSlidesVisibility(true);
         this.renderCurrentSlide();
         PR.prettyPrint();
       }
     );
   }
-  appendSlides(slides) {
+
+  appendSlides(slides, container) {
     slides.forEach((html, i) => {
       const slide = document.createElement("div");
-      slide.innerHTML = `<div>${slides[i]}</div>`;
-      slide.id = `p${i + 1}`;
-      slide.className = "slide";
-      document.querySelector("#main").appendChild(slide);
+      slide.innerHTML = `<div class='slide'>${slides[i]}</div>`;
+      slide.id = `s${i + 1}`;
+      slide.className = "slides";
+      document.querySelector(container).appendChild(slide);
     });
   }
   markdownToHtml(data, useExtensions = true) {
@@ -247,7 +268,7 @@ export class Bka extends Blog {
   }
   renderCurrentSlide() {
     this.slideMeter.value = this.currentSlideId + 1;
-    this.renderViewname();
+    this.renderViewName();
     this.slides.forEach((s, i) =>
       this.slidesVisible && i == this.currentSlideId
         ? s.classList.add("current")
@@ -256,13 +277,12 @@ export class Bka extends Blog {
     setTableOfContentVisibility(".slide.current", "#slide_toc");
   }
 
-  renderViewname() {
+  renderViewName() {
     const slideTitle = this.currentView.name.toUpperCase().replace("_", " ");
     const slideNav = this.slideHasError
       ? "⚠️"
       : ` <sup><small>${this.slideMeter.value}/${this.slides.length}</small></sup>`;
-    this.viewName.children[0].innerHTML = `${slideTitle} ${slideNav}`;
-    this.renderSlidesListBox();
+    this.viewName.children[0].innerHTML = `${slideTitle} ${slideNav}`;    
   }
 
   toggleSlidesVisibility(forceVisibility) {
@@ -280,7 +300,7 @@ export class Bka extends Blog {
 
   deleteExistingSlides() {
     if (this.slides.length > 0) this.slides.forEach((s) => s.remove());
-
+    document.querySelectorAll(".slides").forEach((s) => s.remove());
     this.slides = null;
     this.currentSlideId = 0;
   }
@@ -382,7 +402,7 @@ export class Bka extends Blog {
                 tagAnchor.href = link;
                 tagAnchor.target = "_blank";
                 tagAnchor.className = "topicLink";
-                tagAnchor.rel = "noopener"; 
+                tagAnchor.rel = "noopener";
                 tag.title =
                   link + (cronInterval == null ? "" : `${cronInterval}`);
                 tag.appendChild(tagAnchor);

@@ -214,6 +214,7 @@ function* generator(i) {
 const gen = generator(1);
 console.log(gen.next().value);  // 1
 console.log(gen.next().value);  // 2
+console.log(gen.next().value);  // undefined
 
 Something that you can iterate over (for us, usually using for) but whose values are produced only as needed (lazily).
 Ex: A list of 1 million elements...you only need to deal with them one at a time = inefficiency 
@@ -411,13 +412,13 @@ I Like My Variables Free
             Console.WriteLine("{0} + 1 = {1}", this.nonLocal, this.nonLocal + 1);
         }
     }
-
+ 
 ### Variance 
 
 modifiers: out, in
 
                 INVARIANCE          COVARIANCE          CONTRAVARIANCE
-                --------------------------------------------------------
+                ______________________________________________________
                 class Box<T>        class Box<out T>    class Box<in T>    
 Number          Box<Number>           Box<Number>         Box<Number>
     ↑                 X                     ↑                   ↓

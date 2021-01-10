@@ -10,7 +10,7 @@ https://medium.com/analytics-vidhya/neural-networks-the-basics-7cfd2ad15443
 ***Activation functions***   determine how much given neurons are weighed.
 Networks have several applications, such as image recognition.
 
-----
+::::
 
 Right now, one big question is probably etching itself into your mind: how do we decide the values of the weights? (Remember the weights are how we go from one layer to the next.) The process to set weights is actually quite simple: guess and check. We take a set of data, for example attendance’s relationship to passing or fail, called the training set, and guesses different weights until one set of weights can accurately tell us what we want to know within a certain tolerance.
 To illustrate, the tolerance could be 5%, meaning that 95% accuracy is good enough, or 1%, meaning that we demand 99% accuracy. Each guess is adjusted based on the success of the previous one through an algorithm called gradient descent. Let’s now look at a more formal, step by step definition at how we can set weights.
@@ -24,11 +24,11 @@ Overfitting is one of the great pitfalls of machine learning and arises when our
 Use more data — the more holistic a data set is, the more difficult to overfit.
 Dropout — one of the popular methods to stop overfitting. Dropout periodically removes random nodes from the network, forcing the network to adjust to learn with different internal structures and become better equipped to handle any input.
 
-----
+::::
 
 download.md(assets/slides/ia/ml/activation_functions.md)
 
-----
+::::
 
 # Classification 
 

@@ -53,11 +53,11 @@ class Program
 NLog.config file:
 <target name="Mail" xsi:type="Mail" smtpServer="smpt.myserver.com" smtpPort="587" ... />
 ```
-----
+::::
 download.md(assets/slides/code/dotnetcore/dotnetcore_on_linux.md)
-----
+::::
 download.md(assets/slides/code/dotnetcore/dotnetcore2.0.md)
-----
+::::
 download.md(assets/slides/code/dotnetcore/dotnetcore3.0.md)
 
 ## More

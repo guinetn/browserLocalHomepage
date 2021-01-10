@@ -39,20 +39,20 @@ DL Deep learning
 |REGRESSION|data → function|
 |CLUSTERING|data → unknown classes = discovering groups association|
 
-----
+::::
 
 # IA GOALS
 lorem   
 
-----
+::::
 
 download.md(assets/slides/ia/ml/ml.md)
 
-----
+::::
 
 # Convolutional Neural Networks
 
 download.md(assets/slides/ia/ml/cnn.md)
-----
+::::
 
 download.md(assets/slides/ia/no-code-apps.md)

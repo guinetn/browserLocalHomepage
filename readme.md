@@ -139,7 +139,7 @@ an unique option:
 
 * Each view can have a markdown file (.md) 
 * This .md file is converted in html on the fly when you press <kbd>→</kbd>     
-* The sequence '----' is the slide separator. Slides are not limited in size.  
+* The sequence '::::' is the slide separator (any number of ':' superior to 3). Slides are not limited in size.  
 * Slides can contains youtube video (and kind of by extension):
 
 ```md
@@ -153,7 +153,7 @@ lorem.........
 How to add an image with the right path to:
 ![](assets/img/cloud.png)
 
-----
+::::
 Slide 2.
 
 ### Add a video
@@ -171,6 +171,11 @@ download.html(https://httpbin.org/ip)
 ### Add raw data: will be integrated as 'innerText' (NOT interpreted html/text)   
 <span>download</span>.raw(https://httpbin.org/ip)
 download.raw(https://httpbin.org/ip)
+
+### Execute a javascript code file: will be run with eval()
+Can interact normally with DOM elements in the .md file
+- <span>download</span>.exec(https://...myfile.js)  
+download.exec(https://...myfile.js)  
 
 ### Add a code file (will be prettyfied, not interpreted)
 
@@ -198,12 +203,12 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-----     ← Slides separator. Slides are not limited in size.
+::::     ← Slides separator. Slides are not limited in size.
 
 ## My better Slide #2
 **"abcdef"** is a tool to create a simple and beautiful slide
 …
-----
+::::
 …
 
 ```

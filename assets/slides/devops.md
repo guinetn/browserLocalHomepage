@@ -1,5 +1,7 @@
 # DevOps
 
+https://github.com/priximmo/sommaire-xavki-devops-fr
+
 Continually provide a high-value software product to the customer
 At high speed while monitoring and improving the overall process
                             
@@ -11,19 +13,34 @@ that combine software development (Dev) and IT Operations (Ops) into a single un
 DevOps has to communicate with various departments inside the company and with the customers to deliver high-value products: Need for better collaboration between developers, operations teams, system administrators and system engineers.
 
 Devops comes from agility to move fast in a stable infrastructure
-* Code				 development and review, continuous integration tools
-* Build				 control tools, code merging, build status
-* Test				 and results determine performance
-* Package			 repository, application pre-deployment staging
-* Release			 management, release approvals, release automation
-* Configure			 configuration and management, Infrastructure as Code tools
-* Monitor			 performance monitoring, end user experience
+
+## MVP
+
+![mvp_howto.jpg](assets/slides/devops/assets/mvp_howto.01.jpg)
+![mvp_howto.jpg](assets/slides/devops/assets/mvp_howto.02.png)
+## DevOps Phases 
+* Planning          Better growth 
+* Code				Development and review, continuous integration tools
+* Test				Selenium to automate application testing
+* Build				Control tools, code merging, build status, error testing
+* Configure			Write IaC (Infrastructure as Code) to automate
+Achieved by Configuration management tools (ansible, puppet, Ceph , SaltStack)
+Package		    Repository, application pre-deployment staging
+                    ci/cd pipeline triggered by configuration (webhook)
+                    Automating the testing using selenium
+* Release			Management, release approvals, release automation
+* Deploy
+* Operate
+* Monitor			Performance monitoring (Metrics: cpu, ram…), end user experience. Alerts + Logs
 
 Improve speed+quality of the entire production process
 
 Cloud providers such as AWS, Google Cloud Platform (GCP), Azure... offer DevOps tools directly integrated into their services (source code managers, integration chains…)
 
+![devops](assets/slides/devops/assets/devops0.png)
 ![devops](assets/slides/devops/assets/devops.png)
+
+::::
 ## Software development methodology history
 
 * 1990 - Waterfall
@@ -37,9 +54,9 @@ Iterative approach: continuously build features that add value, then test and re
 But agile fails joining developers and operations team
 * 2008 - DevOpsDays to “evolving” Agile to create a Bridge between two siloed teams
 
-----
+::::
 download.md(assets/slides/devops/agility.md)
- ----
+ ::::
 ## DEVOPS TERMS
 
 * Have a fully autonomous infrastructure
@@ -71,7 +88,7 @@ Roles:
 #### CALMS Model/Framework
 The CALMS model help organizations understand and define DevOps principles. It is a framework through which we can analyze if an organization is ready for DevOps processes. The CALMS model stands for Culture, Automation, Lean, Measurement, and Sharing.
 
-----
+::::
 ## DEVOPS TOOLS
 
 Development Product
@@ -112,24 +129,24 @@ Mercurial — A open-source software written in Python as a replacement for BitK
 
 BitKeeper is one of the oldest distributed source management systems licensed under the Apache 2.0 License. It is not actively developed.
 
-----
+::::
 ### CI/CD
 
 download.md(assets/slides/devops/cicd.md)
 
-----
+::::
 ### IAC - INFRASTRUCTURE AS CODE
 
 AUTOMATION / CONFIGURATION MANAGEMENT
 
 download.md(assets/slides/cloud/cloud_automation.md)
 
-----
+::::
 ### MONITORING
 
 download.md(assets/slides/cloud/cloud_monitoring.md)
 
-----
+::::
 
 ### Continuous Feedback Tools
 
@@ -158,3 +175,9 @@ OverOps – A tool for data optimization and code analysis.
 Code Climate – A code review tool that automatically monitors code health from the command line to the cloud.
 
 Zendesk – Customer support software for better communication between end-users and support teams.
+
+## More
+
+- https://dev.to/rahulku48837211/let-s-build-a-devops-project-4b65
+- https://roadmap.sh
+ 

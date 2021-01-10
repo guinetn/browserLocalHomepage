@@ -9,12 +9,12 @@
 
 # Arrays
 Key      | Value                  | Default
----------|------------------------|--------
+---|---|---
 slide    | directory name         | sample
 progress | show progress bar      | false
 limit    | progress limit minutes | 5
 time     | progress start minutes | 0
-
+ 
 # Images
 ![](assets/img/cloud.png)
 
@@ -51,6 +51,11 @@ My ip from https://httpbin.org/ip: download.raw(https://httpbin.org/ip)
 ## Render others markdown files
 <span>download</span>.md(assets/slides/toolbox_subpage_1.md)
 download.md(assets/slides/toolbox_subpage_1.md)
+
+## Execute a javascript code file: will be run with eval()
+Can interact normally with DOM elements in the .md file
+- <span>download</span>.exec(https://...myfile.js)  
+download.exec(https://...myfile.js)  
 
 ## Render file as code snippet (file extension is checked)
 

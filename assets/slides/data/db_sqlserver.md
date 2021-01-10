@@ -92,7 +92,7 @@ FROM tablename;
 Convert a table to JSON
 SELECT TO_JSON(tablename) 
 FROM tablename;
-
+ 
 ### PIVOT
 
 input                                  Output 

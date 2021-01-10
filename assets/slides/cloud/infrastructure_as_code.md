@@ -30,9 +30,9 @@ IaC methods
 - Pull    the primary host itself initializes the receipt of its configuration
 
 ## Configuration Management: define tasks 
-
+ 
 |Tools|Year|Method|Approach|Lang|
-|----|----|----|----|
+|---|---|---|---|
 |Ansible|2012|Push|Dec & Imperative|Python|
 ||system for describing and managing configurations|
 |Chef|2009|Pull|Dec & Imperative|Ruby|
@@ -48,7 +48,7 @@ IaC methods
 Automate the deployment of servers and other infrastructure
 
 |Tools|Year|Method|Approach|Lang|
-|----|----|----|----|
+|---|---|---|---|
 |Google Cloud Deployment Manager|	2015|	Push|	Declarative|	Go|
 ||specify the resources needed for our application in a declarative format using yaml files |
 |Terraform	|2014	|Push|	|Declarative	|Go|

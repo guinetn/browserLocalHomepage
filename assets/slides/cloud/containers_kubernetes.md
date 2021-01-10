@@ -48,3 +48,6 @@ Openstack was launched in 2010. AWS was the only Cloud, GCP didn't exist, Docker
 Kubernetees was launched in 2014. AWS, Azure, GCP became dominant players of Cloud computing, Docker became the synonym of container. The goal was to be a bridge among the big 3, and between public cloud and private data centers; building on top of containers.
 
 OpenStack is dying down. Kubernetes is the winner, for now.
+
+## More
+- https://github.com/priximmo/sommaire-xavki-devops-fr

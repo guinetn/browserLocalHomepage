@@ -42,6 +42,9 @@ Min archi: 2 mongos, 3 Config Serversn, 2 shards
 
 ### Sample
 
+https://dev.to/rahulku48837211/set-up-mongodb-with-node-js-503a
+https://dev.to/rahulku48837211/connect-mongodb-atlas-and-upload-data-4kd9
+
 $ curl https://s3-eu-west-1.amazonaws.com/course.oc-static.com/courses/4462426/tour-Pedia_paris.json.zip    
 $ mongoimport --db tourPedia --collection paris tourPedia_paris.json
 $ db.paris.find({"services":"blanchisserie", "category":"accommodation"})
@@ -212,7 +215,7 @@ https://www.sitepoint.com/a-guide-to-serverless-deployment-with-express-and-mong
 
 		MongoDB is organized in document format compared to RDBMS.
 		RDBMS		MongoDB
-		----------------------
+		_____________________
 		Database	Database 		A database is a container of your collections. A single MongoDB server typically has multiple databases.
 		Table		Collection 		A collection is basically a group of documents. It is similar to a table in an RDBMS.
 									It stores the data in the collection, which is simply a group of documents.

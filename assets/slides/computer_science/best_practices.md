@@ -7,7 +7,7 @@
 
 download.md(assets/slides/computer_science/software_design_rules.md)
 
-----
+::::
 
 ### How to Read Code
 

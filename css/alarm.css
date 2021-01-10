@@ -32,11 +32,14 @@
   padding: 5px;
 }
 .alarmItem:hover {
-  color: yellow;
+  color: #331212;
+  background: #f1c23f;
+  font-weight: bold;
 }
 .alarm-active {
-     background: #FFEB3B;
-     color:black;
+  background: #FFEB3B;
+  color:black;
+  font-weight: bold;
 }
 .alarmMessage {    
     width: 100%;

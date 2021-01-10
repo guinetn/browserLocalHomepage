@@ -39,6 +39,7 @@ $ docker rmi 50f7    remove image 50f7
 ```
 
 ## More
+- https://github.com/priximmo/sommaire-xavki-devops-fr
 - https://devopsmyway.com/install-docker-on-windows/
 - https://www.liquidweb.com/kb/how-to-install-and-use-containerization/
 - [install Docker on Ubuntu](https://www.liquidweb.com/kb/install-docker-ubuntu-16-04/)

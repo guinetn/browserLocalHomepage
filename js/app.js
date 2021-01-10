@@ -4,29 +4,55 @@ import { utils } from "./utils.js";
 import { slideShow } from "./slideshow.js";
 
 ( function() {
-  
   let app = null;
-  
+
   document.addEventListener("DOMContentLoaded", function () {
     utils.downloadTextFile("index-main.html", null, initApplication);
   });
+
+  /*
+  observe(document, (e) =>  e.dataset.slide=='hash', app.domChanged);
+  function domChanged(e) { }
   
+  function observe(target, filter, callback) {
+    
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        var nodes = Array.prototype.slice.call(mutation.addedNodes);
+        nodes.forEach(function (node) {
+          if (filter(node))
+            callback(node);          
+        });
+      });
+    });
+    
+    observer.observe(target, {
+      childList: true,
+      subtree: true,
+      attributes: false,
+      characterData: false,
+    });
+    
+    //window.addEventListener("hashchange", app.updateSlides);
+    //window.location.hash = window.location.hash=='' ? '#s' : '';
+  }*/
+
   // INIT CUSTOMIZED VIEWS
   function initApplication(options, mainContent) {
-
     document.getElementById("mainContent").innerHTML = mainContent;
 
     app = new Bka();
     utils.init(app);
 
     document.addEventListener("mousedown", onMouseDown);
-    document.addEventListener("mouseup", onMouseUp);    
+    document.addEventListener("mouseup", onMouseUp);
     document.addEventListener("keydown", onKeydown);
     document.addEventListener("click", onClick);
+    window.addEventListener("message", dispatchEvents);
 
     // INIT VIEWS WITH CUSTOM FUNCTIONS
     tools_init();
-    
+
     // Configure
     if (showdown) showdown.setFlavor("github");
     if (slideShow) slideShow.showSlides();
@@ -34,28 +60,32 @@ import { slideShow } from "./slideshow.js";
     utils.fetchMasonry(".topics", config.masonryColumns);
     utils.fetchGithubFolder(config.blogRepoApi, app.listBlogArticles);
   }
-  
-  function onMouseDown(e) {
-    app.onMouseDown(e)
+
+  function dispatchEvents(e) {
+    app.slidesChanged(e);
   }
   
+  function onMouseDown(e) {
+    app.onMouseDown(e);
+  }
+
   function onMouseUp(e) {
     app.onMouseUp(e);
   }
-  
-  function onKeydown(e) {    
-      if (
-        utils.alarmVisible ||
-        utils.isModalVisible() ||
-        e.target.type == "text" ||
-        e.target.type == "textarea"
-      )
-        return; // we need all the keys to enter alarm msg. Exit if on a form input)
 
-      app.onViewKeydown(e);
-      if (!e.defaultPrevented) app.onSlideKeydown(e);
+  function onKeydown(e) {
+    if (
+      utils.alarmVisible ||
+      utils.isModalVisible() ||
+      e.target.type == "text" ||
+      e.target.type == "textarea"
+    )
+      return; // we need all the keys to enter alarm msg. Exit if on a form input)
+
+    app.onViewKeydown(e);
+    if (!e.defaultPrevented) app.onSlideKeydown(e);
   }
-  
+
   function onClick(e) {
     if (e.target.matches(".slideShowSlidePrev") && slideShow) {
       slideShow.plusSlides(e.target.parentNode.id, -1);
@@ -75,15 +105,15 @@ import { slideShow } from "./slideshow.js";
       // Click a blog link
       e.preventDefault();
 
-      const target = e.target.parentNode.matches(".blogLink") ? e.target.parentNode : e.target;
-      app.showBlog(target);      
+      const target = e.target.parentNode.matches(".blogLink")
+        ? e.target.parentNode
+        : e.target;
+      app.showBlog(target);
     } else if (e.target.matches(".copy")) {
       utils.copyToClipboard(e.target.innerText);
     } else if (
       e.target.matches(`${config.viewsCssSelector}.active`) ||
-      e.target.parentNode.matches(
-        `${config.viewsCssSelector}.active, .topics`
-      )
+      e.target.parentNode.matches(`${config.viewsCssSelector}.active, .topics`)
     ) {
       // Click on empty element => close opened windows (alarm, blog)
       app.hideBlog();
@@ -98,10 +128,7 @@ import { slideShow } from "./slideshow.js";
           function (options, helpContent) {
             const helpContainer = document.createElement("div");
             helpContainer.classList = "bkahelp";
-            helpContainer.innerHTML = app.markdownToHtml(
-              helpContent,
-              false
-            );
+            helpContainer.innerHTML = app.markdownToHtml(helpContent, false);
             utils.modalShow("HELP", helpContainer);
           }
         );
@@ -128,12 +155,9 @@ import { slideShow } from "./slideshow.js";
       const alarmDurationMin = e.target.getAttribute("data-duration");
       e.target.classList.toggle("alarm-active");
       utils.alarmOpenClose();
-      utils.snackbar(
-        `Alarm in ${alarmDurationMin} min<br/>${alarmReason}`
-      );
+      utils.snackbar(`Alarm in ${alarmDurationMin} min<br/>${alarmReason}`);
       utils.speak(`Alarm in ${alarmDurationMin} min`);
       utils.alarmSet(alarmDurationMin, alarmReason);
     }
   }
-
 })();

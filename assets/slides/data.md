@@ -63,40 +63,40 @@ HASH
 data go into buckets
 hash function make the bucket
 
-----
+::::
 download.md(assets/slides/data/acid.md)
 download.md(assets/slides/data/base.md)
 
 
-----
+::::
 download.md(assets/slides/data/data_structures.md)
 
 
-----
+::::
 download.md(assets/slides/data/sql.md)
-----
+::::
 download.md(assets/slides/data/db_sql.md)
 
 
-----
+::::
 download.md(assets/slides/data/db_nosql.md)
 download.md(assets/slides/data/db_nosql_databases.md)
 
 
-----
+::::
 download.md(assets/slides/data/distributed_database.md)
 
 
-----
+::::
 download.md(assets/slides/data/blockchain.md)
-----
+::::
 download.md(assets/slides/data/flux.md)
-----
+::::
 download.md(assets/slides/data/redux.md)
-----
+::::
 download.md(assets/slides/data/geodata.md)
-----
+::::
 download.md(assets/slides/data/infludb.md)
 
-----
+::::
 download.md(assets/slides/data/big_data.md)

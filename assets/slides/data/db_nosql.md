@@ -95,7 +95,7 @@ https://www.toptal.com/database/the-definitive-guide-to-nosql-databases
 download.md(assets/slides/data/base.md)
 
 ## NoSQL candidates
-
+ 
 |           |   Storage Type|	Query Method	Interface	Programming |Language	|Open |Source Replication|
 |Cassandra	|	Column Store|	Thrift API		 |Thrift		|Java		           |Yes			|Async|
 |MongoDB	|	Document Store|	Mongo Query		 |TCP/|IP		|C++		           |Yes			|Async|
@@ -109,7 +109,7 @@ criteria [0-5]
 https://db-engines.com/en/ranking_trend
 
 |Score|MongoDB|Cassandra|ElasticSearch|
-|----|----|----|----|----|
+|---|---|---|---|---|
 |Cost|0.5|4|4|4|
 |Consistency|1|4|2|2|
 |Availability|0.5|2|4|3|

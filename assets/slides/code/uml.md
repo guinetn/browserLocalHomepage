@@ -55,7 +55,7 @@ CLASS DIAGRAMS NOTATION (UML)
 
     * BEHAVIOR
         A service defined in a class and provided by an object.
-
+ 
     * METHOD
         The implementation of a behavior in an object-oriented programming language.
 

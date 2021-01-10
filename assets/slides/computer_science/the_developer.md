@@ -1,5 +1,7 @@
 # THE DEVELOPER
 
+![](assets/slides/computer_science/assets/skills-acquisition-dreyfus-model.png)
+
 ## Be leader in Software Engineering
 
 * 1. Career junior  

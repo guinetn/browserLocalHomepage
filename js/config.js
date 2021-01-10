@@ -3,6 +3,8 @@ export const config = {
   masonryColumns: 4,
   snackbarDurationSec: 2500,
   viewsCssSelector: ".view",
+  slidesContainer: "#main",
+  slidesSeparator: /^<p>:{4,}<\/p>$/gim,
   slidesFolder: "assets/slides",
   topicsFile: "assets/topics.json",
   // To open the blog folder on Github 

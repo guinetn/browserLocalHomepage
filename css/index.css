@@ -54,14 +54,14 @@ body {
   background-color: rgb(255 204 0);
   color:black;
 }
-.slidesListBox {
+.slidesToc {
   top: 60%;
   background-color: rgb(161, 47, 47);
   font-size:0.6em;
   height: 800%;
   overflow: scroll;
 }
-.viewsListBox, .slidesListBox {
+.viewsListBox, .slidesToc {
   display:none;
   position: absolute;
   border: solid 1px gray;
@@ -70,7 +70,7 @@ body {
   text-align: left;
 }
 
-#viewName:hover .slidesListBox, .logobka:hover .viewsListBox {  
+#viewName:hover .slidesToc, .logobka:hover .viewsListBox {  
   display:block;
 }
 

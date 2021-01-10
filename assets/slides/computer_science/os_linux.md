@@ -85,7 +85,7 @@ Setup SSH Keys
 
 Check and Configure the Firewall
     root@server:~# ufw app list Available applications: OpenSSH
-    root@server:~# ufw status Status: active To Action From -- ------ ---- 22/tcp ALLOW Anywhere 22 ALLOW Anywhere 8080/tcp ALLOW Anywhere 80/tcp ALLOW Anywhere Anywhere DENY 58.218.92.34 80 DENY 202.54.1.5 22 (v6) ALLOW Anywhere (v6) 22/tcp (v6) ALLOW Anywhere (v6) 8080/tcp (v6) ALLOW Anywhere (v6) 80/tcp (v6) ALLOW Anywhere (v6)
+    root@server:~# ufw status Status: active To Action From 22/tcp ALLOW Anywhere 22 ALLOW Anywhere 8080/tcp ALLOW Anywhere 80/tcp ALLOW Anywhere Anywhere DENY 58.218.92.34 80 DENY 202.54.1.5 22 (v6) ALLOW Anywhere (v6) 22/tcp (v6) ALLOW Anywhere (v6) 8080/tcp (v6) ALLOW Anywhere (v6) 80/tcp (v6) ALLOW Anywhere (v6)
 
 Scanning open ports
     A port is open when a process running on the host is listening on that port for requests. 
