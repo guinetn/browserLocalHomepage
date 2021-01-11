@@ -4,7 +4,7 @@ export const config = {
   snackbarDurationSec: 2500,
   viewsCssSelector: ".view",
   slidesContainer: "#main",
-  slidesSeparator: /^<p>:{4,}<\/p>$/gim,
+  slidesSeparator: '::::',
   slidesFolder: "assets/slides",
   topicsFile: "assets/topics.json",
   // To open the blog folder on Github 

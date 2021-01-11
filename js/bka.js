@@ -39,13 +39,59 @@ export class Bka extends Blog {
     this.renderViewsList();
     if (slideShow) slideShow.init();
   }
-  
-  slidesChanged(e) {
-    if (e.data != "slides changed") 
-      return;    
-    this.updateSlides();
-  }
+ 
+  slidesChanged(event) {
+      
+    let { reason, hash, htmlData, textData } = event.data;
+    
+    if (reason != "slides changed") return;    
+      
+        const fileContainer = document.getElementById(hash);
 
+        let div = document.createElement("div");
+        if (htmlData) div.innerHTML = htmlData;
+        else div.innerText = textData;
+
+        /* 
+        From the fileContainer (<div data-type='promised_file'...)
+        If previous node is a separator (<p>::::</p>) then it must be a slide:
+          * insert after the first parent having a class='slides'
+          * removed the fileContainer
+          * removed the <p>::::</p>
+        
+        <div id="s1" class="slides">
+        <div id="s2" class="slides">
+        <div id="s3" class="slides">
+          <div class="slide current" data-id="3">
+            <div data-type="promised_file" id="YXNz...ZbmcubWQ=">wanting for…/notetaking.md</div><div><h1 id="note-taking">NOTE TAKING</h1>
+            ....
+            <p>::::</p>
+            <div data-type="promised_file" id="YXN...JuaW5nLm1k">wanting for…/learning.md</div>
+            <div><h1 id="learning--repeat-review">Learning = repeat, review</h1>
+        */
+        let prevNode = fileContainer.previousElementSibling;
+        
+        if (prevNode && prevNode.innerText.substring(0, 4) == config.slidesSeparator) {
+          // slideContainer previous node is a separator (<p>::::</p>)
+
+          prevNode = prevNode.parentNode;
+          while (prevNode) {
+            if (prevNode.classList.contains("slides")) {
+              div.className = "slide";
+              prevNode.insertAdjacentElement("beforeEnd", div);
+              fileContainer.previousElementSibling.remove(); // remove <p>::::</p>
+              break;
+            }
+            prevNode = prevNode.parentNode;
+          }
+        } else {
+          fileContainer.insertAdjacentElement("afterEnd", div);
+        }
+        fileContainer.remove();
+      
+        this.updateSlides();
+    }
+    
   updateSlides() {     
     this.slides = document.querySelectorAll(".slide");
     this.slides.forEach((s,i)=>s.setAttribute('data-id', i+1));
@@ -268,13 +314,9 @@ export class Bka extends Blog {
   markdownToHtml(data, useExtensions = true) {
     // Transform md → html
     // useExtensions allow to avoid to trasnform files like help wich can include extensions syntax themselves (so not to render)
-    const extensions = useExtensions
-      ? {
-          extensions: ["BkaShowDownExtension"],
-        }
-      : null;
+    const extensions = useExtensions ? { extensions: ["BkaShowDownExtension"] } : null;
     var converter = new showdown.Converter(extensions);
-    return converter.makeHtml(data);
+    return converter.makeHtml(data);    
   }
   renderCurrentSlide() {
     this.slideMeter.value = this.currentSlideId + 1;
