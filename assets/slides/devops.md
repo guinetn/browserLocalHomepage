@@ -1,5 +1,8 @@
 # DevOps
 
+* Dev: people who create software
+* Ops: people who manage the software
+
 https://github.com/priximmo/sommaire-xavki-devops-fr
 
 Continually provide a high-value software product to the customer

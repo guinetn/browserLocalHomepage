@@ -110,4 +110,4 @@ Ex: run /etc/ansible/playbooks/playbook.yml file at 0400 a.m
 - https://www.liquidweb.com/kb/how-to-use-ansible/
 - https://www.liquidweb.com/kb/how-to-install-and-configure-ansible/
 - https://www.liquidweb.com/kb/using-ansible-in-devops-a-beginners-guide/
-
+- [ANSIBLE - 11. PLAYBOOK : PREMIERS PAS ET OPTIONS](https://www.youtube.com/watch?v=yN29WlhIUrI&feature=youtu.be)
