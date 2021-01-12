@@ -1,3 +1,6 @@
+- ##version##
+- ##github##
+
 NAVIGATE IN VIEWS
 
 * <kbd>CTRL</kbd>+<kbd>→</kbd> or <kbd>+</kbd>

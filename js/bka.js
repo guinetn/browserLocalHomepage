@@ -10,7 +10,7 @@ export class Bka extends Blog {
 
   currentSlideId = 0;
   // When [→] is pressed we need to know if the current view slide have been loaded. Load the view slide if names are differents
-  currentSlidesFile = null;   
+  currentSlidesFile = null;
   slideHasError = false;
   slidesVisible = null;
   slides = [];
@@ -39,24 +39,24 @@ export class Bka extends Blog {
     this.renderViewsList();
     if (slideShow) slideShow.init();
   }
- 
+
   slidesChanged(event) {
-      
     let { reason, hash, htmlData, textData } = event.data;
-    
-    if (reason != "slides changed") return;    
-      
-        const fileContainer = document.getElementById(hash);
 
-        let div = document.createElement("div");
-        if (htmlData) div.innerHTML = htmlData;
-        else div.innerText = textData;
+    if (reason != "slides changed") return;
 
-        /* 
-        From the fileContainer (<div data-type='promised_file'...)
+    // When a downloaded element has been added to the DOM
+    const promiseMarker = document.getElementById(hash);
+
+    let div = document.createElement("div");
+    if (htmlData) div.innerHTML = htmlData;
+    else div.innerText = textData;
+
+    /* 
+        From the promiseMarker (<div data-type='promised_file'...)
         If previous node is a separator (<p>::::</p>) then it must be a slide:
           * insert after the first parent having a class='slides'
-          * removed the fileContainer
+          * removed the promiseMarker
           * removed the <p>::::</p>
         
         <div id="s1" class="slides">
@@ -69,49 +69,61 @@ export class Bka extends Blog {
             <div data-type="promised_file" id="YXN...JuaW5nLm1k">wanting for…/learning.md</div>
             <div><h1 id="learning--repeat-review">Learning = repeat, review</h1>
         */
-        let prevNode = fileContainer.previousElementSibling;
-        
-        if (prevNode && prevNode.innerText.substring(0, 4) == config.slidesSeparator) {
-          // slideContainer previous node is a separator (<p>::::</p>)
+    let prevNode = promiseMarker.previousElementSibling;
 
-          prevNode = prevNode.parentNode;
-          while (prevNode) {
-            if (prevNode.classList.contains("slides")) {
-              div.className = "slide";
-              prevNode.insertAdjacentElement("beforeEnd", div);
-              fileContainer.previousElementSibling.remove(); // remove <p>::::</p>
-              break;
-            }
-            prevNode = prevNode.parentNode;
-          }
-        } else {
-          fileContainer.insertAdjacentElement("afterEnd", div);
+    if (
+      prevNode &&
+      prevNode.innerText.substring(0, 4) == config.slidesSeparator
+    ) {
+      // promiseMarker previous node is a separator (<p>::::</p>)
+      prevNode = prevNode.parentNode;
+      while (prevNode) {
+        // Look-up until finding a "slides"
+        if (prevNode.classList.contains("slides")) {
+          div.className = "slide";
+          prevNode.insertAdjacentElement("beforeEnd", div);
+          // Remove the separator <p>::::</p>
+          promiseMarker.previousElementSibling.remove();
+          break;
         }
-        fileContainer.remove();
-      
-        this.updateSlides();
+        prevNode = prevNode.parentNode;
+      }
+    } else {
+      promiseMarker.insertAdjacentElement("afterEnd", div);
     }
-    
-  updateSlides() {     
+    // Remove the promise marker
+    promiseMarker.remove();
+
+    this.updateSlides();
+  }
+
+  updateSlides() {
     this.slides = document.querySelectorAll(".slide");
-    this.slides.forEach((s,i)=>s.setAttribute('data-id', i+1));
-    
+    this.slides.forEach((s, i) => s.setAttribute("data-id", i + 1));
+
     // Configure slide meter [min-value-max]
     this.slideMeter.value = 1;
     this.slideMeter.max = this.slideHasError ? 0 : this.slides.length;
-    
+
     this.renderSlidesToc();
-    this.renderViewName();    
+    this.renderViewName();
   }
-  
-  
+
+  /* Render views's list
+  00. BLOG 📂
+  01. Home
+  02. Computer Science
+  ...*/
   renderViewsList() {
     let viewsListBox = document.querySelector(".viewsListBox");
 
     [...document.querySelectorAll(".view")].forEach((v, i) => {
       [...v.querySelectorAll("h1")].map((x) => {
         let div = document.createElement("div");
-        div.innerText = `${("0" + (1 + i)).slice(-2)}. ${x.innerText}`;
+        let key = ("0" + i).slice(-2);
+        if (i < 10) key = `${key}`;
+        div.innerHTML = `${key}. ${x.innerText}`;
+
         viewsListBox.appendChild(div);
       });
     });
@@ -119,22 +131,22 @@ export class Bka extends Blog {
 
   renderSlidesToc() {
     this.slidesToc.innerHTML = null;
-    
+
     this.slides.forEach((s, i) => {
       [...s.querySelectorAll("h1")].map((x) => {
         let div = document.createElement("div");
-        div.className = 'slideTocLink';
-        div.setAttribute('data-slideid', i)
+        div.className = "slideTocLink";
+        div.setAttribute("data-slideid", i);
         div.innerText = `${("0" + (1 + i)).slice(-2)}. ${x.innerText}`;
         this.slidesToc.appendChild(div);
       });
     });
   }
 
-  showSlide(slideid) {    
-    this.changeSlide(slideid-this.currentSlideId);
+  showSlide(slideid) {
+    this.changeSlide(slideid - this.currentSlideId);
   }
-  
+
   tick() {
     if (!this.isMouseDown) return;
 
@@ -227,7 +239,6 @@ export class Bka extends Blog {
   }
 
   async changeSlide(direction) {
-    
     // If view has change and dom has slides of another view, load the current view slides
     if (this.currentSlidesFile != this.currentView.name) {
       this.createSlidesInDom(config.slidesContainer);
@@ -237,16 +248,12 @@ export class Bka extends Blog {
     }
 
     // Press [←] while on first slide: hide slides
-    if (this.currentSlideId == 0 && direction<0) {
+    if (this.currentSlideId == 0 && direction < 0) {
       this.toggleSlidesVisibility(false);
       return;
     }
     // Press [→] while slides are not visible: show slides
-    else if (
-      !this.slidesVisible &&
-      this.currentSlideId == 0 &&
-      direction>0
-    ) {
+    else if (!this.slidesVisible && this.currentSlideId == 0 && direction > 0) {
       this.toggleSlidesVisibility(true);
       utils.scrollTo(0, "auto");
       return;
@@ -254,7 +261,7 @@ export class Bka extends Blog {
 
     this.currentSlideId += direction;
     if (this.slides.length <= this.currentSlideId) this.currentSlideId = 0;
-    else if (this.currentSlideId < 0) this.currentSlideId = 0;    
+    else if (this.currentSlideId < 0) this.currentSlideId = 0;
     this.toggleSlidesVisibility(true);
     utils.scrollTo(0, "auto");
 
@@ -285,7 +292,6 @@ export class Bka extends Blog {
     }
   }
 
-  
   createSlidesInDom(slidesContainer) {
     this.deleteExistingSlides();
 
@@ -293,7 +299,7 @@ export class Bka extends Blog {
 
     this.downloadViewSlides(config.slidesFolder, this.currentSlidesFile).then(
       (htmlSlides) => {
-        this.appendSlides(htmlSlides, slidesContainer);        
+        this.appendSlides(htmlSlides, slidesContainer);
         this.updateSlides();
         this.toggleSlidesVisibility(true);
         this.renderCurrentSlide();
@@ -314,9 +320,11 @@ export class Bka extends Blog {
   markdownToHtml(data, useExtensions = true) {
     // Transform md → html
     // useExtensions allow to avoid to trasnform files like help wich can include extensions syntax themselves (so not to render)
-    const extensions = useExtensions ? { extensions: ["BkaShowDownExtension"] } : null;
+    const extensions = useExtensions
+      ? { extensions: ["BkaShowDownExtension"] }
+      : null;
     var converter = new showdown.Converter(extensions);
-    return converter.makeHtml(data);    
+    return converter.makeHtml(data);
   }
   renderCurrentSlide() {
     this.slideMeter.value = this.currentSlideId + 1;
@@ -334,7 +342,7 @@ export class Bka extends Blog {
     const slideNav = this.slideHasError
       ? "⚠️"
       : ` <sup><small>${this.slideMeter.value}/${this.slides.length}</small></sup>`;
-    this.viewName.children[0].innerHTML = `${slideTitle} ${slideNav}`;    
+    this.viewName.children[0].innerHTML = `${slideTitle} ${slideNav}`;
   }
 
   toggleSlidesVisibility(forceVisibility) {

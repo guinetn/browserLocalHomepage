@@ -34,6 +34,24 @@ import { slideShow } from "./slideshow.js";
     utils.fetchGithubFolder(config.blogRepoApi, app.listBlogArticles);
   }
 
+  function showHelp() {
+    
+    utils.downloadTextFile("help.md", null, function (options, helpContent) {
+      const helpContainer = document.createElement("div");
+      helpContainer.classList = "bkahelp";
+      let help = app.markdownToHtml(helpContent, false);
+      // Replace elements '##xxxxx##' by their values from 'config' object
+      const sharps = [...help.matchAll(/##(?<SHARP>[^#]*)##/gi)].map(
+        (x) => x.groups["SHARP"]
+      );
+      sharps.forEach(
+        (x) => (help = help.replace(`##${x}##`, `${x}: ${config[x]}`))
+      );
+      helpContainer.innerHTML = help;
+      utils.modalShow(`BKA help`, helpContainer);
+    });
+  }
+  
   function dispatchEvents(e) {
     app.slidesChanged(e);
   }
@@ -98,17 +116,7 @@ import { slideShow } from "./slideshow.js";
     } else if (e.target.matches("#help")) {
       if (utils.isModalVisible()) utils.modalClose();
       else {
-        // show help
-        utils.downloadTextFile(
-          "help.md",
-          null,
-          function (options, helpContent) {
-            const helpContainer = document.createElement("div");
-            helpContainer.classList = "bkahelp";
-            helpContainer.innerHTML = app.markdownToHtml(helpContent, false);
-            utils.modalShow("HELP", helpContainer);
-          }
-        );
+        showHelp();
       }
     } else if (e.target.className == "modalContainer visible") {
       // click on the modalContainer to close it

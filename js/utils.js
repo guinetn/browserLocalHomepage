@@ -68,7 +68,7 @@ export let utils = {
   },
 
   modalShow: function (title, content) {
-    this.modalTitle.innerText = title;
+    this.modalTitle.innerHTML = title;
     this.modalContent.querySelectorAll("*").forEach((n) => n.remove());
     this.modalContent.appendChild(content);
     this.modalContainer.classList.add("visible");

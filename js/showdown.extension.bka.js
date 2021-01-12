@@ -1,9 +1,28 @@
-import { config } from "./config.js";
+/*
+SHOWDOWN Extensions
 
+USAGE:
+  download.md(assets/slides/code.md)
+  download.html(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.html)
+  download.raw(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
+  download.code(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
+  download.exec(assets/slides/computer_science/assets/show_ascii_table.js)
+  download.iframe(url,[w,h]) :
+  download.iframe(assets/slides/web/front/react_samples/react01/index.html)
+  download.iframe(assets/slides/web/front/react_samples/react01/index.html,500,200)
+
+[video title](https://www.youtube.com/watch?xyzabc)  --> <iframe src="//www.youtube.com/embed/xyzabc" frameborder="0" allowfullscreen=""></iframe>
+setup:[The Map of Physics](ZihywtixUYo)
+<script src="js/showdown.extension.bka.js"></script>
+var converter = new showdown.Converter({extensions: ["BkaShowDownExtension"])
+
+Writing showdown extensions: https://github.com/showdownjs/showdown/wiki/Extensions
+*/
 
 (function (extension) {
   "use strict";
 
+  // Use it from backend or frontend
   if (typeof showdown !== "undefined") {
     extension(showdown);
   } else if (typeof define === "function" && define.amd) {
@@ -21,14 +40,12 @@ import { config } from "./config.js";
       ("use strict");
 
       let getHash = (str) => window.btoa(str);
-      let promisedFileContainer = (hash, link) =>
-        `<div data-type='promised_file' id='${hash}'>wanting for…${link}</div>`;
       
-        let replaceHash = function (hash, htmlData, textData) {
-        
-        // Warn bka that dom has changed
-        window.postMessage(
-          {
+      let promisedMarker = (hash, link) => `<div data-type='promised_file' id='${hash}'>waiting for…${link}</div>`;
+      
+        let replaceMarker = function (hash, htmlData, textData) {        
+        // Warn bka that the DOM has changed
+        window.postMessage( {
             reason: "slides changed",
             hash: hash,
             htmlData: htmlData,
@@ -44,33 +61,12 @@ import { config } from "./config.js";
           let res = await response.text();
           callback(res, file, converter);
         } catch (e) {
-          console.log(
-            `Showdown extension bka: downloadTextFile: error: ${file}`,
-            e
-          );
+          console.log(`Showdown extension bka: downloadTextFile: error: ${file}`, e);
         }
       };
 
-      //
-      // USAGE:
-      //
-      // download.md(assets/slides/code.md)
-      // download.html(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.html)
-      // download.raw(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
-      // download.code(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
-      // download.exec(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
-      // download.iframe(url,[w,h]) :
-      //    download.iframe(assets/slides/web/front/react_samples/react01/index.html)
-      //    download.iframe(assets/slides/web/front/react_samples/react01/index.html,500,200)
-      //
-      // [video title](https://www.youtube.com/watch?xyzabc)  --> <iframe src="//www.youtube.com/embed/xyzabc" frameborder="0" allowfullscreen=""></iframe>
-      // setup:[The Map of Physics](ZihywtixUYo)
-      // <script src="js/showdown.extension.bka.js"></script>
-      // var converter = new showdown.Converter({extensions: ["BkaShowDownExtension"])
-      //
-      // Writing showdown extensions:
-      // https://github.com/showdownjs/showdown/wiki/Extensions
-
+      // EXTENSIONS
+    
       var bkaRawRegex = /(?:download\.)(?<bkatype>raw)\((?<link>[^)]*)\)/gi,
         bkaHtmlRegex = /(?:download\.)(?<bkatype>html)\((?<link>[^)]*)\)/gi,
         bkaCodeRegex = /(?:download\.)(?<bkatype>code)\((?<link>[^)]*)\)/gi,
@@ -108,12 +104,11 @@ import { config } from "./config.js";
               link,
               hash,
               converter,
-              function (res, file, converter) {
-                //document.getElementById(hash).innerHTML = converter.makeHtml(res);
-                replaceHash(hash, converter.makeHtml(res));
+              function (res, file, converter) {                
+                replaceMarker(hash, converter.makeHtml(res));
               }
             );
-            return promisedFileContainer(hash, link);
+            return promisedMarker(hash, link);
           });
         },
       };
@@ -127,11 +122,7 @@ import { config } from "./config.js";
           return text.replace(
             bkaIFrameRegex,
             function (s, bkatype, link, width, height) {
-              return `<iframe src='${link}'  ${addAttribute(
-                "width",
-                width,
-                "px"
-              )} ${addAttribute("height", height, "px")}></iframe>`;
+              return `<iframe src='${link}'  ${addAttribute( "width", width, "px" )} ${addAttribute("height", height, "px")}></iframe>`;
             }
           );
         },
@@ -143,9 +134,9 @@ import { config } from "./config.js";
         replace: function (s, bkatype, link) {
           var hash = getHash(link);
           downloadFile(link, hash, null, function (res, file) {
-            replaceHash(hash, null, res);
+            replaceMarker(hash, null, res);
           });
-          return promisedFileContainer(hash, link);
+          return promisedMarker(hash, link);
         },
       };
 
@@ -155,9 +146,9 @@ import { config } from "./config.js";
         replace: function (s, bkatype, link) {
           var hash = getHash(link);
           downloadFile(link, hash, null, function (res, file) {
-            replaceHash(hash, res);
+            replaceMarker(hash, res);
           });
-          return promisedFileContainer(hash, link);
+          return promisedMarker(hash, link);
         },
       };
 
@@ -169,10 +160,10 @@ import { config } from "./config.js";
           downloadFile(link, hash, null, function (res, file) {
             const filExt = file.substring(file.length - 3, file.length);
             let resCode = `<p><a title='download item' class='originOfLink' rel='noopener' target='_blank' href='${file}'>${file}</a></p><?prettify ...?><pre><code id='${hash}' class='language-${filExt}'>${res}</code></pre>`;
-            replaceHash(hash, resCode);
+            replaceMarker(hash, resCode);
             PR.prettyPrint();
           });
-          return promisedFileContainer(hash, link);
+          return promisedMarker(hash, link);
         },
       };
 
