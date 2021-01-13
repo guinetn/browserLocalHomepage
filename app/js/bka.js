@@ -311,7 +311,7 @@ export class Bka extends Blog {
 
     this.downloadMainSlide(
       `${config.slidesFolder}/${this.currentSlidesFile}`,
-      `_${this.currentSlidesFile}.md`
+      `${config.slideMainFilePrefix}${this.currentSlidesFile}.md`
     ).then((htmlSlides) => {
       this.appendSlides(htmlSlides, slidesContainer);
       this.updateSlides();

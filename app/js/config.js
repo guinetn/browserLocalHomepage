@@ -6,9 +6,11 @@ export const config = {
   snackbarDurationSec: 2500,
   viewsCssSelector: ".view",
   slidesContainer: "#main",
+  viewsFile: "assets/views.html",
   viewsContainer: "#viewsPlaceHolder",
   slidesSeparator: "::::",
   slidesFolder: "assets/slides",
+  slideMainFilePrefix: "_",
   topicsFile: "assets/topics.json",
   // To open the blog folder on Github
   blogRepo: "https://github.com/guinetn/braincache/blob/main/assets/blog",

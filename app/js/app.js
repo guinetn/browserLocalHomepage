@@ -7,7 +7,7 @@ import { slideShow } from "./slideshow.js";
   let app = null;
 
   document.addEventListener("DOMContentLoaded", function () {
-    utils.downloadTextFile(`${config.slidesFolder}/index-main.html`, null, initApplication);
+    utils.downloadTextFile(config.viewsFile, null, initApplication);
   });
 
   // INIT CUSTOMIZED VIEWS
@@ -31,9 +31,13 @@ import { slideShow } from "./slideshow.js";
     if (slideShow) slideShow.showSlides();
 
     utils.fetchMasonry(".topics", config.masonryColumns);
-    utils.fetchGithubFolder(config.blogRepoApi, app.listBlogArticles);
+    refreshBlogItems();
   }
 
+  function refreshBlogItems() {
+     utils.fetchGithubFolder(config.blogRepoApi,app.listBlogArticles);
+  }
+                        
   function showHelp() {
     
     utils.downloadTextFile("app/help.md", null, function (options, helpContent) {
@@ -81,7 +85,7 @@ import { slideShow } from "./slideshow.js";
     
     // Refresh blog items list
     if (e.target.matches(".blogRefresh")) {
-       utils.fetchGithubFolder(config.blogRepoApi, app.listBlogArticles);
+        refreshBlogItems();
     }
     else if (e.target.matches(".slideShowSlidePrev") && slideShow) {
       slideShow.plusSlides(e.target.parentNode.id, -1);
