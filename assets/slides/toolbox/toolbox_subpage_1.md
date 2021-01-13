@@ -1,5 +1,4 @@
 <strong>I'm a sub page</strong>
-braincache\assets\slides\toolbox_subpage_1.md
 
 ##### and i can have all that my parent's have
 
