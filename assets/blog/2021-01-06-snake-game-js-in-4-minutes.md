@@ -27,7 +27,7 @@ window.onload=function() {
 }
 
 ```
-            
+To start, press <kbd>←</kbd> <kbd>↑</kbd> <kbd>↓</kbd> <kbd>→</kbd>            
 download.iframe(assets/blog/assets/snake_in_4_min.html, 500, 500)
 
 download.raw(assets/blog/assets/snake_in_4_min.html)

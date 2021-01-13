@@ -280,9 +280,9 @@ export class Bka extends Blog {
     if (slideShow) slideShow.init();
   }
 
-  async downloadMainSlides(folder, slideFile) {
+  async downloadMainSlide(folder, slideFile) {
     try {
-      let relativePath = `${folder}/${slideFile}.md`;
+      let relativePath = `${folder}/${slideFile}`;
       let response = await fetch(relativePath);
       let markdown = await response.text();
       let html = null;
@@ -300,7 +300,7 @@ export class Bka extends Blog {
 
       return htmlSlides;
     } catch (e) {
-      console.log(`Error in downloadMainSlides(${slideFile})`, e);
+      console.log(`Error in downloadMainSlide(${slideFile})`, e);
     }
   }
 
@@ -309,15 +309,16 @@ export class Bka extends Blog {
 
     this.currentSlidesFile = this.currentView.name;
 
-    this.downloadMainSlides(config.slidesMain, this.currentSlidesFile).then(
-      (htmlSlides) => {
-        this.appendSlides(htmlSlides, slidesContainer);
-        this.updateSlides();
-        this.toggleSlidesVisibility(true);
-        this.renderCurrentSlide();
-        PR.prettyPrint();
-      }
-    );
+    this.downloadMainSlide(
+      `${config.slidesFolder}/${this.currentSlidesFile}`,
+      `_${this.currentSlidesFile}.md`
+    ).then((htmlSlides) => {
+      this.appendSlides(htmlSlides, slidesContainer);
+      this.updateSlides();
+      this.toggleSlidesVisibility(true);
+      this.renderCurrentSlide();
+      PR.prettyPrint();
+    });
   }
 
   appendSlides(slides, container) {

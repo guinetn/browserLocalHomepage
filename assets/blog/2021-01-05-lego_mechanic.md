@@ -1,4 +1,4 @@
-## Making Lego Car CLIMB Obstacles
+## Making lego car climb obstacles
 
 How to solve mechanical problems with lego.
 

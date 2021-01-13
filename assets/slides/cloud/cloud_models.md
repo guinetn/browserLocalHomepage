@@ -47,3 +47,5 @@ Use as service by pay as go or fixed pay model without worrying about building, 
 Serverless computing
 
 ## 🔱 IDaaS - Identity-as-a-Service 
+
+## 🔱 IaC - Infrastructure as Code 

@@ -1,11 +1,8 @@
 # Web
 
-::::
 download.md(assets/slides/web/w3c.md)
 ::::
-download.md(assets/slides/web/osi_model.md)
-::::
-download.md(assets/slides/web/networks.md)
+download.md(assets/slides/web/networks/networks.md)
 ::::
 download.md(assets/slides/web/html.md)
 ::::

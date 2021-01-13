@@ -1,6 +1,10 @@
-# Cloud
+# CLOUD
 
 Pool of configurable shared resources (vm, network, storage, applications, services) that can be quickly created with a minimal interaction with the cloud provider
+
+digital infrastructure: computing, storage, data management + cloud services (business enterprise systems )
+
+Leading cloud vendors: Amazon AWS, Microsoft Azure, Google Cloud
 
 ![what-is-the-cloud](assets/slides/cloud/assets/what-is-the-cloud.png)
 
@@ -13,13 +17,13 @@ Evolution: bare metal → virtualized → containerized → cloud → serverless
 
 Cloud services are popular because they reduce the cost and complexity of owning and operating infrastructure, computers and networks. And some cloud providers offers advanced services that a single company might not be able to afford or develop.
 
-
 • Characteristics
 - service on demand
 - access to resources by the network
 - Shared resources
 - resources flexibility
 - Realtime service consumption measure
+
 • Key concept: Virtualisation
     The key enabler of the Cloud so that the resources can be split and re-packaged to sell: 
     virtual machine(hypervisor)
@@ -43,6 +47,7 @@ Cloud services are popular because they reduce the cost and complexity of owning
     ![saas-paas-iaas](assets/slides/cloud/assets/saas-paas-iaas-diagram.svg)
 
 • Cloud Deployment Types    
+  
     PUBLIC: your infrastructure is running by...
         - Amazon AWS
         - Microsoft Azure
@@ -51,14 +56,19 @@ Cloud services are popular because they reduce the cost and complexity of owning
         - Oracle
         - IBM
 
+        Relying on massive data centers supplying the desired cloud capacity on demand.
+        
         [GCP vs AWS](https://cloud.google.com/docs/compare/aws#service_comparisons)
         [GCP vs Azure](https://cloud.google.com/docs/compare/azure#service_comparisons)
     
     PRIVATE: you own your data center but resource request and allocation is done through software UI
     
-    HYBRID: taking the best parts of public and private cloud (+on premises)
+    HYBRID: taking the best parts of public and private cloud (+on premises).  Easier to share data and information amongst partners that follow different application and data standards and architectures.
 
     MULTICLOUD: use several public clouds
+    Businesses have started to move into multi-cloud hybrid environments. This ensure better interoperability of their digital assets with their larger network of partner/vendor systems that may be hosted on different cloud environments.
+    
+    EDGE COMPUTING: Puts storage and servers where the data is
 
 ![cloud-devops-modele-deploiement](assets/slides/cloud/assets/cloud-devops-modele-deploiement.webp)
 ::::

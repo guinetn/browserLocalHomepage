@@ -190,6 +190,8 @@ a:link {
 ||:active ||										
 ||:hover  ||										
 ||:focus  ||										
+||:target  ||										
+||:checked ||	
 ||:focuswithin  |div:focus-within {...}: any div when any of its descendants gets the focus|										
 ||:invalid||
 |STRUCTURED|||										
@@ -198,10 +200,12 @@ a:link {
 || :first-of-type()	 ||
 || :nth-of-type()	 ||
 || :nth-child(an+b)	 |li:nth-child(2n)   { even } <br>li:nth-child(2n+1) { Odd }|
+|||Zebra Striped Table Rows:<br>tbody tr:nth-child(odd) {background-color: #ddd;}|
 || :only-child() 	 ||
 || :nth-last-child()  ||
 || :nth-last-of-type()||
 || :only-of-type()	 ||
+|| :last-of-type ||
 |STATES|||										
 || :enabled 	any enabled (active) element 	input:enabled {color: red}||
 || :disabled 	any disabled element||
@@ -218,6 +222,34 @@ a:link {
 |:root||root element (html)|
 |:empty||has no child|										
 |:not(selector)|||        
+
+
+|PSEUDO ELEMENTS|to style a specific part of the selected element|
+|---|---|
+|::after||
+|::before||
+|::first-letter||
+|::first-line||
+|::selection||
+
+```css
+/* <h2 class="emoji" data-emoji="😍"> */
+.emoji::before {
+  content: attr(data-emoji);
+}
+
+article p:first-of-type:first-line {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: darkcyan;
+}
+
+::selection {
+  background: yellow;
+  color: black;
+}
+```
+
 
 ### CSS NATIVE VARIABLES
 ```css
@@ -342,3 +374,5 @@ download.md(assets/slides/web/css_layout_flexbox.md)
 
 download.md(assets/slides/web/css_bem.md)
 
+## More
+- https://moderncss.dev/guide-to-advanced-css-selectors-part-two/

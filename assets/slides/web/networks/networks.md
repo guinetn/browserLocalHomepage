@@ -1,5 +1,8 @@
 # NETWORKS
 
+download.md(assets/slides/web/networks/osi_model.md)
+::::
+
 ## Concepts
 |Computer Network Concepts||
 |---|---|
@@ -20,24 +23,10 @@
 |Cookies | An HT TP cookie is a small piece of data from a website stored on the user's computer by the browser. |
 |API | An Application Programming Interface is a computing interface to extract data from a website. |
 
-## Ports
-|Port range|Group|
-|---|---|
-|0 - 1 023|Well known ports|
-|1 024 - 49 151|Registered ports (iana)|
-|49 152 - 65 535|Private and/or dynamic ports|
+::::
+download.md(assets/slides/web/networks/ports.md)
 
-<br/>
-Common Ports to Remember
-- 80: HTTP (web)
-- 443: HTTPS (web)
-- 110: POP (mail)
-- 25: SMTP (mail)
-- 22: SSH (remote shell connections)
-
-http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-sg-en-4/ch-ports.html
-
-download.iframe(https://packetlife.net/media/library/23/common_ports.pdf,800,300)
+::::
 
 ## DNS - DOMAIN NAME SYSTEM 
 
@@ -67,6 +56,7 @@ Resolving the hostname:
     Query the 'A record' to locate the IP address
 
 ![dns-lookup-diagram](assets/slides/web/assets/dns-lookup-diagram.webp)
+
 ## Reverse DNS (rDNS)
     
 Resolving an IP address back to a domain name.
@@ -250,6 +240,10 @@ print(cnn.text)
 A connection-based protocol that provides a reliable flow of data between two computers.
 Example: HTTP, FTP, Telnet
 Use socket
+
+TCP job is merely to take a stream of messages produced by one HOST and reproduce the stream on a remote receiving HOST without change.
+TCP breaks data into packets and distribute them. Those packets travel from router to router over the Internet. During this time the IP protocol is in charge of the addressing and forwarding of those packets. At the end, TCP reassembles the packets to their original state.
+
 
 ### UDP - User Datagram Protocol
 A protocol that sends independent packets of data, called datagrams, from one computer to another with no guarantees about arrival. UDP is not connection-based like TCP.

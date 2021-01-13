@@ -1,6 +1,9 @@
 # EDGE COMPUTING
 
 Puts storage and servers where the data is
+Distributed service layers are the core of edge computing
+
+2021: EDGE COMPUTING TO START SHOWING SIGNS OF BECOMING MAINSTREAM
 
 Distributed information technology (IT) architecture in which client data is processed at the periphery of the network, as close to the originating source as possible.
 

@@ -16,5 +16,7 @@
 * Implements & test: probelm solved?
 * Continuously improve
 
+::::
+
 ## Be sure of the right problem
 ![](assets/slides/home/assets/wwII.png)

@@ -134,7 +134,9 @@ an unique option:
 ```
 ## Adding slides to a view...takes 10 sec
 
-1. In ```assets/slides``` folder, create a .md file having the same name that the targeted view 
+1. In ```assets/slides``` folder
+- Create a folder having the same name that the targeted view 
+- Create a file named _xxxx.md file having the same name that the targeted view but starting with a _
 2. Write some markdown
 
 * Each view can have a markdown file (.md) 
