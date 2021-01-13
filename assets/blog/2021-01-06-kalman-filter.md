@@ -10,10 +10,10 @@ Its ability to extract accurate information seems almost magical
 
 ![kalman filter](assets/blog/assets/kalman_filter.jpg)
 
-* IMU - inertial measurement units
-[Kalman filter-based IMU](https://www.bzarg.com/p/improving-imu-attitude-estimates-with-velocity-data/)
-https://github.com/pms67/EKF-Quaternion-Attitude-Estimation
-https://github.com/pms67/Attitude-Estimation
+### IMU - INERTIAL MEASUREMENT UNIT
+- [Kalman filter-based IMU](https://www.bzarg.com/p/improving-imu-attitude-estimates-with-velocity-data/)
+- https://github.com/pms67/EKF-Quaternion-Attitude-Estimation
+- https://github.com/pms67/Attitude-Estimation
 
 
 ## More
@@ -42,5 +42,3 @@ The Kalman filter is an application of the more general concepts of Markov Chain
 and Bayesian Inference, which are mathematical systems that iteratively refine their 
 guesses using evidence. These are tools designed to help science itself test ideas 
 (and are the basis of what we call “statistical significance”).
-
-![kalman_filter](img\Algorithms\kalman_filter.jpg)

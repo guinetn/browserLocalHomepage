@@ -13,7 +13,7 @@
   "live": [
     "https://httpbin.org/ip[!getjson](★ my ip: $origin)",
     "http://ip-api.com/json/[!getjson](★ my lat/lon: $lat $lon)",
-    "https://api.wheretheiss.at/v1/satellites/25544[!getjson3600](⏳ iss: $latitude N $longitude)"
+    "https://api.wheretheiss.at/v1/satellites/25544[!getjson300](⏳ iss: N $latitude $longitude)"
   ],
 
   "news": [

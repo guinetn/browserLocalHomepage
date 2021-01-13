@@ -1,6 +1,7 @@
 ## Making lego car climb obstacles
 
 How to solve mechanical problems with lego.
+### A lesson of mechanical engineering
 
 1. Construct a Lego car
 2. Improving it against obstacles until it becomes a capable climber by considering:

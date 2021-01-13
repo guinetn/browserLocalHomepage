@@ -1,4 +1,4 @@
-# Snake Game in js in 4 minutes
+## CODE SKELETON
 
 ```        
 window.onload=function() {	
@@ -27,8 +27,11 @@ window.onload=function() {
 }
 
 ```
-To start, press <kbd>←</kbd> <kbd>↑</kbd> <kbd>↓</kbd> <kbd>→</kbd>            
+## Play
+
+Use <kbd>←</kbd> <kbd>↑</kbd> <kbd>↓</kbd> <kbd>→</kbd>            
 download.iframe(assets/blog/assets/snake_in_4_min.html, 500, 500)
 
+## The code
 download.raw(assets/blog/assets/snake_in_4_min.html)
 

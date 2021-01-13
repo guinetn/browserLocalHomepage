@@ -441,10 +441,12 @@ export class Bka extends Blog {
           description = description[0];
         }
         const tag = document.getElementById(hash);
-        const tagAnchor = document.createElement("a");
+        let tagAnchor = tag.querySelector("a");
+        if (!tagAnchor) 
+          tagAnchor = document.createElement("a");
 
         if (jsonObject.error) {
-          tagAnchor.innerHTML += `❌ ${description.substring(1)}`;
+          tagAnchor.innerHTML = `❌ ${description.substring(1)}`;
           tagAnchor.title = jsonObject.error;
           tagAnchor.href = link;
           tagAnchor.classList = "downloadError";
