@@ -94,3 +94,5 @@ download.md(assets/slides/code/microsoft.md)
 download.md(assets/slides/code/bot.md)
 ::::
 download.md(assets/slides/code/sdk.md)
+::::
+download.md(assets/slides/code/mixed_reality.md)

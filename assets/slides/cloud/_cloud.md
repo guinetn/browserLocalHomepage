@@ -70,9 +70,12 @@ Cloud services are popular because they reduce the cost and complexity of owning
     
     EDGE COMPUTING: Puts storage and servers where the data is
 
+::::
 ![cloud-devops-modele-deploiement](assets/slides/cloud/assets/cloud-devops-modele-deploiement.webp)
 ::::
 download.md(assets/slides/cloud/cloud_models.md)
+::::
+download.md(assets/slides/cloud/cloud_design_patterns.md)
 ::::
 ## The Stack
 * Servers (including bare metal, VMs, containers, serverless functions to run the applications and backends: AWS EC2 or GCP GCE

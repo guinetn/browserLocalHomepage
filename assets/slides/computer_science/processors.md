@@ -17,6 +17,9 @@ ARM SoC (Advanced RISC Machines - System on a Chip, which includes the CPU, the 
 
 * AMD
 Ryzen 5000   16 coeurs, 7nm
+             architecture Zen 3
+Ryzen 9 5980HS 35 watts
+        5900HX 5980HX 45 watts
 
 * x64 	x86/x64 processors are CISC (Complex Instruction Set Computing: many instructions set)
 
