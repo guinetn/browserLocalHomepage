@@ -35,7 +35,7 @@ export class Blog {
         blogTitle = blogTitle.replace(date.source, "").toUpperCase();
       }
 
-      const preMarkdown = `<p><a href='${target.tag}' class='blogLinkEdit' title='edit blog' rel='noopener' target='_blank'>${blogTitle}<sub class='fs-medium'>  ${blogDate}</sub></a></p>`;
+      const preMarkdown = `<p><a href='${target.tag}' class='blogArticleLinkEdit' title='edit blog' rel='noopener' target='_blank'>${blogTitle}<sub class='fs-medium'>  ${blogDate}</sub></a></p>`;
       let html = this.markdownToHtml(`${preMarkdown}${markdown}`);
       this.currentBlog.innerHTML = html;
       this.currentBlog.setAttribute("data-blog_file", blogFile);
@@ -75,7 +75,7 @@ export class Blog {
           .replace(/[-_]/g, " ");
         blogTitleElement.innerText = utils.capitalize(blogTitle);
         aElement.appendChild(blogTitleElement);
-        aElement.classList = "blogLink"; // To drive the click to showBlog( clicked_link )
+        aElement.classList = "blogArticleLink"; // To drive the click to showBlog( clicked_link )
         aElement.href = x["download_url"];
         aElement.tag = x["html_url"];
         aElement.setAttribute("blog_file", x["name"]);

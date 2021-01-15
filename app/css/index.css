@@ -199,13 +199,13 @@ a.downloadError {
 .originOfLink:hover {  
   color: var(--originOfLinkHoverFg) !important;
 }
-.topicLink, .blogLink, .blogLinkEdit {
+.topicLink, .blogArticleLink, .blogArticleLinkEdit {
   color: var(--topicLinkFg);
 }
-.topicLink:hover, .blogLink:hover, .blogLinkEdit:hover {  
+.topicLink:hover, .blogArticleLink:hover, .blogArticleLinkEdit:hover {  
   border-bottom: solid 1px var(--topicLinkHoverFg);  
 }
-.topicLink:visited, .blogLink:visited, .blogLinkEdit:visited {
+.topicLink:visited, .blogArticleLink:visited, .blogArticleLinkEdit:visited {
   color: var(--topicLinkFg);
 }    
 .view .topicLink {

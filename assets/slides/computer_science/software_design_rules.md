@@ -38,7 +38,23 @@ use plurals when appropriate
     CompanyName.TechnicalDomain.AppName.FunctionalArea.Class
     CompanyName.TechnicalDomain.Common.FunctionalArea.Class
     CompanyName.Common.FunctionalArea.Class
-    
+
+### CLEAN CODE
+Comments = maintenable, can evolve
+Can be read and enrich by another person that the author
+
+Code which is easy to read and understand as well as easy for any developer to maintain and modify. 
+It means that assigned names are meaningful but not too long. No parts of code should be repeated, and almost everything should be consistent.
+
+How to write clean code?
+"Don't repeat yourself" (DRY), "abstraction," and "keep it simple, stupid" (KISS) principles are the most useful best practices in writing clean code. Consistency and readability should be ensured, and style guides and conventions must be followed.
+- https://damien.pobel.fr/post/clean-code/
+
+### CODE REVIEW
+Perform, improve, make reliable, learn, give
+### PAIR PROGRAMMING
+The driver and the observer 
+
 ### KISS (KEEP IT SIMPLE STUPID)
 Most systems work best if they are kept simple rather than made complex.
 Simplicity should be a key goal in design and unnecessary complex should be avoided.
@@ -111,14 +127,6 @@ download.md(assets/slides/data/base.md)
 * Revision 
 * Action
 
-### CleanCode
-
-code which is easy to read and understand as well as easy for any developer to maintain and modify. 
-It means that assigned names are meaningful but not too long. No parts of code should be repeated, and almost everything should be consistent.
-
-How to write clean code?
-"Don't repeat yourself" (DRY), "abstraction," and "keep it simple, stupid" (KISS) principles are the most useful best practices in writing clean code. Consistency and readability should be ensured, and style guides and conventions must be followed.
-
 ### Ockham razor
 
 Philosophical principle that emphasized that the simpler solution is the best one given that all other things are same.
@@ -133,6 +141,7 @@ Simpler explanations are more likely to be true than complicated ones. This is t
 # LOD (The law of demeter) 
 
 Principle of Least Knowledge
+A class should know only its direct dependencies
 Not applicable to every real world problem (Surgeon to know about Patient as well as his Heart)
 Minimize coupling within the application
 • Design guideline for developing software using Object Orientation
@@ -167,3 +176,16 @@ When exploring requirements, think beyond the hands-on users. Your customer once
 Requirements elicitation is a process of exploration, collaboration, discovery, and invention, not a simple collection process. 
 The purpose of requirements elicitation is to bring the voice of the customer — the VOC — as close as possible to the ear of the developer — the EOD. The business analyst facilitates bridging that communication gap.
 Two commonly used requirements elicitation practices are telepathy and clairvoyance. They don’t work.
+
+### Code smells (bad code)
+
+* Rigidity
+The software is difficult to evolve. 
+A small change can cause a cascade of changes.
+* Fragility
+The software malfunctions in several places in response to a single change.
+* Immobility
+You cannot reuse part of the code in other projects because this operation is risky or requires a great effort.
+* Unnecessary complexity.
+* Repetition unnecessary.
+* Opacity: the code is difficult to understand.

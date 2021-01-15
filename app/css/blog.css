@@ -1,5 +1,5 @@
 
-.blogRefresh {
+.articlesReloadLink {
   cursor: pointer;
 }
 
@@ -11,18 +11,18 @@
   top: 2.23em;
 }
 
-.view .blogLink {
+.view .blogArticleLink {
   font-size: larger;
 }
-.blogLink:before {
+.blogArticleLink:before {
   content:'⭐ ';  
 }
 
-.blogLinkEdit {
+.blogArticleLinkEdit {
   font-size: xx-large;
 }
 
-.blogLinkEdit:hover:after {
+.blogArticleLinkEdit:hover:after {
   content:' ✏️'
 }
 

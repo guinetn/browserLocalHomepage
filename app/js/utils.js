@@ -25,9 +25,14 @@ export let utils = {
     setInterval(() => this.tick(), 1000);
   },
 
+  // HeartBeat
   tick: function () {
     this.clock.innerText = this.getTime();
-    if (this.externalHeartbeat != null) this.externalHeartbeat();
+    
+    // is there a defined heartbeat to call?
+    if (this.externalHeartbeat != null) 
+      this.externalHeartbeat();
+      
     if (this.alarmTimer) {
       this.alarmRemainder -= this.alarmRate;
       this.alarmSign.style.width = `${Math.trunc(this.alarmRemainder)}%`;
@@ -43,7 +48,9 @@ export let utils = {
   capitalize: (string) => string[0].toUpperCase() + string.slice(1),
 
   parseDate: function (stringDate) {
-    let date = stringDate.match(/(?<year>\d{4})-?(?<month>\d{2})-?(?<day>\d{2})-?/);
+    let date = stringDate.match(
+      /(?<year>\d{4})-?(?<month>\d{2})-?(?<day>\d{2})-?/
+    );
     return date
       ? {
           source: date[0],
@@ -128,7 +135,7 @@ export let utils = {
   snackbar: function (msg, duration = config.snackbarDurationSec) {
     snackbar.innerHTML = msg;
     snackbar.classList.add("show");
-    setTimeout(() => snackbar.classList.remove("show"), duration);
+    setTimeout(() => snackbar.classList.remove("show"), duration*1000);
   },
 
   fullScreen: function (elem) {
@@ -203,7 +210,7 @@ export let utils = {
     });
   },
 
-  fetchMasonry: function (container, cols) {
+  setMasonryLaout: function (container, cols) {
     [...document.querySelectorAll(container)].map((c) => {
       this.setMasonry(c, cols);
     });
