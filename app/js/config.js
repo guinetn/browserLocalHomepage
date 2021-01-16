@@ -9,6 +9,7 @@ export const config = {
   viewsFile: "assets/views.html",
   viewsContainer: "#viewsPlaceHolder",
   slidesSeparator: "::::",
+  help: "app/help.md",
   slidesFolder: "assets/slides",
   slideMainFilePrefix: "_",
   topicsFile: "assets/topics.json",

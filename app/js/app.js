@@ -24,7 +24,7 @@ export class App extends Blog {
   mouseDownStartTime = null;
 
   constructor() {
-    super("blogArticlePlaceHolder");
+    super(".blogArticleContainer");
 
     // Get views[]
     document
@@ -39,7 +39,7 @@ export class App extends Blog {
     this.slideMeter = document.getElementById("slideMeter");
 
     // RENDER topics in views
-    utils.downloadJsonFile(config.topicsFile, null, this.extractTopics);
+    utils.downloadJsonFile(config.topicsFile, this, this.extractTopics);
     // RENDER views[]
     this.renderViewsCatalog();
 
@@ -47,6 +47,8 @@ export class App extends Blog {
     if (slideShow) slideShow.init();
     // Set the link to manually open the blog items folder on github
     document.getElementById("blogRepoLink").href = config.blogRepo;
+    
+    this.loadBlogArticles();
   }
 
   slidesChanged(event) {
@@ -136,45 +138,15 @@ export class App extends Blog {
   ...*/
   renderViewsCatalog() {
     const source = [...document.querySelectorAll(".view")];
-    this.renderCatalog(
-      source,
-      ".viewsCatalog",
-      "data-viewid",
-      "viewsCatalogLink"
-    );
+    renderCatalog( source, ".viewsCatalog", "data-viewid", "viewsCatalogLink" );
   }
 
   renderSlidesCatalog() {
     // Called each time a view is changed (has a new fetched child )
-    this.renderCatalog(
-      this.slides,
-      ".slidesCatalog",
-      "data-slideid",
-      "slideCatalogLink",
-      true
-    );
+    renderCatalog( this.slides, ".slidesCatalog", "data-slideid", "slideCatalogLink", true );
   }
 
-  renderCatalog(
-    source,
-    destination,
-    attributeToSet,
-    classToSet,
-    clearDestination = false
-  ) {
-    const catalog = document.querySelector(destination);
-    if (clearDestination) catalog.innerHTML = null;
 
-    source.forEach((s, i) => {
-      [...s.querySelectorAll("h1")].map((x) => {
-        let div = document.createElement("div");
-        div.innerText = `${("0" + (1 + i)).slice(-2)}. ${x.innerText}`;
-        div.setAttribute(attributeToSet, i);
-        div.className = classToSet;
-        catalog.appendChild(div);
-      });
-    });
-  }
 
   showSlide(slideid) {
     this.changeSlide(slideid - this.currentSlideId);
@@ -399,7 +371,7 @@ export class App extends Blog {
         ? s.classList.add("current")
         : s.classList.remove("current")
     );
-    setTableOfContentVisibility(".slide.current", "#catalog");
+    renderScrollSyncCatalog(".slide.current", ".blogCatalog");
   }
 
   renderViewDetails() {
@@ -458,7 +430,7 @@ export class App extends Blog {
             let classes = m.groups["classes"];
             let description = m.groups["description"];
 
-            let elem = App.createTopic(link, classes, description);
+            let elem = options.createTopic(link, classes, description);
             if (elem != null) container.appendChild(elem);
           } else console.log(`ExtractTopics(): Error in parsing ${item}`);
         });
@@ -466,7 +438,7 @@ export class App extends Blog {
     }
   }
 
-  static simplifyLink(link) {
+  simplifyLink(link) {
     /*
       https://developers.google.com/analytics → developers.google.com/analytics
       https://www.nasaspaceflight.com			→ nasaspaceflight.com 
@@ -481,7 +453,7 @@ export class App extends Blog {
     }
   }
 
-  static createTopicFromApiWithJson(hash, link, classes, description) {
+  createTopicFromApiWithJson(hash, link, classes, description) {
     utils.downloadJsonFile(
       link,
       [hash, classes, description, this],
@@ -541,7 +513,7 @@ export class App extends Blog {
     );
   }
 
-  static createTopicFromApiWithText(hash, link, classes, description) {
+  createTopicFromApiWithText(hash, link, classes, description) {
     utils.downloadTextFile(
       link,
       [hash, classes, description],
@@ -560,7 +532,7 @@ export class App extends Blog {
     );
   }
 
-  static createTopicFromApi(prefix, typeOfCall, link, classes, description) {
+  createTopicFromApi(prefix, typeOfCall, link, classes, description) {
     var hash = `api_${utils.getHash(link)}`;
     let apiElement =
       prefix == "block"
@@ -606,7 +578,7 @@ export class App extends Blog {
     return apiElement;
   }
 
-  static jsonExplorer(jsonObject, stringToExtract, callback) {
+  jsonExplorer(jsonObject, stringToExtract, callback) {
     for (var key in jsonObject) {
       const topicType = typeof jsonObject[key];
       if (topicType == "object" || topicType == "array")
@@ -615,7 +587,7 @@ export class App extends Blog {
     }
   }
 
-  static createTopic(link, classes, description) {
+  createTopic(link, classes, description) {
     const prefix =
       (classes || "block").indexOf("inline") >= 0 ? "inline" : "block";
 
@@ -664,4 +636,155 @@ export class App extends Blog {
     this.isMouseDown = false;
     this.mouseDownStartTime = null;
   }
+  
+  
+  
+  
+  
+  // Manage app's clicks events
+  onClick(e) {
+    if (this.reloadBlogArticles(e)) return;
+    else if (this.slideShowEvents(e)) return;
+    else if (this.showBlogArticle(e)) return;
+    else if (this.copyAction(e)) return;
+    else if (this.emptyClickToClose(e)) return;
+    else if (this.openView(e)) return;
+    else if (this.slideNavigation(e)) return;        
+    else if (this.showAlarmsPanel(e)) return;
+    else this.alarmChosen(e);
+  }
+
+  // Refresh blog articles
+  reloadBlogArticles(e) {
+    if (!e.target.matches(".articlesReloadLink")) return false;
+
+    this.loadBlogArticles();
+    return true;
+  }
+
+  slideShowEvents(e) {
+    // Click slideshow [←] button = Go to Previous Slide
+    if (e.target.matches(".slideShowSlidePrev") && slideShow) {
+      slideShow.plusSlides(e.target.parentNode.id, -1);
+      return true;
+    }
+    // Click slideshow [→] button = Go to Next Slide
+    else if (e.target.matches(".slideShowSlideNext") && slideShow) {
+      slideShow.plusSlides(e.target.parentNode.id, 1);
+      return true;
+    }
+    // Click a slideshow dot < o o o o > = Go to the slide with same id
+    else if (e.target.matches(".slideShowDot")) {
+      slideShow.currentSlide(
+        e.target.parentNode.parentNode.id,
+        e.target.getAttribute("data-dotSpan")
+      );
+      return true;
+    }
+
+    return false;
+  }
+
+  // Click a blog article
+  showBlogArticle(e) {
+    if (
+      !(
+        e.target.parentNode.matches(".blogArticleLink") ||
+        e.target.matches(".blogArticleLink")
+      )
+    )
+      return false;
+
+    // say to next event processing methods that it has been consumed
+    e.preventDefault();
+
+    const target = e.target.parentNode.matches(".blogArticleLink")
+      ? e.target.parentNode
+      : e.target;
+    this.showBlog(target);
+    return true;
+  }
+
+  copyAction(e) {
+    if (!e.target.matches(".copy")) return false;
+
+    utils.copyToClipboard(e.target.innerText);
+    return true;
+  }
+
+  // Click on empty element => close opened windows (alarm, blog)
+  emptyClickToClose(e) {
+    if (
+      !(
+        e.target.matches(`${config.viewsCssSelector}.active`) ||
+        e.target.parentNode.matches(
+          `${config.viewsCssSelector}.active, .topics`
+        )
+      )
+    )
+      return false;
+    this.hideBlog();
+    if (utils.alarmVisible) utils.alarmOpenClose();
+
+    return true;
+  }
+
+  openView(e) {
+    if (!e.target.matches(".viewsCatalogLink")) return false;
+
+    const linkWidthAreaToOpenSlides = 35;
+    this.selectViewAndOpenSlide(
+      e.target.dataset.viewid,
+      e.offsetX < linkWidthAreaToOpenSlides
+    );
+    return false;
+  }
+
+  slideNavigation(e) {
+    if (!e.target.matches(".slideCatalogLink")) return false;
+    // Slides ToC clicked: navigate to clicked slide
+    this.showSlide(e.target.dataset.slideid);
+    return true;
+  }
+
+  showAlarmsPanel(e) {
+    if (
+      !(
+        e.target.matches("#clock") ||
+        e.target.matches("#alarm") ||
+        (utils.alarmVisible && e.target.className == "active view")
+      )
+    )
+      return false;
+
+    utils.alarmOpenClose();
+    return true;
+  }
+
+  alarmChosen(e) {
+    if (!e.target.matches(".alarmItem")) return false;
+
+    // alarm already set ? → Cancel it
+    if (e.target.classList.contains("alarm-active")) {
+      utils.alarmSet(0);
+      return true;
+    }
+
+    // set alarm
+    const alarmSelected = document.querySelector(".alarmMessage");
+    const alarmReason = alarmSelected.value || "";
+    const alarmDurationMin = e.target.getAttribute("data-duration");
+    e.target.classList.toggle("alarm-active");
+    utils.alarmOpenClose();
+    utils.snackbar(`Alarm in ${alarmDurationMin} min<br/>${alarmReason}`);
+    utils.speak(`Alarm in ${alarmDurationMin} min`);
+    utils.alarmSet(alarmDurationMin, alarmReason);
+
+    return true;
+  }
+  
+  loadBlogArticles() {
+    utils.fetchGithubFolder(config.blogRepoApi, this.listBlogArticles);
+  }
+
 }

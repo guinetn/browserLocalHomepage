@@ -20,19 +20,22 @@ export let utils = {
   alarmRemainder: 0,
   externalHeartbeat: null,
 
-  init: function (context = null) {
-    this.externalHeartbeat = context.tick.bind(context);
+  init: function () {    
     setInterval(() => this.tick(), 1000);
+  },
+
+  // add a callback to call at each utils.tick()
+  addHeartBeat: function (context = null) {
+    this.externalHeartbeat = context.tick.bind(context);
   },
 
   // HeartBeat
   tick: function () {
     this.clock.innerText = this.getTime();
-    
+
     // is there a defined heartbeat to call?
-    if (this.externalHeartbeat != null) 
-      this.externalHeartbeat();
-      
+    if (this.externalHeartbeat != null) this.externalHeartbeat();
+
     if (this.alarmTimer) {
       this.alarmRemainder -= this.alarmRate;
       this.alarmSign.style.width = `${Math.trunc(this.alarmRemainder)}%`;
@@ -135,7 +138,7 @@ export let utils = {
   snackbar: function (msg, duration = config.snackbarDurationSec) {
     snackbar.innerHTML = msg;
     snackbar.classList.add("show");
-    setTimeout(() => snackbar.classList.remove("show"), duration*1000);
+    setTimeout(() => snackbar.classList.remove("show"), duration * 1000);
   },
 
   fullScreen: function (elem) {

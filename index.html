@@ -14,16 +14,16 @@
     <!--   <link rel="stylesheet" type="text/css" href="app/css/from_others/codeskins/doxy.css">             -->
     <link rel="stylesheet" rel="preload" type="text/css" href="app/css/from_others/codeskins/sunburst.css">    
 
-    <link rel="stylesheet" type="text/css" href="app/css/slideshow.css">
-    <link rel="stylesheet" type="text/css" href="app/css/blog.css">
-    <link rel="stylesheet" type="text/css" href="app/css/snackbar.css">
-    <link rel="stylesheet" type="text/css" href="app/css/alarm.css">
-    <link rel="stylesheet" type="text/css" href="app/css/index.css">
-    <link rel="stylesheet" type="text/css" href="app/css/masonry.css">
-    <link rel="stylesheet" type="text/css" href="app/css/modalbox.css">
-    <link rel="stylesheet" type="text/css" href="app/css/view_toolbox.css">
-    <link rel="stylesheet" type="text/css" href="app/css/slides.css">    
-    <link rel="stylesheet" type="text/css" href="app/css/table_of_content.css">    
+    <link rel="stylesheet" type="text/css" rel="preload" href="app/css/slideshow.css">
+    <link rel="stylesheet" type="text/css" rel="preload" href="app/css/blog.css">
+    <link rel="stylesheet" type="text/css" rel="preload" href="app/css/snackbar.css">
+    <link rel="stylesheet" type="text/css" rel="preload" href="app/css/alarm.css">
+    <link rel="stylesheet" type="text/css" rel="preload" href="app/css/index.css">
+    <link rel="stylesheet" type="text/css" rel="preload" href="app/css/masonry.css">
+    <link rel="stylesheet" type="text/css" rel="preload" href="app/css/modalbox.css">
+    <link rel="stylesheet" type="text/css" rel="preload" href="app/css/view_toolbox.css">
+    <link rel="stylesheet" type="text/css" rel="preload" href="app/css/slides.css">    
+    <link rel="stylesheet" type="text/css" rel="preload" href="app/css/catalog.css">    
   </head>
 
 <body>
@@ -33,13 +33,13 @@
     <span id="clock" title="click to set up alarms">……:……:……</span> 
     <div id="alarmSign"></div>
   </div>
-  <div class="appLogo">    
+  <div class="app_logo">    
   </div>
   <span id="navIcons" data-info='-t'></span>   
   <div id="help" class="far fa-question-circle"></div>
   
-  <div id='viewsCatalogContainer' class='viewsCatalogContainer '>
-    <div id='viewsCatalog' class='viewsCatalog catalogContainer'>
+  <div class='viewsCatalogContainer'>
+    <div class='viewsCatalog catalogContainer'>
       <div>
         <div class='hcenter'>VIEWS CATALOG</div><small>&nbsp;▼ Numpad Key [0-9]</small>
       </div>
@@ -64,14 +64,14 @@
 </div>
 
 <!-- blog article -->
-<aside id="blogArticlePlaceHolder" class="stickyBlogArticle"></aside>
+<aside class="blogArticleContainer"></aside>
 <!-- Table of content for blog articles or current slide -->
-<aside id="catalog" class="stickyCatalog"></aside>
+<aside class="blogCatalog"></aside>
 
-<div id="snackbar"></div>  
+<aside id="snackbar"></aside>  
 
 <!-- MODALBOX -->
-<div class="modalContainer">
+<aside class="modalContainer">
   <div class="modalBox">   
     <div>
       <h1 id="modalTitle"></h1>      
@@ -79,11 +79,11 @@
       </div>
     </div>
   </div>
-</div>
+</aside>
 
 
 <!-- ALARMS POPUP -->
-<div id="alarm">
+<aside id="alarm">
   <div class="fa fa-business-time" title="Alarms set up"></div>
   <div class="alarmItem" data-duration='5'>5 min</div>
   <div class="alarmItem" data-duration='10'>10 min</div>
@@ -95,7 +95,7 @@
   <div class="alarmItem" data-duration='90'>1h30</div>
   <div class="alarmItem" data-duration='120'>2h00</div>    
   <input class="alarmMessage" type="text" placeholder="msg to show & speak" title="msg to show & to speak (// prefix to not speak)"></input>
-</div>
+</aside>
 
 <!-- THIRD PARTS SCRIPTS -->
 <!-- GOOGLE CODE PRETTYFIER -->
@@ -103,11 +103,11 @@
 <script rel="preload" src="app/js/from_others/run_prettify.min.js"></script>
 
 <!-- MARDOWN ENGINE -->
-<script src="app/js/from_others/showdown.min.js"></script>
+<script rel="preload" src="app/js/from_others/showdown.min.js"></script>
 
 <!-- BKA SCRIPTS -->
-<script type="module" src="app/js/showdown.extension.bka.js"></script>
-<script src="app/js/table_of_content.js"></script>
+<script rel="preload" type="module" src="app/js/showdown.extension.bka.js"></script>
+<script src="app/js/catalog.js"></script>
 <!-- CUSTOM SCRIPTS BY VIEWS -->
 <script src="app/js/views_scripts/tools_view.js"></script>
 

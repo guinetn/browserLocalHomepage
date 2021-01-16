@@ -6,7 +6,9 @@ import { slideShow } from "./slideshow.js";
 // Init the application
 ( function() {
   let app = null;
+  let touchStart = undefined;
 
+  // Get Views File (visual parts of the app)
   document.addEventListener("DOMContentLoaded", function () {
     utils.downloadTextFile(config.viewsFile, null, initApplication);
   });
@@ -16,13 +18,13 @@ import { slideShow } from "./slideshow.js";
     document.querySelector(config.viewsContainer).innerHTML = viewsContent;
 
     app = new App();
-    utils.init(app);
+    utils.init();
+    utils.addHeartBeat(app);
 
-    listenForEvents();
+    listenForEvents();    
     initViews();
     initComponents();
-    setTopicsLayout();
-    loadBlogArticles();
+    setTopicsLayout();    
   }
 
   // Manage app events (keyboard, mouse)
@@ -32,6 +34,7 @@ import { slideShow } from "./slideshow.js";
     document.addEventListener("keydown", onKeydown);
     document.addEventListener("click", onClick);
     window.addEventListener("message", dispatchEvents);
+    startTouchEvents();
   }
   // Configure app's components:showdown (md), slideshow
   function initComponents() {
@@ -51,13 +54,9 @@ import { slideShow } from "./slideshow.js";
     utils.setMasonryLaout(".topics", config.masonryColumns);
   }
 
-  function loadBlogArticles() {
-    utils.fetchGithubFolder(config.blogRepoApi, app.listBlogArticles);
-  }
-
   function showHelp() {
     utils.downloadTextFile(
-      "app/help.md",
+      config.help,
       null,
       function (options, helpContent) {
         const helpContainer = document.createElement("div");
@@ -106,199 +105,70 @@ import { slideShow } from "./slideshow.js";
 
   // Manage app's clicks events
   function onClick(e) {
-    if (reloadBlogArticles(e)) return;
-    else if (slideShowEvents(e)) return;
-    else if (showBlogArticle(e)) return;
-    else if (copyAction(e)) return;
-    else if (emptyClickToClose(e)) return;
-    else if (openView(e)) return;
-    else if (slideNavigation(e)) return;
-    else if (helpClicked(e)) return;
-    else if (closeModal(e)) return;
-    else if (showAlarmsPanel(e)) return;
-    else alarmChosen(e);
+    if (helpClicked(e)) 
+      return;
+    else if (closeModal(e)) 
+      return;
+    else 
+      app.onClick(e);
   }
   
-  // Refresh blog articles
-  function reloadBlogArticles(e) {
-    if (!e.target.matches(".articlesReloadLink")) return false;
-
-    loadBlogArticles();
-    return true;
-  }
-
-  function slideShowEvents(e) {
-    // Click slideshow [←] button = Go to Previous Slide
-    if (e.target.matches(".slideShowSlidePrev") && slideShow) {
-      slideShow.plusSlides(e.target.parentNode.id, -1);
-      return true;
-    }
-    // Click slideshow [→] button = Go to Next Slide
-    else if (e.target.matches(".slideShowSlideNext") && slideShow) {
-      slideShow.plusSlides(e.target.parentNode.id, 1);
-      return true;
-    }
-    // Click a slideshow dot < o o o o > = Go to the slide with same id
-    else if (e.target.matches(".slideShowDot")) {
-      slideShow.currentSlide(
-        e.target.parentNode.parentNode.id,
-        e.target.getAttribute("data-dotSpan")
-      );
-      return true;
-    }
-
-    return false;
-  }
-
-  // Click a blog article
-  function showBlogArticle(e) {
-    if (
-      !(
-        e.target.parentNode.matches(".blogArticleLink") ||
-        e.target.matches(".blogArticleLink")
-      )
-    )
-      return false;
-
-    // say to next event processing methods that it has been consumed
-    e.preventDefault();
-
-    const target = e.target.parentNode.matches(".blogArticleLink")
-      ? e.target.parentNode
-      : e.target;
-    app.showBlog(target);
-    return true;
-  }
-
-  function copyAction(e) {
-    if (!e.target.matches(".copy")) return false;
-
-    utils.copyToClipboard(e.target.innerText);
-    return true;
-  }
-
-  // Click on empty element => close opened windows (alarm, blog)
-  function emptyClickToClose(e) {
-    if (
-      !(
-        e.target.matches(`${config.viewsCssSelector}.active`) ||
-        e.target.parentNode.matches(
-          `${config.viewsCssSelector}.active, .topics`
-        )
-      )
-    )
-      return false;
-    app.hideBlog();
-    if (utils.alarmVisible) utils.alarmOpenClose();
-
-    return true;
-  }
-
-  function openView(e) {
-    if (!e.target.matches(".viewsCatalogLink")) return false;
-
-    const linkWidthAreaToOpenSlides = 35;
-    app.selectViewAndOpenSlide(
-      e.target.dataset.viewid,
-      e.offsetX < linkWidthAreaToOpenSlides
-    );
-    return false;
-  }
-
-  function slideNavigation(e) {
-    if (!e.target.matches(".slideCatalogLink")) return false;
-    // Slides ToC clicked: navigate to clicked slide
-    app.showSlide(e.target.dataset.slideid);
-    return true;
-  }
-
-  function helpClicked(e) {
+   function helpClicked(e) {
     if (!e.target.matches("#help")) return false;
 
-    if (utils.isModalVisible()) utils.modalClose();
-    else showHelp();
+    if (utils.isModalVisible()) 
+      utils.modalClose();
+    else 
+      showHelp();
 
     return true;
   }
-
-  // click on the modalContainer to close it
+  
+    // click on the modalContainer to close it
   function closeModal(e) {
     if (e.target.className != "modalContainer visible") return false;
     utils.modalClose();
     return true;
   }
+  
+  // start touch events
+  function startTouchEvents(e) {      
+    
+    addEventListener(
+      "touchstart",
+      (event) => {
+        touchStart = {
+          x: event.changedTouches[0].clientX,
+          y: event.changedTouches[0].clientY,
+        };
+      },
+      false
+    );
 
-  function showAlarmsPanel(e) {
-    if (
-      !(
-        e.target.matches("#clock") ||
-        e.target.matches("#alarm") ||
-        (utils.alarmVisible && e.target.className == "active view")
-      )
-    )
-      return false;
+    addEventListener(
+      "touchend",
+      (event) => {
+        touchStart = undefined;
+      },
+      false
+    );
 
-    utils.alarmOpenClose();
-    return true;
+    addEventListener(
+      "touchmove",
+      (event) => {
+        if (touchStart == undefined) return;
+        const vector = {
+          x: touchStart.x - event.changedTouches[0].clientX,
+          y: touchStart.y - event.changedTouches[0].clientY,
+        };
+        const horizontal = Math.abs(vector.x) > Math.abs(vector.y);
+        let back = horizontal ? vector.x < 0 : vector.y < 0;
+        if (horizontal)
+          app.selectView(vector.x / Math.abs(vector.x) == -1 ? "prev" : "next");
+        touchStart = undefined;
+      },
+      false
+    );
   }
-
-  function alarmChosen(e) {
-    if (!e.target.matches(".alarmItem")) return false;
-
-    // alarm already set ? → Cancel it
-    if (e.target.classList.contains("alarm-active")) {
-      utils.alarmSet(0);
-      return true;
-    }
-
-    // set alarm
-    const alarmSelected = document.querySelector(".alarmMessage");
-    const alarmReason = alarmSelected.value || "";
-    const alarmDurationMin = e.target.getAttribute("data-duration");
-    e.target.classList.toggle("alarm-active");
-    utils.alarmOpenClose();
-    utils.snackbar(`Alarm in ${alarmDurationMin} min<br/>${alarmReason}`);
-    utils.speak(`Alarm in ${alarmDurationMin} min`);
-    utils.alarmSet(alarmDurationMin, alarmReason);
-
-    return true;
-  }
-
-  // TOUCH EVENTS
-  let touchStart = undefined;
-  addEventListener(
-    "touchstart",
-    (event) => {
-      touchStart = {
-        x: event.changedTouches[0].clientX,
-        y: event.changedTouches[0].clientY,
-      };
-    },
-    false
-  );
-
-  addEventListener(
-    "touchend",
-    (event) => {
-      touchStart = undefined;
-    },
-    false
-  );
-
-  addEventListener(
-    "touchmove",
-    (event) => {
-      if (touchStart == undefined) return;
-      const vector = {
-        x: touchStart.x - event.changedTouches[0].clientX,
-        y: touchStart.y - event.changedTouches[0].clientY,
-      };
-      const horizontal = Math.abs(vector.x) > Math.abs(vector.y);
-      let back = horizontal ? vector.x < 0 : vector.y < 0;
-      if (horizontal)
-        app.selectView(vector.x / Math.abs(vector.x) == -1 ? "prev" : "next");
-      touchStart = undefined;
-    },
-    false
-  );
+  
 })();

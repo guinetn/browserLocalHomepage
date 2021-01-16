@@ -26,13 +26,13 @@
   content:' ✏️'
 }
 
-ul#blog_items li {
+ul#blog_articles li {
   list-style-type: none;
   min-height: 48px;
 }
 
 
-.stickyBlogArticle {
+.blogArticleContainer {
   display: none; 
   position: fixed;
   top: 3.2em;

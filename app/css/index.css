@@ -47,10 +47,10 @@ body {
   
 
 
-.appLogo {
+.app_logo {
   float: left;
   margin: 3px 0 0 10px;
-  background-image: url(../img/bka.png);
+  background-image: url(../img/logo.png);
   width:65px;
   height: 38px;
 }
@@ -92,7 +92,7 @@ body {
   left: -100px;  
 }
 
-#viewsCatalogContainer {
+.viewsCatalogContainer {
   position: absolute;    
   width: 40px;    
   border-top: double;
@@ -101,7 +101,7 @@ body {
   bottom: -22px;
   left: 222px;
 }
-#viewDetails:hover .slidesCatalogContainer, #viewsCatalogContainer:hover #viewsCatalog {  
+#viewDetails:hover .slidesCatalogContainer, .viewsCatalogContainer:hover .viewsCatalog {  
   display:block;  
 }
 

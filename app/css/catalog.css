@@ -1,6 +1,6 @@
 /* TOC  */
 
-.stickyCatalog {
+.blogCatalog {
   display: none; 
   position: fixed;
   z-index: 10000;
@@ -18,7 +18,7 @@
   font-family: monospace;
 }  
 
-.stickyCatalog a {
+.blogCatalog a {
   color: white;
 }
 
@@ -31,16 +31,16 @@
   display: block;
 }  
 
-.stickyCatalog a.active-title {
+.blogCatalog a.active-title {
   border-bottom: 1px solid gold;
   color: gold;  
 }
 
-.stickyCatalog ul li {
+.blogCatalog ul li {
   list-style-type: decimal-leading-zero;  
 }
 
-.stickyCatalog ul {  
+.blogCatalog ul {  
   color: white;  
   text-align: left;
 } 

@@ -20,23 +20,23 @@
   font-family: Cabin;
 }
 
-.stickyBlogArticle h1:before, .stickyBlogArticle h2:before, .stickyBlogArticle h3:before,  
+.blogArticleContainer h1:before, .blogArticleContainer h2:before, .blogArticleContainer h3:before,  
 .slide h1:before, .slide h2:before, .slide h3:before 
 {
   content: ' ';
 }
 
-.stickyBlogArticle h1, .stickyBlogArticle h2, 
+.blogArticleContainer h1, .blogArticleContainer h2, 
 .slide h1, .slide h2
 {
     color:gold;    
 }
 
-.stickyBlogArticle h3, .slide h3  {
+.blogArticleContainer h3, .slide h3  {
     color:#00bcd4;    
 }
 
-.stickyBlogArticle h4, .stickyBlogArticle h5, .stickyBlogArticle h6,
+.blogArticleContainer h4, .blogArticleContainer h5, .blogArticleContainer h6,
 .slide h4, .slide h5, .slide h6
 {
   color: #90A4AE;

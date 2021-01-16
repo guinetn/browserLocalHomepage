@@ -1,31 +1,52 @@
-async function setTableOfContentVisibility(
-  source,
-  tocContainer,
-  elementToToc = "h1, h2, h3"
+  // renderSlidesCatalog & renderViewsCatalog
+  function renderCatalog(
+    source,
+    target,
+    itemsAttribute,
+    itemsClass,
+    clearTarget = false
+  ) {
+    const catalog = document.querySelector(target);
+    if (clearTarget) catalog.innerHTML = null;
+
+    source.forEach((s, i) => {
+      [...s.querySelectorAll("h1")].map((x) => {
+        let div = document.createElement("div");
+        div.innerText = `${("0" + (1 + i)).slice(-2)}. ${x.innerText}`;
+        div.setAttribute(itemsAttribute, i);
+        div.className = itemsClass;
+        catalog.appendChild(div);
+      });
+    });
+  }
+  
+// Show/Hide catalog
+// Complex catalog (+IntersectionObserver to sync scroll/current catalog)  
+async function renderScrollSyncCatalog(
+  sourceElement,
+  catalogContainer,
+  htmlElementToCatalog = "h1, h2, h3"
 ) {
-  // Part 1  ".slide.current", "#catalog"
-  const currentSource = document.querySelector(source);
-  const ToC = document.querySelector(tocContainer);
-  if (!currentSource) {
-    ToC.classList.remove("current");
+  const source = document.querySelector(sourceElement);
+  const catalog = document.querySelector(catalogContainer);
+  if (!source) {
+    catalog.classList.remove("current");
     return;
   }
 
-  ToC.classList.add("current");
+  catalog.classList.add("current");
 
-  const $tocs = [...currentSource.querySelectorAll(elementToToc)];
-  const linkHtml = generateLinkMarkup($tocs);
-  ToC.innerHTML = linkHtml;
+  const catalogItems = [...source.querySelectorAll(htmlElementToCatalog)];
+  const linkHtml = generateLinkMarkup(catalogItems);
+  catalog.innerHTML = linkHtml;
 
-  const $links = [...ToC.querySelectorAll("a")];
-  const observer = createObserver($links);
-  $tocs.map((heading) => observer.observe(heading));
+  const links = [...catalog.querySelectorAll("a")];
+  const observer = createObserver(links);
+  catalogItems.map((heading) => observer.observe(heading));
 
   const motionQuery = window.matchMedia("(prefers-reduced-motion)");
-  $links.map((link) => {
-    link.addEventListener("click", (evt) =>
-      handleLinkClick(evt, $tocs, motionQuery)
-    );
+  links.map((link) => {
+    link.addEventListener("click", (evt) => handleLinkClick(evt, catalogItems, motionQuery));
   });
 }
 
