@@ -33,14 +33,13 @@
     <span id="clock" title="click to set up alarms">……:……:……</span> 
     <div id="alarmSign"></div>
   </div>
-  <div class="app_logo">    
-  </div>
+  <img class="app_logo" src='app/img/logo.png'>    
   <span id="navIcons" data-info='-t'></span>   
   <div id="help" class="far fa-question-circle"></div>
   
   <div class='viewsCatalogContainer'>
     <div class='viewsCatalog catalogContainer'>
-      <div>
+      <div class='catalogTitleBgColor'>
         <div class='hcenter'>VIEWS CATALOG</div><small>&nbsp;▼ Numpad Key [0-9]</small>
       </div>
     </div>
@@ -49,12 +48,13 @@
 </header>
 
 <div id="viewDetails">
-  <div></div>
-  <progress id='slideMeter' min=0 max=10 value="7"></progress> ﹀
+  <div class='viewDetailsHoverTrigger'></div>       
+  <div id='viewTitlePlaceholder'></div>
+  <progress id='slideMeter' min=0 max=10 value="7"></progress>
   <div class='slidesCatalogContainer catalogContainer'>
-     <div>
-        <div class='hcenter'><small>SLIDES CATALOG</small></div>
-      </div>
+    <div class='catalogTitleBgColor'>
+      <div class='hcenter'><small>SLIDES CATALOG</small></div>
+    </div>
     <div class='slidesCatalog'></div>
   </div>  
 </div>   
@@ -66,7 +66,7 @@
 <!-- blog article -->
 <aside class="blogArticleContainer"></aside>
 <!-- Table of content for blog articles or current slide -->
-<aside class="blogCatalog"></aside>
+<aside class="contentCatalog"></aside>
 
 <aside id="snackbar"></aside>  
 

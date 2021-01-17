@@ -9,7 +9,7 @@ export class Blog {
 
   hideBlog() {
     this.currentBlog.classList.remove("active");
-    renderScrollSyncCatalog(".blogArticleContainer.active", ".blogCatalog");
+    renderScrollSyncCatalog(".blogArticleContainer.active", ".contentCatalog");
   }
   
   async showBlog(blogLink) {
@@ -41,7 +41,7 @@ export class Blog {
       this.currentBlog.setAttribute("data-blog_file", blogFile);
       renderScrollSyncCatalog(
         ".blogArticleContainer.active",
-        ".blogCatalog",
+        ".contentCatalog",
         "h1, h2, h3"
       );
     } catch (e) {

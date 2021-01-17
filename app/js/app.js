@@ -371,15 +371,16 @@ export class App extends Blog {
         ? s.classList.add("current")
         : s.classList.remove("current")
     );
-    renderScrollSyncCatalog(".slide.current", ".blogCatalog");
+    renderScrollSyncCatalog(".slide.current", ".contentCatalog");
   }
 
   renderViewDetails() {
-    const slideTitle = this.currentView.name.toUpperCase().replace("_", " ");
+    const viewTitle = this.currentView.name.toUpperCase().replace("_", " ");
     const slideNav = this.slideHasError
       ? "⚠️"
       : ` <sup><small>${this.slideMeter.value}/${this.slides.length}</small></sup>`;
-    this.viewDetails.children[0].innerHTML = `${slideTitle} ${slideNav}`;
+    // Set View Title
+    this.viewDetails.querySelector("#viewTitlePlaceholder").innerHTML = `${viewTitle} ${slideNav}`;
   }
 
   toggleSlidesVisibility(forceVisibility) {
