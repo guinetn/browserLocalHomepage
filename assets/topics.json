@@ -47,10 +47,12 @@
     "https://www.meetup.com",
     "https://zoom.us",
     "https://www.slack.com",
-    "https://trello.com/guinetn(Trello: project organ/management)",
-    "https://web.whatsapp.com",
+    "https://trello.com/guinetn(Trello: project organ/management)",    
     "https://www.instagram.com",
-    "https://discord.com/channels/@me"
+    "https://discord.com/channels/@me",
+    "https://www.whatsapp.com/(Whatsapp: phone msg/video)",
+    "https://telegram.org/(Telegram: phone encrypted conversations+open api)",
+    "https://signal.org/(Signal: phone medias/call/videos)"
   ],
   "google": [
     "https://translate.google.com",
@@ -284,7 +286,8 @@
     "https://www.datasciencecentral.com",
     "https://www.datasciencecentral.com/profiles/blogs/data-science-cheat-sheet(datasciencecentral cheat-sheet)",
     "https://www.analyticsvidhya.com",
-    "https://anaconda.org"
+    "https://anaconda.org",
+    "https://colab.research.google.com"
   ],
   "maths_for_ml": ["https://ml-cheatsheet.readthedocs.io"],
   "ml_samples": [

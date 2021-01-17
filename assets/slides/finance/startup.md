@@ -23,3 +23,6 @@ Organisation temporaire à la recherche d'un business model industrialisable, re
 
 Première version (et donc à moindre coût) de votre produit répondant aux besoins de l’utilisateur. 
 Cet outil sert à prouver la viabilité de votre projet et de votre idée.
+
+## LIST OF STARTUPS
+- https://sowefund.com/startups

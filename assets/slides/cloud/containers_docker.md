@@ -44,3 +44,4 @@ $ docker rmi 50f7    remove image 50f7
 - https://www.liquidweb.com/kb/how-to-install-and-use-containerization/
 - [install Docker on Ubuntu](https://www.liquidweb.com/kb/install-docker-ubuntu-16-04/)
 - https://www.padok.fr/technologies/kubernetes
+- https://blog.logrocket.com/node-js-docker-improve-dx/

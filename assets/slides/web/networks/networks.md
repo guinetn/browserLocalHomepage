@@ -2,6 +2,8 @@
 
 download.md(assets/slides/web/networks/osi_model.md)
 ::::
+download.md(assets/slides/web/networks/url.md)
+::::
 
 ## Concepts
 |Computer Network Concepts||

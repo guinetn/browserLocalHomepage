@@ -18,3 +18,5 @@ Hydrogen has a great positive charge attracted by an electronegative atom
 More weak than the 2 previous
 
 All these bonds are stables but during a chemical reaction there are intermediate states while atoms are
+
+- https://www.futura-sciences.com/sciences/actualites/chimie-decouverte-nouveau-type-liaison-chimique-ultra-forte-85110/#xtor=EPR-57-[ALERTE]-20210116
