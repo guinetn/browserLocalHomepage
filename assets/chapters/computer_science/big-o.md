@@ -18,7 +18,7 @@ Big O is easy to read once we learn this table
 * n is the size of the input
 * Big O notation uses these functions to describe algorithm efficiency
 
-![big_o](assets/slides/computer_science/assets/big_o.png)     
+![big_o](assets/chapters/computer_science/assets/big_o.png)     
   
 
 ## Best, Worst and Average Case
@@ -201,10 +201,10 @@ Factorial growth in complexity.
 
 ::::
 
-![big_o_data_structure_operations](assets/slides/computer_science/assets/big_o_data_structure_operations.png)
-![big_o_data_heap_structure_operations](assets/slides/computer_science/assets/big_o_data_heap_structure_operations.png)
-![big_o_graph_datastructure_operations](assets/slides/computer_science/assets/big_o_graph_datastructure_operations.png)
+![big_o_data_structure_operations](assets/chapters/computer_science/assets/big_o_data_structure_operations.png)
+![big_o_data_heap_structure_operations](assets/chapters/computer_science/assets/big_o_data_heap_structure_operations.png)
+![big_o_graph_datastructure_operations](assets/chapters/computer_science/assets/big_o_graph_datastructure_operations.png)
 
 ::::
-![big_o_sorting_algo](assets/slides/computer_science/assets/big_o_sorting_algo.png)
-![big_o_data_graph_algorithms](assets/slides/computer_science/assets/big_o_data_graph_algorithms.png)
+![big_o_sorting_algo](assets/chapters/computer_science/assets/big_o_sorting_algo.png)
+![big_o_data_graph_algorithms](assets/chapters/computer_science/assets/big_o_data_graph_algorithms.png)

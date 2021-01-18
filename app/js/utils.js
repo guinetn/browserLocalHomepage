@@ -67,7 +67,7 @@ export let utils = {
   copyToClipboard: async function (stringToCopy, show = null) {
     try {
       await navigator.clipboard.writeText(stringToCopy.toString());
-      this.snackbar(`copied ${show == true ? stringToCopy : ""}`);
+      this.snackbarPopup(`copied ${show == true ? stringToCopy : ""}`);
     } catch (err) {
       console.error(`Failed to copy ${stringToCopy}`, err);
     }
@@ -101,7 +101,7 @@ export let utils = {
         .querySelector(".alarmItem.alarm-active")
         .classList.remove("alarm-active");
       this.speak(msg);
-      this.snackbar(msg);
+      this.snackbarPopup(msg);
       this.alarmSign.classList.remove("active");
       this.alarmRate = 0;
       return;
@@ -117,7 +117,7 @@ export let utils = {
       const msg = `Alarm (${minutes} min elapsed)<br/>${
         reason != "" ? '"' + reason + '"' : ""
       }`;
-      this.snackbar(msg, 5000);
+      this.snackbarPopup(msg, config.snackbarAlarmDurationSec);
       if (msg.trim().slice(0, 2) != "//")
         // dot not speak msg prefixed by //
         this.speak(msg.replace("<br/>", ""));
@@ -125,7 +125,7 @@ export let utils = {
         .querySelector(".alarmItem.alarm-active")
         .classList.remove("alarm-active");
       this.alarmSign.classList.remove("active");
-    }, minutes * 60 * 1000);
+    }, minutes * 60 * 1000); 
   },
 
   speak: function (msg) {
@@ -135,10 +135,10 @@ export let utils = {
     }
   },
 
-  snackbar: function (msg, duration = config.snackbarDurationSec) {
+  snackbarPopup: function (msg, duration = config.snackbarDurationSec) {
     snackbar.innerHTML = msg;
-    snackbar.classList.add("show");
-    setTimeout(() => snackbar.classList.remove("show"), duration * 1000);
+    snackbar.classList.add("show");    
+    setTimeout( ()=> snackbar.classList.remove("show"), duration*1000);
   },
 
   fullScreen: function (elem) {

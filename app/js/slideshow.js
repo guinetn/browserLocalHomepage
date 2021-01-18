@@ -77,7 +77,7 @@ export let slideShow = {
             [...slidesShow].map( (s,is) => {
             let dotSpan = document.createElement("div");
             dotSpan.className = 'slideShowDot';
-            dotSpan.setAttribute('data-dotSpan', is+1);
+            dotSpan.setAttribute('data-dotspan', is+1);
             dotContainer.appendChild(dotSpan);
             })
             

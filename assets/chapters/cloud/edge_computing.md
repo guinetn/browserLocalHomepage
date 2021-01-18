@@ -18,6 +18,6 @@ FOG COMPUTING
 EDGE COMPUTING
 All three concepts relate to distributed computing and focus on the physical deployment of compute and storage resources in relation to the data that is being produced. The difference is a matter of where those resources are located.
 
-![](assets/slides/cloud/assets/compare_edge_cloud_vs_cloud_computing_vs_edge_computing-f_desktop.png)
+![](assets/chapters/cloud/assets/compare_edge_cloud_vs_cloud_computing_vs_edge_computing-f_desktop.png)
 
 - https://searchdatacenter.techtarget.com/definition/edge-computing

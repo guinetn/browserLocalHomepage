@@ -116,9 +116,9 @@ High level modules should not depend upon low level modules
                         The dependencies have been inverted. 
                         Now we can create new types of ways for Employee data to be written                        
 
-download.md(assets/slides/data/acid.md)
+download.chapter(data/acid.md)
 
-download.md(assets/slides/data/base.md)
+download.chapter(data/base.md)
 
 ### GTD (Getting Things Done) - organise for success
 * Harvesting
@@ -163,7 +163,7 @@ class A {
 One of the commonest examples is not exposing List<T> as properties, but IEnumerable<T> and providing methods to Add and Remove from the underlying list.        
 
 
-download.md(assets/slides/web/css_bem.md)
+download.chapter(web/css_bem.md)
 
 ### Software Experience Lessons 
 

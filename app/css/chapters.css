@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin:400,500,600,700');
 
 :root {
-  --slideBg: #1d1b18;
+  --chapterBg: #1d1b18;
 }
 
-.slide {
+.chapter {
   display: none;
   width: 100%;
   margin:0;
@@ -12,7 +12,7 @@
   min-height: -webkit-fill-available;
   min-width: -webkit-fill-available;
   max-width: fit-content;
-  background-color: var(--slideBg);
+  background-color: var(--chapterBg);
   position:absolute;
   color: white;    
   font-size: medium;
@@ -21,52 +21,52 @@
 }
 
 .blogArticleContainer h1:before, .blogArticleContainer h2:before, .blogArticleContainer h3:before,  
-.slide h1:before, .slide h2:before, .slide h3:before 
+.chapter h1:before, .chapter h2:before, .chapter h3:before 
 {
   content: ' ';
 }
 
 .blogArticleContainer h1, .blogArticleContainer h2, 
-.slide h1, .slide h2
+.chapter h1, .chapter h2
 {
     color:gold;    
 }
 
-.blogArticleContainer h3, .slide h3  {
+.blogArticleContainer h3, .chapter h3  {
     color:#00bcd4;    
 }
 
 .blogArticleContainer h4, .blogArticleContainer h5, .blogArticleContainer h6,
-.slide h4, .slide h5, .slide h6
+.chapter h4, .chapter h5, .chapter h6
 {
   color: #90A4AE;
 }
 
-.slide h1 {    
+.chapter h1 {    
     width: fit-content;
     margin: 0 0 14px 0;    
     color: #9e3f3f;
 }
-.slide h2 {
+.chapter h2 {
   margin-bottom: 6px;
 }
-.slide h3 {
+.chapter h3 {
   margin-bottom: 4px;
 }
 
-.slide a {  
+.chapter a {  
   color: white;
 }
-.slide a:hover {
+.chapter a:hover {
   text-decoration:underline !important;
 }
 
-.slide p {
+.chapter p {
     text-align: left;
 }
 
 
-.slide table {
+.chapter table {
     border-radius: 8px;
     margin: 5px 0 0 3em;
     color: inherit;
@@ -74,32 +74,32 @@
     border-collapse: collapse;
 }
 
-.slide table th,
-.slide table td {  
+.chapter table th,
+.chapter table td {  
   padding: 6px 12px;
   font-size: 0.8em;
 }
 
-.slide table td {
+.chapter table td {
   border: 1px solid #ffd70063;  
 }
 
-.slide .youtube {
+.chapter .youtube {
     text-align: center;
     margin: 0;
 }
 
-.slide .youtube td {
+.chapter .youtube td {
   border:none;
   padding:0;
 }
 
-.slide ul {
+.chapter ul {
   margin: 5px 5px;
   font-size: 0.9em;
 }
 
-.slide pre {
+.chapter pre {
   margin: 5px;
   padding:10px !important;
 }
@@ -132,11 +132,11 @@
 }
 
 
-.slide iframe { 
+.chapter iframe { 
   margin-left: 3em; 
 }
 
-.slideCatalogLink {
+.chapterCatalogLink {
   cursor: pointer;  
 }
     

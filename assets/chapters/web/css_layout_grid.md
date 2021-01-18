@@ -4,10 +4,10 @@ Solve 2D layouts (flexbox is one dimension)
 - non-flexible units: px
 - flexible units: fr
 
-<div class="slideShowContainer">
+<div class="chapterShowContainer">
 
- <!-- Full-width slides/quotes -->
-<div class="slideShowSlide">
+ <!-- Full-width chapters/quotes -->
+<div class="chapterShowChapter">
 1. Define a container element 
 <pre><code>
 .container {
@@ -16,7 +16,7 @@ Solve 2D layouts (flexbox is one dimension)
 </code></pre>
 </div>
 
-<div class="slideShowSlide">
+<div class="chapterShowChapter">
 2. Defines the columns and rows of the grid 
 <pre><code>
 .container {
@@ -39,7 +39,7 @@ grid-auto-columns: <track-size> ...;
 grid-auto-rows: <track-size> ...;
 </code></pre>
 <strong>Grid lines</strong> are automatically assigned positive and negative numbers
-<img src='assets/slides/web/css/grid/grid-template01.png'>
+<img src='assets/chapters/web/css/grid/grid-template01.png'>
 <br/>
 <br/>
 grid-template-areas: "Visual" grid definition
@@ -54,7 +54,7 @@ grid-template-areas: "Visual" grid definition
     "footer footer footer footer";   none = no grid areas are defined
 }
 </code></pre>
-<img src='assets/slides/web/css/grid/grid-template02.png'>
+<img src='assets/chapters/web/css/grid/grid-template02.png'>
 <br/>
 Shorthand: grid-template
 <pre><code>
@@ -71,7 +71,7 @@ Shorthand: grid-template
 
 </div>
 
-<div class="slideShowSlide">
+<div class="chapterShowChapter">
 
 POSITION GRID CHILDREN: use grid-column and grid-row to position your grid items 
 <pre><code>
@@ -138,11 +138,11 @@ Aligns a grid item inside a cell
 }
 </code></pre>
 
-<img src='assets/slides/web/css/grid/grid-children.png'>
+<img src='assets/chapters/web/css/grid/grid-children.png'>
 </div>
 
 
-<div class="slideShowSlide">
+<div class="chapterShowChapter">
 Width of the gutters between the columns/rows<br/>  
 only created between the columns/rows, not on the outer edges
 <pre><code>
@@ -163,11 +163,11 @@ SHORTHAND:
   gap: 15px 10px;       unprefixed properties
 }
 </code></pre>
-<img src='assets/slides/web/css/grid/grid-gutters.png'>
+<img src='assets/chapters/web/css/grid/grid-gutters.png'>
 
 </div>
 
-<div class="slideShowSlide">
+<div class="chapterShowChapter">
 Align items horizontally
 <pre><code>
 .container {
@@ -204,7 +204,7 @@ SHORTHAND: <strong>place-items</strong>
 </div>
 
 
-<div class="slideShowSlide">
+<div class="chapterShowChapter">
 non-flexible units (px) = total grid size < grid container size<br/>  
 justify-content: set the horizontal alignment of the grid within the grid container<br/>
 align-content: set the vertical alignment of the grid within the grid container<br/>
@@ -223,12 +223,12 @@ space-around  – places an even amount of space between each grid item, with ha
 space-between – places an even amount of space between each grid item, with no space at the far ends
 space-evenly  – places an even amount of space between each grid item, including the far ends
 </code></pre>
-<img src='assets/slides/web/css/grid/align-content.png'>
+<img src='assets/chapters/web/css/grid/align-content.png'>
 
 </div>
 
 
-<div class="slideShowSlide">
+<div class="chapterShowChapter">
 Items inside not defined col/row<br/>
 grid-auto-flow controls the auto-placement algorithm <br/>
 <pre><code>
@@ -240,7 +240,7 @@ row    – auto-placement algorithm to fill in each row in turn, adding new rows
 column – auto-placement algorithm to fill in each column in turn, adding new columns as necessary
 dense  – auto-placement algorithm to attempt to fill in holes earlier in the grid if smaller items come up later
 </code></pre>
-<img src='assets/slides/web/css/grid/grid-auto-flow_row.png'>
+<img src='assets/chapters/web/css/grid/grid-auto-flow_row.png'>
 </div>
 
 

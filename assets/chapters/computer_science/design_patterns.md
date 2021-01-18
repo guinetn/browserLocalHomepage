@@ -8,5 +8,5 @@ Modelised solutions of common problems
 4. Model-View Patterns
 
 :::
-download.md(assets/slides/computer_science/design_patterns_gof.md)
+download.chapter(computer_science/design_patterns_gof.md)
 :::

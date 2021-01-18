@@ -52,7 +52,7 @@ spatial data types use R-trees;
 |Scalability| 		High|						High (but more expensive)|
 
 
-![](assets/slides/data/assets/db_choose.png)
+![](assets/chapters/data/assets/db_choose.png)
 
 
 TREES (B - BTREE)
@@ -64,39 +64,39 @@ data go into buckets
 hash function make the bucket
 
 ::::
-download.md(assets/slides/data/acid.md)
-download.md(assets/slides/data/base.md)
+download.chapter(data/acid.md)
+download.chapter(data/base.md)
 
 
 ::::
-download.md(assets/slides/data/data_structures.md)
+download.chapter(data/data_structures.md)
 
 
 ::::
-download.md(assets/slides/data/sql.md)
+download.chapter(data/sql.md)
 ::::
-download.md(assets/slides/data/db_sql.md)
+download.chapter(data/db_sql.md)
 
 
 ::::
-download.md(assets/slides/data/db_nosql.md)
-download.md(assets/slides/data/db_nosql_databases.md)
+download.chapter(data/db_nosql.md)
+download.chapter(data/db_nosql_databases.md)
 
 
 ::::
-download.md(assets/slides/data/distributed_database.md)
+download.chapter(data/distributed_database.md)
 
 
 ::::
-download.md(assets/slides/data/blockchain.md)
+download.chapter(data/blockchain.md)
 ::::
-download.md(assets/slides/data/flux.md)
+download.chapter(data/flux.md)
 ::::
-download.md(assets/slides/data/redux.md)
+download.chapter(data/redux.md)
 ::::
-download.md(assets/slides/data/geodata.md)
+download.chapter(data/geodata.md)
 ::::
-download.md(assets/slides/data/infludb.md)
+download.chapter(data/infludb.md)
 
 ::::
-download.md(assets/slides/data/big_data.md)
+download.chapter(data/big_data.md)

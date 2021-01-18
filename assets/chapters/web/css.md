@@ -382,11 +382,11 @@ Css grid and flexbox:
 - align items inside container axes/cells: [```justify (horizontal)``` | ```align (vertical)```]-```content```
 - align items content: [justify|align]-```items``` 
 
-download.md(assets/slides/web/css_layout_grid.md)
+download.chapter(web/css_layout_grid.md)
 
-download.md(assets/slides/web/css_layout_flexbox.md)
+download.chapter(web/css_layout_flexbox.md)
 
-download.md(assets/slides/web/css_bem.md)
+download.chapter(web/css_bem.md)
 
 ## More
 - https://moderncss.dev/guide-to-advanced-css-selectors-part-two/

@@ -26,7 +26,7 @@ small;}
 </style>
 </div>    
 
-download.exec(assets/slides/computer_science/assets/show_ascii_table.js)
+download.exec(assets/chapters/computer_science/assets/show_ascii_table.js)
 
 Both ISO-8859-1 (default in HTML 4.01) and UTF-8 (default in HTML5), are built on ASCII.
 

@@ -7,7 +7,7 @@ SELECT * FROM students WHERE studentId = 117 OR 1=1;
                                              ↑↑↑↑↑↑
                                              XSS Attack
 
-![](assets/slides/security/assets/sql-injection-infographic.webp)                                             
+![](assets/chapters/security/assets/sql-injection-infographic.webp)                                             
 
 ## How to mitigate
 

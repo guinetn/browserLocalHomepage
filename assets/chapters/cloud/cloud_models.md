@@ -1,6 +1,6 @@
 # Cloud Services Models
 
-![saas-paas-iaas](assets/slides/cloud/assets/saas-paas-iaas-diagram.svg)
+![saas-paas-iaas](assets/chapters/cloud/assets/saas-paas-iaas-diagram.svg)
 
 ## 🔱 IaaS - Infrastructure as a Service 
 

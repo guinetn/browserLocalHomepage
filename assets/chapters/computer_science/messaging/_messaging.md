@@ -12,7 +12,7 @@ In short, senders and receivers are decoupled from each other.
 When you build a system of microservices, you can end up with many, many services. Coordinating communications between all these services can be tricky.
 
 ::::
-download.md(assets/slides/computer_science/messaging/rabbitmq.md)
+download.chapter(computer_science/messaging/rabbitmq.md)
 ::::
-download.md(assets/slides/computer_science/messaging/kafka.md)
+download.chapter(computer_science/messaging/kafka.md)
 ::::

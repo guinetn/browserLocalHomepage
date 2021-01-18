@@ -7,20 +7,20 @@ Never open you're .md notes again, it's automatic and as fast as your fingers ca
 
 # Features
 * Blog
-* You're notes in books+slides   
+* You're notes in books+chapters   
 * Navigate in books   
-* Navigate in book's slides 
+* Navigate in book's chapters 
 * Set alarms
-* Customize & enrich: add books, topics, links, slides to books, slideshow
+* Customize & enrich: add books, topics, links, chapters to books, slideshow
 * Automatic repeat copy when mousedown > 3sec
 
 |Key|Action|  
 |---|---|  
 |<kbd>CTRL</kbd><kbd>→</kbd> or <kbd>+</kbd><br/><kbd>CTRL</kbd><kbd>←</kbd> or <kbd>-</kbd>  | Navigate in books|   
 |<kbd>a…z</kbd> key | Go to book with a name starting by…|  
-|<kbd>→</kbd> | Start slides navigation for current book|  
-|<kbd>←</kbd> <kbd>→</kbd> | Navigate in slides of the current book|   
-|<kbd>SHIFT</kbd><br>or <kbd>←</kbd> on 1st slide | Exit slide navigation<br>Slide page is memorized: come back to it with <kbd>→</kbd> |  
+|<kbd>→</kbd> | Start chapters navigation for current book|  
+|<kbd>←</kbd> <kbd>→</kbd> | Navigate in chapters of the current book|   
+|<kbd>SHIFT</kbd><br>or <kbd>←</kbd> on 1st chapter | Exit chapter navigation<br>Chapter page is memorized: come back to it with <kbd>→</kbd> |  
 |<kbd>F</kbd> key | Fullscreen mode|  
 |<kbd>ESC</kbd> key | Exit Fullscreen mode|  
 
@@ -57,7 +57,7 @@ Refer to config.png for a global view of the process.
 
 * A book contains topics (grouped links) and/or custom html  
 * Books are defined inside &lt;div id="main"&gt; in index.html
-* Each book can have a markdown file (.md) in assets/slides
+* Each book can have a markdown file (.md) in assets/chapters
 
 ***Empty book***     
 ```html
@@ -132,24 +132,24 @@ an unique option:
         ], 
 …	
 ```
-## Adding slides to a book...takes 10 sec
+## Adding chapter to a book...takes 10 sec
 
-1. In ```assets/slides``` folder
+1. In ```assets/chapters``` folder
 - Create a folder having the same name that the targeted book 
 - Create a file named _xxxx.md file having the same name that the targeted book but starting with a _
 2. Write some markdown
 
 * Each book can have a markdown file (.md) 
 * This .md file is converted in html on the fly when you press <kbd>→</kbd>     
-* The sequence '::::' is the slide separator (any number of ':' superior to 3). Slides are not limited in size.  
-* Slides can contains youtube video (and kind of by extension)
-* Slides can have nested slides
+* The sequence '::::' is the chapter separator (any number of ':' superior to 3). Chapters are not limited in size.  
+* Chapters can contains youtube video (and kind of by extension)
+* Chapters can have nested chapters
 
 ```md
 home.md
 
-Slide 1.
-# My Awesome Slide #1
+Chapter 1.
+# My Awesome Chapter #1
 
 lorem.........  
   
@@ -157,15 +157,19 @@ How to add an image with the right path to:
 ![](app/img/cloud.png)
 
 ::::
-Slide 2.
+Chapter 2.
 
 ### Add a video
 <iframe src="//www.youtube.com/embed/I0eVwo1VCuU?rel=0" frameborder="0" allowfullscreen></iframe>
 [video_title]<span>(https://www.</span><span>youtube.com/watch?xyzabc)</span>
 
 ### Add a markdown file   
-<span>download</span>.md(assets/slides/code.md)
-download.md(assets/slides/code.md)
+<span>download</span>.md(assets/chapters/code.md)
+download.md(assets/chapters/code.md)
+
+### Add a chapter file (avoid to type 'assets/chapters')
+<span>download</span>.chapter(code.md)
+download.chapter(code.md)
 
 ### Add html data: will be integrated as 'innerHTML' (interpreted html)   
 <span>download</span>.html(https://httpbin.org/ip)
@@ -205,29 +209,29 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-::::     ← Slides separator
+::::     ← Chapters separator
 
-Slides are not limited in size.
+Chapters are not limited in size.
 
-## My better Slide #2
-**"abcdef"** is a tool to create a simple and beautiful slide
+## My better Chapter #2
+**"abcdef"** is a tool to create a simple and beautiful chapter
 …
 ::::
 …
 
 ```
 
-### SLIDES SYNTAX
+### CHAPTERS SYNTAX
 
 Standard markdown + additional syntax to include…
     
-* <strong>download.md</strong>(assets/slides/myfile.md) : a markdown file (html rendered)
+* <strong>download.md</strong>(assets/chapters/myfile.md) : a markdown file (html rendered)
 * <strong>download.raw</strong>(https://<span>githubusercontent.com/abcdef/sourcefile.txt</span>) : a file as it is (raw, not transformed)
 * <strong>download.html</strong>(https://<span>githubusercontent.com/abcdef/sourcefile.txt</span>) : an html file (interpreted in innerHTML)
 * <strong>download.code</strong>(https://<span>githubusercontent.com/abcdef.cpp</span>) : a code file (prettified by its extension)
 * <strong>download.iframe(url,[w,h])</strong> : an iframe + width/height in px
-* <strong>download.iframe</strong>(assets/slides/web/front/react_samples/react01/index.html)
-* <strong>download.iframe</strong>(assets/slides/web/front/react_samples/react01/index.html,500,200)
+* <strong>download.iframe</strong>(assets/chapters/web/front/react_samples/react01/index.html)
+* <strong>download.iframe</strong>(assets/chapters/web/front/react_samples/react01/index.html,500,200)
 * <strong>[video_title]<span>(https://www.</span><span>youtube.com/watch?xyzabc)</span></strong> : a youtube video: any link containing 'youtube' 
 * Horizontal Slide Show: a slideShowContainer that contains slideShowSlide items
 ```html

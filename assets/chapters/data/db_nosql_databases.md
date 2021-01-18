@@ -1,15 +1,15 @@
 ::::
-download.md(assets/slides/data/db_nosql_elasticsearch.md)
+download.chapter(data/db_nosql_elasticsearch.md)
 ::::
-download.md(assets/slides/data/db_nosql_mongodb.md)
+download.chapter(data/db_nosql_mongodb.md)
 ::::
-download.md(assets/slides/data/db_nosql_cassandra.md)
+download.chapter(data/db_nosql_cassandra.md)
 ::::
-download.md(assets/slides/data/db_nosql_ravendb.md)
+download.chapter(data/db_nosql_ravendb.md)
 ::::
-download.md(assets/slides/data/db_nosql_couchdb.md)
+download.chapter(data/db_nosql_couchdb.md)
 ::::
-download.md(assets/slides/data/db_nosql_redis.md)
+download.chapter(data/db_nosql_redis.md)
 
 ::::
 # OrientDB (java)

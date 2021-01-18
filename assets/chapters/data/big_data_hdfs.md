@@ -17,7 +17,7 @@ Datanodes
     - new datanode gets its neighbours chunks
     - removed datanode: its neighbours replicate its chunks
 
-! [hdfs](assets/slides/data/assets/hdfs.png)
+! [hdfs](assets/chapters/data/assets/hdfs.png)
 
 ## More
 

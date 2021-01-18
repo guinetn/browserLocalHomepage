@@ -6,7 +6,7 @@ digital infrastructure: computing, storage, data management + cloud services (bu
 
 Leading cloud vendors: Amazon AWS, Microsoft Azure, Google Cloud
 
-![what-is-the-cloud](assets/slides/cloud/assets/what-is-the-cloud.png)
+![what-is-the-cloud](assets/chapters/cloud/assets/what-is-the-cloud.png)
 
 - Scalable (unlimited capacity of processing/storage)
 - Reliabe (from everywhere, redondant)
@@ -44,7 +44,7 @@ Cloud services are popular because they reduce the cost and complexity of owning
     PaaS (Platform as a Service): hardware infrastructure + applications location
     SaaS (Software as a Service) : service Cloud all inclusive
 
-    ![saas-paas-iaas](assets/slides/cloud/assets/saas-paas-iaas-diagram.svg)
+    ![saas-paas-iaas](assets/chapters/cloud/assets/saas-paas-iaas-diagram.svg)
 
 • Cloud Deployment Types    
   
@@ -71,11 +71,11 @@ Cloud services are popular because they reduce the cost and complexity of owning
     EDGE COMPUTING: Puts storage and servers where the data is
 
 ::::
-![cloud-devops-modele-deploiement](assets/slides/cloud/assets/cloud-devops-modele-deploiement.webp)
+![cloud-devops-modele-deploiement](assets/chapters/cloud/assets/cloud-devops-modele-deploiement.webp)
 ::::
-download.md(assets/slides/cloud/cloud_models.md)
+download.chapter(cloud/cloud_models.md)
 ::::
-download.md(assets/slides/cloud/cloud_design_patterns.md)
+download.chapter(cloud/cloud_design_patterns.md)
 ::::
 ## The Stack
 * Servers (including bare metal, VMs, containers, serverless functions to run the applications and backends: AWS EC2 or GCP GCE
@@ -92,7 +92,7 @@ download.md(assets/slides/cloud/cloud_design_patterns.md)
 * Code management: git or hg
 * CI/CD: continuous integration and deployment
 ::::
-download.md(assets/slides/cloud/edge_computing.md)
+download.chapter(cloud/edge_computing.md)
 ::::
 ## CLOUD ROLES
 
@@ -108,30 +108,30 @@ Define functionnal tests strategy and tests automation
 Define integration systems automation and continuous deployement. Guide development teams and daily collaborate with operations for a better quality service
 
 ::::
-download.md(assets/slides/cloud/infrastructure_as_code.md)
+download.chapter(cloud/infrastructure_as_code.md)
 ::::
-download.md(assets/slides/cloud/cloud_automation.md)
+download.chapter(cloud/cloud_automation.md)
 ::::
-download.md(assets/slides/cloud/cloud_orchestration.md)
+download.chapter(cloud/cloud_orchestration.md)
 ::::
-download.md(assets/slides/cloud/cloud_monitoring.md)
+download.chapter(cloud/cloud_monitoring.md)
 ::::
-download.md(assets/slides/cloud/containers.md)
+download.chapter(cloud/containers.md)
 ::::
-download.md(assets/slides/cloud/vm.md)
+download.chapter(cloud/vm.md)
 ::::
-download.md(assets/slides/cloud/containers_docker.md)
+download.chapter(cloud/containers_docker.md)
 ::::
-download.md(assets/slides/cloud/containers_kubernetes.md)
+download.chapter(cloud/containers_kubernetes.md)
 ::::
-download.md(assets/slides/cloud/containers_vagrant.md)
+download.chapter(cloud/containers_vagrant.md)
 ::::
-download.md(assets/slides/cloud/aws.md)
+download.chapter(cloud/aws.md)
 ::::
-download.md(assets/slides/cloud/azure.md)
+download.chapter(cloud/azure.md)
 ::::
-download.md(assets/slides/cloud/google_cloud.md)
+download.chapter(cloud/google_cloud.md)
 ::::
-download.md(assets/slides/cloud/vps.md)
+download.chapter(cloud/vps.md)
 ::::
 

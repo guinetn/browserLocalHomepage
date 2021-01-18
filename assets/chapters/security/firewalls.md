@@ -31,4 +31,4 @@ Device that has firewall software installed that is connected between the networ
 To manage the deployment of firewall hardware. This is a central system that has policies and features that are configured, as well as analysis of threats is performed.
 
 
-download.md(assets/slides/security/firewalld.md)
+download.chapter(security/firewalld.md)

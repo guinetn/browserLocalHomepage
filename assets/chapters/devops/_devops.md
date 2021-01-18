@@ -19,8 +19,8 @@ Devops comes from agility to move fast in a stable infrastructure
 
 ## MVP
 
-![mvp_howto.jpg](assets/slides/devops/assets/mvp_howto.01.jpg)
-![mvp_howto.jpg](assets/slides/devops/assets/mvp_howto.02.png)
+![mvp_howto.jpg](assets/chapters/devops/assets/mvp_howto.01.jpg)
+![mvp_howto.jpg](assets/chapters/devops/assets/mvp_howto.02.png)
 ## DevOps Phases 
 * Planning          Better growth 
 * Code				Development and review, continuous integration tools
@@ -40,8 +40,8 @@ Improve speed+quality of the entire production process
 
 Cloud providers such as AWS, Google Cloud Platform (GCP), Azure... offer DevOps tools directly integrated into their services (source code managers, integration chains…)
 
-![devops](assets/slides/devops/assets/devops0.png)
-![devops](assets/slides/devops/assets/devops.png)
+![devops](assets/chapters/devops/assets/devops0.png)
+![devops](assets/chapters/devops/assets/devops.png)
 
 ::::
 ## Software development methodology history
@@ -58,7 +58,7 @@ But agile fails joining developers and operations team
 * 2008 - DevOpsDays to “evolving” Agile to create a Bridge between two siloed teams
 
 ::::
-download.md(assets/slides/devops/agility.md)
+download.chapter(devops/agility.md)
  ::::
 ## DEVOPS TERMS
 
@@ -102,13 +102,13 @@ Monitoring
 
 Team ←→ company ←→ client communication, collaboration, planning.
 
-download.md(assets/slides/devops/collaboration_jira.md)
+download.chapter(devops/collaboration_jira.md)
 
-download.md(assets/slides/devops/collaboration_slack.md)
+download.chapter(devops/collaboration_slack.md)
 
-download.md(assets/slides/devops/collaboration_asana.md)
+download.chapter(devops/collaboration_asana.md)
 
-download.md(assets/slides/devops/collaboration_trello.md)
+download.chapter(devops/collaboration_trello.md)
 
 Clarizen – An SaaS project management tool.
 Basecamp – A tool used for project management and real-time communication between teams.
@@ -135,19 +135,19 @@ BitKeeper is one of the oldest distributed source management systems licensed un
 ::::
 ### CI/CD
 
-download.md(assets/slides/devops/cicd.md)
+download.chapter(devops/cicd.md)
 
 ::::
 ### IAC - INFRASTRUCTURE AS CODE
 
 AUTOMATION / CONFIGURATION MANAGEMENT
 
-download.md(assets/slides/cloud/cloud_automation.md)
+download.chapter(cloud/cloud_automation.md)
 
 ::::
 ### MONITORING
 
-download.md(assets/slides/cloud/cloud_monitoring.md)
+download.chapter(cloud/cloud_monitoring.md)
 
 ::::
 

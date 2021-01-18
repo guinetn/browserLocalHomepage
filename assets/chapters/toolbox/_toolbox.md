@@ -1,6 +1,6 @@
 # BKA markdown samples
 
-**"BKA"** allow to display markdown slides.
+**"BKA"** allow to display markdown chapters.
 
 * Simple
 * Beautiful
@@ -49,8 +49,8 @@ My ip from https://httpbin.org/ip: <span>download</span>.raw(https://httpbin.org
 My ip from https://httpbin.org/ip: download.raw(https://httpbin.org/ip)
 
 ## Render others markdown files
-<span>download</span>.md(assets/slides/toolbox/toolbox_subpage_1.md)
-download.md(assets/slides/toolbox/toolbox_subpage_1.md)
+<span>download</span>.chapter(toolbox/toolbox_subpage_1.md)
+download.chapter(toolbox/toolbox_subpage_1.md)
 
 ## Execute a javascript code file: will be run with eval()
 Can interact normally with DOM elements in the .md file

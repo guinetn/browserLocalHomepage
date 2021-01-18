@@ -7,4 +7,4 @@ Write not memorizable: date, name, obscur words
 Good speaker = repeater
 
 ::::
-download.md(assets/slides/home/learning.md)
+download.chapter(home/learning.md)

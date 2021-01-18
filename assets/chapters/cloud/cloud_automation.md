@@ -35,15 +35,15 @@ Orchestration perform them in the correct order: task C before B, and task A aft
 
 ## Cloud Automation tools
 
-download.md(assets\slides\cloud\containers_kubernetes.md)
+download.chapters(cloud/containers_kubernetes.md)
 
-download.md(assets\slides\cloud\containers_docker.md)
+download.chapters(cloud/containers_docker.md)
 
-download.md(assets\slides\cloud\cloud_automation_chef.md)
+download.chapters(cloud/cloud_automation_chef.md)
 
-download.md(assets\slides\cloud\cloud_automation_ansible.md)
+download.chapters(cloud/cloud_automation_ansible.md)
 
-download.md(assets\slides\cloud\cloud_automation_puppet.md)
+download.chapters(cloud/cloud_automation_puppet.md)
 
 ## More
 

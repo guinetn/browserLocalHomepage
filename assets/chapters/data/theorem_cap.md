@@ -40,9 +40,9 @@ No less important failure than a total cut-off of the network must prevent the s
 Partition = communication break between nodes (network failure, server crash)
 The system should still be able to work even if there is a partition meaning that if a node fails to communicate, then one of the replicas of the nodes should be able to retrieve the data
 
-![cap_theorem](assets/slides/data/assets/cap_theorem.png)    
-![cap_theorem](assets/slides/data/assets/cap_theorem_couples.jpg)    
-![cap_theorem](assets/slides/data/assets/cap-theorem-triangle.png)    
+![cap_theorem](assets/chapters/data/assets/cap_theorem.png)    
+![cap_theorem](assets/chapters/data/assets/cap_theorem_couples.jpg)    
+![cap_theorem](assets/chapters/data/assets/cap-theorem-triangle.png)    
 
 ## Couples
 

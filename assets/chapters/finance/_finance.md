@@ -3,4 +3,4 @@
 Finance....
 
 ::::
-download.md(assets/slides/finance/startup.md)
+download.chapter(finance/startup.md)

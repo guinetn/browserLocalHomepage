@@ -8,8 +8,8 @@
 it more customer-focused comes in. This allows much easier collaboration with non-techie stakeholders, than TDD.
 
 ::::
-download.md(assets/slides/computer_science/architecture_driven_design_tdd.md)
+download.chapter(computer_science/architecture_driven_design_tdd.md)
 ::::
-download.md(assets/slides/computer_science/architecture_driven_design_bdd.md)
+download.chapter(computer_science/architecture_driven_design_bdd.md)
 ::::
-download.md(assets/slides/computer_science/architecture_driven_design_ddd.md)
+download.chapter(computer_science/architecture_driven_design_ddd.md)

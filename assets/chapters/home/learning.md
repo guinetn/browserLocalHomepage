@@ -114,5 +114,5 @@ Whenever you get stuck, go back to the source material and re-learn that part of
 * Step 4. Simplify your language.
 The goal is to use your words, not the words of the source material. If your explanation is wordy or confusing, that’s an indication that you might not understand the idea as well as you thought – try to simplify the language or create an analogy to better understand it
 
-![](assets/slides/home/assets/feynman-technique-harmonic-oscillator.png)
-![](assets/slides/home/assets/feynman-technique-bernouilli.png)
+![](assets/chapters/home/assets/feynman-technique-harmonic-oscillator.png)
+![](assets/chapters/home/assets/feynman-technique-bernouilli.png)

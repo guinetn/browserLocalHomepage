@@ -5,7 +5,7 @@
 * Networking to share knowledge
 * Have a strategy: software methodologies
 
-download.md(assets/slides/computer_science/software_design_rules.md)
+download.chapter(computer_science/software_design_rules.md)
 
 ::::
 

@@ -1,7 +1,7 @@
 # FRONT
-![](assets/slides/web/front/assets/frontend.png)
+![](assets/chapters/web/front/assets/frontend.png)
 
 https://roadmap.sh/frontend
 
 ::::
-download.md(assets/slides/web/front/angular.md)
+download.chapter(web/front/angular.md)

@@ -17,7 +17,7 @@ Applications are built using containers (Docker...) allowing you to segment your
 
 ### Package management
 
-download.md(assets/slides/cloud/pm_helm.md)
+download.chapter(cloud/pm_helm.md)
 
 - Scaling
 CPU, RAM +- => automatic new/remove containers instances 

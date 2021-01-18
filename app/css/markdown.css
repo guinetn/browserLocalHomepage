@@ -1,17 +1,17 @@
-.slide {
+.chapter {
     font-size: smaller;
     
 }
-.slide   h1, h2, h3, h4,h5,h6 {
+.chapter   h1, h2, h3, h4,h5,h6 {
     color:gold;
 }
-.slide   h1 {
+.chapter   h1 {
     border-bottom:inset 1px gold;
     width: fit-content;
     margin: 1em auto 7px auto;
 }
 
-.slide p {
+.chapter p {
     text-align: left;
 }
 
@@ -25,61 +25,61 @@
     box-shadow: none !important;
     text-shadow: none !important;
   }
-.slide   a,.slide   a:visited {
+.chapter   a,.chapter   a:visited {
     text-decoration: underline;
         color: red !important;
   }  
-.slide   a[href]:after {
+.chapter   a[href]:after {
     content: " (" attr(href) ")";
   }
-.slide   abbr[title]:after {
+.chapter   abbr[title]:after {
     content: " (" attr(title) ")";
   }
-.slide   a[href^="#"]:after,
-.slide   a[href^="javascript:"]:after {
+.chapter   a[href^="#"]:after,
+.chapter   a[href^="javascript:"]:after {
     content: "";
   }
-.slide   blockquote,
-.slide   pre {
+.chapter   blockquote,
+.chapter   pre {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
-.slide   thead {
+.chapter   thead {
     display: table-header-group;
   }
-.slide   img,
-.slide   tr {
+.chapter   img,
+.chapter   tr {
     page-break-inside: avoid;
   }
-.slide   img {
+.chapter   img {
     max-width: 100% !important;
   }
-.slide   h2,
-.slide   h3,
-.slide   p {
+.chapter   h2,
+.chapter   h3,
+.chapter   p {
     orphans: 3;
     widows: 3;
   }
-.slide   h2,
-.slide   h3 {
+.chapter   h2,
+.chapter   h3 {
     page-break-after: avoid;
   }
 }
 @media screen and (min-width: 32rem) and (max-width: 48rem) {
-.slide   html {
+.chapter   html {
     font-size: 15px;
   }
 }
 @media screen and (min-width: 48rem) {
-.slide   html {
+.chapter   html {
     font-size: 16px;
   }
 }
-.slide body {
+.chapter body {
    line-height: 1.85;
 }
 .splendor-p,
-.slide p {
+.chapter p {
    font-size: 1rem;
    margin-bottom: 1.3rem;
 }
@@ -87,107 +87,107 @@
 .splendor-h2,
 .splendor-h3,
 .splendor-h4,
-.slide h1,
-.slide h2,
-.slide h3,
-.slide h4 {
+.chapter h1,
+.chapter h2,
+.chapter h3,
+.chapter h4 {
    margin: 1.414rem 0 0.5rem;
    font-weight: inherit;
    line-height: 1.42;
 }
 .splendor-h1,
-.slide h1 {
+.chapter h1 {
    margin-top: 0;
    font-size: 3.998rem;
 }
 .splendor-h2,
-.slide h2 {
+.chapter h2 {
    font-size: 2.827rem;
 }
 .splendor-h3,
-.slide h3 {
+.chapter h3 {
    font-size: 1.999rem;
 }
 .splendor-h4,
-.slide h4 {
+.chapter h4 {
    font-size: 1.414rem;
 }
 .splendor-h5,
-.slide h5 {
+.chapter h5 {
     font-size: 1.121rem;
 }
 .splendor-h6,
-.slide h6 {
+.chapter h6 {
     font-size: 0.88rem;
 }
 .splendor-small,
-.slide small {
+.chapter small {
     font-size: 0.707em;
 }
-.slide canvas,
-.slide iframe,
-.slide img,
-.slide select,
-.slide svg,
-.slide textarea,
-.slide video {
+.chapter canvas,
+.chapter iframe,
+.chapter img,
+.chapter select,
+.chapter svg,
+.chapter textarea,
+.chapter video {
     max-width: 100%;
 }
 @import url(http://fonts.googleapis.com/css?family=Merriweather:300italic,300);
-.slide html {
+.chapter html {
     font-size: 18px;
     max-width: 100%;
 }
-.slide body {
+.chapter body {
     color: #444;
     font-family: Merriweather, Georgia, serif;
     margin: 0;
     max-width: 100%;
 }
 :not(div):not(img):not(body):not(html):not(li):not(blockquote):not(p),
-.slide p {
+.chapter p {
     margin: 1rem auto;
     max-width: 36rem;
     padding: 0.25rem;
 }
-.slide div,
-.slide div img {
+.chapter div,
+.chapter div img {
     width: 100%;
 }
-.slide blockquote p {
+.chapter blockquote p {
     font-size: 1.5rem;
     font-style: italic;
     margin: 1rem auto;
     max-width: 48rem;
 }
-.slide li {
+.chapter li {
     margin-left: 2rem;
 }
-.slide h1 {
+.chapter h1 {
     padding: 4rem 0 !important;
 }
-.slide p {
+.chapter p {
     color: #555;
     height: auto;
     line-height: 1.45;
 }
-.slide code,
-.slide pre {
+.chapter code,
+.chapter pre {
     font-family: Menlo, Monaco, "Courier New", monospace;
 }
-.slide pre {
+.chapter pre {
     background-color: #fafafa;
     font-size: 0.8rem;
     overflow-x: scroll;
     padding: 1.125em;
 }
-.slide a,
-.slide a:visited {
+.chapter a,
+.chapter a:visited {
     color: #3498db;
 }
-.slide a:active,
-.slide a:focus,
-.slide a:hover {
+.chapter a:active,
+.chapter a:focus,
+.chapter a:hover {
     color: #2980b9;
 }
 */

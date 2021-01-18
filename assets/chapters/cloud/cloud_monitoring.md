@@ -4,17 +4,17 @@ Metrics: shows what is wrong without explaining why
 Tracing: finds which part of the distributed system to blame
 Logs: extra info for debugging
 
-download.md(assets/slides/cloud/cloud_monitoring_airflow.md)
+download.chapter(cloud/cloud_monitoring_airflow.md)
 
-download.md(assets/slides/cloud/cloud_monitoring_nagios.md)
+download.chapter(cloud/cloud_monitoring_nagios.md)
 
-download.md(assets/slides/cloud/cloud_monitoring_grafana.md)
+download.chapter(cloud/cloud_monitoring_grafana.md)
 
-download.md(assets/slides/cloud/cloud_monitoring_prometheus.md)
+download.chapter(cloud/cloud_monitoring_prometheus.md)
 
-download.md(assets/slides/cloud/cloud_monitoring_kibana.md)
+download.chapter(cloud/cloud_monitoring_kibana.md)
 
-download.md(assets/slides/cloud/cloud_monitoring_telegraph.md)
+download.chapter(cloud/cloud_monitoring_telegraph.md)
 
 Azure Monitor
 Google Cloud Monitoring

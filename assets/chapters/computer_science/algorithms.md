@@ -1,6 +1,6 @@
 # Algorithms
 
-download.md(assets/slides/computer_science/big-o.md)
+download.chapter(computer_science/big-o.md)
 
 ## Sorting Algorithms:
 
@@ -35,4 +35,4 @@ Quicksort is generally considered the “fastest” sorting algorithm
 ## Bucket Sort
 
 ::::
-download.md(assets/slides/computer_science/algorithms_basic.md)
+download.chapter(computer_science/algorithms_basic.md)

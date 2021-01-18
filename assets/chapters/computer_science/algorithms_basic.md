@@ -187,5 +187,5 @@ for r in result:
     
 ## TOWERS OF HANOI
 
-download.code(assets/slides/computer_science/assets/hanoi.cpp)
+download.code(assets/chapters/computer_science/assets/hanoi.cpp)
 

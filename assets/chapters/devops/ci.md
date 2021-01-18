@@ -9,25 +9,25 @@ CI/CD tools that can be integrated with different cloud providers. Some of the C
 When opting for a CI/CD pipeline tool, it is essential to look at whether it offers on-premises and cloud-based options. As many CI/CD tools are open-source, you have to make a conscious decision whether to opt for an open-source tool or one with a commercial license.
 When working with websites and web-apps, it is essential to ensure that the optimal user experience is offered, independent of the browser (or its version) and platform that is used to access the same. CI/CD tools like Jenkins, CircleCI, Travis CI, GitLab CI, etc. that can be integrated with cross browser testing (CBT) tools like LambdaTest can accelerate the CBT activity.
 
-download.md(assets/slides/devops/cicd_jenkins.md)
+download.chapter(devops/cicd_jenkins.md)
 
-download.md(assets/slides/devops/cicd_travis.md)
+download.chapter(devops/cicd_travis.md)
 
-download.md(assets/slides/devops/cicd_teamcity.md)
+download.chapter(devops/cicd_teamcity.md)
 
-download.md(assets/slides/devops/cicd_circleci.md)
+download.chapter(devops/cicd_circleci.md)
 
-download.md(assets/slides/devops/cicd_bamboo.md)
+download.chapter(devops/cicd_bamboo.md)
 
-download.md(assets/slides/devops/cicd_codeship.md)
+download.chapter(devops/cicd_codeship.md)
 
-download.md(assets/slides/devops/cicd_buddy.md)
+download.chapter(devops/cicd_buddy.md)
 
-download.md(assets/slides/devops/cicd_semaphore.md)
+download.chapter(devops/cicd_semaphore.md)
 
-download.md(assets/slides/devops/cicd_githubactions.md)
+download.chapter(devops/cicd_githubactions.md)
 
-download.md(assets/slides/devops/cicd_appveyor.md)
+download.chapter(devops/cicd_appveyor.md)
 
 
 GitLab – A complete DevOps platform that does everything from project planning and source code management to CI/CD and monitoring.

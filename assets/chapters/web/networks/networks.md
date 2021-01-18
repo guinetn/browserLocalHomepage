@@ -1,8 +1,8 @@
 # NETWORKS
 
-download.md(assets/slides/web/networks/osi_model.md)
+download.chapter(web/networks/osi_model.md)
 ::::
-download.md(assets/slides/web/networks/url.md)
+download.chapter(web/networks/url.md)
 ::::
 
 ## Concepts
@@ -26,7 +26,7 @@ download.md(assets/slides/web/networks/url.md)
 |API | An Application Programming Interface is a computing interface to extract data from a website. |
 
 ::::
-download.md(assets/slides/web/networks/ports.md)
+download.chapter(web/networks/ports.md)
 
 ::::
 
@@ -57,7 +57,7 @@ Resolving the hostname:
 * Query the Authoritative DNS Servers
     Query the 'A record' to locate the IP address
 
-![dns-lookup-diagram](assets/slides/web/assets/dns-lookup-diagram.webp)
+![dns-lookup-diagram](assets/chapters/web/assets/dns-lookup-diagram.webp)
 
 ## Reverse DNS (rDNS)
     
@@ -350,7 +350,7 @@ A NAT-enabled router will take the private IP addresses used in traffic requests
 
 #### VPC - Virtual Private Cloud 
 
-![](assets/slides/cloud/assets/vpc.png)
+![](assets/chapters/cloud/assets/vpc.png)
 
 A private cloud isolated and securized hosted in a public cloud (a cloud in a cloud)
 Isolate resources from public cloud
@@ -366,7 +366,7 @@ Some VPC has a NAT: a public website/app can works in a VPC
 
 Amazon Virtual Private Cloud create connections between Amazon EC2 (Elastic Compute Cloud) and others networks trough a VPN ( IPsec protocol)
 
-download.md(assets/slides/security/vpn.md)
+download.chapter(security/vpn.md)
 
 ### Internet Gateway
 

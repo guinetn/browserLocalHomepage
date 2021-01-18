@@ -11,7 +11,7 @@ Container has x-y axis coordinate<br>
     <li>vertical part: Cross axis</li>  
 </ul>
 
-<img src='assets/slides/web/css/flexbox/flexbox-axis.png'>
+<img src='assets/chapters/web/css/flexbox/flexbox-axis.png'>
 </div>
 
 <div class="slideShowSlide">
@@ -26,7 +26,7 @@ Container has x-y axis coordinate<br>
 }
 </code></pre>
 
-<img src='assets/slides/web/css/flexbox/flex-direction.png'>
+<img src='assets/chapters/web/css/flexbox/flex-direction.png'>
 </div>
 
 <div class="slideShowSlide">
@@ -39,7 +39,7 @@ wrap: items move to another line when adjusting viewport
     flex-wrap : wrap | nowrap
 }
 </code></pre>
-<img src='assets/slides/web/css/flexbox/flex-wrap.png'>
+<img src='assets/chapters/web/css/flexbox/flex-wrap.png'>
 </div>
 
 <div class="slideShowSlide">

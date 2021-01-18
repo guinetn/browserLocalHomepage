@@ -1,11 +1,11 @@
-download.md(assets/slides/data/db_sqlserver.md)
+download.chapter(data/db_sqlserver.md)
 ::::
-download.md(assets/slides/data/db_sybase.md)
+download.chapter(data/db_sybase.md)
 ::::
-download.md(assets/slides/data/db_oracle.md)
+download.chapter(data/db_oracle.md)
 ::::
-download.md(assets/slides/data/db_sqlite.md)
+download.chapter(data/db_sqlite.md)
 ::::
-download.md(assets/slides/data/db_mysql.md)
+download.chapter(data/db_mysql.md)
 ::::
-download.md(assets/slides/data/db_postgre_sql.md)
+download.chapter(data/db_postgre_sql.md)

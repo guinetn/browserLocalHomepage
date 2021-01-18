@@ -35,7 +35,7 @@ import { slideShow } from "./slideshow.js";
     window.addEventListener("message", dispatchEvents);
     startTouchEvents();
   }
-  // Configure app's components:showdown (md), slideshow
+  // Configure app's components:showdown (converter markdown to html), slideshow
   function initComponents() {
     if (showdown) showdown.setFlavor("github");
     if (slideShow) slideShow.showSlides();
@@ -72,7 +72,7 @@ import { slideShow } from "./slideshow.js";
   }
 
   function dispatchEvents(e) {
-    app.slidesChanged(e);
+    app.chaptersChanged(e);
   }
 
   function onMouseDown(e) {

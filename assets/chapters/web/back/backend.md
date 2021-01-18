@@ -1,4 +1,4 @@
 # Backend
 
-![](assets/slides/web/back/assets/backend.png)
+![](assets/chapters/web/back/assets/backend.png)
 https://roadmap.sh/backend

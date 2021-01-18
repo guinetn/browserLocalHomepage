@@ -46,13 +46,13 @@ lorem
 
 ::::
 
-download.md(assets/slides/ia/ml/ml.md)
+download.chapter(ia/ml/ml.md)
 
 ::::
 
 # Convolutional Neural Networks
 
-download.md(assets/slides/ia/ml/cnn.md)
+download.chapter(ia/ml/cnn.md)
 ::::
 
-download.md(assets/slides/ia/no-code-apps.md)
+download.chapter(ia/no-code-apps.md)

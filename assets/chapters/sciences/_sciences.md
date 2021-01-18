@@ -1,18 +1,18 @@
 # SCIENCES
 
 ::::
-download.md(assets/slides/sciences/physic.md)
+download.chapter(sciences/physic.md)
 ::::
-download.md(assets/slides/sciences/geology.md)
+download.chapter(sciences/geology.md)
 ::::
-download.md(assets/slides/sciences/physic_quantic.md)
+download.chapter(sciences/physic_quantic.md)
 ::::
-download.md(assets/slides/sciences/mechanic.md)
+download.chapter(sciences/mechanic.md)
 ::::
-download.md(assets/slides/sciences/biology.md)
+download.chapter(sciences/biology.md)
 ::::
-download.md(assets/slides/sciences/thermodynamic.md)
+download.chapter(sciences/thermodynamic.md)
 ::::
-download.md(assets/slides/sciences/chemistry.md)
+download.chapter(sciences/chemistry.md)
 ::::
-download.md(assets/slides/sciences/space.md)
+download.chapter(sciences/space.md)

@@ -8,16 +8,16 @@ export class App extends Blog {
   currentBook = null;
   // Contains DOM elements matching the config.booksCssSelector '.book'
   // Defined in config.booksFile (assets/books.html)
-  books = []; // [{ id:0, dom: null, name: '', slideId: 0 }, …]  slideId allow to retrieve the last slide viewed before leaving the book
+  books = []; // [{ id:0, dom: null, name: '', chapterId: 0 }, …]  chapterId allow to retrieve the last chapter viewed before leaving the book
   bookDetails = null;
 
-  slides = [];
-  currentSlideId = 0;
-  // When [→] is pressed we need to know if the current book slide have been loaded. Load the book's slide if names are differents
-  currentSlidesFile = null;
-  slideHasError = false;
-  slidesVisible = null;
-  slideMeter = null;
+  chapters = [];
+  currentChapterId = 0;
+  // When [→] is pressed we need to know if the current book chapter have been loaded. Load the book's chapter if names are differents
+  currentChapterFile = null;
+  chapterHasError = false;
+  chaptersVisible = null;
+  chapterMeter = null;
 
   // For automatic selected text copy after some time elaspsed
   isMouseDown = false;
@@ -30,14 +30,14 @@ export class App extends Blog {
     document
       .querySelectorAll(config.booksCssSelector)
       .forEach((v, i) =>
-        this.books.push({ id: i, name: v.id, dom: v, slideId: 0 })
+        this.books.push({ id: i, name: v.id, dom: v, chapterId: 0 })
       );
     if (this.books.length > 0) this.currentBook = this.books[0];
     else
       console.log(`Books not found with selector ${config.booksCssSelector}`);
 
     this.bookDetails = document.getElementById("bookDetails");
-    this.slideMeter = document.getElementById("slideMeter");
+    this.chapterMeter = document.getElementById("chapterMeter");
 
     // RENDER topics in books
     utils.downloadJsonFile(config.topicsFile, this, this.extractTopics);
@@ -52,33 +52,33 @@ export class App extends Blog {
     this.loadBlogArticles();
   }
 
-  slidesChanged(event) {
+  chaptersChanged(event) {
     let { reason, hash, htmlData, textData } = event.data;
 
-    if (reason != "slides changed") return;
+    if (reason != "chapters changed") return;
 
     // When a downloaded element has been added to the DOM
     const promiseMarker = document.getElementById(hash);
 
     // For each separator (:::: = <p>::::</p>)
-    let slides = (htmlData ? htmlData : textData).split("<p>::::</p>");
+    let chapters = (htmlData ? htmlData : textData).split("<p>::::</p>");
 
-    slides.reverse().forEach((s, i) => {
+    chapters.reverse().forEach((s, i) => {
       let div = document.createElement("div");
       if (htmlData) div.innerHTML = s;
       else div.innerText = s;
 
       /* 
           From the promiseMarker (<div data-type='promised_file'...)
-          If previous node is a separator (<p>::::</p>) then it must be a slide:
-            * insert after the first parent having a class='slides'
+          If previous node is a separator (<p>::::</p>) then it must be a chapter:
+            * insert after the first parent having a class='chapters'
             * removed the promiseMarker
             * removed the <p>::::</p>
           
-          <div id="s1" class="slides">
-          <div id="s2" class="slides">
-          <div id="s3" class="slides">
-            <div class="slide current" data-id="3">
+          <div id="s1" class="chapters">
+          <div id="s2" class="chapters">
+          <div id="s3" class="chapters">
+            <div class="chapter current" data-id="3">
               <div data-type="promised_file" id="YXNz...ZbmcubWQ=">wanting for…/notetaking.md</div><div><h1 id="note-taking">NOTE TAKING</h1>
               ....
               <p>::::</p>
@@ -86,24 +86,25 @@ export class App extends Blog {
               <div><h1 id="learning--repeat-review">Learning = repeat, review</h1>
           */
       let prevNode = promiseMarker.previousElementSibling;
-      const isolatedSeparatorMode = slides.length > 1 && i < slides.length - 1;
+      const isolatedSeparatorMode =
+        chapters.length > 1 && i < chapters.length - 1;
       if (
         isolatedSeparatorMode ||
         (prevNode &&
-          prevNode.innerText.substring(0, 4) == config.slidesSeparator)
+          prevNode.innerText.substring(0, 4) == config.chaptersSeparator)
       ) {
         // promiseMarker previous node is a separator (<p>::::</p>)
         //if (prevnode)
         prevNode = prevNode.parentNode;
         while (prevNode) {
-          // Look-up until finding a "slides"
-          if (prevNode.classList.contains("slides")) {
-            div.className = "slide";
+          // Look-up until finding a "chapters"
+          if (prevNode.classList.contains("chapters")) {
+            div.className = "chapter";
             prevNode.insertAdjacentElement("beforeEnd", div);
 
             // Remove the separator <p>::::</p>
             let pmp = promiseMarker.previousElementSibling;
-            if (pmp.innerText == config.slidesSeparator)
+            if (pmp.innerText == config.chaptersSeparator)
               promiseMarker.previousElementSibling.remove();
             break;
           }
@@ -117,18 +118,18 @@ export class App extends Blog {
     // Remove the promise marker
     promiseMarker.remove();
 
-    this.updateSlides();
+    this.updateChapters();
   }
 
-  updateSlides() {
-    this.slides = document.querySelectorAll(".slide");
-    this.slides.forEach((s, i) => s.setAttribute("data-id", i + 1));
+  updateChapters() {
+    this.chapters = document.querySelectorAll(".chapter");
+    this.chapters.forEach((s, i) => s.setAttribute("data-id", i + 1));
 
-    // Configure slide meter [min-value-max]
-    this.slideMeter.value = 1;
-    this.slideMeter.max = this.slideHasError ? 0 : this.slides.length;
+    // Configure chapter meter [min-value-max]
+    this.chapterMeter.value = 1;
+    this.chapterMeter.max = this.chapterHasError ? 0 : this.chapters.length;
 
-    this.renderSlidesCatalog();
+    this.renderChaptersCatalog();
     this.renderBookDetails();
   }
 
@@ -142,19 +143,19 @@ export class App extends Blog {
     renderCatalog(source, ".booksCatalog", "data-bookid", "booksCatalogLink");
   }
 
-  renderSlidesCatalog() {
+  renderChaptersCatalog() {
     // Called each time a book is changed (has a new fetched child )
     renderCatalog(
-      this.slides,
-      ".slidesCatalog",
-      "data-slideid",
-      "slideCatalogLink",
+      this.chapters,
+      ".chaptersCatalog",
+      "data-chapterid",
+      "chapterCatalogLink",
       true
     );
   }
 
-  showSlide(slideid) {
-    this.changeSlide(slideid - this.currentSlideId);
+  showChapter(chapterId) {
+    this.changeChapter(chapterId - this.currentChapterId);
   }
 
   // HeartBeat
@@ -176,8 +177,8 @@ export class App extends Blog {
   // Manage key events
   keydownEvent(e) {
     this.onBookKeydown(e);
-    // if book hasn't catched the event, try with slide
-    if (!e.defaultPrevented) this.onSlideKeydown(e);
+    // if book hasn't catched the event, try with chapter
+    if (!e.defaultPrevented) this.onChapterKeydown(e);
   }
 
   onBookKeydown(e) {
@@ -189,7 +190,9 @@ export class App extends Blog {
       // 1st Letter of the book
       if ("a" <= key && key <= "z") {
         // user press a key [a-z]: find first book having a name starting with that letter
-        let book = this.books.filter((aBook) => aBook.name.slice(0, key.length) == key);
+        let book = this.books.filter(
+          (aBook) => aBook.name.slice(0, key.length) == key
+        );
         if (book.length == 0) return;
         this.selectBook(book[0].id, e);
       } else if ("0" <= key && key <= "9") {
@@ -226,9 +229,9 @@ export class App extends Blog {
       : bookId;
   }
 
-  selectBookAndOpenSlide(stepOrIndex, openSlide) {
+  selectBookAndOpenChapter(stepOrIndex, openChapter) {
     this.selectBook(stepOrIndex);
-    if (openSlide) this.changeSlide(+1);
+    if (openChapter) this.changeChapter(+1);
   }
 
   // stepOrIndex: prev, next or bookId
@@ -240,8 +243,8 @@ export class App extends Blog {
   showBook(keyEvent = null) {
     if (keyEvent) keyEvent.preventDefault();
     utils.scrollTo(0);
-    // hide slides
-    this.toggleSlidesVisibility(false);
+    // Hide Chapters
+    this.toggleChaptersVisibility(false);
     // display book
     this.books.forEach((book) =>
       book.name == this.currentBook.name
@@ -250,111 +253,116 @@ export class App extends Blog {
     );
   }
 
-  onSlideKeydown(e) {
+  onChapterKeydown(e) {
     if (e.keyCode == 27 || e.shiftKey) {
       // [ESC] or [shift]	key
-      this.toggleSlidesVisibility(false);
-      if (this.currentSlideId > 0) this.currentSlideId--; // to come back on the same slide after [esc]] (as we do [→] to show it again, we don't want slide+0)
-      this.currentBook.slideId = Math.min(
-        this.currentSlideId + 1,
-        this.slides.length - 1
-      ); // memo thz slide id to retrieve after anothers book navigation and come back
+      this.toggleChaptersVisibility(false);
+      if (this.currentChapterId > 0) this.currentChapterId--; // to come back on the same chapter after [esc]] (as we do [→] to show it again, we don't want chapter+0)
+      this.currentBook.chapterId = Math.min(
+        this.currentChapterId + 1,
+        this.chapters.length - 1
+      ); // memo the chapter id to retrieve after anothers book navigation and come back
     } else {
       switch (e.keyCode) {
         case 37: // [←] key
           e.preventDefault(); // to have scrollTo() working
-          this.changeSlide(-1);
+          this.changeChapter(-1);
           break;
         case 39: // [→] key
           e.preventDefault();
-          this.changeSlide(+1);
+          this.changeChapter(+1);
           break;
         case 70: // [F]ullscreen key
-          if (this.slidesVisible)
-            utils.fullScreen(this.slides[this.currentSlideId]);
+          if (this.chaptersVisible)
+            utils.fullScreen(this.chapters[this.currentChapterId]);
           else utils.fullScreen(this.currentBook.dom);
           break;
       }
     }
   }
-  async changeSlide(direction) {
-    // If book has change and dom has slides of another book, load the current book's slides
-    if (this.currentSlidesFile != this.currentBook.name) {
-      this.createSlidesInDom(config.slidesContainer);
-      // Restore slideId from a previous visit of the current book
-      this.currentSlideId = this.currentBook.slideId;
+  async changeChapter(direction) {
+    // If book has change and dom has chapters of another book, load the current book's chapters
+    if (this.currentChapterFile != this.currentBook.name) {
+      this.createChaptersInDom(config.chaptersContainer);
+      // Restore chapterId from a previous visit of the current book
+      this.currentChapterId = this.currentBook.chapterId;
       return;
     }
 
-    // Press [←] while on first slide: hide slides
-    if (this.currentSlideId == 0 && direction < 0) {
-      this.toggleSlidesVisibility(false);
+    // Press [←] while on first chapter: hide chapters
+    if (this.currentChapterId == 0 && direction < 0) {
+      this.toggleChaptersVisibility(false);
       return;
     }
-    // Press [→] while slides are not visible: show slides
-    else if (!this.slidesVisible && this.currentSlideId == 0 && direction > 0) {
-      this.toggleSlidesVisibility(true);
+    // Press [→] while chapters are not visible: show chapters
+    else if (
+      !this.chaptersVisible &&
+      this.currentChapterId == 0 &&
+      direction > 0
+    ) {
+      this.toggleChaptersVisibility(true);
       utils.scrollTo(0, "auto");
       return;
     }
 
-    this.currentSlideId += direction;
-    if (this.slides.length <= this.currentSlideId) this.currentSlideId = 0;
-    else if (this.currentSlideId < 0) this.currentSlideId = 0;
-    this.toggleSlidesVisibility(true);
+    this.currentChapterId += direction;
+    if (this.chapters.length <= this.currentChapterId)
+      this.currentChapterId = 0;
+    else if (this.currentChapterId < 0) this.currentChapterId = 0;
+    this.toggleChaptersVisibility(true);
     utils.scrollTo(0, "auto");
 
     if (slideShow) slideShow.init();
   }
 
-  async downloadMainSlide(folder, slideFile) {
+  async downloadMainChapter(folder, chapterFile) {
     try {
-      let relativePath = `${folder}/${slideFile}`;
+      let relativePath = `${folder}/${chapterFile}`;
       let response = await fetch(relativePath);
       let markdown = await response.text();
       let html = null;
-      let htmlSlides = null;
-      this.slideHasError = !response.ok;
-      if (this.slideHasError) {
-        htmlSlides = [
+      let htmlChapters = null;
+      this.chapterHasError = !response.ok;
+      if (this.chapterHasError) {
+        htmlChapters = [
           `⚠️ ${response.statusText} (${response.status}): ${relativePath}`,
         ];
       } else {
         html = this.markdownToHtml(markdown);
-        // nested download.md(...) must be extracted and promoted to slide
-        htmlSlides = html.split(config.slidesSeparator); // separator is :::: = <p>::::</p> in markdown
+        // nested download.md(...) must be extracted and promoted to chapter
+        htmlChapters = html.split(config.chaptersSeparator); // separator is :::: = <p>::::</p> in markdown
       }
 
-      return htmlSlides;
+      return htmlChapters;
     } catch (e) {
-      console.log(`Error in downloadMainSlide(${slideFile})`, e);
+      console.log(`Error in downloadMainChapter(${chapterFile})`, e);
     }
   }
 
-  createSlidesInDom(slidesContainer) {
-    this.deleteExistingSlides();
+  createChaptersInDom(chaptersContainer) {
+    this.deleteExistingChapters();
 
-    this.currentSlidesFile = this.currentBook.name;
+    this.currentChapterFile = this.currentBook.name;
 
-    this.downloadMainSlide(
-      `${config.slidesFolder}/${this.currentSlidesFile}`,
-      `${config.slideMainFilePrefix}${this.currentSlidesFile}.md`
-    ).then((htmlSlides) => {
-      this.appendSlides(htmlSlides, slidesContainer);
-      this.updateSlides();
-      this.toggleSlidesVisibility(true);
-      this.renderCurrentSlide();
+    this.downloadMainChapter(
+      `${config.chaptersFolder}/${this.currentChapterFile}`,
+      `${config.chapterMainFilePrefix}${this.currentChapterFile}.md`
+    ).then((htmlChapters) => {
+      this.appendChapters(htmlChapters, chaptersContainer);
+      this.updateChapters();
+      this.toggleChaptersVisibility(true);
+      this.renderCurrentChapter();
       PR.prettyPrint();
     });
   }
 
-  appendSlides(slides, container) {
-    slides.forEach((html, i) => {
-      const slide = document.createElement("div");
-      slide.innerHTML = `<div class='slide'>${slides[i]}</div>`;
-      slide.id = `s${i + 1}`;
-      slide.className = "slides";
-      document.querySelector(container).appendChild(slide);
+  appendChapters(chapters, container) {
+    chapters.forEach((html, i) => {
+      const chapter = document.createElement("div");
+      chapter.innerHTML = `<div class='chapter'>${chapters[i]}</div>`;
+      chapter.id = `s${i + 1}`;
+      chapter.className = "chapters";
+      document.querySelector(container).appendChild(chapter);
     });
   }
   markdownToHtml(data, useExtensions = true) {
@@ -366,46 +374,46 @@ export class App extends Blog {
     var converter = new showdown.Converter(extensions);
     return converter.makeHtml(data);
   }
-  renderCurrentSlide() {
-    this.slideMeter.value = this.currentSlideId + 1;
+  renderCurrentChapter() {
+    this.chapterMeter.value = this.currentChapterId + 1;
     this.renderBookDetails();
-    this.slides.forEach((s, i) =>
-      this.slidesVisible && i == this.currentSlideId
+    this.chapters.forEach((s, i) =>
+      this.chaptersVisible && i == this.currentChapterId
         ? s.classList.add("current")
         : s.classList.remove("current")
     );
-    renderScrollSyncCatalog(".slide.current", ".contentCatalog");
+    renderScrollSyncCatalog(".chapter.current", ".contentCatalog");
   }
 
   renderBookDetails() {
     const bookTitle = this.currentBook.name.toUpperCase().replace("_", " ");
-    const slideNav = this.slideHasError
+    const chapterNav = this.chapterHasError
       ? "⚠️"
-      : ` <sup><small>${this.slideMeter.value}/${this.slides.length}</small></sup>`;
+      : ` <sup><small>${this.chapterMeter.value}/${this.chapters.length}</small></sup>`;
     // Set book title
     this.bookDetails.querySelector(
       "#bookTitlePlaceholder"
-    ).innerHTML = `${bookTitle} ${slideNav}`;
+    ).innerHTML = `${bookTitle} ${chapterNav}`;
   }
 
-  toggleSlidesVisibility(forceVisibility) {
+  toggleChaptersVisibility(forceVisibility) {
     this.hideBlog();
 
-    if (forceVisibility != undefined) this.slidesVisible = forceVisibility;
-    else this.slidesVisible = !this.slidesVisible;
+    if (forceVisibility != undefined) this.chaptersVisible = forceVisibility;
+    else this.chaptersVisible = !this.chaptersVisible;
 
-    this.slidesVisible
+    this.chaptersVisible
       ? this.bookDetails.classList.add("visible")
       : this.bookDetails.classList.remove("visible");
 
-    this.renderCurrentSlide();
+    this.renderCurrentChapter();
   }
 
-  deleteExistingSlides() {
-    if (this.slides.length > 0) this.slides.forEach((s) => s.remove());
-    document.querySelectorAll(".slides").forEach((s) => s.remove());
-    this.slides = null;
-    this.currentSlideId = 0;
+  deleteExistingChapters() {
+    if (this.chapters.length > 0) this.chapters.forEach((s) => s.remove());
+    document.querySelectorAll(".chapters").forEach((s) => s.remove());
+    this.chapters = null;
+    this.currentChapterId = 0;
   }
 
   extractTopics(options, topics) {
@@ -651,7 +659,7 @@ export class App extends Blog {
     else if (this.copyAction(e)) return;
     else if (this.emptyClickToClose(e)) return;
     else if (this.openBook(e)) return;
-    else if (this.slideNavigation(e)) return;
+    else if (this.chapterNavigation(e)) return;
     else if (this.showAlarmsPanel(e)) return;
     else this.alarmChosen(e);
   }
@@ -679,7 +687,7 @@ export class App extends Blog {
     else if (e.target.matches(".slideShowDot")) {
       slideShow.currentSlide(
         e.target.parentNode.parentNode.id,
-        e.target.getAttribute("data-dotSpan")
+        e.target.getAttribute("data-dotspan")
       );
       return true;
     }
@@ -734,18 +742,18 @@ export class App extends Blog {
   openBook(e) {
     if (!e.target.matches(".booksCatalogLink")) return false;
 
-    const linkWidthAreaToOpenSlides = 35;
-    this.selectBookAndOpenSlide(
+    const linkWidthAreaToOpenChapters = 35;
+    this.selectBookAndOpenChapter(
       e.target.dataset.bookid,
-      e.offsetX < linkWidthAreaToOpenSlides
+      e.offsetX < linkWidthAreaToOpenChapters
     );
     return false;
   }
 
-  slideNavigation(e) {
-    if (!e.target.matches(".slideCatalogLink")) return false;
-    // Slides ToC clicked: navigate to clicked slide
-    this.showSlide(e.target.dataset.slideid);
+  chapterNavigation(e) {
+    if (!e.target.matches(".chapterCatalogLink")) return false;
+    // Chapters catalog clicked: navigate to clicked chapter
+    this.showChapter(e.target.dataset.chapterid);
     return true;
   }
 
@@ -778,7 +786,7 @@ export class App extends Blog {
     const alarmDurationMin = e.target.getAttribute("data-duration");
     e.target.classList.toggle("alarm-active");
     utils.alarmOpenClose();
-    utils.snackbar(`Alarm in ${alarmDurationMin} min<br/>${alarmReason}`);
+    utils.snackbarPopup(`Alarm in ${alarmDurationMin} min<br/>${alarmReason}`);
     utils.speak(`Alarm in ${alarmDurationMin} min`);
     utils.alarmSet(alarmDurationMin, alarmReason);
 

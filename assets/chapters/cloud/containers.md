@@ -15,7 +15,7 @@ Virtualize the hardware thanks to a hypervisor
 Mimic and entire servers, networks, databases, etc.
 
 
-![](assets/slides/cloud/assets/vm_vs_container.png)
+![](assets/chapters/cloud/assets/vm_vs_container.png)
 
 Containers are the future of application development and hosting. They enable DevOps, developers, and system administrators to build, test, deploy, and maintain applications quickly, securely, and efficiently. Tools built around the containerization concept provide simple solutions for basic web applications. These advanced granular configuration options provide the control many enterprise applications may need. 
 

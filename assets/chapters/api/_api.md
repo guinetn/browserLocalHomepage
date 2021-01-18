@@ -1,15 +1,15 @@
 # API
 
 ::::
-download.md(assets/slides/api/rest.md)
+download.chapter(api/rest.md)
 
-download.md(assets/slides/api/soap.md)
+download.chapter(api/soap.md)
 ::::
-download.md(assets/slides/api/cors.md)
+download.chapter(api/cors.md)
 ::::    
-download.md(assets/slides/web/back/node.md)
+download.chapter(web/back/node.md)
 :::: 
-download.md(assets/slides/web/back/express.md)
+download.chapter(web/back/express.md)
 ::::
-download.md(assets/slides/web/back/flask.md)
+download.chapter(web/back/flask.md)
 ::::

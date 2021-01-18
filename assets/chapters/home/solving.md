@@ -1,9 +1,9 @@
 # SOLVING PROBLEM
 
 ## Method
-![](assets/slides/home/assets/problem_solving_organize_toughts_.png)
+![](assets/chapters/home/assets/problem_solving_organize_toughts_.png)
 
-![](assets/slides/home/assets/problem_solving_organize_toughts_sample.png)
+![](assets/chapters/home/assets/problem_solving_organize_toughts_sample.png)
 
 ## Solving process
 * Identify problem: what's going on?
@@ -19,4 +19,4 @@
 ::::
 
 ## Be sure of the right problem
-![](assets/slides/home/assets/wwII.png)
+![](assets/chapters/home/assets/wwII.png)

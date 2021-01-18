@@ -57,12 +57,12 @@ C’est la table de pages qui fait le lien entre les pages et les frames, avec u
 https://beta.hackndo.com/rappels-d-architecture/
 
 ::::
-download.md(assets/slides/computer_science/os_posix.md)
+download.chapter(computer_science/os_posix.md)
 ::::
-download.md(assets/slides/computer_science/os_linux.md)
+download.chapter(computer_science/os_linux.md)
 ::::
-download.md(assets/slides/computer_science/os_windows.md)
+download.chapter(computer_science/os_windows.md)
 ::::
-download.md(assets/slides/computer_science/os_unix.md)
+download.chapter(computer_science/os_unix.md)
 ::::
-download.md(assets/slides/computer_science/os_unix-bash.md)
+download.chapter(computer_science/os_unix-bash.md)

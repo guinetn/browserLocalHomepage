@@ -51,7 +51,7 @@ Microservice communicate via Rest protocol.
 To communicate more over: publisher-subscriber model that fulfills our need data to send and read asynchronously without thread blocked on network calls. Based on company-wide skillsets, needs and requirements we can use Kafka, Rabbitmq e.t.c.
 
 
-download.md(assets/slides/data/theorem_cap.md)
+download.chapter(data/theorem_cap.md)
 
 ## Making a reporting service in Microservice architecture
 one service has a DB.orders and the other has DB.customers

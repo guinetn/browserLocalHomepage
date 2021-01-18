@@ -12,4 +12,4 @@ Systems: Collect metrics from your modern stack of cloud platforms, containers, 
 
 IoT sensors: Collect critical stateful data (pressure levels, temp levels, etc.) from IoT sensors and devices.
 
-![](assets/slides/cloud/assets/telegraph.png)
+![](assets/chapters/cloud/assets/telegraph.png)

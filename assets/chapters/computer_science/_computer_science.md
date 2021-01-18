@@ -51,41 +51,41 @@
 Decimal is the base number system we're most used to dealing with
 But computers usually work with 
 
-download.md(assets/slides/computer_science/numbers_binary.md)
-download.md(assets/slides/computer_science/numbers_hexadecimal.md)
+download.chapter(computer_science/numbers_binary.md)
+download.chapter(computer_science/numbers_hexadecimal.md)
 
 ::::
-download.md(assets/slides/computer_science/processors.md)
+download.chapter(computer_science/processors.md)
 ::::
-download.md(assets/slides/computer_science/os.md)
+download.chapter(computer_science/os.md)
 ::::
-download.md(assets/slides/computer_science/ascii.md)
+download.chapter(computer_science/ascii.md)
 ::::
-download.md(assets/slides/computer_science/programming_paradigms.md)
+download.chapter(computer_science/programming_paradigms.md)
 
 ::::
-download.md(assets/slides/computer_science/algorithms.md)
+download.chapter(computer_science/algorithms.md)
 ::::
-download.md(assets/slides/computer_science/architecture.md)
+download.chapter(computer_science/architecture.md)
 ::::
-download.md(assets/slides/computer_science/regex.md)
+download.chapter(computer_science/regex.md)
 ::::
-download.md(assets/slides/computer_science/architecture_driven_design.md)
+download.chapter(computer_science/architecture_driven_design.md)
 ::::
-download.md(assets/slides/computer_science/depency_injection_ioc.md)
+download.chapter(computer_science/depency_injection_ioc.md)
 ::::
-download.md(assets/slides/computer_science/best_practices.md)
+download.chapter(computer_science/best_practices.md)
 ::::
-download.md(assets/slides/computer_science/design_patterns.md)
+download.chapter(computer_science/design_patterns.md)
 ::::
-download.md(assets/slides/computer_science/messaging/_messaging.md)
+download.chapter(computer_science/messaging/_messaging.md)
 ::::
-download.md(assets/slides/computer_science/antipatterns.md)
+download.chapter(computer_science/antipatterns.md)
 ::::
-download.md(assets/slides/computer_science/hardware.md)
+download.chapter(computer_science/hardware.md)
 ::::
-download.md(assets/slides/computer_science/software_quality.md)
+download.chapter(computer_science/software_quality.md)
 ::::
-download.md(assets/slides/computer_science/the_developer.md)
+download.chapter(computer_science/the_developer.md)
 ::::
-download.md(assets/slides/computer_science/cqrs.md)
+download.chapter(computer_science/cqrs.md)

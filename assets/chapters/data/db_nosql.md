@@ -92,7 +92,7 @@ https://www.toptal.com/database/the-definitive-guide-to-nosql-databases
 * Elasticity
 * Sharding
 
-download.md(assets/slides/data/base.md)
+download.chapter(data/base.md)
 
 ## NoSQL candidates
  
@@ -120,7 +120,7 @@ https://db-engines.com/en/ranking_trend
 constitency + rich language → MongoDB
 ElasticSearch good but bad for consistency
 
-![](assets/slides/data/assets/nosql-store-decision-flow.png)
+![](assets/chapters/data/assets/nosql-store-decision-flow.png)
 
 * 1970 	Relational model: SQL
 	Not for high volumes (slow responses, heavy and complex data distribution)

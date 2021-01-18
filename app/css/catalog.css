@@ -39,7 +39,7 @@
   left: 222px;
 }
 
-.booksCatalog, .slidesCatalogContainer {
+.booksCatalog, .chaptersCatalogContainer {
   display:none;
   position: absolute;
   border: solid 2px #9e9e9e;
@@ -50,20 +50,20 @@
   min-width: 400px;
 }
 
-/* SLIDES */
+/* CHAPTERS */
 
-.slidesCatalog {      
+.chaptersCatalog {      
   font-size: 0.6em;    
   overflow: scroll;
   max-height: 80vh;
 }
 
-.slidesCatalogContainer {
+.chaptersCatalogContainer {
   top: 56px;
   left: -25px; 
 }
 
-#bookDetails:hover .slidesCatalogContainer, .booksCatalogContainer:hover .booksCatalog {  
+#bookDetails:hover .chaptersCatalogContainer, .booksCatalogContainer:hover .booksCatalog {  
   display:block;  
 }
 

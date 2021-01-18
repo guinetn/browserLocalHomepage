@@ -19,6 +19,6 @@ Imprévus et laisser-aller leur sont totalement étrangers. Au travail, à la ma
 ::::
 welcome II
 ::::
-download.md(assets/slides/home/solving.md)
+download.chapter(home/solving.md)
 ::::
-download.md(assets/slides/home/notetaking.md)
+download.chapter(home/notetaking.md)

@@ -1,6 +1,6 @@
 # Linux
 
-- ![linux-file-system](assets/slides/computer_science/assets/linux-file-system.jpg)
+- ![linux-file-system](assets/chapters/computer_science/assets/linux-file-system.jpg)
 
 |Folder||
 |---|---|
@@ -57,7 +57,7 @@ To control services with systemd, the systemctl command is used
 
 ## Firewall
 
-download.md(assets/slides/security/firewalld.md)
+download.chapter(security/firewalld.md)
 
 ## Secure My Linux Server    
 

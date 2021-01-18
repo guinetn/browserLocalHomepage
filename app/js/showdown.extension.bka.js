@@ -2,14 +2,15 @@
 SHOWDOWN Extensions
 
 USAGE:
-  download.md(assets/slides/code.md)
+  download.md(assets/chapters/code.md)
+  download.chapter(code.md)   (avoid to type 'assets/chapters')
   download.html(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.html)
   download.raw(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
   download.code(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
-  download.exec(assets/slides/computer_science/assets/show_ascii_table.js)
+  download.exec(assets/chapters/computer_science/assets/show_ascii_table.js)
   download.iframe(url,[w,h]) :
-  download.iframe(assets/slides/web/front/react_samples/react01/index.html)
-  download.iframe(assets/slides/web/front/react_samples/react01/index.html,500,200)
+  download.iframe(assets/chapters/web/front/react_samples/react01/index.html)
+  download.iframe(assets/chapters/web/front/react_samples/react01/index.html,500,200)
 
 [video title](https://www.youtube.com/watch?xyzabc)  --> <iframe src="//www.youtube.com/embed/xyzabc" frameborder="0" allowfullscreen=""></iframe>
 setup:[The Map of Physics](ZihywtixUYo)
@@ -45,11 +46,12 @@ Writing showdown extensions: https://github.com/showdownjs/showdown/wiki/Extensi
       
         let replaceMarker = function (hash, htmlData, textData) {        
         // Warn bka that the DOM has changed
-        window.postMessage( {
-            reason: "slides changed",
+        window.postMessage(
+          {
+            reason: "chapters changed",
             hash: hash,
             htmlData: htmlData,
-            textData:textData,
+            textData: textData,
           },
           "*"
         );
@@ -72,6 +74,7 @@ Writing showdown extensions: https://github.com/showdownjs/showdown/wiki/Extensi
         bkaCodeRegex = /(?:download\.)(?<bkatype>code)\((?<link>[^)]*)\)/gi,
         bkaExecCodeRegex = /(?:download\.)(?<bkatype>exec)\((?<link>[^)]*)\)/gi,
         bkaMdRegex = /(?:download\.)(?<bkatype>md)\((?<link>[^)]*)\)/gi,
+        bkaMdChapterRegex = /(?:download\.)(?<bkatype>chapter)\((?<link>[^)]*)\)/gi,
         bkaIFrameRegex = /(?:download\.)(?<bkatype>iframe)\((?<link>.*?) ?(?: ?, ?(?<width>\d{0,4}) ?, ?(?<height>\d{0,4}) ?)?\)/gi,
         bkaPrettyPrintRegex = /(<pre[^>]*>)?[\n\s]?<code([^>]*)>/gi,
         bkaYoutubeRegex = /<a href="(?:(?:https?:)?(?:\/\/)?)(?:(?:www)?\.)?youtube\.(?:.+?)\/(?:(?:watch\?v=)|(?:embed\/))(?<videoid>[a-zA-Z0-9_-]{11})(?:[^"'])*(?:"|')+\s*>(?<videotitle>[^<]*)/gi;
@@ -112,6 +115,25 @@ Writing showdown extensions: https://github.com/showdownjs/showdown/wiki/Extensi
           });
         },
       };
+      
+      var bkaDownloadMarkdownChapterExtension = {
+        type: "lang",
+        filter: function (text, converter, options) {
+          return text.replace(bkaMdChapterRegex, function (s, bkatype, link) {
+            var hash = getHash(link);
+            downloadFile(
+              `assets/chapters/${link}`,
+              hash,
+              converter,
+              function (res, file, converter) {
+                replaceMarker(hash, converter.makeHtml(res));
+              }
+            );
+            return promisedMarker(hash, link);
+          });
+        },
+      };
+
 
       function addAttribute(attributeName, value, suffix) {
         return value == null ? "" : `${attributeName}='${value}${suffix}'`;
@@ -193,6 +215,7 @@ Writing showdown extensions: https://github.com/showdownjs/showdown/wiki/Extensi
 
       return [
         bkaDownloadMarkdownExtension,
+        bkaDownloadMarkdownChapterExtension,
         bkaDownloadRawExtension,
         bkaDownloadCodeExtension,
         bkaDownloadIframeExtension,
