@@ -226,6 +226,7 @@ Chapters are not limited in size.
 Standard markdown + additional syntax to include…
     
 * <strong>download.md</strong>(assets/chapters/myfile.md) : a markdown file (html rendered)
+* <strong>download.chapter</strong>(myfile.md) : a markdown file (html rendered but get ride of `assets/chapters`)
 * <strong>download.raw</strong>(https://<span>githubusercontent.com/abcdef/sourcefile.txt</span>) : a file as it is (raw, not transformed)
 * <strong>download.html</strong>(https://<span>githubusercontent.com/abcdef/sourcefile.txt</span>) : an html file (interpreted in innerHTML)
 * <strong>download.code</strong>(https://<span>githubusercontent.com/abcdef.cpp</span>) : a code file (prettified by its extension)

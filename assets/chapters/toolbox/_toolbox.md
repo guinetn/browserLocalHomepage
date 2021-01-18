@@ -34,14 +34,20 @@ const pi = 3.14;
 }
 ```
 
-# Horizontal Slide Show: a slideShowContainer that contains slideShowSlide items
+# Horizontal Slide Show
+a `slideShowContainer` that contains `slideShowSlide` items
+
 ```html
 <div class="slideShowContainer">   
    <div class="slideShowSlide">  
-      ...  content #1.0
+      ...  
+      content #1
+      ...        
    </div>  
    <div class="slideShowSlide">  
-      ...  content #2.0
+      ...  
+      content #2
+      ...        
    </div>  
 </div>  
 ```
