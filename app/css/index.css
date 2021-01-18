@@ -63,7 +63,7 @@ body {
   margin: 3px 0 0 10px;  
 }
 
-/* VIEWS */
+/* BOOKS */
 
 .book > * {
    padding-left: 15px; 
@@ -276,7 +276,7 @@ em {
     color: #FF5722;
 }
 
-/* VIEWS */
+/* BOOKS */
 
 .book #home {
   background-color: var(--homeBg);

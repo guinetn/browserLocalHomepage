@@ -1,4 +1,4 @@
-/* CUSTOMIZE VIEW */
+/* CUSTOMIZE BOOKS */
 
 function tools_init() {
   document.querySelector("#timestamp").value = Math.floor(

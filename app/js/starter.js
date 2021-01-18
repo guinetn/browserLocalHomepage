@@ -13,7 +13,6 @@ import { slideShow } from "./slideshow.js";
     utils.downloadTextFile(config.booksFile, null, initApplication);
   });
 
-  // INIT CUSTOMIZED VIEWS
   function initApplication(options, booksLoaded) {
     document.querySelector(config.booksContainer).innerHTML = booksLoaded;
 
