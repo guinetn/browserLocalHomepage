@@ -334,5 +334,21 @@ em {
   background: var(--toolboxBg);  
 }
 
+/* Scrolbars */
 
+*::-webkit-scrollbar {
+	width: 15px;
+	background-color: #1d1b18;
+	outline: none;
+}
+
+*::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #770000;
+}
+
+*::-webkit-scrollbar-track {
+	background-color: #1d1b18;
+	border-radius: 0px;
+}
 
