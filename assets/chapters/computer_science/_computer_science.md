@@ -72,8 +72,6 @@ download.chapter(computer_science/architecture.md)
 ::::
 download.chapter(computer_science/regex.md)
 ::::
-download.chapter(computer_science/depency_injection_ioc.md)
-::::
 download.chapter(computer_science/best_practices.md)
 ::::
 download.chapter(computer_science/design_patterns.md)

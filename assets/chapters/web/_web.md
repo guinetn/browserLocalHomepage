@@ -30,17 +30,9 @@ download.chapter(web/javascript_ES2020_ES11.md)
 :::: 
 download.chapter(web/json.md)
 :::: 
-download.chapter(web/back/aspnet.md)
-::::
-download.chapter(web/back/nginx.md)
-::::
-download.chapter(web/back/aspnetcore.md)
-:::: 
 download.chapter(web/automation.md)
 ::::
 download.chapter(web/testing.md)
-::::
-download.chapter(web/back/server_iis.md)
 ::::
 download.chapter(web/web-analytics.md)
 ::::

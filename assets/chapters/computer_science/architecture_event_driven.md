@@ -1,5 +1,20 @@
 # Event Driven Architecture
 
+Dispatch some data with different computation times to different destinations:
+- a broker
+- a simple job queue
+- plethora of battle-tested solutions out there
+- Apache Kafka
+- RabbitMQ 
+- Redis
+- solid AWS SNS/SQS combination where topics can be defined on SNS with Lambdas or SQS enqueuing triggered at each message received. Why? Because why not, it gives solid performances and near unlimited scalability for just some bucks per month, with low to none maintenance costs beside your business logic; something to consider if you already have a part or your entire backend hosted on AWS.
+
+Sometimes though it can be an overkill or all we need is just a prototype, a proof of concept, in those cases a simple microservice can do well enough with little costs: https://codepr.github.io/posts/asyncio-pubsub/ ***
+
+
+
+
+
 RabbitMQ and Kafka are very often used for asynchronous messaging for inter-service communication. Services communicating by exchanging messages over messaging channels.
 
 Advantages of Message-Based Systems are:
@@ -19,6 +34,9 @@ SQS - Amazon Simple Queue Service
 https://aws.amazon.com/sqs/
  
  
+ 
 download.chapter(computer_science/architecture_event_driven/rabbitmq.md)
 
 download.chapter(computer_science/architecture_event_driven/kafka.md)
+
+download.chapter(computer_science/architecture_event_driven/mqtt.md)

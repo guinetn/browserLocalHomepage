@@ -10,8 +10,8 @@ A set of practices, templates
 A model, enable progress
 System of assumptions (hypothèses), concepts, ways of thinking, values, practices (methodology) accepted by members of a community
 
-* IMPERATIVE
-Steps of instr.: follow my commands in the order I give them
+* IMPERATIVE (DEFINE HOW)
+Define exact steps of instr.: follow my commands in the order I give them
 Allows side effects
 
 * FUNCTIONAL         
@@ -19,6 +19,7 @@ Mutable is dangerous
 Pure functions are safe (disallows side effects)
 
 * DECLARATIVE: SQL, XSLT
+You define WHAT you want (desired "end state") rather then describing exactly each step or HOW to do it.
 Do this
 This is what I want, I dont care how you did it
 Doesnt state the order in which operations execute
@@ -228,6 +229,8 @@ programming.
 	. continuations
 
 ## DYNAMIC PROGRAMMING
+
+Used to solve optimization problems. 
 
 Purpose of dynamic programming is to not calculate the same thing twice. 
 See either "shortest/longest, minimized/maximized, least/most, fewest/greatest, “biggest/smallest"? It’s an optimisation problem.

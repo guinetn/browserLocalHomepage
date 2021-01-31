@@ -1,3 +1,3 @@
 # SDK
 
-Ccollection of tools packaged together for easier developers task. 
+Collection of tools packaged together for easier developers task. 

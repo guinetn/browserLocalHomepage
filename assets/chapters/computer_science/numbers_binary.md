@@ -22,6 +22,13 @@ Eight bits is a byte, which is the basic unit of information that computers work
 |10000000| 128|  7|
 |11111111| 255|  8|
 | 8 bits = 1 byte|||
+
+## Snippets
+Test k<sup>th</sup> bit is set: num & (1 << k) != 0.
+Set k<sup>th</sup> bit: num |= (1 << k).
+Turn off k<sup>th</sup> bit: num &= ~(1 << k).
+Toggle the k<sup>th</sup> bit: num ^= (1 << k).
+To check if a number is a power of 2, num & num - 1 == 0.
  
 ## Convert decimal to binary
 * Divide the number by 2

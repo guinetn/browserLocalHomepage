@@ -4,6 +4,17 @@ https://medium.com/@adhasmana/auth-token-management-with-node-js-observer-patter
 
 https://www.c-sharpcorner.com/article/basic-authentication-in-swagger-open-api-net-5/
 
+## TYPE OF AUTHENTICATION
+- Custom credential database
+- ASP.NET Identity
+- Identity Server
+- Commercial Identity Provider (e.g. Azure AD, Auth0, Ping Identity, Okta etc.)
+- Social Providers (Facebook, Google ID, Apple ID etc.)
+- Windows or Kerberos authentication
+- Azure AD B2C
+- Azure Easy Auth
+- Any other authentication system
+
 ## OpenID 
 https://openid.net/
 

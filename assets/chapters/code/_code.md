@@ -5,7 +5,7 @@ https://hyperpolyglot.org/
 ::::
 download.chapter(code/hello_worlds.md)
 ::::
-download.chapter(code/repos/repos.md)
+download.chapter(code/repos/_repos.md)
 ::::
 download.chapter(code/uml.md)
 ::::

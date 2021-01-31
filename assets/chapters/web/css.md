@@ -388,5 +388,8 @@ download.chapter(web/css_layout_flexbox.md)
 
 download.chapter(web/css_bem.md)
 
+## STYLE GUIDES
+
+https://github.com/airbnb/javascript
 ## More
 - https://moderncss.dev/guide-to-advanced-css-selectors-part-two/

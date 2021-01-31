@@ -21,6 +21,7 @@ Already making inroads into finance, thanks to a project to implement the same t
 
 Typescript 
 is a superset of the much maligned Java Script, created by none other than Microsoft. 
+https://www.tutorialsteacher.com/typescript/typescript-overview
 
 Kotlin
 not originally developed by Google, but in 2019 it was adopted as their preferred language for Android apps. Google’s home grown product, Dart, is useful for developing applications that run across multiple platforms. Swift is the official language for Apple IOS apps.
@@ -34,8 +35,6 @@ download.chapter(code/langs/assembler.md)
 download.chapter(code/langs/c.md)
 ::::
 download.chapter(code/langs/c++.md)
-::::
-download.chapter(code/dotnet/_dotnet.md)
 ::::
 download.chapter(code/langs/elm.md)
 ::::

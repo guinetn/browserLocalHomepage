@@ -9,6 +9,7 @@ https://www.dofactory.com/products/dofactory-js
 https://www.dofactory.com/javascript/reference
 https://dev.to/rahxuls/17-pro-javascript-tricks-you-didn-t-know-5gog
 https://davidwalsh.name/cache
+https://krasimirtsonev.com/blog/article/Javascript-template-engine-in-just-20-line
 
 Specifications: Standard ECMA-262
 ## PLAYGROUND

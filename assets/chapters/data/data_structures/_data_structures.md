@@ -1,5 +1,18 @@
 # DATA STRUTURES
 
+
+download.chapter(data/data_structures/intervals.md)
+download.chapter(data/data_structures/types/array.md)
+download.chapter(data/data_structures/types/graphs.md)
+download.chapter(data/data_structures/types/hash_table.md)
+download.chapter(data/data_structures/types/heap.md)
+download.chapter(data/data_structures/types/linked_list.md)
+download.chapter(data/data_structures/types/queue.md)
+download.chapter(data/data_structures/types/stack.md)
+download.chapter(data/data_structures/types/tree.md)
+download.chapter(data/data_structures/types/trie.md)
+
+
 ## primitive data structure
 integer
 float
