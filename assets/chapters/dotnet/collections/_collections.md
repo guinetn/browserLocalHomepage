@@ -29,6 +29,7 @@ Enumerable.Range(1, 5).Select(i => {})
 
 download.chapter(dotnet/collections/tuple.md)
 
+download.chapter(dotnet/collections/ienumerator.md)
 download.chapter(dotnet/collections/ienumerable.md)
 
 download.chapter(dotnet/collections/generics.md)

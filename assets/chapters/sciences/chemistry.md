@@ -26,3 +26,5 @@ All these bonds are stables but during a chemical reaction there are intermediat
 - https://x-engineer.org/undergraduate-engineering/chemistry/general-chemistry/the-mole-and-avogadros-number/
 
 - https://x-engineer.org/undergraduate-engineering/chemistry/general-chemistry/states-phases-matter-aggregation/
+
+- https://www.cea.fr/comprendre/Pages/physique-chimie/essentiel-sur-noyaux-des-atomes.aspx

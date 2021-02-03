@@ -45,3 +45,27 @@ public ActionResult TupleDemo()
         return View(allModels);
 }
 ```
+
+
+```cs
+public static void Main()
+{
+    string root = Directory.GetCurrentDirectory();
+    string searchPattern = "*";
+
+    IEnumerable<string> fileList = Directory.EnumerateFiles(root, searchPattern);
+    IEnumerable<(string FileName, long Size)> items = fileList.Select(file =>
+        {
+            FileInfo fileInfo = new FileInfo(file);
+            return ( FileName: fileInfo.Name, Size: fileInfo.Length );
+        });
+
+    ListItems(items);
+}
+
+private static void ListItems(IEnumerable<(string FileName, long Size)> items)
+{
+    foreach((string FileName, long Size) item in items)    
+        Console.WriteLine($"File: '{item.FileName}', Size:{item.Size}");    
+}
+```

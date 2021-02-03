@@ -1,16 +1,18 @@
 # TOOLS
 
 download.chapter(dotnet/tools/ildasm.md)
-
+::::
+download.chapter(dotnet/msbuild.md)
+::::
 download.chapter(dotnet/tools/resgen.md)
 ::::
 download.chapter(dotnet/tools/nuget.md)
 ::::
-download.chapter(dotnet/tools/powershell.md)
-::::
 download.chapter(dotnet/tools/entity_framework.md)
 ::::
 download.chapter(dotnet/tools/wpf.md)
+::::
+download.chapter(dotnet/tools/winforms.md)
 ::::
 download.chapter(dotnet/tools/uwp.md)
 ::::
@@ -25,3 +27,7 @@ download.chapter(dotnet/tools/linq.md)
 download.chapter(dotnet/tools/linq2sql.md)
 ::::
 download.chapter(dotnet/tools/wcf.md)
+::::
+download.chapter(dotnet/tools/interop.md)
+::::
+download.chapter(dotnet/tools/testing.md)

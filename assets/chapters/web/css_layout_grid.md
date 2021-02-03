@@ -10,6 +10,7 @@ Solve 2D layouts (flexbox is one dimension)
 <div class="slideShowSlide">
 1. Define a container element 
 <pre><code>
+
 .container {
   display: grid | inline-grid;       generates a block-level or an inline-level grid  
 }

@@ -6,7 +6,19 @@ Dependency Injection (DI) reduces the coupling between classes and moves the bin
 
 DI creates loosely coupled classes. The Dependency Injection (DI) pattern uses a builder object to initialize objects and provide the required dependencies to the object, meaning that it allows developers to "inject" a dependency from outside the class. There are four ways of achieving the Dependency Injection.
 
-![](assets/chapters/code/assets/di.jpg)
+![](assets/chapters/dotnet/assets/di/di.jpg)
+
+![](assets/chapters/dotnet/assets/di/di-host.png)
+Strongly Coupling the Client to the Logging Service Implementation
+
+![](assets/chapters/dotnet/assets/di/di-host-2.png)
+Decoupling the Client/Library from the Specific Logging Implementation via Dependency Injection
+
+![](assets/chapters/dotnet/assets/di/di-sequence-diagram.png)
+![](assets/chapters/dotnet/assets/di/di-unit-testing.png)
+
+![](assets/chapters/dotnet/assets/di/di-unit-tests-host.png)
+Unit Testing with Dependency Injection so a Mock Type Instance Can Be Used
  
  
  
@@ -15,7 +27,7 @@ DI creates loosely coupled classes. The Dependency Injection (DI) pattern uses a
 * Remove the dependency between two objects
 * Style of wiring objects together
 * DI containers improve the composition of whole object graphs
-* Ideal for mocking
+* Ideal for mocking: common need for dependency injection is in unit tests 
 
   ## What is dependency? 
   public class Address { }
@@ -68,10 +80,15 @@ You can also use other design patterns, such as the Factory or Publisher/Subscri
 
 ## IOC - inversion of control
 
+Pattern of decoupling the actual instance returned
+
 A way to apply the Dependency Inversion Principle, mechanism that allows your higher-level components to depend on abstraction rather than the concrete implementation of lower-level components.
 Hollywood Principle. This name comes from the Hollywood cinema industry, where, after an audition for an actor role, usually the director says, don't call us, we'll call you.
 
 Using DI, we are inverting the control of object creation from a dependent object to an injector/caller which will take care of creating the instance.
+
+Rather than the client determining what is instantiated, as it does when explicitly invoking the constructor with the new operator, dependency injection determines what will be returned.  Dependency injection registers an association between the type requested by the client (generally an interface) and the type that will be returned.  Furthermore, dependency injection generally determines the lifetime of the type returned, specifically, whether there will be a single instance shared between all requests for the type, a new instance for every request, or something in between.
+
 
 public interface IAddress
 {
@@ -209,8 +226,17 @@ All Framework services (Configuration, Logging, Routing...) are now registered i
 1. Register all services (dependencies) when the application starts 
 2. These services will be injected and resolved at runtime
 
-Microsoft.Extensions.DependencyInjection.Abstractions NuGet package
-This provides access to the IServiceCollection interface, which exposes a System.IService­Provider from which you can call GetService<TService>. The type parameter, TService, identifies the type of the service to retrieve (generally an interface), thus the application code obtains an instance:
+***Microsoft.Extensions.DependencyInjection.Abstractions NuGet package***
+|___IServiceCollection 
+ |___ exposes a System.IService­Provider
+    |____ GetService<TService>
+    TService type parameter identifies the type of the service to retrieve (generally an interface)
+    So application code obtains an instance: ILoggingFactory loggingFactory = serviceProvider.GetService<ILoggingFactory>();
+
+To obtain an instance of the service provider on which to invoke GetService:
+1. Instantiate ServiceCollection’s default constructor
+2. Register the type you want the service to provide
+
 
 ***IServiceCollection***
 Standard way to use Dependency Injection in .NET Core applications
@@ -221,11 +247,80 @@ https://docs.microsoft.com/fr-fr/dotnet/api/microsoft.extensions.dependencyinjec
 ***IServiceProvider***
 This interface is used to resolve service instances by actually looking up what interface belongs to what concrete implementation and carry out the creation.
 
-ILoggingFactory loggingFactor = serviceProvider.GetService<ILoggingFactory>();
-
 ## Console DI
 
 https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage
+
+Registering and Requesting an Object from Dependency Injection
+```cs
+public class Host
+{
+    public static void Main()
+    {
+        IServiceCollection serviceCollection = new ServiceCollection();
+ 
+        ConfigureServices(serviceCollection);
+        Application application = new Application(serviceCollection);
+ 
+        // Run
+        // ...
+    }
+ 
+    static private void ConfigureServices(IServiceCollection serviceCollection)
+    {
+        ILoggerFactory loggerFactory = new Logging.LoggerFactory(); 
+        serviceCollection.AddInstance<ILoggerFactory>(loggerFactory);
+    }
+}
+ 
+public class Application
+{
+    public IServiceProvider Services { get; set; }
+    public ILogger Logger { get; set; }
+ 
+    public Application(IServiceCollection serviceCollection)
+    {
+        ConfigureServices(serviceCollection);
+        Services = serviceCollection.BuildServiceProvider();
+        Logger = Services.GetRequiredService<ILoggerFactory>()
+                .CreateLogger<Application>();
+        Logger.LogInformation("Application created successfully.");
+ 
+    }
+         
+    public void MakePayment(PaymentDetails paymentDetails)
+    {
+        Logger.LogInformation(
+            $"Begin making a payment { paymentDetails }");
+        IPaymentService paymentService = 
+            Services.GetRequiredService<IPaymentService>();
+ 
+        // ...
+    }
+ 
+    private void ConfigureServices(IServiceCollection serviceCollection)
+    {
+        serviceCollection.AddSingleton<IPaymentService, PaymentService>();
+    }
+}
+public class PaymentService: IPaymentService
+{
+    public ILogger Logger { get; }
+ 
+    public PaymentService(ILoggerFactory loggerFactory)
+    {
+ 
+        Logger = loggerFactory?.CreateLogger<PaymentService>();
+        if(Logger == null)
+        {
+            throw new ArgumentNullException(nameof(loggerFactory));
+        }
+         
+        Logger.LogInformation("PaymentService created");
+    }
+}
+```
+
 ## AspNetCore DI
 ```cs
 public class Startup
@@ -406,6 +501,7 @@ namespace Client
 
 ## More
 
+- https://intellitect.com/net-core-dependency-injection/ ****
 - https://github.com/unitycontainer
 - https://auth0.com/blog/dependency-injection-in-dotnet-core/ **
 - https://www.ezzylearning.net/tutorial/a-step-by-step-guide-to-asp-net-core-dependency-injection

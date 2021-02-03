@@ -41,3 +41,4 @@ URL shortening service like bit.ly or goo.gl
 - https://www.ezzylearning.net/tutorial/a-developers-guide-for-creating-web-apis-with-asp-net-core-5
 - https://auth0.com/blog/how-to-build-and-secure-web-apis-with-aspnet-core-3/
 - https://www.tutorialsteacher.com/webapi/consuming-web-api-in-dotnet-using-httpclient
+- https://www.ezzylearning.net/tutorial/a-developers-guide-for-creating-web-apis-with-asp-net-core-5

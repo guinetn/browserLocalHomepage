@@ -17,19 +17,25 @@ Perform any necessary final clean-up when a class instance is being collected by
 * Finalizers cannot be defined in structs. They are only used with classes.
 * A class can only have one finalizer.
 * Finalizers cannot be inherited or overloaded.
-* Finalizers cannot be invoked explicitly. They are invoked automatically.
+* Finalizers cannot be invoked explicitly. They are only invoked automatically by the garbage collector
 * A finalizer does not take modifiers or have parameters.
 * Empty finalizers should not be used (performance) 
+* Finalizers in base classes will be invoked automatically as part of an object finalization call.
+
+As the garbage collector handles all memory management, finalizers are not responsible for de-allocating memory
+Finalizers are responsible for freeing up resources such as database connections and file handles—resources that require an explicit activity that the garbage collector doesn’t know about.
 
 An instance becomes eligible for destruction when it is no longer possible for any code to use the instance.
 Execution of the destructor for the instance may occur at any time after the instance becomes eligible for destruction.
-When an instance is destructed, the destructors in its inheritance chain are called, in order, from most derived to least derived. 
+When an instance is destructed, the destructors in its inheritance chain are called, in order, from most derived to least derived. At compile time we cannot determine exactly when the finalizer will execute.
 
 It implicitly calls Finalize() on the base class of the object. 
 Finalize is called recursively for all instances in the inheritance chain, from the most-derived to the least-derived.
 The programmer has no control over when the finalizer is called; the garbage collector decides when to call it. Finalizers are also called when the program exits. 
 Forcing garbage collection with Collect() should be avoided for performance issues.
 
+Avoid exceptions within finalizers because finalizers execute on their own thread, making their execution even less deterministic making an unhandled exception within a finalizer (outside debugger) difficult to diagnose because of the exception unclear circumstances.
+ 
 ```cs
 public class Destroyer
 {
@@ -50,53 +56,39 @@ protected override void Finalize()
     }  
 }  
 ```
-#### IDisposable
-To release unmanaged resources. The garbage collector automatically releases the memory allocated to a managed object when that object is no longer used. However, it is not possible to predict when garbage collection will occur. Furthermore, the garbage collector has no knowledge of unmanaged resources such as window handles, or open files and streams.
-
-You can release your resources before the garbage collector frees the object
-Even with this explicit control over resources, the finalizer becomes a safeguard to clean up resources if the call to the Dispose method fails.
-
-Call Dispose() to explicitly release unmanaged resources in conjunction with the garbage collector.
 
 ```cs
-class BaseClass : IDisposable
+using System.IO;
+ 
+class TemporaryFileStream
 {
-   // Flag: Has Dispose already been called?
-   bool disposed = false;
-
-   // Public implementation of Dispose pattern callable by consumers.
-   public void Dispose()
-   {
-      Dispose(true);
-      GC.SuppressFinalize(this);
-   }
-
-   // Protected implementation of Dispose pattern.
-   protected virtual void Dispose(bool disposing)
-   {
-      if (disposed)
-         return;
-
-      if (disposing) {
-         // Free any other managed objects here.
-         //
-      }
-
-      // Free any unmanaged objects here.
-      //
-      disposed = true;
-   }
-
-   ~BaseClass()
-   {
-      Dispose(false);
-   }
+    
+  public FileInfo File { get; }
+  public FileStream Stream { get; } 
+   
+  public TemporaryFileStream(string fileName)
+  {
+      File = new FileInfo(fileName);
+      Stream = new FileStream( File.FullName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+  }
+ 
+  public TemporaryFileStream():this(Path.GetTempFileName()) { }
+ 
+  // Finalizer
+  ~TemporaryFileStream()
+  {
+      Close();
+  }
+ 
+  public void Close()
+  {
+      Stream?.Dispose();
+      File?.Delete();
+  }
 }
 ```
 
-Subclasses should implement the disposable pattern as follows:
-They must override Dispose(Boolean) and call the base class Dispose(Boolean) implementation.
-They can provide a finalizer if needed. The finalizer must call Dispose(false).
+download.chapter(assets/chapters/dotnet/language/idispose.md)
 
 ### Polymorphism
 

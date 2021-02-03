@@ -1,5 +1,10 @@
 # Linux
 
+Linus Torvalds s'est attelé à écrire un noyau de type Unix (Linux) 
+Linux est le noyau, c'est-à-dire le programme du système qui alloue les ressources de la machine aux autres programmes qu'on exécute. Le noyau est une partie essentielle du système d'exploitation, mais seul il est inutile ; il ne peut fonctionner que dans le contexte d'un système d'exploitation complet. Linux est normalement utilisé en combinaison avec le système d'exploitation GNU : le système complet est essentiellement GNU auquel on a ajouté Linux, ou GNU/Linux. Toutes les distributions appelées « Linux » sont en réalité des distributions de GNU/Linux.
+
+Linux is just the kernel. Unix is a complete package of Operating system.
+
 - ![linux-file-system](assets/chapters/computer_science/assets/linux-file-system.jpg)
 
 |Folder||
@@ -36,7 +41,10 @@ head/tail/grep file.log
 
 ## systemd
 2015
-An init system ¤ used by several common Linux Distributions
+to deploy and run your application on a Linux server 
+is the replacement to init and upstart in older Linux systems
+
+An init system used by several common Linux Distributions
 Unit files that contain the initialization instructions for the daemons which it controls. 
 To control services with systemd, the systemctl command is used
 
@@ -170,3 +178,14 @@ $ gcc mempodipper.c -o mempodipper
 $ ./mempodipper
 
 
+## LXD
+
+Tools to manage the LXC (LinuX Containers) layer of Linux kernel
+Containers = confined environments where applications can run isolated from os/others containers
+Free clouds providers (OpenStack, OpenNebula...) have LXD drivers to deploy containers on their physical nodes
+ 
+start/stop containers:
+[root@apollo ~]# lxc stop apollo
+[root@apollo ~]# lxc start apollo
+
+https://connect.ed-diamond.com/Linux-Pratique/LPHS-045/La-mise-en-conteneur-d-une-application-ou-d-un-service-avec-LXD

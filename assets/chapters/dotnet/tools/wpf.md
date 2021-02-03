@@ -519,5 +519,63 @@ RoutedUICommand includes a Text property (RoutedUICommand not)
 https://docs.microsoft.com/en-gb/dotnet/api/system.windows.input.routedcommand?view=net-5.0
 
 #### 
+
+
+Achieving the same marshalling check on the Windows Presentation Foundation (WPF) platform involves a slightly different approach. WPF includes a static member property called Current of type DispatcherObject on the System.Windows.Application class. Calling CheckAccess() on the dispatcher serves the same function as InvokeRequired on controls in Windows Forms.
+
+Below this approach with a static UIAction object. Whenever a developer wants to call a method that might interact with the user interface, she simply calls UIAction.Invoke() and passes a delegate for the UI code she wishes to call. This, in turn, checks the dispatcher to see if marshalling is necessary and responds accordingly.
+
+One additional feature in the UIAction of Listing 12 is the marshalling of any exceptions on the UI thread that may have occurred. SafeInvoke() wraps all requested delegate calls in a try/catch block; if an exception is thrown, it saves the exception and then rethrows it once the context returns to the calling thread. In this way, UIAction avoids throwing unhandled exceptions on the UI thread.
+
+Safely Invoking User Interface Objects
+
+```cs
+using System;
+using System.Windows;
+using System.Windows.Threading;
+
+public static class UIAction
+{
+    public static void Invoke<T>(
+    
+    Action<T> action, T parameter) { Invoke(() => action(parameter)); }
+    
+    public static void Invoke(Action action)
+    {
+        DispatcherObject dispatcher = Application.Current; 
+        if (dispatcher == null || dispatcher.CheckAccess() || dispatcher.Dispatcher == null ) 
+            { action(); }
+        else
+        { SafeInvoke(action); }
+    }
+    
+    // We want to catch all exceptions here so we can rethrow them.
+    private static void SafeInvoke(Action action)
+    {
+        Exception exceptionThrown = null;
+        Action target = () => { 
+            try {
+                action();
+            }
+            catch (Exception exception) {
+                exceptionThrown = exception;
+            }    
+        };
+        
+        Application.Current.Dispatcher.Invoke(target);
+        if (exceptionThrown != null)
+        {
+            // Use ExceptionDispatchInfo.Throw() for .NET 4.5+.
+            throw exceptionThrown;
+        }
+    }
+    
+}
+
 ```
-```
+
+
+
+## More
+- https://intellitect.com/interfacing-multithreading-patterns/
+- https://github.com/Code52/Enhance

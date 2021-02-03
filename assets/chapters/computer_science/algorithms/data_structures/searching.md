@@ -1,6 +1,6 @@
-## Searching algorithms
+# Searching algorithms
 
-### Sequential Search
+## Sequential Search
 With an ordered container it is possible to visit them in sequence O(n)
 
 |Case	             |Best Case	| Worst Case | Average Case ||
@@ -48,11 +48,11 @@ ordered_sequential_search(testlist, 3)  # => False
 ordered_sequential_search(testlist, 13)  # => True
 ``` 
 
-### Binary Search
+## Binary Search
 
-Divide and conquer strategy in O(logn)
+Divide and conquer strategy in O(log n)
 
-Instead of searching the list in sequence, a binary search will use the ordered nature of the list to eliminate half of the left/right.
+Instead of searching the list in sequence, a binary search will use the ORDERED nature of the list to eliminate half of the left/right.
 * start by examining the middle item
 * If is the correct item, we are done
 * If it is not and the item searching for is greater than the middle item, we know that the entire lower half of the list as well as the middle item can be eliminated from further consideration. The item, if it is in the list, must be in the upper half. Repeat the process with the upper half. Start at the middle item and compare it against what we are looking for. Again, we either find it or split the list in half, therefore eliminating another large part of our possible search space. 
@@ -64,6 +64,13 @@ Each comparison eliminates around half of the remaining items from consideration
 |2|n/4|
 |…||
 |i|n/2^i|
+
+| | |
+|----------------------------|----------|
+|Worst-case performance      | O(log n) |
+|Best-case performance       | O(1) |
+|Average performance         | O(log n) |
+|Worst-case space complexity |  O(1) |
 
 The number of comparisons necessary to get to this point is i where n/2^i=1 ==> comparisons number is i=log n
  
@@ -89,7 +96,29 @@ binary_search(testlist, 3)  # => False
 binary_search(testlist, 13)  # => True
 ```
 
-### Hashing
+```cs
+public static object BinarySearchDisplay(int[] arr, int key) {
+   int minNum = 0;
+   int maxNum = arr.Length - 1;
+
+   while (minNum <=maxNum) {
+      int mid = (minNum + maxNum) / 2;
+      if (key == arr[mid]) {
+         return ++mid;
+      } else if (key < arr[mid]) {
+         max = mid - 1;
+      }else {
+         min = mid + 1;
+      }
+   }
+   return "None";
+}
+```
+
+Binary search in...
+https://www.tutorialspoint.com/Binary-search-in-Chash
+
+## Hashing
 
 Previously we make improvements in our search algorithms by taking advantage of information about where items are stored in the collection with respect to one another. Knowing a list was ordered, we could search in logarithmic time using a binary search. 
 Hash is a data structure that can be searched in O(1) time

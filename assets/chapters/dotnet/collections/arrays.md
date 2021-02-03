@@ -17,8 +17,12 @@ int[] arr = {1, 2, 3, 4, 5};
 
 int[] numbers = new int[] {1, 2, 3};
 int[] numbers = { 1, 3, 5, 7, 9 };
-foreach (var n in numbers) Console.WriteLine(n);
-Array.ForEach<int>(numbers, n => Console.WriteLine(n));//[1,2,3,4]
+foreach (var n in numbers) 
+    Console.WriteLine(n);
+    
+Array.ForEach<int>(numbers, n => Console.WriteLine(n)); //[1,2,3,4]
+
+// Array Size
 var totalElements = numbers.Count(); // 5
 var totalEvenNums = numbers.Count(n => n%2==0);
 
@@ -38,7 +42,7 @@ var contacts = new[] {
 		PhoneNumbers = new[] { "650-555-0199" }
 	}
 
-// Search
+// Searches 
 string[] names = { "Steve", "Bill", "Bill Gates", "Ravi", "Mohan", "Salman", "Boski" };
 var stringToFind = "Bill";
 var result = Array.Find(names, element => element == stringToFind); // returns "Bill"
@@ -52,6 +56,82 @@ string[] animals = { "Cat", "Alligator", "fox", "donkey", "Cat", "alligator" };
 var animalsWithCapitalLetter = animals.Count(s => { return Regex.IsMatch(s, "^[A-Z]"); });
 
 Array.Reverse(animals);
+```
+
+### Array Binary Search
+Searches a one-dimensional SORTED Array for a value, using a binary search algorithm.
+O(n log n)
+https://www.tutorialspoint.com/Binary-search-in-Chash
+https://docs.microsoft.com/en-us/dotnet/api/system.array.binarysearch?view=net-5.0
+
+```cs
+using System;
+
+public class SamplesArray
+{
+    public static void Main()
+    {
+        // Creates and initializes a new Array.
+        Array myIntArray = Array.CreateInstance(typeof(Int32), 5);
+
+        myIntArray.SetValue(8, 0);
+        myIntArray.SetValue(2, 1);
+        myIntArray.SetValue(6, 2);
+        myIntArray.SetValue(3, 3);
+        myIntArray.SetValue(7, 4);
+
+        // Do the required sort first
+        Array.Sort(myIntArray);
+
+        // Displays the values of the Array.
+        Console.WriteLine( "The Int32 array contains the following:" );
+        PrintValues(myIntArray);
+
+        // Locates a specific object that does not exist in the Array.
+        object myObjectOdd = 1;
+        FindMyObject( myIntArray, myObjectOdd );
+
+        // Locates an object that exists in the Array.
+        object myObjectEven = 6;
+        FindMyObject(myIntArray, myObjectEven);
+    }
+
+    public static void FindMyObject(Array myArr, object myObject)
+    {
+        int myIndex=Array.BinarySearch(myArr, myObject);
+        if (myIndex < 0)
+        {
+            Console.WriteLine("The object to search for ({0}) is not found. The next larger object is at index {1}.", myObject, ~myIndex );
+        }
+        else
+        {
+            Console.WriteLine("The object to search for ({0}) is at index {1}.", myObject, myIndex );
+        }
+    }
+
+    public static void PrintValues(Array myArr)
+    {
+        int i = 0;
+        int cols = myArr.GetLength(myArr.Rank - 1);
+        foreach (object o in myArr)
+        {
+            if ( i < cols )            
+                i++;            
+            else
+            {
+                i = 1;
+                Console.WriteLine();
+            }
+            Console.Write( "\t{0}", o);
+        }
+        Console.WriteLine();
+    }
+}
+// This code produces the following output.
+//The Int32 array contains the following:
+//        2       3       6       7       8
+//The object to search for (1) is not found. The next larger object is at index 0
+//The object to search for (6) is at index 2.
 ```
 
 Sort

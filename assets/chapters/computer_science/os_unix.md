@@ -1,6 +1,20 @@
 # Unix
 
-## UNIX Philosophy
+ UNIX was designed to be built in separate pieces that could be piped together. 
+ 
+ Proprietary Unix operating systems (and Unix-like variants) run on a wide variety of digital architectures, and are commonly used on web servers, mainframes, and supercomputers. In recent years, smartphones, tablets, and personal computers running versions or variants of Unix have become increasingly popular.
+ Linux is just the kernel. Unix is a complete package of Operating system.
+ 
+Operating system developed at Bell laboratory in the year 1970
+by Dennis Ritchie, Ken Thompson, Brian Kernighan, Joe Ossanna and Douglas Mcllroy  
+Allow multiple users to work on it simultaneously by cultivating the principles of interoperability like POSIX and following the philosophies like single-purpose execution, standard interface operating only on text, core kernel coiling the Unix systems thereby allowing the systems and other processes and interoperable to a large extent.
+ 
+ https://www.educba.com/what-is-unix/
+ 
+ Unix os is written in C language
+ UNIX can also be called as an operating system that has its utilization in both work stations and servers.
+ 
+ ## UNIX Philosophy
 
 * Small is beautiful
 * Make each program do one thing well
@@ -48,3 +62,48 @@ https://en.wikipedia.org/wiki/Unix_philosophy
 . Developers should design their programs to be flexible and open. This rule aims to make programs flexible, allowing them to be used in ways other than those their developers intended.
 . Rule of Extensibility
 . Developers should design for the future by making their protocols extensible, allowing for easy plugins without modification to the program's architecture by other developers, noting the version of the program, and more. This rule aims to extend the lifespan and enhance the utility of the code the developer writes.
+
+## Unix Architecture
+
+- Kernel
+deals with all the hardware connections
+manages the connections related to hardware, applications and commands.
+
+- Hardware
+
+- Shell
+bridge between the user, user commands and predefined UNIX commands.
+Various tasks which shell ask the kernel to do are
+File opening.
+File writing.
+Executing programs.
+Obtaining detailed information about the program.
+Termination of the process.
+Getting information about time and date.
+
+- Files and directories
+files and directories which are called Unix programs mostly and can be considered as commands in Unix
+
+## File
+a collection of information or data which is stored in the disk.
+Files that contain data, text and program instructions. 
+>ls
+-rw-r–r–    1 root root     3028 Apr  4  2018 Sample.conf
+drwxr-xr-x  3 root root     4096 Apr  4  2018 Test.txt
+             \    \    \      \        \      \___  pathname/filename
+              \    \    \      \        \___  Date details
+               \    \    \      \___  bytes in the file
+                \    \    \___ File group name  
+                 \    \___ Owner of the file 
+                  \___ Links in the file
+                   
+Mode and access details associated with the file
+group 1: d
+group 2: rwx
+group 3: r-x
+group 4: r-x
+r: Permission only to read
+w: Permission only to write
+x: Permission to execute
+–: No permission
+

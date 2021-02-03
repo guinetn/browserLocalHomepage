@@ -1,10 +1,6 @@
 # Dotnet - Powershell
 
-
-Lancez Windows PowerShell
-cd 'G:\DotNet\CSharp\CS 2009 Samples\LanguageSamples\__CompilAll'
-.\comp.ps1 
-gci -path ..\ -recurse -filter *.csproj | foreach { pushd ([System.IO.Path]::GetDirectoryName($_.FullName)); C:\Windows\Microsoft.NET\Framework\v3.5\msbuild $_.fullname; popd; $_; }
+download.chapter(code/scripting/ps_files_recursive_action.md)
 
 
 ## :: Static member operator
@@ -56,3 +52,8 @@ LastAccessTimeUtc
 LastWriteTime
 LastWriteTimeUtc
 Attributes
+
+
+## More
+
+- https://intellitect.com/how-i-installed-software-on-a-server/

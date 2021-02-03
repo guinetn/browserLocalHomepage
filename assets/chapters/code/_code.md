@@ -5,6 +5,10 @@ https://hyperpolyglot.org/
 ::::
 download.chapter(code/hello_worlds.md)
 ::::
+download.chapter(code/editors/_editors.md)
+::::
+download.chapter(code/scripting/_scripting.md)
+::::
 download.chapter(code/repos/_repos.md)
 ::::
 download.chapter(code/uml.md)
@@ -12,8 +16,6 @@ download.chapter(code/uml.md)
 download.chapter(code/oop.md)
 ::::
 download.chapter(code/objects.md)
-::::
-download.chapter(code/depency_injection_ioc.md)
 ::::
 download.chapter(code/rx.md)
 ::::

@@ -21,11 +21,25 @@ foreach(KeyValuePair<int, string> kvp in numberNames)
     Console.WriteLine("Key: {0}, Value: {1}", kvp.Key, kvp.Value);
 		
 //creating a dictionary using collection-initializer syntax
+// <= C# 5.0
 var cities = new Dictionary<string, string>(){
 	{"UK", "London, Manchester, Birmingham"},
 	{"USA", "Chicago, New York, Washington"},
 	{"India", "Mumbai, New Delhi, Pune"}
 };
+
+// C# 6.0
+var cities = new Dictionary<string, string>(){
+	["UK"] = "London, Manchester, Birmingham",
+	["USA"] = "Chicago, New York, Washington",
+	["India"] = "Mumbai, New Delhi, Pune"}
+};
+         
+private static void Print(IEnumerable<KeyValuePair<string, ConsoleColor>> items)
+{
+    foreach (KeyValuePair<string, ConsoleColor> item in items)    
+        Console.WriteLine("Key: {0}, Value: {1}", item.Key, item.Value);            
+}
 		
 foreach(var kvp in cities)
     Console.WriteLine("Key: {0}, Value: {1}", kvp.Key, kvp.Value);
@@ -76,4 +90,16 @@ if(cities.ContainsKey("France")){
 }
 
 cities.Remove("UK"); // removes UK 
+```
+
+
+```cs
+ static IReadOnlyDictionary<string, string> DefaultConfigurationStrings{get;} = new Dictionary<string, string>() {
+      ["Profile:UserName"] = Environment.UserName,
+      [$"AppConfiguration:ConnectionString"] = DefaultConnectionString,
+      [$"AppConfiguration:MainWindow:Height"] = "400",
+      [$"AppConfiguration:MainWindow:Width"] = "600",
+      [$"AppConfiguration:MainWindow:Top"] = "0",
+      [$"AppConfiguration:MainWindow:Left"] = "0",
+    };
 ```

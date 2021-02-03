@@ -50,6 +50,9 @@ You can use additional generic constraints.
 * Tuples 
 * Local Functions
 * Pattern Matching feature (is / case extension)
+
+Program complex types with enhanced pattern matching syntax
+
 To match patterns on any data type, even on custom data types
 Built-in pattern matching
 Pattern matching can extract values from your expression
@@ -477,3 +480,7 @@ Local functions can improve the readability of complex methods. Yes you could us
 
 
 
+## More
+
+- https://intellitect.com/csharp-7-msdn/
+- https://intellitect.com/csharp7-tuples-explained/

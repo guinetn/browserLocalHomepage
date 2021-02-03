@@ -1,6 +1,5 @@
 # Types
 
-
 ***VALUE TYPES***
 struct, enum, bool, int, char, float, double, decimal
 
@@ -35,6 +34,11 @@ download.chapter(dotnet/types/ref/delegates.md)
 ::::
 download.chapter(dotnet/types/ref/class.md)
 ::::
+download.chapter(dotnet/types/ref/span.md)
+::::
+download.chapter(dotnet/types/ref/dynamic.md)
+::::
 download.chapter(dotnet/language/covariance.md)
 ::::
 download.chapter(dotnet/types/val/structs.md)
+::::

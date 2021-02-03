@@ -1,5 +1,7 @@
 # C# 6 (.Net 4.6)
 
+![CS 6](assets/chapters/dotnet/cs/assets/cs6.png)
+
 ## Exception filters
 ## Auto-property initializers
 ## Expression bodied members
@@ -337,3 +339,7 @@ public static async void DownloadAsync()
 new ubiquitous code editor–the browser.
 
 provide developers with a lightweight, frictionfree companion to the Visual Studio desktop IDE that is accessible from any device on any platform. Monaco is a rich, browser-based, code-focused development environment optimized for the Windows Azure platform, making it easy to start building and maintaining applications for the cloud.”
+
+## More 
+
+- https://intellitect.com/c-6-0-simplifies-clarifies-condenses-code-msdn/

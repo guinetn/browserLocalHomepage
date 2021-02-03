@@ -4,6 +4,8 @@
 Parallel execution of code 
 issues: DataRace & Deadlocks 
 
+Improve multithreading with the task-based async pattern and C# 8.0 asynchronous streams
+Enhance performance through the parallel processing of data and multithreading tasks
 ## Use cases
 
 * Responsive user interface
@@ -25,6 +27,16 @@ Single-processor: thread scheduler performs time-slicing (switch execution betwe
 Multi-processor: mixture of time-slicing and genuine concurrency, where different threads run code simultaneously on different CPUs.
 
 Preempted thread: interrupted execution due to an external factor such as time-slicing. In most situations, a thread has no control over when and where it’s preempted.
+
+### Multithreading patterns
+address the multithreading complexities of monitoring an asynchronous operation, thread pooling, avoiding deadlocks, and implementing atomicity and synchronization across operations and data access.
+
+### Event-Based Asynchronous Pattern
+
+### Dispatching to the Windows UI
+One other important threading concept relates to user interface development using the System.Windows.Forms and System.Windows namespaces. The Microsoft Windows suite of operating systems uses a single-threaded, message-processing–based user interface. As a consequence, only one thread at a time should access the user interface, and code should marshal any alternative thread interaction via the Windows message pump. Fortunately, thanks to the fact that TAP uses the synchronization context when executing the continuation task, calls following an await expression call can freely invoke the UI API without concern for dispatching invocations to the UI thread. Unfortunately, in prior versions of C#, this was not the case. Instead, invoking a UI method on the UI thread required special invocation logic both for Windows Forms and for the Windows Presentation Framework API, as we discuss in the following sections.
+
+- https://intellitect.com/interfacing-multithreading-patterns/ ***
 
 
 ### System.Threading Namespace
@@ -49,7 +61,11 @@ download.chapter(dotnet/multithreading/tasks.md)
 
 ![](assets/chapters/dotnet/multithreading/threading.png)
 
+
+
+
 ## More
 - https://docs.microsoft.com/en-us/dotnet/api/system.threading?view=dotnet-plat-ext-5.0
 - http://www.albahari.com/threading/part3.aspx#_Apartments_and_Windows
-
+- https://intellitect.com/legacy-system-threading/ ***
+- https://intellitect.com/interfacing-multithreading-patterns/ ***

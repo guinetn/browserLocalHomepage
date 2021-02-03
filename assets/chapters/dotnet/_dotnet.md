@@ -12,17 +12,15 @@ download.chapter(dotnet/gems.md)
 ::::
 download.chapter(dotnet/dotnet_standard.md)
 ::::
-download.chapter(dotnet/dotnetcore.md)
+download.chapter(dotnet/dotnetcore/_dotnetcore.md)
 ::::
-download.chapter(net/net5_replace_dotnetcore.md)
+download.chapter(dotnet/net/net5_replace_dotnetcore.md)
 ::::
 download.chapter(dotnet/cs/_cs.md)
 ::::
 download.chapter(dotnet/multithreading/_multithreading.md)
 ::::
 download.chapter(dotnet/fsharp.md)
-::::
-download.chapter(dotnet/msbuild.md)
 ::::
 download.chapter(dotnet/services.md)
 ::::
@@ -35,4 +33,6 @@ download.chapter(dotnet/collections/specialized/_specialized.md)
 download.chapter(dotnet/collections/specialized/concurrent_collections.md)
 ::::
 download.chapter(dotnet/tools/_tools.md)
+::::
+download.chapter(dotnet/mono.md)
 

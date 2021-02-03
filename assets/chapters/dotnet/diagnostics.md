@@ -1,5 +1,9 @@
 # diagnostics
 
+System.Runtime.InteropServices.RuntimeInformation.OSDescription
+System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription
+System.DateTime.Now.ToLongTimeString()
+
 ### stopwatch
 using System.Diagnostics;
 
@@ -9,3 +13,7 @@ for (int i = 0; i < 5000000; ++i)
     list.Add(i.ToString());
 stopwatch.Start();
 Console.WriteLine("Creation: " + stopwatch.Elapsed);
+
+
+
+

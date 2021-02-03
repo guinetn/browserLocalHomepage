@@ -16,7 +16,7 @@ For the first time, one BCL-based framework will handle all app models:
 - Xamarin (switch from Mono BCL to join other components leveraging the .NET Core BCL)
 - ML.NET
 
-![.net5](assets/chapters/code/net/net5.png)
+![.net5](assets/chapters/dotnet/net/net5.png)
 
 ##### Articles
 

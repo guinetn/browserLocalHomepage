@@ -65,4 +65,4 @@ download.chapter(computer_science/os_windows.md)
 ::::
 download.chapter(computer_science/os_unix.md)
 ::::
-download.chapter(computer_science/os_unix-bash.md)
+

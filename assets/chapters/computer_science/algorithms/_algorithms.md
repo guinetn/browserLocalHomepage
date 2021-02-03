@@ -1,5 +1,10 @@
 # Algorithms
 
+- Definition
+- Possible Follow­Up Questions
+- What watch for (what to check to validate the algorithm)
+
+
 download.chapter(computer_science/big-o.md)
 ::::
 download.chapter(computer_science/algorithms/mathematical/_mathematical.md)

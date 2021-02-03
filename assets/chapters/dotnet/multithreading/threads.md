@@ -37,6 +37,10 @@ PLINQ
 
 ## Thread.Sleep
 
+Do Not Put the static Threads.Sleep(number of milliseconds / TimeSpan) in Production Code
+
+Tell the operating system not to schedule any time slices to this thread until the given amount of time has passed. 
+
 Makes the current thread sleep 
 
 Thread.Sleep pauses the current thread for a specified period:

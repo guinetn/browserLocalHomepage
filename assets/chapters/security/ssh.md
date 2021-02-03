@@ -24,6 +24,10 @@ C:\Users\jonhdoe\.ssh
     -a---          03/03/2019    18:27            738 root@inmotionhostring.pub
     -a---          13/11/2020    16:10           2228 known_hosts
 
+
+SSH uses public/private key pairs, so id_rsa is your RSA private key (based on prime numbers), which is more secure than your id_dsa DSA private key (based on exponents). 
+Keep your private keys safe and share your id_rsa.pub and id_dsa.pub public keys broadly
+
 ### STEP 1. Generating public/private ssh keys pair
 ssh-keygen -t rsa 
 stronger key:
@@ -116,6 +120,13 @@ Contains rows, each is a server public key the user connect to
     ec2-15-256-926-822.eu-west-3.compute.amazonaws.com,15.222.333.404 ecdsa-sha2-nistp256 AAAA...V0=
     vps47217.inhosting.com,173.235.215.56 ecdsa-sha2-nistp256 AAAA...TBARs=
     vps47217.inhosting.com,173.145.215.11 ecdsa-sha2-nistp256 AAAA...TDFbRs=
+
+## SSH key fingerprint
+It is the fingerprint of a key that is verified when you try to login to a remote computer using SSH
+Adding the fingerprint from a remote serve to a local machine:
+>ssh-keyscan -H 192.168.1.162 >> ~/.ssh/known_hosts
+
+Only work properly if you have ssh key authentication setup. Otherwise, you'd have to enter the remote machine's password.
 
 ### FILE TRANSFER: SCP-SECURE COPY 
     Remote file copy program

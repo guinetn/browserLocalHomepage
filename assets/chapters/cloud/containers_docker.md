@@ -70,3 +70,6 @@ It copies our package.json, runs npm install and starts the server. To make sure
 - https://blog.bitsrc.io/setting-up-a-logging-infrastructure-in-nodejs-ec34898e677e
 - https://blog.bitsrc.io/
 - https-medium-com-adhasmana-how-to-do-ci-and-cd-of-node-js-application-using-github-actions-860007bebae6
+- https://intellitect.com/docker-postgresql/
+- https://intellitect.com/docker-scaffold/
+- https://intellitect.com/asp-net-core-dynamic-routing-with-constraints/

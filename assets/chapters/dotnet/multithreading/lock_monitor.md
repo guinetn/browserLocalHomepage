@@ -5,6 +5,8 @@ To limit access to a single thread at a time
 
 Every object in .NET has a (theoretical) monitor associated with it. A thread can enter (or acquire) a monitor only if no other thread has currently "got" it. Once a thread has acquired a monitor, it can acquire it more times, or exit (or release) it. The monitor is only available to other threads again once it has been exited as many times as it was entered. If a thread tries to acquire a monitor which is owned by another thread, it will block until it is able to acquire it.
 
+The scope of the object reference used to lock a code block must be at a level shared by all threads that will be executing that code, and must exist prior to any thread attempting to enter the code block.
+
 #### Lock
 
 Faster than Mutex
@@ -60,3 +62,7 @@ attempts to acquire a lock, but doesn't block (or only blocks for a given period
 ### Wait, Pulse, PulseAll
 
 download.chapter(dotnet/multithreading/spinlock_spinwait.md)
+
+## More
+
+- https://intellitect.com/locking-a-block-of-code-with-an-integer/

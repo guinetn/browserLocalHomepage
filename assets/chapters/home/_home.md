@@ -13,6 +13,8 @@ download.chapter(home/courses.md)
 download.chapter(home/solving.md)
 ::::
 download.chapter(home/notetaking.md)
+::::
+download.chapter(home/listened.md)
 
 ### Flow zone
 are those times when we are most productive and creative, where all of our tasks flow smoothly: moments when the project advance.

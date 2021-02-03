@@ -61,3 +61,11 @@ Automate the deployment of servers and other infrastructure
 
 Exotic DSL (domain-specific language): description of the language used in each application
 Diversity of Technologies
+
+## DSC - Desired State Configuration platform 
+
+To configure machines, environments, and processes. Using DSC allowed them to define configurations from a single source of truth, as well as deploy multiple environments.
+- https://github.com/SteveByerly/dsc-demo
+- https://intellitect.com/powershell-dsc/
+
+## More

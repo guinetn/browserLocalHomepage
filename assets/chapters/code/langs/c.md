@@ -93,3 +93,7 @@ int main() {
 - https://h-deb.clg.qc.ca/Sujets/Divers--c/index.html#general
 - https://github.com/signalapp/libsignal-protocol-c/blob/master/src/curve.c
 - https://x-engineer.org/graduate-engineering/programming-languages/c/data-types-c-programming-language/
+- https://dzone.com/articles/writing-a-linux-daemon-in-c
+
+	systemd
+	

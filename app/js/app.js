@@ -62,7 +62,7 @@ export class App extends Blog {
 
     // For each separator (:::: = <p>::::</p>)
     let chapters = (htmlData ? htmlData : textData).split("<p>::::</p>");
-
+    
     chapters.forEach((s, i) => {
       let div = document.createElement("div");
       if (htmlData) div.innerHTML = s;

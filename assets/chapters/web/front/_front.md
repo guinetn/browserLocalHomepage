@@ -16,6 +16,9 @@ https://github.com/thedaviddias/Front-End-Checklist
 
 https://roadmap.sh/frontend
 
+
+download.chapter(web/front/microfrontends)
+:::: 
 download.chapter(web/front/react.md)
 :::: 
 download.chapter(web/front/vue.md)

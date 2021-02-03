@@ -3,8 +3,8 @@
 Enqueue items --> First In First Out --> Dequeue items
 
 System.Collection.Generic (Doesn't perform boxing-unboxing because it is generic)
-Queue<T> is FIFO (First In First Out) collection.
-Add Elements Enqueue(). Cannot use collection-initializer syntax.
+Queue<T> is FIFO (First In First Out) collection
+Add Elements Enqueue(). Cannot use collection-initializer syntax
 Get Elements Dequeue() / Peek() methods
 No indexer support 
 

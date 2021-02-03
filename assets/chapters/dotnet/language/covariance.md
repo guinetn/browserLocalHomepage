@@ -2,6 +2,23 @@
 
 .NET 4.0 feature
 Covariance and contravariance allow us to be flexible when dealing with class hierarchy.
+
+```cs
+// Contravariance (applied to parameters): Enables to use a more generic (less derived) type than originally specified
+Action<object> broadAction = (object data) => { Console.WriteLine(data); };
+Action<string> narrowAction = broadAction;
+
+// Covariance: use a more derived type than originally specified
+Func<string> narrowFunction = () => Console.ReadLine();
+Func<object> broadFunction = narrowFunction;
+
+// Contravariance and covariance combined
+Func<object, string?> func1 = (object data) => data.ToString();
+Func<string, object?> func2 = func1;
+```
+
+
+
 Implicit reference conversion for array types, delegate types, generic type arguments
 Covariance preserves assignment compatibility and contravariance reverses it.
 
@@ -323,6 +340,7 @@ class Program
     }
 }
 ```
+
 
 
 
