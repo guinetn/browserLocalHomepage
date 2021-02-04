@@ -154,3 +154,11 @@ Ex: https://www.youtube.com/watch?v=X6PqZ0HzG_c
 ## Azure Cloud identity
 https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates
 https://github.com/Daniel-Krzyczkowski/Cars-Island-On-Azure
+
+## Azure Databricks
+
+Azure Databricks = Databricks + Apache Spark + enterprise cloud
+
+easy, fast, and collaborative Apache spark-based analytics platform. It accelerates innovation by bringing data science data engineering and business together. Making the process of data analytics more productive more secure more scalable and optimized for Azure.
+
+https://k21academy.com/microsoft-azure/dp-200/azure-databricks

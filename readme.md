@@ -233,7 +233,7 @@ Standard markdown + additional syntax to include…
 * <strong>download.iframe(url,[w,h])</strong> : an iframe + width/height in px
 * <strong>download.iframe</strong>(assets/chapters/web/front/react_samples/react01/index.html)
 * <strong>download.iframe</strong>(assets/chapters/web/front/react_samples/react01/index.html,500,200)
-* <strong>[video_title]<span>(https://www.</span><span>youtube.com/watch?xyzabc)</span></strong> : a youtube video: any link containing 'youtube' 
+* <strong>[video_title]<span>(https://www.</span><span>youtube.com/watch?xyzabc)</span></strong> : a youtube video: any link containing 'youtube' is transformed in an &lt;iframe src='//www.youtube.com/embed/...
 * Horizontal Slide Show: a slideShowContainer that contains slideShowSlide items
 ```html
 <div class="slideShowContainer">   
@@ -245,7 +245,22 @@ Standard markdown + additional syntax to include…
    </div>  
 </div>  
 ```
+To create a slide show from a file content (slides separator is ::::)  
+* <strong>download.slideshow(assets/chapters/code/langs/cpp/cpp01.md)</strong>, ex:  
+Ex:  
+slide 1   
+:::: 
+slide 2      
+:::: 
+slide 3....        
 
+will be rendered as:
+<pre><code>
+  <div class="slideShowContainer">
+    <div class="slideShowSlide">slide 1</div>
+    <div class="slideShowSlide">slide 2</div>
+</code></pre>
+    
 
 
 # Alarms
