@@ -137,10 +137,10 @@ USAGE:
 
       /*
       idem  download.md() but looks for a file in 'assets/books'
-      in: download.page(/code.md). ~ bkaDownloadMarkdownExtension but looks for the file in 'assets/books'
-      out: out: target.innerHTML will receive the markdown source file converted in html
+      in: download.page(api/nodejs.md). ~ bkaDownloadMarkdownExtension but looks for the file only in 'assets/books'
+      out: target.innerHTML will receive the markdown source file converted in html
       */
-      var bkaDownloadMarkdownChapterExtension = {
+      var bkaDownloadMarkdownPageExtension = {
         type: "lang",
         filter: function (text, converter, options) {
           return text.replace(bkaMdPageRegex, function (s, bkatype, link) {
@@ -149,7 +149,7 @@ USAGE:
               `assets/books/${link}`,
               hash,
               converter,
-              function (res, file, converter) {
+              function (res, file, converter) {                
                 replaceMarker(hash, converter.makeHtml(res));
               }
             );
@@ -293,7 +293,7 @@ USAGE:
 
       return [
         bkaDownloadMarkdownExtension,
-        bkaDownloadMarkdownChapterExtension,
+        bkaDownloadMarkdownPageExtension,
         bkaDownloadRawExtension,
         bkaDownloadSlideShowExtension,
         bkaDownloadCodeExtension,

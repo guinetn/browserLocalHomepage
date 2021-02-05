@@ -21,17 +21,12 @@ download.page(web/back/api/aspnet.md)
 ::::
 download.page(web/back/api/aspnetcore.md)
 ::::
-download.page(web/back/api/open_api.md)
+download.page(api/open_api.md)
 ::::
-download.page(web/back/health_check.md)
+download.page(api/health_check.md)
 ::::
 download.page(api/testing/_testing.md)
 ::::
-
-## Open APIS
-
-- https://github.com/public-apis/public-apis
-
 ## More
 
 URL shortening service like bit.ly or goo.gl

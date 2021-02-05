@@ -70,38 +70,35 @@ export class App extends Blog {
     const promiseMarker = document.getElementById(hash);
 
     // For each separator (:::: = <p>::::</p>)
-    let chapters = (htmlData ? htmlData : textData).split("<p>::::</p>");
+    const regexSeparator = /`<p>${config.chaptersSeparator}:*<\/p>`/gi;
+    let chapters = (htmlData ? htmlData : textData).split(regexSeparator);
 
-    chapters.forEach((s, i) => {
+    chapters.forEach((s, i) => {            
       let div = document.createElement("div");
       if (htmlData) div.innerHTML = s;
       else div.innerText = s;
 
       /* 
-          From the promiseMarker (<div data-type='promised_file'...)
-          If previous node is a separator (<p>::::</p>) then it must be a chapter:
-            * insert htmlData/textData after the first parent having a class='chapters'
-            * removed the promiseMarker
-            * removed the <p>::::</p>
-          
-          <div id="s1" class="chapters">
-          <div id="s2" class="chapters">
-          <div id="s3" class="chapters">
-            <div class="chapter current" data-id="3">
-              <div data-type="promised_file" id="YXNz...ZbmcubWQ=">wanting for…/notetaking.md</div><div><h1 id="note-taking">NOTE TAKING</h1>
-              ....
-              <p>::::</p>
-              <div data-type="promised_file" id="YXN...JuaW5nLm1k">wanting for…/learning.md</div>
-              <div><h1 id="learning--repeat-review">Learning = repeat, review</h1>
-          */
+        From the promiseMarker (<div data-type='promised_file'...)
+        If previous node is a separator (<p>::::</p>) then it must be a chapter:
+          * insert htmlData/textData after the first parent having a class='chapters'
+          * removed the promiseMarker
+          * removed the <p>::::</p>
+        
+        <div id="s1" class="chapters">
+        <div id="s2" class="chapters">
+        <div id="s3" class="chapters">
+          <div class="chapter current" data-id="3">
+            <div data-type="promised_file" id="YXNz...ZbmcubWQ=">wanting for…/notetaking.md</div><div><h1 id="note-taking">NOTE TAKING</h1>
+            ....
+            <p>::::</p>
+            <div data-type="promised_file" id="YXN...JuaW5nLm1k">wanting for…/learning.md</div>
+            <div><h1 id="learning--repeat-review">Learning = repeat, review</h1>
+      */
       let prevNode = promiseMarker.previousElementSibling;
       const isolatedSeparatorMode =
         chapters.length > 1 && i < chapters.length - 1;
-      if (
-        prevNode &&
-        (isolatedSeparatorMode ||
-          prevNode.innerText.substring(0, 4) == config.chaptersSeparator)
-      ) {
+      if (prevNode &&(isolatedSeparatorMode || prevNode.innerText.substring(0, 4) == config.chaptersSeparator)) {
         // promiseMarker previous node is a separator (<p>::::</p>)
         prevNode = prevNode.parentNode;
         while (prevNode) {
@@ -111,7 +108,7 @@ export class App extends Blog {
             prevNode.insertAdjacentElement("beforeEnd", div);
 
             // Remove the separator <p>::::</p>
-            let pmp = promiseMarker.previousElementSibling;
+            let pmp = promiseMarker.previousElementSibling;            
             if (pmp.innerText == config.chaptersSeparator)
               promiseMarker.previousElementSibling.remove();
             break;
@@ -123,7 +120,7 @@ export class App extends Blog {
       }
     });
 
-    // Remove the promise marker
+    // Remove the promise marker. Nice to debug loading elements placeholders
     promiseMarker.remove();
 
     this.updateChapters();
@@ -148,7 +145,7 @@ export class App extends Blog {
   ...*/
   renderBooksCatalog() {
     const source = [...document.querySelectorAll(".book")];
-    renderCatalog(source, ".booksCatalog", "data-bookid", "booksCatalogLink");
+    renderCatalog(source, ".booksCatalog", "data-bookid", "booksCatalogLink", false, 0);
   }
 
   renderChaptersCatalog() {
@@ -265,13 +262,10 @@ export class App extends Blog {
 
   onChapterKeydown(e) {
     if (e.keyCode == 27 || e.shiftKey) {
-      // [ESC] or [shift]	key
+      // [ESC] or [SHIFT]	key
       this.toggleChaptersVisibility(false);
       if (this.currentBookMark > 0) this.currentBookMark--; // to come back on the same chapter after [esc]] (as we do [→] to show it again, we don't want chapter+0)
-      this.currentBook.bookMark = Math.min(
-        this.currentBookMark + 1,
-        this.chapters.length - 1
-      ); // memo the chapter id to retrieve after anothers book navigation and come back
+      this.currentBook.bookMark = Math.min(this.currentBookMark + 1, this.chapters.length - 1); // memo the chapter id to retrieve after anothers book navigation and come back
     } else {
       switch (e.keyCode) {
         case 37: // [←] key
@@ -290,7 +284,7 @@ export class App extends Blog {
       }
     }
   }
-  async changeChapter(direction) {
+  async changeChapter(direction) {    
     // If book has change and dom has chapters of another book, load the current book's chapters
     if (this.chaptersBookName != this.currentBook.name) {
       this.createChaptersInDom(config.chaptersContainer);
@@ -298,14 +292,9 @@ export class App extends Blog {
       this.currentBookMark = this.currentBook.bookMark;
       return;
     }
-
-    // Press [←] while on first chapter: hide chapters
-    if (this.currentBookMark == 0 && direction < 0) {
-      this.toggleChaptersVisibility(false);
-      return;
-    }
+   
     // Press [→] while chapters are not visible: show chapters
-    else if (
+    if (
       !this.chaptersVisible &&
       this.currentBookMark == 0 &&
       direction > 0
@@ -317,7 +306,7 @@ export class App extends Blog {
 
     this.currentBookMark += direction;
     if (this.chapters.length <= this.currentBookMark) this.currentBookMark = 0;
-    else if (this.currentBookMark < 0) this.currentBookMark = 0;
+    else if (this.currentBookMark < 0) this.currentBookMark = this.chapters.length-1;
     this.toggleChaptersVisibility(true);
     utils.scrollTo(0, "auto");
 
@@ -392,7 +381,7 @@ export class App extends Blog {
         ? s.classList.add("current")
         : s.classList.remove("current")
     );
-    renderScrollSyncCatalog(".chapter.current", ".contentCatalog");
+    renderScrollSyncCatalog(".page.current", ".contentCatalog");
   }
 
   renderBookDetails() {

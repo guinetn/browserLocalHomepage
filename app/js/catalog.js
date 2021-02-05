@@ -4,18 +4,19 @@
     target,
     itemsAttribute,
     itemsClass,
-    clearTarget = false
+    clearTarget = false,
+    numbering_start = 1
   ) {
     const catalog = document.querySelector(target);
     if (clearTarget) catalog.innerHTML = null;
 
     source.forEach((s, i) => {
-      [...s.querySelectorAll("h1")].map((x,j) => {
+      [...s.querySelectorAll("h1")].map((x, j) => {
         let div = document.createElement("div");
-        if (j>0) // sub-chapter
+        if (j > 0)
+          // sub-chapter
           div.innerHTML = `&nbsp; &nbsp; └─${"─".repeat(j)} ${x.innerText}`;
-        else
-          div.innerText = `${("0" + (1 + i)).slice(-2)} ${x.innerText}`;
+        else div.innerText = `${("0" + (numbering_start + i)).slice(-2)} ${x.innerText}`;
         div.setAttribute(itemsAttribute, i);
         div.className = itemsClass;
         catalog.appendChild(div);
