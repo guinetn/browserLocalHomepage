@@ -4,17 +4,26 @@ import { Blog } from "./blog.js";
 import { slideShow } from "./slideshow.js";
 
 export class App extends Blog {
-  // Pointer to current book in books[]
+  // Pointer to current book object in books[]
   currentBook = null;
   // Contains DOM elements matching the config.booksCssSelector '.book'
   // Defined in config.booksFile (assets/books.html)
-  books = []; // [{ id:0, dom: null, name: '', chapterId: 0 }, …]  chapterId allow to retrieve the last chapter viewed before leaving the book
+  books = []; // A list of books find in books.html (all div with class='book') [{ id:0, dom: null, name: '', bookMark: 0 }, …]
   bookDetails = null;
 
+  /*A book object is made of
+    { id:0             id
+      dom: null        Dom element associated to the book
+      name: ''         id of the book in books.html: <div id='blog" class='book'>
+      bookMark: 0      ChapterId. Allow to retrieve the last chapter viewed when coming back to the book
+    }
+  */
+
   chapters = [];
-  currentChapterId = 0;
-  // When [→] is pressed we need to know if the current book chapter have been loaded. Load the book's chapter if names are differents
-  currentChapterFile = null;
+  currentBookMark = 0; // To run through chapters
+  // When [→] is pressed we need to know if the current book chapter has already been loaded because we can
+  // navigate through books without load chapters: Load the book's chapters when [→] if names are differents
+  chaptersBookName = null;
   chapterHasError = false;
   chaptersVisible = null;
   chapterMeter = null;
@@ -30,7 +39,7 @@ export class App extends Blog {
     document
       .querySelectorAll(config.booksCssSelector)
       .forEach((v, i) =>
-        this.books.push({ id: i, name: v.id, dom: v, chapterId: 0 })
+        this.books.push({ id: i, name: v.id, dom: v, bookMark: 0 })
       );
     if (this.books.length > 0) this.currentBook = this.books[0];
     else
@@ -53,16 +62,16 @@ export class App extends Blog {
   }
 
   chaptersChanged(event) {
+    // Event happening When a downloaded element (download.code(/html/raw/chapter/md) has been added to the DOM
     let { reason, hash, htmlData, textData } = event.data;
 
     if (reason != "chapters changed") return;
 
-    // When a downloaded element has been added to the DOM
     const promiseMarker = document.getElementById(hash);
 
     // For each separator (:::: = <p>::::</p>)
     let chapters = (htmlData ? htmlData : textData).split("<p>::::</p>");
-    
+
     chapters.forEach((s, i) => {
       let div = document.createElement("div");
       if (htmlData) div.innerHTML = s;
@@ -88,10 +97,12 @@ export class App extends Blog {
       let prevNode = promiseMarker.previousElementSibling;
       const isolatedSeparatorMode =
         chapters.length > 1 && i < chapters.length - 1;
-      if (prevNode && (isolatedSeparatorMode ||
-        prevNode.innerText.substring(0, 4) == config.chaptersSeparator))
-      {
-        // promiseMarker previous node is a separator (<p>::::</p>)        
+      if (
+        prevNode &&
+        (isolatedSeparatorMode ||
+          prevNode.innerText.substring(0, 4) == config.chaptersSeparator)
+      ) {
+        // promiseMarker previous node is a separator (<p>::::</p>)
         prevNode = prevNode.parentNode;
         while (prevNode) {
           // Look-up until finding a "chapters"
@@ -151,8 +162,8 @@ export class App extends Blog {
     );
   }
 
-  showChapter(chapterId) {
-    this.changeChapter(chapterId - this.currentChapterId);
+  showChapter(bookMark) {
+    this.changeChapter(bookMark - this.currentBookMark);
   }
 
   // HeartBeat
@@ -212,6 +223,7 @@ export class App extends Blog {
       return; // no key match a book name
   }
 
+  // Manage books limits with [←] [→]
   scaleBookId(stepOrIndex) {
     let bookId = parseInt(stepOrIndex, 10);
     if (isNaN(bookId)) {
@@ -240,9 +252,10 @@ export class App extends Blog {
   showBook(keyEvent = null) {
     if (keyEvent) keyEvent.preventDefault();
     utils.scrollTo(0);
-    // Hide Chapters
+    // Hide Chapters (chapters are load on [→])
     this.toggleChaptersVisibility(false);
-    // display book
+    
+    // Show the current book by applying css 'active' class. Remove 'active' from others books
     this.books.forEach((book) =>
       book.name == this.currentBook.name
         ? book.dom.classList.add("active")
@@ -254,9 +267,9 @@ export class App extends Blog {
     if (e.keyCode == 27 || e.shiftKey) {
       // [ESC] or [shift]	key
       this.toggleChaptersVisibility(false);
-      if (this.currentChapterId > 0) this.currentChapterId--; // to come back on the same chapter after [esc]] (as we do [→] to show it again, we don't want chapter+0)
-      this.currentBook.chapterId = Math.min(
-        this.currentChapterId + 1,
+      if (this.currentBookMark > 0) this.currentBookMark--; // to come back on the same chapter after [esc]] (as we do [→] to show it again, we don't want chapter+0)
+      this.currentBook.bookMark = Math.min(
+        this.currentBookMark + 1,
         this.chapters.length - 1
       ); // memo the chapter id to retrieve after anothers book navigation and come back
     } else {
@@ -271,7 +284,7 @@ export class App extends Blog {
           break;
         case 70: // [F]ullscreen key
           if (this.chaptersVisible)
-            utils.fullScreen(this.chapters[this.currentChapterId]);
+            utils.fullScreen(this.chapters[this.currentBookMark]);
           else utils.fullScreen(this.currentBook.dom);
           break;
       }
@@ -279,22 +292,22 @@ export class App extends Blog {
   }
   async changeChapter(direction) {
     // If book has change and dom has chapters of another book, load the current book's chapters
-    if (this.currentChapterFile != this.currentBook.name) {
+    if (this.chaptersBookName != this.currentBook.name) {
       this.createChaptersInDom(config.chaptersContainer);
-      // Restore chapterId from a previous visit of the current book
-      this.currentChapterId = this.currentBook.chapterId;
+      // Restore bookMark from a previous visit of the current book
+      this.currentBookMark = this.currentBook.bookMark;
       return;
     }
 
     // Press [←] while on first chapter: hide chapters
-    if (this.currentChapterId == 0 && direction < 0) {
+    if (this.currentBookMark == 0 && direction < 0) {
       this.toggleChaptersVisibility(false);
       return;
     }
     // Press [→] while chapters are not visible: show chapters
     else if (
       !this.chaptersVisible &&
-      this.currentChapterId == 0 &&
+      this.currentBookMark == 0 &&
       direction > 0
     ) {
       this.toggleChaptersVisibility(true);
@@ -302,10 +315,9 @@ export class App extends Blog {
       return;
     }
 
-    this.currentChapterId += direction;
-    if (this.chapters.length <= this.currentChapterId)
-      this.currentChapterId = 0;
-    else if (this.currentChapterId < 0) this.currentChapterId = 0;
+    this.currentBookMark += direction;
+    if (this.chapters.length <= this.currentBookMark) this.currentBookMark = 0;
+    else if (this.currentBookMark < 0) this.currentBookMark = 0;
     this.toggleChaptersVisibility(true);
     utils.scrollTo(0, "auto");
 
@@ -339,16 +351,16 @@ export class App extends Blog {
   createChaptersInDom(chaptersContainer) {
     this.deleteExistingChapters();
 
-    this.currentChapterFile = this.currentBook.name;
+    this.chaptersBookName = this.currentBook.name;
 
     this.downloadMainChapter(
-      `${config.chaptersFolder}/${this.currentChapterFile}`,
-      `${config.chapterMainFilePrefix}${this.currentChapterFile}.md`
+      `${config.chaptersFolder}/${this.chaptersBookName}`,
+      `${config.chapterMainFilePrefix}${this.chaptersBookName}.md`
     ).then((htmlChapters) => {
       this.appendChapters(htmlChapters, chaptersContainer);
       this.updateChapters();
       this.toggleChaptersVisibility(true);
-      this.renderCurrentChapter();      
+      this.renderCurrentChapter();
       PR.prettyPrint();
     });
   }
@@ -372,11 +384,11 @@ export class App extends Blog {
     return converter.makeHtml(data);
   }
   renderCurrentChapter() {
-    this.chapterMeter.value = this.currentChapterId + 1;
+    this.chapterMeter.value = this.currentBookMark + 1;
     this.renderBookDetails();
     if (slideShow) slideShow.init();
     this.chapters.forEach((s, i) =>
-      this.chaptersVisible && i == this.currentChapterId
+      this.chaptersVisible && i == this.currentBookMark
         ? s.classList.add("current")
         : s.classList.remove("current")
     );
@@ -411,7 +423,7 @@ export class App extends Blog {
     if (this.chapters.length > 0) this.chapters.forEach((s) => s.remove());
     document.querySelectorAll(".chapters").forEach((s) => s.remove());
     this.chapters = null;
-    this.currentChapterId = 0;
+    this.currentBookMark = 0;
   }
 
   extractTopics(options, topics) {
@@ -655,7 +667,7 @@ export class App extends Blog {
     else if (this.showBlogArticle(e)) return;
     else if (this.copyAction(e)) return;
     else if (this.emptyClickToClose(e)) return;
-    else if (this.openBook(e)) return;
+    else if (this.openBookFromCatalog(e)) return;
     else if (this.chapterNavigation(e)) return;
     else if (this.showAlarmsPanel(e)) return;
     else this.alarmChosen(e);
@@ -736,9 +748,12 @@ export class App extends Blog {
     return true;
   }
 
-  openBook(e) {
+  // Click a book on the books catalog
+  openBookFromCatalog(e) {
     if (!e.target.matches(".booksCatalogLink")) return false;
 
+    // A Right click (on the book name) open only the book
+    // A left click (on the book number) open the book + force chapters loading (normally load on [→])
     const linkWidthAreaToOpenChapters = 35;
     this.selectBookAndOpenChapter(
       e.target.dataset.bookid,
