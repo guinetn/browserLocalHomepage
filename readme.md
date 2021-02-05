@@ -57,7 +57,7 @@ Refer to config.png for a global view of the process.
 
 * A book contains topics (grouped links) and/or custom html  
 * Books are defined inside &lt;div id="main"&gt; in index.html
-* Each book can have a markdown file (.md) in assets/chapters
+* Each book can have a markdown file (.md) in assets/books
 
 ***Empty book***     
 ```html
@@ -134,7 +134,7 @@ an unique option:
 ```
 ## Adding chapter to a book...takes 10 sec
 
-1. In ```assets/chapters``` folder
+1. In ```assets/books``` folder
 - Create a folder having the same name that the targeted book 
 - Create a file named _xxxx.md file having the same name that the targeted book but starting with a _
 2. Write some markdown
@@ -164,12 +164,13 @@ Chapter 2.
 [video_title]<span>(https://www.</span><span>youtube.com/watch?xyzabc)</span>
 
 ### Add a markdown file   
-<span>download</span>.md(assets/chapters/code.md)
-download.md(assets/chapters/code.md)
+<span>download</span>.md(assets/books/code.md)
+download.md(assets/books/code.md)
 
-### Add a chapter file (avoid to type 'assets/chapters')
+### Add a page file 
+Automatically prefix the link with 'assets/books' (avoiding to type 'assets/books')
 <span>download</span>.chapter(code.md)
-download.chapter(code.md)
+download.page(code.md)
 
 ### Add html data: will be integrated as 'innerHTML' (interpreted html)   
 <span>download</span>.html(https://httpbin.org/ip)
@@ -225,14 +226,14 @@ Chapters are not limited in size.
 
 Standard markdown + additional syntax to include…
     
-* <strong>download.md</strong>(assets/chapters/myfile.md) : a markdown file (html rendered)
-* <strong>download.chapter</strong>(myfile.md) : a markdown file (html rendered but get ride of `assets/chapters`)
+* <strong>download.md</strong>(assets/books/myfile.md) : a markdown file (html rendered)
+* <strong>download.chapter</strong>(myfile.md) : a markdown file (html rendered but get ride of `assets/books`)
 * <strong>download.raw</strong>(https://<span>githubusercontent.com/abcdef/sourcefile.txt</span>) : a file as it is (raw, not transformed)
 * <strong>download.html</strong>(https://<span>githubusercontent.com/abcdef/sourcefile.txt</span>) : an html file (interpreted in innerHTML)
 * <strong>download.code</strong>(https://<span>githubusercontent.com/abcdef.cpp</span>) : a code file (prettified by its extension)
 * <strong>download.iframe(url,[w,h])</strong> : an iframe + width/height in px
-* <strong>download.iframe</strong>(assets/chapters/web/front/react_samples/react01/index.html)
-* <strong>download.iframe</strong>(assets/chapters/web/front/react_samples/react01/index.html,500,200)
+* <strong>download.iframe</strong>(assets/books/web/front/react_samples/react01/index.html)
+* <strong>download.iframe</strong>(assets/books/web/front/react_samples/react01/index.html,500,200)
 * <strong>[video_title]<span>(https://www.</span><span>youtube.com/watch?xyzabc)</span></strong> : a youtube video: any link containing 'youtube' is transformed in an &lt;iframe src='//www.youtube.com/embed/...
 * Horizontal Slide Show: a slideShowContainer that contains slideShowSlide items
 ```html
@@ -246,7 +247,7 @@ Standard markdown + additional syntax to include…
 </div>  
 ```
 To create a slide show from a file content (slides separator is ::::)  
-* <strong>download.slideshow(assets/chapters/code/langs/cpp/cpp01.md)</strong>, ex:  
+* <strong>download.slideshow(assets/books/code/langs/cpp/cpp01.md)</strong>, ex:  
 Ex:  
 slide 1   
 :::: 

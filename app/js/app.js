@@ -107,7 +107,7 @@ export class App extends Blog {
         while (prevNode) {
           // Look-up until finding a "chapters"
           if (prevNode.classList.contains("chapters")) {
-            div.className = "chapter";
+            div.className = 'page';
             prevNode.insertAdjacentElement("beforeEnd", div);
 
             // Remove the separator <p>::::</p>
@@ -130,7 +130,7 @@ export class App extends Blog {
   }
 
   updateChapters() {
-    this.chapters = document.querySelectorAll(".chapter");
+    this.chapters = document.querySelectorAll(".page");
     this.chapters.forEach((s, i) => s.setAttribute("data-id", i + 1));
 
     // Configure chapter meter [min-value-max]
@@ -368,7 +368,7 @@ export class App extends Blog {
   appendChapters(chapters, container) {
     chapters.forEach((html, i) => {
       const chapter = document.createElement("div");
-      chapter.innerHTML = `<div class='chapter'>${chapters[i]}</div>`;
+      chapter.innerHTML = `<div class='page'>${chapters[i]}</div>`;
       chapter.id = `s${i + 1}`;
       chapter.className = "chapters";
       document.querySelector(container).appendChild(chapter);

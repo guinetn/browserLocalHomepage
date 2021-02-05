@@ -3,17 +3,17 @@ import { config } from "./config.js";
 SHOWDOWN Extensions
 
 USAGE:
-  download.md(assets/chapters/code.md)
-  download.chapter(code.md)   (avoid to type 'assets/chapters')
+  download.md(assets/books/code.md)
+  download.page(code.md) : automatically prefix the link with 'assets/books'
   download.html(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.html)
   download.raw(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
   download.code(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
-  download.exec(assets/chapters/computer_science/assets/show_ascii_table.js)
+  download.exec(assets/books/computer_science/assets/show_ascii_table.js)
   download.iframe(url,[w,h]) :
-  download.iframe(assets/chapters/web/front/react_samples/react01/index.html)
-  download.iframe(assets/chapters/web/front/react_samples/react01/index.html,500,200)
+  download.iframe(assets/books/web/front/react_samples/react01/index.html)
+  download.iframe(assets/books/web/front/react_samples/react01/index.html,500,200)
   
-  download.slideshow('assets/chapters/code/langs/c++/c++01.md')
+  download.slideshow('assets/books/code/langs/c++/c++01.md')
 
   [video title](https://www.youtube.com/watch?xyzabc)  --> <iframe src="//www.youtube.com/embed/xyzabc" frameborder="0" allowfullscreen=""></iframe>
   setup:[The Map of Physics](ZihywtixUYo)
@@ -85,7 +85,7 @@ USAGE:
         bkaCodeRegex = /(?:download\.)(?<bkatype>code)\((?<link>[^)]*)\)/gi,
         bkaExecCodeRegex = /(?:download\.)(?<bkatype>exec)\((?<link>[^)]*)\)/gi,
         bkaMdRegex = /(?:download\.)(?<bkatype>md)\((?<link>[^)]*)\)/gi,
-        bkaMdChapterRegex = /(?:download\.)(?<bkatype>chapter)\((?<link>[^)]*)\)/gi,
+        bkaMdPageRegex = /(?:download\.)(?<bkatype>page)\((?<link>[^)]*)\)/gi,
         bkaIFrameRegex = /(?:download\.)(?<bkatype>iframe)\((?<link>.*?) ?(?: ?, ?(?<width>\d{0,4}) ?, ?(?<height>\d{0,4}) ?)?\)/gi,
         bkaPrettyPrintRegex = /(<pre[^>]*>)?[\n\s]?<code([^>]*)>/gi,
         bkaYoutubeRegex = /<a href="(?:(?:https?:)?(?:\/\/)?)(?:(?:www)?\.)?youtube\.(?:.+?)\/(?:(?:watch\?v=)|(?:embed\/))(?<videoid>[a-zA-Z0-9_-]{11})(?:[^"'])*(?:"|')+\s*>(?<videotitle>[^<]*)/gi;
@@ -114,7 +114,7 @@ USAGE:
       };
 
       /*
-      in: download.md(assets/chapters/code.md)
+      in: download.md(assets/books/code.md)
       out: target.innerHTML will receive the markdown source file converted in html
       */
       var bkaDownloadMarkdownExtension = {
@@ -136,17 +136,17 @@ USAGE:
       };
 
       /*
-      idem  download.md() but looks for a file in 'assets/chapters'
-      in: download.chapter(/code.md). ~ bkaDownloadMarkdownExtension but looks for the file in 'assets/chapters'
+      idem  download.md() but looks for a file in 'assets/books'
+      in: download.page(/code.md). ~ bkaDownloadMarkdownExtension but looks for the file in 'assets/books'
       out: out: target.innerHTML will receive the markdown source file converted in html
       */
       var bkaDownloadMarkdownChapterExtension = {
         type: "lang",
         filter: function (text, converter, options) {
-          return text.replace(bkaMdChapterRegex, function (s, bkatype, link) {
+          return text.replace(bkaMdPageRegex, function (s, bkatype, link) {
             var hash = getHash(link);
             downloadFile(
-              `assets/chapters/${link}`,
+              `assets/books/${link}`,
               hash,
               converter,
               function (res, file, converter) {
@@ -195,7 +195,7 @@ USAGE:
       };
 
       /* Create a slide show from a file. The slides separator is ::::
-      in: download.slideshow(assets/chapters/code/langs/cpp/cpp01.md)
+      in: download.slideshow(assets/books/code/langs/cpp/cpp01.md)
           Ex: slide 1 :::: slide 2 :::: slide 3....        
       out:
         <div class="slideShowContainer">
@@ -260,7 +260,7 @@ USAGE:
       };
 
       /*
-      in: download.exec(assets/chapters/computer_science/assets/show_ascii_table.js)
+      in: download.exec(assets/books/computer_science/assets/show_ascii_table.js)
       out: will evaluate the file as a javascript code
       */
       var bkaExecCodeRegexExtension = {

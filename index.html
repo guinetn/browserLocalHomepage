@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" rel="preload" href="app/css/masonry.css">
     <link rel="stylesheet" type="text/css" rel="preload" href="app/css/modalbox.css">
     <link rel="stylesheet" type="text/css" rel="preload" href="app/css/books_css/toolbox.css">
-    <link rel="stylesheet" type="text/css" rel="preload" href="app/css/chapters.css">    
+    <link rel="stylesheet" type="text/css" rel="preload" href="app/css/page.css">    
     <link rel="stylesheet" type="text/css" rel="preload" href="app/css/catalog.css">    
   </head>
 
@@ -47,6 +47,7 @@
   
 </header>
 
+<!-- Current book details (on hover): chapters list, chapter's meter  -->
 <div id="bookDetails">
   <div class='bookDetailsHoverTrigger'></div>       
   <div id='bookTitlePlaceholder'></div>
@@ -59,16 +60,21 @@
   </div>  
 </div>   
 
+<!-- BOOKS AND CHAPTERS -->
 <div id='main'>  
+  <!-- BOOKS -->
   <div id='books'></div> 
+  <!-- CHAPTERS -->
 </div>
 
-<!-- blog article -->
+<!-- BLOG ARTICLE -->
 <aside class="blogArticleContainer"></aside>
 <!-- Table of content for blog articles or current chapter -->
 <aside class="contentCatalog"></aside>
 
+
 <aside id="snackbar"></aside>  
+
 
 <!-- MODALBOX -->
 <aside class="modalContainer">

@@ -11,7 +11,7 @@ export const config = {
   booksContainer: "#books",
   chaptersSeparator: "::::",
   help: "app/help.md",
-  chaptersFolder: "assets/chapters",
+  chaptersFolder: "assets/books",
   chapterMainFilePrefix: "_",
   topicsFile: "assets/topics.json",
   // To open the blog folder on Github

@@ -23,14 +23,14 @@ OTHERS
 
 Chapters syntax: standard markdown + additional syntax:
     
-* <strong>download.md(assets/chapters/web/myfile.md)</strong> : a markdown file:
-* <strong>download.chapter(myfile.md)</strong> : a markdown file in 'assets/chapters' 
+* <strong>download.md(assets/books/web/myfile.md)</strong> : a markdown file:
+* <strong>download.page(myfile.md)</strong> : a markdown file in 'assets/books' 
 * <strong>download.raw(https://<span>githubusercontent.com/abcdef/sourcefile.txt</span>)</strong> : a file as it is (raw, not prettified)
 * <strong>download.html(https://<span>githubusercontent.com/abcdef/sourcefile.txt</span>)</strong> : an html (interpreted in innerHTML)
 * <strong>download.code(https://<span>githubusercontent.com/abcdef.cpp</span>)</strong> : a code file (prettified by extension)
 * <strong>download.iframe(url [,w,h])</strong> : an iframe 
-*  └── download.iframe(assets/chapters/web/front/react_samples/react01/index.html)
-*  └── download.iframe(assets/chapters/web/front/react_samples/react01/index.html,500,200)
+*  └── download.iframe(assets/books/web/front/react_samples/react01/index.html)
+*  └── download.iframe(assets/books/web/front/react_samples/react01/index.html,500,200)
 * <strong>[video_title]<span>(https://www.</span><span>youtube.com/watch?xyzabc)</span></strong> : a youtube video: any link containing 'youtube' is transformed in an &lt;iframe src='//www.youtube.com/embed/...
 * <strong>Horizontal Slide Show</strong>: a slideShowContainer that contains slideShowSlide items
 
@@ -50,7 +50,7 @@ Chapters syntax: standard markdown + additional syntax:
 </code></pre>
 
 To create a slide show from a file content (slides separator is ::::)  
-* <strong> download.slideshow(assets/chapters/code/langs/cpp/cpp01.md)</strong>, ex:  
+* <strong> download.slideshow(assets/books/code/langs/cpp/cpp01.md)</strong>, ex:  
 Ex:  
 slide 1   
 :::: 
