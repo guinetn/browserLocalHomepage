@@ -7,7 +7,7 @@ Developers focus on their implementation rather than communication protocols and
 Combines .NET Remoting, Distributed Transactions, Message Queues and Web Services into a single programming model and also support interoperability with other processes.
 
 ## WCF Architecture
-![WCF Architecture](assets/books/dotnet/tools/assets/wcf_architecture.png.jpg)
+![WCF Architecture](assets/books/dotnet/tools/assets/wcf_architecture.png)
 
 ## FEATURES
 

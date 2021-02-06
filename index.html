@@ -8,12 +8,9 @@
     <meta name="description" content="my personal blog + brain helper"/>
     <meta name="keyword" content="my blog, my personal notes at light speed">
     
-    <!-- Skins for code-prettier: https://raw.githack.com/google/code-prettify/master/styles/index.html  -->
-    <!--   <link rel="stylesheet" type="text/css" href="app/css/from_others/codeskins/desert.css">           -->
-    <!--   <link rel="stylesheet" type="text/css" href="app/css/from_others/codeskins/sons-of-obsidian.css"> -->
-    <!--   <link rel="stylesheet" type="text/css" href="app/css/from_others/codeskins/doxy.css">             -->
-    <link rel="stylesheet" rel="preload" type="text/css" href="app/css/from_others/codeskins/sunburst.css">    
-
+    <!-- HighlightJS Themes: select on https://highlightjs.org/static/demo and report name below xxx[-yyy].min.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/stackoverflow-dark.min.css">
+    
     <link rel="stylesheet" type="text/css" rel="preload" href="app/css/slideshow.css">
     <link rel="stylesheet" type="text/css" rel="preload" href="app/css/blog.css">
     <link rel="stylesheet" type="text/css" rel="preload" href="app/css/snackbar.css">
@@ -104,9 +101,8 @@
 </aside>
 
 <!-- THIRD PARTS SCRIPTS -->
-<!-- GOOGLE CODE PRETTYFIER -->
-<script rel="preload" src="app/js/from_others/prettify.min.js"></script>
-<script rel="preload" src="app/js/from_others/run_prettify.min.js"></script>
+<!-- HighlightJS  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
 
 <!-- MARDOWN ENGINE -->
 <script rel="preload" src="app/js/from_others/showdown.min.js"></script>
@@ -114,7 +110,8 @@
 <!-- BKA SCRIPTS -->
 <script rel="preload" type="module" src="app/js/showdown.extension.bka.js"></script>
 <script src="app/js/catalog.js"></script>
-<!-- CUSTOM SCRIPTS BY BOOKS -->
+
+<!-- BOOKS's CUSTOM SCRIPTS -->
 <script src="app/js/books_scripts/tools.js"></script>
 
 <!-- MAIN SCRIPT -->

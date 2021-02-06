@@ -29,9 +29,9 @@ window.onload=function() {
 ```
 ## Play
 
-Use <kbd>←</kbd> <kbd>↑</kbd> <kbd>↓</kbd> <kbd>→</kbd>            
+Click below then use the keys <kbd>←</kbd> <kbd>↑</kbd> <kbd>↓</kbd> <kbd>→</kbd>            
 download.iframe(assets/blog/assets/snake_in_4_min.html, 500, 500)
 
 ## The code
-download.raw(assets/blog/assets/snake_in_4_min.html)
+download.code(assets/blog/assets/snake_in_4_min.html)
 

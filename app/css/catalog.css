@@ -80,16 +80,15 @@
   display: none; 
   position: fixed;
   z-index: 10000;
-  top: 3.2em;
+  top: 3.8em;
   right:0;
   width: 300px;
   height: fit-content;  
   max-height: 80%;
   overflow-y: scroll;
-  background-color: #000000b0;
-  text-overflow: ellipsis;
-  border: solid 1px #707164;
-  border-radius: 8px;
+  background-color: #272727;
+  text-overflow: ellipsis;  
+  border-radius: 0 0 6px 6px;
   font-size: 0.85em;
   font-family: monospace;
 }  

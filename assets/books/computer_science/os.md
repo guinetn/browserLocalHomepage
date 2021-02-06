@@ -1,14 +1,10 @@
 # OS
 
+|||
 |---|---|
-|Hardware||
-||Memory, CPU, ALU, I/O devices, peripheral devices, storage devices
-keyboards, mice, disk drives, printers, network adapters, display devices|
-|OS||
-||manager for (sharing) hardware resources. Drivers that interact with the kernel|
-|Programs||
-||compilers, loaders, editors, 
-application program: business programs, database programs|
+|Hardware|Memory, CPU, ALU, I/O devices, peripheral devices, storage devices, keyboards, mice, disk drives, printers, network adapters, display devices|
+|OS|manager for (sharing) hardware resources. Drivers that interact with the kernel|
+|Programs|compilers, loaders, editors, application program: business programs, database programs|
 
 ## kernel 
 

@@ -292,10 +292,12 @@ will be rendered as:
 > [Markdown syntax](https://github.com/showdownjs/showdown/wiki)
 > [Emoji supported, ex: ```:dog:```](https://github.com/showdownjs/showdown/wiki/emojis)
 ## Code prettyfier
-* [Google code-prettify (Powers https://code.google.com/ and http://stackoverflow.com/)](https://github.com/googlearchive/code-prettify)  
-* [skin Gallery is here. ](https://raw.githack.com/google/code-prettify/master/styles/index.html) Inject skin name in index.html → at the end of 
-```<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autoload=true&amp;skin=sunburst" defer></script>```
-* https://jmblog.github.io/color-themes-for-google-code-prettify/
+* [HighlightJS](https://highlightjs.org/static/demo)  
+* [Theme Gallery is here](https://highlightjs.org/static/demo) 
+Inject the theme name in index.html  at highlight.js min css level:
+```<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/[THEME CHOOSEN GO HERE].min.css">```. Add a '-' for themes with composed name, ex: stackoverflow-dark
 
 # License
 Released under the [MIT License][http://www.opensource.org/licenses/MIT]
+
+# Donate

@@ -86,8 +86,7 @@ USAGE:
         bkaExecCodeRegex = /(?:download\.)(?<bkatype>exec)\((?<link>[^)]*)\)/gi,
         bkaMdRegex = /(?:download\.)(?<bkatype>md)\((?<link>[^)]*)\)/gi,
         bkaMdPageRegex = /(?:download\.)(?<bkatype>page)\((?<link>[^)]*)\)/gi,
-        bkaIFrameRegex = /(?:download\.)(?<bkatype>iframe)\((?<link>.*?) ?(?: ?, ?(?<width>\d{0,4}) ?, ?(?<height>\d{0,4}) ?)?\)/gi,
-        bkaPrettyPrintRegex = /(<pre[^>]*>)?[\n\s]?<code([^>]*)>/gi,
+        bkaIFrameRegex = /(?:download\.)(?<bkatype>iframe)\((?<link>.*?) ?(?: ?, ?(?<width>\d{0,4}) ?, ?(?<height>\d{0,4}) ?)?\)/gi,       
         bkaYoutubeRegex = /<a href="(?:(?:https?:)?(?:\/\/)?)(?:(?:www)?\.)?youtube\.(?:.+?)\/(?:(?:watch\?v=)|(?:embed\/))(?<videoid>[a-zA-Z0-9_-]{11})(?:[^"'])*(?:"|')+\s*>(?<videotitle>[^<]*)/gi;
 
       /*
@@ -242,7 +241,7 @@ USAGE:
 
       /*
       in: download.code(https://raw.githubusercontent.com/mortennobel/cpp-cheatsheet/master/cheatsheet-as-sourcefile.cpp)
-      out: target.innerHTML will receive the file content prettyfied according the file extension
+      out: target.innerHTML will receive the file content 
       */
       var bkaDownloadCodeExtension = {
         type: "lang",
@@ -250,10 +249,12 @@ USAGE:
         replace: function (s, bkatype, link) {
           var hash = getHash(link);
           downloadFile(link, hash, null, function (res, file) {
-            const filExt = file.substring(file.length - 3, file.length);
-            let resCode = `<p><a title='download item' class='originOfLink' rel='noopener' target='_blank' href='${file}'>${file}</a></p><?prettify ...?><pre><code id='${hash}' class='language-${filExt}'>${res}</code></pre>`;
-            replaceMarker(hash, resCode);
-            PR.prettyPrint();
+            const filExt = file.split('.').pop();
+            // Html files must be transformed (html entities)
+            if (filExt.match(/html*/i))
+              res = res.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            let resCode = `<p><a title='download item' class='originOfLink' rel='noopener' target='_blank' href='${file}'>${file}</a></p><pre><code id='${hash}'>${res}</code></pre>`;
+            replaceMarker(hash, resCode);            
           });
           return promisedMarker(hash, link);
         },
@@ -277,20 +278,6 @@ USAGE:
         },
       };
 
-      /* DRAFT
-      in: <pre><code>....</code></pre>
-      out: <pre class='prettyprint linenums'><code>...</code></pre>
-      */
-      var bkaPrettyPrintExtension = {
-        type: "output",
-        regex: bkaPrettyPrintRegex,
-        replace: function (s, pre, codeClass) {
-          return pre
-            ? `<pre class='prettyprint linenums'><code ${codeClass}>`
-            : `<code class='prettyprint'>`;
-        },
-      };
-
       return [
         bkaDownloadMarkdownExtension,
         bkaDownloadMarkdownPageExtension,
@@ -300,7 +287,6 @@ USAGE:
         bkaDownloadIframeExtension,
         bkaDownloadHtmlExtension,
         bkaExecCodeRegexExtension,
-        bkaPrettyPrintExtension,
         bkaYoutubeExtension,
       ];
     });

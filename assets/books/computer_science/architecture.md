@@ -19,7 +19,6 @@ download.page(computer_science/architecture_layered.md)
 download.page(computer_science/architecture_pipefilter.md)
 ::::
 download.page(computer_science/architecture_driven_design.md)
-::::
 
 ## MESSAGING & QUEUING
 messaging-pubsub

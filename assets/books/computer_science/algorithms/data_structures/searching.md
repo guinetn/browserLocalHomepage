@@ -9,7 +9,7 @@ With an ordered container it is possible to visit them in sequence O(n)
 |item is not present | n        |	n	     | n  sequential_search||
 |item is not present | n        |	n	     | n/2 | ordered_sequential_search|
 
-```python
+```dart
 def sequential_search(alist, item):
     position = 0
 

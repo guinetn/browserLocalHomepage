@@ -2,7 +2,6 @@ import { config } from "./config.js";
 import { utils } from "./utils.js";
 import { Blog } from "./blog.js";
 import { slideShow } from "./slideshow.js";
-
 export class App extends Blog {
   // Pointer to current book object in books[]
   currentBook = null;
@@ -124,6 +123,19 @@ export class App extends Blog {
     promiseMarker.remove();
 
     this.updateChapters();
+    
+    this.highlightCodeBlocks();    
+  }
+  
+  highlightCodeBlocks() {
+    // Apply HighlightJS to <pre><code> sequences
+    // NB: ShowDown has already transformed ```c++ ...code...``` into <pre><code> sequence
+    document
+      .querySelectorAll("pre>code:not([data-highlighted])")
+      .forEach((block) => {
+        block.setAttribute("data-highlighted", "1");
+        hljs.highlightBlock(block);
+      });
   }
 
   updateChapters() {
@@ -349,8 +361,7 @@ export class App extends Blog {
       this.appendChapters(htmlChapters, chaptersContainer);
       this.updateChapters();
       this.toggleChaptersVisibility(true);
-      this.renderCurrentChapter();
-      PR.prettyPrint();
+      this.renderCurrentChapter();     
     });
   }
 

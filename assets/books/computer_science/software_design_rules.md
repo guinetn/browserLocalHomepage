@@ -76,25 +76,29 @@ you should dissect a piece of software in to separate modules that encapsulate u
 SoC encourages code maintainability reusability and testability.
 
 ### SOLID
-- S = SINGLE RESPONSIBILITY PRINCIPLE
+***S - SINGLE RESPONSIBILITY PRINCIPLE***
 "A class should have one and only one responsibility".
 Each responsibility is an axis of change.
 Code becomes coupled if classes have more than one responsibility.
-- O = OPENED CLOSED PRINCIPLE
-"Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification."
-[Strategy Pattern to the rescue](https://itnext.io/how-we-avoided-if-else-and-wrote-extendable-code-with-strategy-pattern-256e34b90caf)
 
-- L = LISKOV SUBSTITUTION PRINCIPLE
+***O - OPENED CLOSED PRINCIPLE***
+"Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification"
+- [Strategy Pattern to the rescue](https://itnext.io/how-we-avoided-if-else-and-wrote-extendable-code-with-strategy-pattern-256e34b90caf)
+- Decorator design pattern
+
+***L - LISKOV SUBSTITUTION PRINCIPLE***
 "Subtypes must be substitutable for their base types."
 This is polymorphism. just a way of ensuring that inheritance is used correctly.
-- I = INTERFACE SEGREGATION PRINCIPLE
+
+***I - INTERFACE SEGREGATION PRINCIPLE***
 "Clients should not be forced to depend upon interfaces that they do not use."
 A class don't have to implement not needed methods from an interface to implement: Share functionality among many interfaces.
 If a class wants to implement the interface, it has to implement all of the methods, some of which may not be needed by that
 class at all. So, doing this also introduces unnecessary complexity, and reduces maintainability or robustness in the system.
 The Interface Segregation principle ensures that Interfaces are developed so that each of them have their own responsibility
 and thus they are specific, easily understandable, and re-usable.
-- D = DEPENDENCY INVERSION PRINCIPLE
+
+***D - DEPENDENCY INVERSION PRINCIPLE***
 Depend on abstractions, not on concrete objects
 High level modules should not depend upon low level modules
 
@@ -165,7 +169,7 @@ class A {
 One of the commonest examples is not exposing List<T> as properties, but IEnumerable<T> and providing methods to Add and Remove from the underlying list.        
 
 
-download.page(web/css_bem.md)
+download.page(web/css/css_bem.md)
 
 ### Software Experience Lessons 
 

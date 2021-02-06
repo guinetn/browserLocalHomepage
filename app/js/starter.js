@@ -39,6 +39,7 @@ import { slideShow } from "./slideshow.js";
   function initComponents() {
     if (showdown) showdown.setFlavor("github");
     if (slideShow) slideShow.showSlides();
+    if (hljs) hljs.initHighlightingOnLoad();
   }
 
   // Some books require an initialization

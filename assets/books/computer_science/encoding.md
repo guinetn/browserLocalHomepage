@@ -23,10 +23,9 @@ position:relative; width: 95px; height: 30px; text-align:center;}
 #asciiTable .digit { color: #fbff00; background-color: red; }
 #asciiTable .char { color: #fff; background-color: #2546fd; }
 #asciiTable .ctrl { color: ##827b7b; background-color: grey; }
-#asciiTable .asciisup { position:absolute; top:10px; left: 3px; font-size: 
-small;}
+#asciiTable .asciisup { position:absolute; top:10px; left: 3px; font-size: small;}
 </style>
-</div>    
+</div>
 
 download.exec(assets/books/computer_science/assets/show_ascii_table.js)
 

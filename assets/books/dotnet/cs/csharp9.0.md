@@ -1,4 +1,4 @@
-# C# 9.0 (.net 5) #
+# C# 9 (.net 5) #
 
 
 .NET 5 is paired with C# 9, which brings many new features to the language. Here are a few highlights:
@@ -54,7 +54,9 @@ Vous pouvez également sceller les enregistrements pour éviter toute dérivatio
     }
 
 
-## Enregistrements positionnels: mêmes fonctionnalités que la version antérieure
+## Enregistrements positionnels
+
+Mêmes fonctionnalités que la version antérieure
 
     public record Person(string FirstName, string LastName);
 

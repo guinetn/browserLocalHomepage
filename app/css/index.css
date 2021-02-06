@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 @import url('from_others/fontawesome/css/all.min.css');
-@import url('customized_prettyprint.css');
 
 :root {
   --headerBg: #272727;
@@ -12,7 +11,7 @@
   --topicTitleFg: aqua; /* #0ebeff*/
   --topicLinkFg: #FFF;
   --topicLinkHoverFg: aqua;
-  --otherLinksFg: pink;
+  --otherLinksFg: #91ddef;
   --originOfLinkFg:  rgb(5 ,224,251);
   --originOfLinkHoverFg:  rgb(240, 209, 73);
 

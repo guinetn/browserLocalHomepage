@@ -170,6 +170,7 @@ a:link {
 ||tag[attr]|Tag has this attribute|
 |||a[href] {background-color: yellow; font-color: blue}|
 ||[attr]|Attribute exists|
+||:not[attr]|Attribute doesn't exists|. Ex: pre>code:not([data-highlighted])
 |||[autoplay] target all elements having autoplay attribut set (with any value)|
 ||[attr=valeur]|Attribute has this exact value|
 |||a[href="https://css-tricks.com"] {…}<br>input[type=text] { width: 200px; } <br>input[type=text][disabled] { border: 1px solid #ccc }|
