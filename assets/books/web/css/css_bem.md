@@ -1,4 +1,6 @@
-### BEM methodology (Organize CSS with a Modular Architecture: OOCSS, BEM, SMACSS)
+### BEM methodology 
+
+Organize CSS with a Modular Architecture: OOCSS, BEM, SMACSS
 
 Block, Element, Modifier methodology
 CSS class-names naming convention so they are consistent, isolated, and expressive

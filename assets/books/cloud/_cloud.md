@@ -55,6 +55,8 @@ download.page(cloud/cloud_models_deployment_ways.md)
 ::::
 download.page(cloud/cloud_models.md)
 ::::
+download.page(cloud/free_tiers.md)
+::::
 download.page(cloud/cloud_design_patterns.md)
 ::::
 ## The Stack

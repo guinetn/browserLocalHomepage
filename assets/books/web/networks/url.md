@@ -1,6 +1,6 @@
 # Url
 
-# Slug
+## Slug
 
 Part of the URL that explains the page’s content. Text identifier of a content
 URL: https://welcometomysite.com/slug

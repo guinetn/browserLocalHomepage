@@ -71,4 +71,6 @@ esprit de synthèse
 goût du partage d'expérience
 
 ## Get paid for your craft
-https://gumroad.com
+
+- https://gumroad.com
+- https://github.com/sponsors/  ex: https://jsonplaceholder.typicode.com/

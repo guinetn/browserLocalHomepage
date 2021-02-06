@@ -16,7 +16,7 @@
   --originOfLinkFg:  rgb(5 ,224,251);
   --originOfLinkHoverFg:  rgb(240, 209, 73);
 
-  --homeBg: #272727;
+  --homeBg: #a13939;
   --webBg: #272727;
   --codeBg: #272727;
   --mobilesBg: #272727;
@@ -278,59 +278,59 @@ em {
 
 /* BOOKS */
 
-.book #home {
+#home.book {
   background-color: var(--homeBg);
 }
 
-.book #web {
+#web.book {
   background-color: var(--webBg);
 }
 
-.book #cloud {
+#cloud.book {
   background-color: var(--cloudBg);
 }
 
-.book #code {
+#code.book {
   background-color: var(--codeBg);
 }
 
-.book #mobiles {
+#mobiles.book {
   background-color: var(--mobilesBg);
 }
 
-.book #math {
+#math.book {
   background: var(--mathBg);  
 }
 
-.book #ia {
+#ia.book {
   background: var(--iaBg);  
 }
 
-.book #dataviz {
+#dataviz.book {
   background: var(--datavizBg);  
 }
 
-.book #sciences {
+#sciences.book {
   background: var(--sciencesBg);  
 }
 
-.book #aviation {
+#aviation.book {
   background: var(--aviationBg);  
 }
 
-.book #securisation {
+#securisation.book {
   background: var(--securisationBg);  
 }
 
-.book #money {
+#money.book {
   background: var(--moneyBg);  
 }
 
-.book #job {
+#job.book {
   background: var(--jobBg);  
 }
 
-.book #toolbox {
+#toolbox.book {
   background: var(--toolboxBg);  
 }
 

@@ -61,6 +61,7 @@ CMD ["sh", "-c", "node server.js"]
 It copies our package.json, runs npm install and starts the server. To make sure our file is correct, we can run docker build -t abhinavdhasmana/github-action-example-node . from the root folder. If we run docker images , we will see our latest image. We can also run our container with docker run -d -p 3000:3000 abhinavdhasmana/github-action-example-node. Point the browser to http://localhost:3000/ and text will appear.
 
 ## More
+- https://github.com/clue/docker-json-server
 - https://github.com/priximmo/sommaire-xavki-devops-fr
 - https://devopsmyway.com/install-docker-on-windows/
 - https://www.liquidweb.com/kb/how-to-install-and-use-containerization/

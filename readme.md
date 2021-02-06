@@ -7,20 +7,17 @@ Never open you're .md notes again, it's automatic and as fast as your fingers ca
 
 # Features
 * Blog
-* You're notes in books+chapters   
-* Navigate in books   
-* Navigate in book's chapters 
-* Set alarms
-* Customize & enrich: add books, topics, links, chapters to books, slideshow
-* Automatic repeat copy when mousedown > 3sec
+* Notes taken navigator (books + chapters + slideshow)
+* Alarm clock
+* Automatic copy when mousedown > 3sec
 
 |Key|Action|  
 |---|---|  
-|<kbd>CTRL</kbd><kbd>→</kbd> or <kbd>+</kbd><br/><kbd>CTRL</kbd><kbd>←</kbd> or <kbd>-</kbd>  | Navigate in books|   
-|<kbd>a…z</kbd> key | Go to book with a name starting by…|  
-|<kbd>→</kbd> | Start chapters navigation for current book|  
-|<kbd>←</kbd> <kbd>→</kbd> | Navigate in chapters of the current book|   
-|<kbd>SHIFT</kbd><br>or <kbd>←</kbd> on 1st chapter | Exit chapter navigation<br>Chapter page is memorized: come back to it with <kbd>→</kbd> |  
+|<kbd>CTRL</kbd><kbd>→</kbd> or <kbd>CTRL</kbd><kbd>←</kbd> | Navigate in books|   
+|<kbd>a…z</kbd> key | Go to the book with a name starting by the key pressed|  
+|<kbd>←</kbd> <kbd>→</kbd> | Navigate in the chapters of the current book|   
+|                          | or starts navigating in the chapters of the current book|   
+|<kbd>SHIFT</kbd>          | Exit chapter navigation<br>Chapter is bookmarked, next <kbd>→</kbd> (on this book) will come back to it |  
 |<kbd>F</kbd> key | Fullscreen mode|  
 |<kbd>ESC</kbd> key | Exit Fullscreen mode|  
 
@@ -51,8 +48,8 @@ Refer to config.png for a global view of the process.
 ## Adding a blog item
 
 * Just create a .md file in /blog folder!
-* Blogs are requested with the github api. You won't show local changes. Publish!
-* Publish on github to view the blog's files (local server isn't the githup file api!)
+* Blogs are requested with the github api. You won't see local changes. Publish first or create on github!
+* Publish on github to view the blog's files (local server isn't the github file api!)
 ## Adding a book
 
 * A book contains topics (grouped links) and/or custom html  
@@ -132,7 +129,7 @@ an unique option:
         ], 
 …	
 ```
-## Adding chapter to a book...takes 10 sec
+## Adding a chapter to a book...takes 10 sec
 
 1. In ```assets/books``` folder
 - Create a folder having the same name that the targeted book 
@@ -141,8 +138,8 @@ an unique option:
 
 * Each book can have a markdown file (.md) 
 * This .md file is converted in html on the fly when you press <kbd>→</kbd>     
-* The sequence '::::' is the chapter separator (any number of ':' superior to 3). Chapters are not limited in size.  
-* Chapters can contains youtube video (and kind of by extension)
+* The sequence '::::' is the chapter separator (at least 4 ':'). Chapters are not limited in size.  
+* Chapters can contains youtube video (and kind of by extensions)
 * Chapters can have nested chapters
 
 ```md

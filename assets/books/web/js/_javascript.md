@@ -226,3 +226,16 @@ JAVASCRIPT CODE IS SINGLE-THREADED IN THE SAME CONTEXT, BUT ALL OTHER STUFF WHIC
 			clara.whiskers();
 			// Expected Output
 			// "Clara can sing"
+            
+::::
+download.page(web/js/javascript_ES2009_ES5.md)
+::::
+download.page(web/js/javascript_ES2015_ES6.md)
+::::
+download.page(web/js/javascript_ES2016_ES7.md)
+::::
+download.page(web/js/javascript_ES2017_ES8.md)
+::::
+download.page(web/js/javascript_ES2019_ES10.md)
+::::
+download.page(web/js/javascript_ES2020_ES11.md)            

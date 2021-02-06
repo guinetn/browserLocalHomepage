@@ -55,7 +55,8 @@
 }
 
 .page a {  
-  color: white;
+  color: rgb(88 160 220);
+  text-decoration: auto !important;  
 }
 .page a:hover {
   text-decoration:underline !important;

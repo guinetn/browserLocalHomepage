@@ -129,10 +129,62 @@ static void Done (IAsyncResult cookie)
 ```
 
 
-## Methods
+## Methods (functions in classes)
 
 https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/calling-synchronous-methods-asynchronously
 
+### Dynamic method invocation
+call a method on some instance
+
+```cs 
+public class Foo
+{
+    public int Bar(int a, int b, bool c) => a + (c ? b : 0);
+}
+``` 
+
+1. Direct method invocation
+
+``` cs
+object fooInstance = new Foo();
+fooInstance.Bar(1,2,false);
+``` 
+
+2. MethodInfo.Invoke
+``` cs
+object fooInstance = new Foo();
+MethodInfo barMethod = ClassType.GetMethod(nameof(Foo.Bar));
+barMethod.Invoke(fooInstance, new[] { (object)1, (object)2, (object)false });
+``` 
+
+3. Delegate.DynamicInvoke
+``` cs
+object fooInstance = new Foo();
+MethodInfo barMethod = ClassType.GetMethod(nameof(Foo.Bar));
+// wrap MethodInfo in a delegate
+var delegateType = Expression.GetDelegateType(typeof(Foo), typeof(int), typeof(int), typeof(bool), typeof(int));
+var @delegate = Delegate.CreateDelegate(delegateType, barMethod);
+@delegate.DynamicInvoke(new[] { fooInstance, (object)1, (object)2, (object)false });
+``` 
+
+4. Func<> invocation
+``` cs
+object fooInstance = new Foo();
+
+MethodInfo barMethod = ClassType.GetMethod(nameof(Foo.Bar));
+var delegateType = Expression.GetDelegateType(typeof(Foo), typeof(int), typeof(int), typeof(bool), typeof(int));
+// cast the Delegate to a Func<>
+var func = (Func<Foo, int, int, bool, int>)Delegate.CreateDelegate(delegateType, barMethod);
+func(fooInstance as Foo, 1, 2, false);
+``` 
+
+5. Dynamic cast
+``` cs
+object fooInstance = new Foo();
+
+dynamic dynamicFoo = fooInstance as dynamic;
+dynamicFoo.Bar(1, 2, false);
+``` 
 ## Lambdas
 
 ```cs
@@ -142,3 +194,8 @@ Console.WriteLine(firstOddIndex);
 
 elements.Where(v => (int)v > 11).ToArray()
 ```
+
+
+## More
+
+- https://www.davideguida.com/dynamic-method-invocation-with-net-core/

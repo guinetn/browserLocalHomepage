@@ -14,7 +14,8 @@
     "http://192.168.0.1(Router 192.168.0.1)",
     "https://httpbin.org/ip[!getjson](★ my ip: $origin)",
     "http://ip-api.com/json/[!getjson](★ my lat/lon: $lat $lon)",
-    "https://api.wheretheiss.at/v1/satellites/25544[!getjson300](⏳ iss: N $latitude $longitude)"
+    "https://api.wheretheiss.at/v1/satellites/25544[!getjson300](⏳ iss: N $latitude $longitude)",
+    "https://api.coindesk.com/v1/bpi/currentprice.json[!getjson300](⏳ btc: $rate $ £)"
   ],
 
   "news": [

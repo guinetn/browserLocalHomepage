@@ -1,4 +1,4 @@
-# ES7 (ECMAScript 2016) Features
+# ES7 - ECMAScript 2016
 
 ECMAScript 2016 and 2017 was not called ES7 and ES8.
 Since 2016 new versions are named by year (ECMAScript 2016, ECMAScript 2017).
@@ -89,9 +89,9 @@ class Example {
 }
 ```
 
-# SIMD - Single Instruction Multiple Data
+## SIMD - Single Instruction Multiple Data
 
-Llow level JavaScript: 3D, images, son...cpu high usage
+Low level JavaScript: 3D, images, son...cpu high usage
 Ask the cpu to use one instruction for a series of numbers
 
 ```js

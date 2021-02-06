@@ -1,4 +1,4 @@
-# ES6 (ECMAScript 2015) Features
+# ES6 - ECMAScript 2015
 
 Modules, classes, portée lexicale au niveau des blocs, itérateurs et générateurs, promesses pour la programmation asynchrone, patrons de destructuration, optimisation des appels terminaux, nouvelles structures de données (tableaux associatifs, ensembles, tableaux binaires), support de caractères Unicode supplémentaires dans les chaînes de caractères et les expressions rationnelles, possibilité d'étendre les structures de données prédéfinies.
 - http://www.ecma-international.org/ecma-262/6.0/
@@ -291,6 +291,10 @@ var obj = {
 var name = "Bob", time = "today";
 console.log(`Hello ${name}, how are you ${time}?`);
 ```
+
+* String Interpolation inside Regular Expressions
+To substitute a variable inside a regular expression you can't use the usual JS string interpolation. 
+You have to create a RegExp object: new RegExp(`<p>${name}</p>`)
 
 ## DESTRUCTURING
 

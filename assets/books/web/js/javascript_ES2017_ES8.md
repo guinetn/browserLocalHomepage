@@ -1,4 +1,4 @@
-# ES8 (ECMAScript 2017) Features
+# ES8 - ECMAScript 2017
 
 ECMAScript 2016 and 2017 was not called ES7 and ES8.
 Since 2016 new versions are named by year (ECMAScript 2016, ECMAScript 2017).
@@ -246,7 +246,7 @@ doubleAndAdd('one', 2).then(console.log)
 	main();	
 
 
-# ASYNC/AWAIT
+## ASYNC/AWAIT
 https://runkit.com/docs/await
 http://rossboucher.com/await
 https://github.com/lukehoban/ecmascript-asyncawait/
@@ -255,7 +255,7 @@ var got = require("got");
 var githubStatusJson = (await got("https://status.github.com/api/status.json", { json : true })).body;
 
 
-# Asynchronous javascript
+## Asynchronous javascript
 
 ## JS promises are similar to Java’s Future or C#’s Task
 
@@ -293,13 +293,13 @@ var githubStatusJson = (await got("https://status.github.com/api/status.json", {
 
 async/await, est une nouvelle fonctionnalité qui devait apparaître dans ES2016 et qui finalement sera dans ES2017. Elle résout des problèmes liés à l'asynchrone en JavaScript. Les promises en JavaScript sont un moyen de résoudre cela mais certains les trouvent complexe à manier et quand nous manipulons les promises nous résolvons le problème, mais la lisibilité en prend parfois un coup.
 
-# Grâce à async on peut dire qu'une fonction traite des données asynchrones (qui viennent d'une api, file system, etc..).
+Grâce à async on peut dire qu'une fonction traite des données asynchrones (qui viennent d'une api, file system, etc..).
 async function fetchData() {
 }
 
 await quant à lui, permet de dire à une fonction asynchrone(avec le mot clé async) d'attendre tant que l'appel asynchrone n'est pas terminé. Ce mécanisme rend la fonction asynchrone à l'intérieur d'elle-même synchrone ! Ce qui est vraiment génial c'est que la gestion du flux de données sur nos appels API deviens beaucoup plus simple à comprendre et à maintenir.
 
-# En voici un exemple :
+* Exemple
 
 async function fetchData() {
  const result = await fetch('http://reqres.in/api/users/2')

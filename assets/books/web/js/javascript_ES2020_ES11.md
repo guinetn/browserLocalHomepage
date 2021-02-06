@@ -1,5 +1,4 @@
-# # ES11 (ECMAScript 2020) Features
-
+# ES11 - ECMAScript 2020
 	
 ## Promise.allSettled
 

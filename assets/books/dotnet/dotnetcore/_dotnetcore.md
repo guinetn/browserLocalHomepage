@@ -38,7 +38,7 @@ download.page(dotnet/dotnetcore/dotnet_cli.md)
 download.page(dotnet/dotnetcore/project.json.md)
 download.page(dotnet/dotnetcore/env_vars.md)
 ::::
-download.page(dotnet/depency_injection_ioc.md)
+download.page(dotnet/dotnetcore/depency_injection_ioc.md)
 ::::
 download.page(dotnet/dotnetcore/configuration.md)
 ::::

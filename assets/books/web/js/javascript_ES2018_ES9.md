@@ -1,4 +1,4 @@
-# ES9 (ECMAScript 2018) Features
+# ES9 - ECMAScript 2018
 
 ## Lifting template literal restriction
 

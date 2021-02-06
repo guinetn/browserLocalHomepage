@@ -1,4 +1,4 @@
-# OSI MODEL - Open Systems Interconnection
+## OSI MODEL - Open Systems Interconnection
 
 Network connectivity using standard protocols
 

@@ -1,11 +1,11 @@
-# DOM (Document Object Model) 
+# DOM - Document Object Model
 
 Api: HTML programming interface 
 Represents the document as nodes and objects (structure, style, content) that can be changed 
 
 - https://vanillajstoolkit.com/reference/#DOM-Injection
 
-# data-* custom attributes
+## data-* custom attributes
 
     HTML5 supports  'data-'custom attributes within all HTML elements
 	    <div id="myDiv" data-custom-attr="My Value"> Bla Bla </div>

@@ -1,4 +1,4 @@
-# ES10 (ECMAScript 2018) Features
+# ES10 - ECMAScript 2018
 
 ## String:  trimStart() & trimEnd()
 

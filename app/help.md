@@ -12,7 +12,7 @@ NAVIGATE IN BOOKS
 NAVIGATE IN CHAPTERS
 
 * <kbd>→</kbd> Next chapter (Enter chapter mode when not in)
-* <kbd>←</kbd> Previous chapter (Exit chapter mode when done while on 1<sup>st</sup> chapter)
+* <kbd>←</kbd> Previous chapter (Enter chapter mode by last page when not in)
 * <kbd>Shift</kbd> Exit chapter mode
 
 OTHERS

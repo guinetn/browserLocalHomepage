@@ -1,4 +1,4 @@
-# ES5 (ECMAScript 2009) Features
+# ES5 - ECMAScript 2009
 
 ## Date.now()
 

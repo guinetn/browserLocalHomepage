@@ -109,7 +109,7 @@ export class App extends Blog {
 
             // Remove the separator <p>::::</p>
             let pmp = promiseMarker.previousElementSibling;            
-            if (pmp.innerText == config.chaptersSeparator)
+            if (pmp.innerText.match(new RegExp(`${config.chaptersSeparator}:*\t*`)))
               promiseMarker.previousElementSibling.remove();
             break;
           }

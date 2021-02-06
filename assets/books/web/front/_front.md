@@ -18,13 +18,13 @@ https://roadmap.sh/frontend
 
 
 download.page(web/front/microfrontends.md)
-:::: 
+::::
 download.page(web/front/react.md)
-:::: 
+::::
 download.page(web/front/vue.md)
-:::: 
+::::
 download.page(web/front/svelte.md)
-:::: 
+::::
 download.page(web/front/blazor.md)
 ::::
 download.page(web/front/angular.md)
