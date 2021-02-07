@@ -1,6 +1,6 @@
-## SOFTWARE QUALITY
+﻿## SOFTWARE QUALITY
 
-Series of practices for our teams to follow in order to assure a high-quality process and, in the end, a high-quality product.
+Series of practices for our teams to follow in order to assure a high-quality process and, in the end, a high-qualityâ€¯product.
 
 ### Key Ingredients
 
@@ -20,7 +20,7 @@ reliable documentation
 
 * Make client aware of all the efforts made for assuring the quality of the production
 
-#### Development  
+#### Developmentâ€¯ 
 
 * security 
    constantly have in mind
@@ -31,7 +31,7 @@ reliable documentation
     code analyzing tools (Sonar)
     repositories: well-established workflows
         
-#### TESTING  
+#### TESTINGâ€¯ 
 
 Performed for every level in the development cycle: 
 - unit
@@ -47,7 +47,7 @@ Automation testing
     increase the efficiency of the testing process
     reduce the time spent on regression
 
-#### Operability  
+#### Operabilityâ€¯ 
     
     assures a high quality of the product and services after the development has finished and the application is used in real life.
 
@@ -55,7 +55,7 @@ Automation testing
     well-structured logging systems to investigate issues
     monitoring system sending signals whenever a problem appears (Apache Airflow to schedule and monitor workflows)
     
-#### Data security  
+#### Data securityâ€¯ 
 
     care about privacy and confidentiality = rules to follow when it comes to data
     - use dummy data on the development environments

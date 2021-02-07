@@ -1,4 +1,4 @@
-## SOFTWARE DESIGN RULES
+﻿## SOFTWARE DESIGN RULES
 
 ### GTD - Getting Things Done
 

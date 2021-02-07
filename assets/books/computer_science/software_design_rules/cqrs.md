@@ -1,4 +1,4 @@
-## CQRS
+﻿## CQRS
 
 COMMAND AND QUERY RESPONSIBILITY SEGREGATION
 
@@ -27,10 +27,10 @@ CQRS (Command-Query Reponsability Separation)
         which it refers to as Command and Query respectively following the vocabulary of CommandQuerySeparation.
 
 
-    Séparer DB commandes et requêtes (Queries)
-    Le système gère des Evénements (Events), alimentées par “quelque chose” qui traite des Commandes: Command Handler
-    Les Commandes et les Evénements sont des messages qui transitent de façon asynchrone via des tuyaux.
-    Les Requêtes, elles, sont traitées en synchrone.
+    SÃ©parer DB commandes et requÃªtes (Queries)
+    Le systÃ¨me gÃ¨re des EvÃ©nements (Events), alimentÃ©es par â€œquelque choseâ€ qui traite des Commandes: Command Handler
+    Les Commandes et les EvÃ©nements sont des messages qui transitent de faÃ§on asynchrone via des tuyaux.
+    Les RequÃªtes, elles, sont traitÃ©es en synchrone.
 
     http://sachabarbs.wordpress.com/distributed-systems/
 

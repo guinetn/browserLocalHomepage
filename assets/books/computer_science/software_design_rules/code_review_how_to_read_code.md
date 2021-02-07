@@ -1,7 +1,7 @@
-### How to Read Code
+﻿### How to Read Code
 
-Going into existing codebases is a necessary skill but a common refrain is “I hate reading other people’s code” 
-The reason is we didn’t write it (we’re the best coders on the planet and no one else can write code like we can): be a passive reader is not so beneficial as the intense thought process that goes into creating code
+Going into existing codebases is a necessary skill but a common refrain is â€œI hate reading other peopleâ€™s codeâ€ 
+The reason is we didnâ€™t write it (weâ€™re the best coders on the planet and no one else can write code like we can): be a passive reader is not so beneficial as the intense thought process that goes into creating code
 
 1. Learn to dig
 - git blame   author name, last modified date, commit hash 
@@ -28,7 +28,7 @@ Files, instantiated classes, configuration set
 Naming conventions, spacing conventions, brace placement, code conventions.
 
 7. Expect to Find Garbage
-Find files/functions that are never used, commented-out code that hasn’t been touched in years (git blame). Don’t slow down and spend too much time thinking about it, and don’t be afraid to get rid of this stuff.
+Find files/functions that are never used, commented-out code that hasnâ€™t been touched in years (git blame). Donâ€™t slow down and spend too much time thinking about it, and donâ€™t be afraid to get rid of this stuff.
 
-8. Don’t Get Lost
-Don’t expect it to be a linear process, and don’t expect to understand everything 100%. Pay attention to the important details and know how to dig around to find answers to your questions, and you will find yourself understanding very quickly.
+8. Donâ€™t Get Lost
+Donâ€™t expect it to be a linear process, and donâ€™t expect to understand everything 100%. Pay attention to the important details and know how to dig around to find answers to your questions, and you will find yourself understanding very quickly.
