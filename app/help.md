@@ -50,7 +50,7 @@ Chapters syntax: standard markdown + additional syntax:
 </code></pre>
 
 To create a slide show from a file content (slides separator is ::::)  
-* <strong> download.slideshow(assets/books/code/langs/cpp/cpp01.md)</strong>, ex:  
+* <strong> download.slideshow(assets/books/code/langs/c++/c++01.md)</strong>, ex:  
 Ex:  
 slide 1   
 :::: 

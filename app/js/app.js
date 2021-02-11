@@ -403,7 +403,7 @@ export class App extends Blog {
     // Set book title
     this.bookDetails.querySelector(
       "#bookTitlePlaceholder"
-    ).innerHTML = `<sup><small>book</small></sup> ${bookTitle} ${chapterNav}`;
+    ).innerHTML = `<sup><small>📕</small></sup> ${bookTitle} ${chapterNav}`;
   }
 
   toggleChaptersVisibility(forceVisibility) {
