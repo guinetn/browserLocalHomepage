@@ -1,15 +1,26 @@
 # GRPC
 
 
-Open source high performance RPC (remote procedure call) framework
+Open source high performance RPC (remote procedure call) framework that can run in any environment (.NET…)
+It can efficiently connect services in and across data centers with pluggable support for load balancing, tracing, health checking and authentication.
 It is based on HTTP/2, Protocol Buffers and other modern standard-based technologies. 
-Supported by many programming languages, including .NET.
+
 https://gRPC.io
+https://github.com/grpc/grpc-node
+
 Efficiently connect services 
 Pluggable support for load balancing, tracing, health checking, authentication. 
 To connect devices, mobile apps/browsers to backend services
 Uses protocol buffers by default.
  
+Like many RPC systems, gRPC is based on the concept of defining a service in terms of functions (methods) that can be called remotely. For each method, you define the parameters and return types. Services, parameters, and return types are defined in .proto files using Google's open source language-neutral protocol buffers mechanism.
+
+With the gRPC transporter, Nest uses .proto files to dynamically bind clients and servers to make it easy to implement remote procedure calls, automatically serializing and deserializing structured data.
+
+
+
+
+
 ### protocol buffers
 https://developers.google.com/protocol-buffers/docs/overview 
 

@@ -1,8 +1,11 @@
 # C
 
+Compiled languages: preprocessed → compiled → assembled → linked
+
 add: - [Hash Table in C]https://www.yo utube.com/watch?v=2Ti5yvumFTU&t=1040s
-download.page(code/langs/c/sll.md)
-download.page(code/langs/c/dll.md)
+
+download.page(code/langs/c/c_libs/c_libs.md)
+download.page(code/langs/c/ccompilers/_ccompilers.md)
 
 
 ### MOST USED HEADER FILES

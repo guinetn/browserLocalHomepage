@@ -1,5 +1,8 @@
 # T
 
+## Theta - Time decay
+The ratio of the change in an option price to the decrease in time to expiration. 
+
 ## TICKER
 ## TARGET BENCHMARK
 An index or similar factor that is part of a target a fund manager has set for a fund’s performance to match or exceed (including anything used for performance fee calculation).

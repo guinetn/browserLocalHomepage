@@ -28,6 +28,8 @@ Cela consiste, pour une personne morale ou physique, à faire connaître au publ
 Any contract NOT traded on an exchange
 ex: cds, forwards
 
+A decentralized market (as opposed to an exchange market) where geographically dispersed dealers are linked by telephones and computer screens. The market is for securities not listed on a stock or bond exchange. The NASDAQ market is an OTC market for U.S. stocks. Antithesis of listed.
+
 ## Open-ended product/fund
 An investment product with no defined lifespan. New units (e.g. shares, bonds, units, notes) are created or dissolved as required. Investors can subscribe (buy) or redeem (sell) these units at the prevailing net asset value per unit in accordance with the details set out in the relevant product prospectus.
 

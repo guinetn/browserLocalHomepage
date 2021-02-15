@@ -71,3 +71,4 @@ OpenStack is dying down. Kubernetes is the winner, for now.
 - https://github.com/priximmo/sommaire-xavki-devops-fr
 - https://blog.bitsrc.io/setting-up-a-logging-infrastructure-in-nodejs-ec34898e677e
 - https://www.fluentd.org/architecture
+- https://medium.com/swlh/setup-own-kubernetes-cluster-via-virtualbox-99a82605bfcc

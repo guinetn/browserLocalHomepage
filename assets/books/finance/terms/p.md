@@ -1,5 +1,8 @@
 # P
 
+## Par Bond
+A coupon bond with fixed rate whose price today equals to par amount.
+
 ## PEA
 
 https://www.linternaute.fr/argent/guide-de-vos-finances/1397211-pea-fonctionnement-et-fiscalite-du-plan-d-epargne-en-actions/
@@ -7,7 +10,6 @@ https://www.linternaute.fr/argent/guide-de-vos-finances/1397211-pea-fonctionneme
 ## PIPS
 http://forexprotools.com/General/Education/Pips.aspx
 
-## PnL
 
 ## Price earning ratio
 rapport entre le cours de Bourse et les bénéfices
@@ -30,23 +32,28 @@ A representation of a track record [see Track record] that is developed to show 
 
 
 ---
-# Points, Pips 
+## Points, Pips 
 The term used in currency market to represent the smallest incremental 
 move an exchange rate can make. Depending on context, normally one 
 basis point (0.0001 in the case of EUR/USD, GBD/USD, USD/CHF and .01 
 in the case of USD/JPY). 
 
-# Position 
+## Position 
 A position is a trading view expressed by buying or selling. It can refer 
 to the amount of a currency either owned or owed by an investor. 
 
-# Premium 
+## Premium 
 In the currency markets, it is the amount of points added to the spot 
 price to determine a forward or futures price. 
 
-# Profit/Loss (P&L) 
+## Profit/Loss - P&L 
+The financial term for Profit & Loss, sometimes written P&L.
+
 The actual "realized" gain or loss resulting from trading activities on 
 Closed Positions, plus the theoretical "unrealized" gain or loss on Open 
 Positions that have been Mark-to-Market. 
+http://en.wikipedia.org/wiki/Income_statement
 
-
+## PUT - Put Option 
+A contract between two parties to exchange an asset (the underlying), at a specified price (the strike), by a predetermined date (the expiry or maturity). One party, the buyer of the put, has the right, but not an obligation, to sell the asset at the strike price by the future date, while the other party, the seller of the put, has the obligation to buy the asset at the strike price if the buyer exercises the option. A European put option allows the holder to exercise the option only on the option expiration date. An American call option allows exercise at any time before the maturity.
+http://en.wikipedia.org/wiki/Put_option

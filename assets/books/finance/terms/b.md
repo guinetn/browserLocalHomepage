@@ -4,6 +4,7 @@
 ### Black–Scholes–Merton Model 
 
 Estimate options price
+A mathematical model of a financial market containing certain derivative investment instruments.
 
 Black–Scholes–Merton model is a mathematical model of a financial market containing derivative investment instruments.
 . From the model, one can deduce the Black–Scholes formula, which gives a theoretical estimate of the price of European-style options
@@ -67,12 +68,19 @@ The price that a buyer is prepared to purchase at; the price offered for a curre
 ## Bonds 
 see obligation
 
+A debt security, under which the issuer owes the holders a debt and, depending on the terms of the bond, is obliged to pay them interest (the coupon) and / or to repay the principal at a later date, termed the maturity.
+
+## Bond Duration
+It is the sensitivity of the bond price to the changes to the bond yield. In mathematics, this is the first derivative of the bond price with respect to the yield.
+
+## Bond Yield
+The break even rate to price the bond future cash flow versus it price today.
+
 ## Broker 
-An individual, or firm, that acts as an intermediary, putting together 
-buyers and sellers usually for a fee or commission. ln contrast, a 
-´dealers´ commits capital and takes one side of a position, hoping to 
-earn a spread (profit) by closing out the position in a subsequent trade 
+An individual, or firm, that acts as an intermediary, putting together buyers and sellers usually for a fee or commission. ln contrast, a ´dealers´ commits capital and takes one side of a position, hoping to earn a spread (profit) by closing out the position in a subsequent trade 
 With another party. 
+
+An individual who is paid a commission for executing customer orders. Either a floor broker who executes orders on the floor of the exchange, or an upstairs broker who handles retail customers and their orders. Also, person who acts as an intermediary between a buyer and seller, usually charging a commission. A "broker" who specializes in stocks, bonds, commodities, or options acts as an agent and must be registered with the exchange where the securities are traded. Antithesis of dealer.
 
 ## Buba 
 Bundesbank, Central Bank of Germany 
@@ -86,4 +94,11 @@ haussier, optimiste
 ## Bull Market 
 A market distinguished by a prolonged period of rising prices. (Opposite of bear market) 
 				
+
+
+## Beta
+The measure of a fund's or a stock's risk in relation to the market or to an alternative benchmark. A beta of 1.5 means that a stock's excess return is expected to move 1.5 times the market excess returns. E.g., if market excess return is 10%, then we expect, on average, the stock return to be 15%. Beta is referred to as an index of the systematic risk due to general market conditions that cannot be diversified away.
+
+
+
 

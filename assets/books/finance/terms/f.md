@@ -58,6 +58,11 @@ points de la courbe qui permettent de changer taux
 ### Forward contract
 A forward contract is a customised contract between two counterparties to buy or sell a specific asset on a future date at an agreed price. As opposed to stocks and bonds, a forward contract is a derivative instrument, the value of which depends on an underlying asset. Unlike standard futures contracts, forward contracts are not traded on a centralised exchange and are highly customisable.
 
+a forward is not traded on an exchange and thus does not have the interim partial payments due to marking to market. Nor is the contract standardized, as on the exchange.
+
+A contract between two parties to buy or sell an asset at a specified future time at a price agreed upon today. The price agreed upon is called the delivery or strike price, which is equal to the forward price at the time the contract is entered into.
+http://en.wikipedia.org/wiki/Forward_contract
+
 ### Forward Points 
 The pips added to or subtracted from the current exchange rate to 
 calculate a forward price. 
@@ -77,14 +82,12 @@ determining future movements in a financial market.
 The underlying proposition of fundamental analysis is that there is a basic intrinsic value for the aggregate stock market, various industries or individual securities and that these depend on underlying economic factors. The identification and analysis of relevant variables combined with the ability to quantify the future value of these variables are key to achieving superior investment results. A wide range of financial information is evaluated in fundamental analysis, including such income statement data as sales, operating costs, pre-tax profit margin, net profit margin, return on equity, cash flow, and earnings per share.
 Fundamental analysis contrasts with technical analysis which contends that the prices for individual securities and the overall value of the market tend to move in trends that persist.
 
-## Futures Contract 
+
+## Futures Contract - Futures
 
 A future is a derivative instrument [see Derivatives] that involves a contract to buy or sell an asset (stock index, commodity, currency, fixed income or other security) for delivery at a future date at a specific price.
 
-An obligation to exchange a good or instrument at a set price on a 
-future date. The primary difference between a Future and a Forward is 
-that Futures are typically traded over an exchange (Exchange- Traded 
-Contacts - ETC), versus forwards, which are considered Over The 
-Counter (OTC) contracts. An OTC is any contract NOT traded on an exchange
+An obligation to exchange a good or instrument at a set price on a future date. The primary difference between a Future and a Forward is that Futures are typically traded over an exchange (Exchange Traded Contacts - ETC), versus forwards, which are considered Over The Counter (OTC) contracts. An OTC is any contract NOT traded on an exchange
 
-
+A standardized contract between two parties to buy or sell a specified asset of standardized quantity and quality for a price agreed today (the futures price or strike price) with delivery and payment occurring at a specified future date, the delivery date. The contracts are negotiated at a futures exchange, which acts as an intermediary between the two parties. The exchange requires both parties to put up an initial amount of cash, the margin. Additionally, since the futures price will generally change daily, the difference in the prior agreed-upon price and the daily futures price is settled daily also (variation margin). The exchange will draw money out of one party's margin account and put it into the other's so that each party has the appropriate daily loss or profit. A forward is like a futures in that it specifies the exchange of goods for a specified price at a specified future date. However, a forward is not traded on an exchange and thus does not have the interim partial payments due to marking to market. Nor is the contract standardized, as on the exchange.
+http://en.wikipedia.org/wiki/Futures_contract

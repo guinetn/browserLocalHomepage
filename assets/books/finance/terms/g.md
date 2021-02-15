@@ -1,5 +1,9 @@
 # G
 
+## Gamma
+The rate of change in the delta with respect to changes in the underlying price. Gamma is the second derivative of the value function with respect to the underlying price.
+http://en.wikipedia.org/wiki/Greeks_(finance)#Gamma
+
 ## G5
 The five leading industrial countries: US, Germany, Japan, France, UK. 
 

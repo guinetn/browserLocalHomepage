@@ -1,5 +1,9 @@
 # S
 
+## SABR Model
+A stochastic volatility model, which attempts to capture the volatility smile in derivatives markets. The name stands for "stochastic alpha, beta, rho", referring to the parameters of the model.
+http://en.wikipedia.org/wiki/SABR_volatility_model
+
 ## SEC - Securities and Exchange Commission
 
 Established the National Association of Securities Dealers (now Financial Industry Regulatory Authority) to make rules to assure the orderly commerce in publicly traded stocks.
@@ -59,14 +63,14 @@ An order to buy/sell at an agreed price. One could also have a pre-arranged stop
 An order left With a Dealer to buy or sell at a fixed price. The GTC will remain in place until executed or cancelled
             
 ### Stock exchange 
-		a place where stockbrokers and traders buy and sell securities. 
-		The securities could be in the form of stocks, bonds, and other financial instruments. 
-		The first modern exchange was the Amsterdam Stock Exchange and you guessed it, that’s 
-		where you could trade shares in the Dutch East India Company. 
-		Examples of stock exchanges today include the New York Stock Exchange, the Nasdaq and FTSE. 
-		The global aggregate of these exchanges is considered the overall stock market or markets.
+a place where stockbrokers and traders buy and sell securities. 
+The securities could be in the form of stocks, bonds, and other financial instruments. 
+The first modern exchange was the Amsterdam Stock Exchange and you guessed it, that’s 
+where you could trade shares in the Dutch East India Company. 
+Examples of stock exchanges today include the New York Stock Exchange, the Nasdaq and FTSE. 
+The global aggregate of these exchanges is considered the overall stock market or markets.
 ### stock index
-		An index is a group of assets used to track the performance of a given industry, sector or overall market. An example of this is the Dow Jones or the Standard & Poor’s 500, otherwise known as the S&P 500. The S&P 500 is typically used as a monitor of the overall health of the US stock market. It is comprised of some of the top 500 publicly traded companies in the United States and is often considered the benchmark to brokers and fund managers on their trading performances.
+An index is a group of assets used to track the performance of a given industry, sector or overall market. An example of this is the Dow Jones or the Standard & Poor’s 500, otherwise known as the S&P 500. The S&P 500 is typically used as a monitor of the overall health of the US stock market. It is comprised of some of the top 500 publicly traded companies in the United States and is often considered the benchmark to brokers and fund managers on their trading performances.
         
                     
 https://www.cashay.com/how-to-invest-in-stocks-124809239.html
@@ -159,8 +163,7 @@ The current market price. Settlement of spot transactions usually
 occurs within two business days. 
 
 ## Spread 
-The difference between the bid and offer (ask) prices; used to measure 
-market liquidity. Narrower spreads usually signify high liquidity. 
+The difference between the bid and offer (ask) prices; used to measure market liquidity. Narrower spreads usually signify high liquidity. 
 ## Stop Loss Order 
 An order to buy/sell at an agreed price. One could also have a pre- 
 arranged stop order, whereby an open position is automatically 
@@ -175,3 +178,21 @@ correct itself. Opposite of resistance.
 Stock lending and borrowing (SLB)is a system in which traders borrow shares that they do not already own, or lend the stocks that they own but do not intend to sell immediately.
 
 Just like in a loan, SLB transaction happens at a rate of interest and tenure that is fixed by the two parties entering the transaction. However, there are some differences – crucially, the rate of interest is market-determined and free of control. Only stocks in the futures and option segment can be borrowed and lent.
+
+
+## Strike price - exercise price
+Fixed price at which the owner of an option can purchase (in the case of a call), or sell (in the case of a put), the underlying security or commodity.
+http://en.wikipedia.org/wiki/Strike_price
+
+See forward: A contract between two parties to buy or sell an asset at a specified future time at a price agreed upon today. The price agreed upon is called the delivery or strike price, which is equal to the forward price at the time the contract is entered into.
+
+## Structured Note
+A derivative investment that will change in value with movements of an underlying index; or a note whose issuer makes swap arrangements to alter its required cash flows.
+
+## Swaption
+An option granting its owner the right but not the obligation to enter into an underlying swap. Although options can be traded on a variety of swaps, the term "swaption" typically refers to options on interest rate swaps.
+http://en.wikipedia.org/wiki/Swaption
+
+## Swap Rate
+The fixed rate in the interest rate swap contract.
+http://en.wikipedia.org/wiki/Swap_rate

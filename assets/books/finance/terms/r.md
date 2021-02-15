@@ -8,6 +8,13 @@ Etendre la couverture dans le temps
 ## Reinsurance
 Insurance for insurance companies. Coverage is provided on an indemnity basis, meaning reinsurers are liable for catastrophe claims made by the insurer’s policyholders. Direct reinsurance is typically a syndicated markets and coverage is purchased in ‘layers’ or tranches.
 
+## Replicating Portfolio
+A portfolio of assets for which changes in value match those of a target asset. For example, a portfolio replicating a standard option can be constructed with certain amounts of the asset underlying the option and bonds. Sometimes referred to as a Synthetic Asset.
+
+## Risk Neutral Valuation
+The process by which options and other derivatives are priced by treating investors as though they were risk neutral
+http://likeforex.com/glossary/w/risk-neutral-valuation-46074
+
 ## Retrocessional reinsurance (retro)
 Reinsurance for reinsurance companies to protect themselves against catastrophic events. Traditional retro is similar to direct reinsurance in that the coverage is provided on an indemnity basis, unlike industry loss warranties which are triggered by an index of industry claims.
 

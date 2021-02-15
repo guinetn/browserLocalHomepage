@@ -1,5 +1,23 @@
 # I
 
+
+## Implied Volatility
+The implied volatility of an option contract is the volatility of the price of the underlying security that is implied by the market price of the option based on an option pricing model. In other words, it is the volatility that, when used in a given pricing model (such as Black-Scholes), yields a theoretical value for the option equal to the current market price of that option.
+http://en.wikipedia.org/wiki/Implied_volatility
+
+## Initial Public Offering (IPO)
+A company's first sale of stock to the public. Securities offered in an IPO are often, but not always, those of young, small companies seeking outside equity capital and a public market for their stock. Investors purchasing stock in IPOs generally must be prepared to accept considerable risks for the possibility of large gains. IPOs by investment companies (closed-end funds) usually include underwriting fees that represent a load to buyers.
+
+## Interest Rate Exposure
+The amount of financial loss which can be incurred as a result of adverse changes in interest rates.
+
+## Interest Rate Swap
+The contract to exchange fixed cash flow versus floating cash flows in the future.
+http://en.wikipedia.org/wiki/Interest_rate_swap
+
+## Intrinsic Value
+The intrinsic value of an option is its value assuming it were exercised immediately. Thus if the current (spot) price of the underlying security (or commodity etc.) is above the agreed (strike) price, a call has positive intrinsic value (and is called "in the money"), while a put has zero intrinsic value (and is "out of the money").
+
 ## IBAN - International Bank Account Number
 is an account number in a format that is internationally recognisable.
 Not all IBANs are the same length, but all of them start with a country code followed by 2 numbers and up to 30 alphanumeric characters (with no spaces).

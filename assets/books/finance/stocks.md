@@ -1,5 +1,9 @@
 ## STOCKS - ACTIONS 
 
+Source de financement pour les sociétés
++ Titre de propriété d'une société 
++ Droit de vote aux assemblées générales 
++ Diviendes
 
 https://www.datacamp.com/community/tutorials/finance-python-trading
 

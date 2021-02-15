@@ -62,9 +62,12 @@ function login_user(username, password)
     else 
         dont_login_user()
 ```
+
+For hashing, we recommend using either bcrypt or argon2 
+
+download.page(security/cryptography/bcrypt.md)
+download.page(security/cryptography/argon2.md)
 download.page(security/cryptography/rsa.md)
 download.page(security/cryptography/md5.md)
-download.page(security/cryptography/argon2.md)
 download.page(security/cryptography/sha.md)
 download.page(security/cryptography/ntlm.md)
-download.page(security/cryptography/bcrypt.md)

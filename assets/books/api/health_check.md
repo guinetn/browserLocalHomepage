@@ -1,5 +1,13 @@
 ### HEALTH CHECK
 
+Healthchecks are very important when it comes to complex backend setups. In a nutshell, a health check in the realm of web development usually consists of a special address, for example, https://my-website.com/health/readiness. A service, or a component of your infrastructure (e.g., Kubernetes) checks this address continuously. Depending on the HTTP status code returned from a GET request to this address the service will take action when it receives an "unhealthy" response. Since the definition of "healthy" or "unhealthy" varies with the type of service you provide, the NestJS Terminus integration supports you with a set of health indicators.
+
+As an example, if your web server uses MongoDB to store its data, it would be crucial information whether MongoDB is still up and running. In that case, you can make use of the MongooseHealthIndicator. If configured correctly - more on that later - your health check address will return a healthy or unhealthy HTTP status code, depending on whether MongoDB is running.
+
+
+
+
+
 As part of .NET Core SDK, Microsoft has delivered an amazing healthcheck runtime.
 Setup in your Startup class, your app will host a set of health check endpoints that you can query to assert its health.
 - https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1

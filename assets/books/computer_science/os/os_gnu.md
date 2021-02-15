@@ -1,12 +1,15 @@
 # Gnu - Gnu Not Unix
 
-1984 Richard M. Stallman
+1984 Richard M. Stallman: gnu linux project, a derivative of the UNIX operating system
+1985: founded the Free Software Foundation
+
 https://gnu.org
-Project of the Free Software Foundation  
-https://www.fsf.org/
+Project of the Free Software Foundation: https://www.fsf.org/
 http://directory.fsf.org/wiki/GNU
 
 Unix-like OPERATING SYSTEM that is free software—it respects your freedom. 
+
+OS known as Linux is based on the Linux kernel but all other components are GNU based.
 
 Entire UNIX operating system recoded to be freely distributed
 This was possible beacause UNIX was designed to be built in separate pieces that could be piped together. Because they were reproducing commands and utilities with well-known, published interfaces. Code was better than the original UNIX versions

@@ -1,6 +1,8 @@
-# Express
+# ExpressJS
 
 Incoming requests are intercepted by middlewares that processes the request and passes it onto the next middleware in chain or reject it (Chain of Responsability).
+
+a routing system
 
 Express generator
 >npx express-generator --view=pug --git <app-name>
@@ -19,6 +21,24 @@ Dockerize the app: https://blog.logrocket.com/node-js-docker-improve-dx/
  
 - https://expressjs.com/en/starter/generator.html
 - https://blog.logrocket.com/documenting-your-express-api-with-swagger/
+
+## Why stop ?
+
+Express has not been updated for years,
+When you are building an application, you need more features than a routing system.
+
+You need to:
+
+access a database;
+validate your data;
+create an authentication layer;
+create an authorization system;
+etc.
+All of those features are not inside Express and should be glued by yourself.
+
+Alternative: 
+https://www.fastify.io/
+https://preview.adonisjs.com/, fully-featured framework that lets you focus on your business logic, you can use AdonisJS.
 
 ## Express's Forks
 

@@ -1,6 +1,7 @@
 # REDIS
 
 https://redis.io/
+https://docs.nestjs.com/microservices/redis
 
 Fast key/value database: retrieved data if we know the exact key used to store it.
 Real time cache, sessions storage 
@@ -10,6 +11,9 @@ Open source *in-memory data structure store*, used as a *database, cache, and me
 Data structures:s strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, streams
 Built-in replication, Lua scripting, LRU eviction, transactions, and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster
 
+Redis transporter implements the publish/subscribe messaging paradigm and leverages the Pub/Sub feature of Redis. Published messages are categorized in channels, without knowing what subscribers (if any) will eventually receive the message. Each microservice can subscribe to any number of channels. In addition, more than one channel can be subscribed to at a time. Messages exchanged through channels are fire-and-forget, which means that if a message is published and there are no subscribers interested in it, the message is removed and cannot be recovered. Thus, you don't have a guarantee that either messages or events will be handled by at least one service. A single message can be subscribed to (and received) by multiple subscribers.
+ 
+ 
 |||
 |---|---|
 |Store|SET server:name "fido"|

@@ -1,5 +1,13 @@
 ﻿## CQRS
 
+The flow of simple CRUD (Create, Read, Update and Delete) applications can be described using the following steps:
+- Controllers layer handles HTTP requests and delegates tasks to the services layer.
+- Services layer is where most of the business logic lives.
+- Services use repositories / DAOs to change / persist entities.
+- Entities act as containers for the values, with setters and getters.
+In most cases, for small and medium-sized applications, this pattern is sufficient. However, when our requirements become more complex, the CQRS model may be more appropriate and scalable. 
+
+
 COMMAND AND QUERY RESPONSIBILITY SEGREGATION
 
 Segregate operations that read data from operations that update data by using separate interfaces. 

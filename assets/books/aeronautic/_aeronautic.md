@@ -5,6 +5,8 @@
 
 https://foreflight.com
 https://www.jpinstruments.com/
+Headset: A20 Quietest. http://worldwide.bose.com/aviation
+
 ## LINKS
 
 - https://www.google.com/search?q=coanda+effect
@@ -35,6 +37,7 @@ https://www.youtube.com/watch?v=_LM6SdyJAgU
 [Cockpit rafale](https://www.youtube.com/watch?v=FEfY9SYN01M)
 
 ## Finer Points
+https://www.learnthefinerpoints.com/
 [Avoid spins](https://www.youtube.com/watch?v=H_U3DqOi0E8&t=264s)
 [Rudder coordination](https://www.youtube.com/watch?v=zdZ2Rwq86vA)
 [Rudder](https://www.youtube.com/watch?v=1_eRGKOuc1k&t=349s)

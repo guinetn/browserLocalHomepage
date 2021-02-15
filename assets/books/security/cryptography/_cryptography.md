@@ -32,4 +32,5 @@ The keys may be identical or there may be a simple transformation to go between 
 
 
 download.page(security/rsa.md)
+download.page(security/cryptography/encryption.md)
 download.page(security/cryptography/cryptography_hash_functions)

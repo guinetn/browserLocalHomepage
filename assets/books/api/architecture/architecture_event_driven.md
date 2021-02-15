@@ -1,5 +1,9 @@
 ## EVENT DRIVEN ARCHITECTURE
 
+https://docs.nestjs.com/microservices/basics
+
+connect devices using a publish/subscribe model
+
 Dispatch some data with different computation times to different destinations:
 - a broker
 - a simple job queue
@@ -33,14 +37,12 @@ https://aws.amazon.com/sns/
 SQS - Amazon Simple Queue Service
 https://aws.amazon.com/sqs/
  
- 
- 
-download.page(api/architecture/architecture_event_driven/rabbitmq.md)
-
-download.page(api/architecture/architecture_event_driven/kafka.md)
-
+download.page(data/db_nosql_redis.md)
 download.page(api/architecture/architecture_event_driven/mqtt.md)
-
+download.page(api/architecture/architecture_event_driven/nats.md)
+download.page(api/architecture/architecture_event_driven/kafka.md)
+download.page(api/architecture/architecture_event_driven/rabbitmq.md)
+download.page(api/grpc.md)
 download.page(api/architecture/architecture_event_driven/ipc-on-linux.md)
 
 ## Azure Event Hubs

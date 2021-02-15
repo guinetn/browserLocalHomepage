@@ -2,8 +2,10 @@
 
 2009
 
+Allows resources to be requested from another domain 
 web application security model
 "cross-domain" requests (Ajax, XmlHttpRequest) are forbidden by default by the same-origin security policy.
+
 
 ## Same-origin policy (SOP)
 Xeb browser permits scripts contained in a first web page to access data in a second web page, but only if both web pages have the same origin (combination of URI scheme, host name, port number)

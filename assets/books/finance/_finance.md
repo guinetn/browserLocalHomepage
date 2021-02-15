@@ -1,10 +1,39 @@
 # FINANCE
 
+
+
+::::
+download.page(finance/terms/_terms.md)
+::::
+download.page(finance/economy.md)
+::::
+download.page(finance/trading.md)
+::::
+download.page(finance/forex.md)
+::::
+download.page(finance/accounting.md)
+::::
+download.page(finance/fintech.md)
+::::
+download.page(finance/startup.md)
+::::
+download.page(finance/stocks.md)
+download.page(finance/bonds.md)
+download.page(finance/derived_products.md)
+download.page(finance/finance_maths.md)
+download.page(finance/sources.md)
+
+
+
+
+
+
 https://fred.stlouisfed.org/
 https://tradingeconomics.com/france/balance-of-trade
 
-To add:
-https://www.youtube.com/watch?v=wvXDB9dMdEo&t=3028s
+## Courses
+download.page(finance/courses/mit18.s096.md)
+
 https://www.youtube.com/watch?v=ZCFkWDdmXG8&t=806s
 https://www.youtube.com/watch?v=KcBJ5WVys_M&t=1943s
 https://www.youtube.com/watch?v=qJQtvAjosIw
@@ -178,8 +207,6 @@ Moins-value en cas de performance globale négative
 
 Diversify their portfolios of loans and other risky assets.
 
-download.page(finance/finance_maths.md)
-download.page(finance/sources.md)
  
 ## ORGANISATION
 
@@ -405,21 +432,6 @@ communiqués de presse
 rapports financiers et du contenu original.
 
 
-::::
-download.page(finance/terms/_terms.md)
-::::
-download.page(finance/economy.md)
-::::
-download.page(finance/trading.md)
-::::
-download.page(finance/forex.md)
-::::
-download.page(finance/accounting.md)
-::::
-download.page(finance/fintech.md)
-::::
-download.page(finance/startup.md)
-::::
 
 
 ## Sectors
@@ -470,9 +482,15 @@ download.page(finance/startup.md)
   
   
   
-Pricing
+Pricing Model
+
+
+
 Black Scholes
 Sensitivities
 Monte Carlo Simulation
+
+
+
 
 

@@ -13,6 +13,11 @@ un contrat par lequel un vendeur de protection (Protection Seller) s'engage, con
 
 font donc partie des « dérivés OTC » (Over The Counter).
 https://www.fimarkets.com/pages/cds_credit_default_swap.php
+
+
+A financial agreement that the seller of the CDS will compensate the buyer in the event of a loan defaultt or other credit eventt. The buyer of the CDS makes a series of payments (the CDS "fee" or "spread") to the seller and, in exchange, receives a payoff if the loan defaults.
+    
+http://en.wikipedia.org/wiki/Credit_default_swap
     
 ## collateral
 
@@ -88,9 +93,6 @@ Twenty years into this millennium, we have already witnessed three economic and 
 - Bursting of the technology stock market bubble in 2000
 - Financial crisis of 2008/09
 - Pandemic-led economic and market meltdown of 2020
-
-## CDS
-
 ---
 ## Candlestick Chart 
 A chart that indicates the trading range for the day as well as the 
@@ -156,3 +158,28 @@ Commercial banks are the major participants in this growing market, using these 
 
 https://ideas.repec.org/cgi-bin/htsearch?q=Credit+Derivatives
 https://www.researchgate.net/publication/4905853_Credit_Derivatives
+
+
+
+
+
+## Call Option (Call)
+A financial contract between two parties, the buyer and the seller. The buyer of the call option has the right, but not obligation to buy an agreed quantity of a particular commodity or financial instrument (the underlying) from the seller of the option at a certain time (the expiration date) for a certain price (the strike price). 
+- A European call option allows the holder to exercise the option only on the option expiration date. 
+- An American call option allows exercise at any time before the maturity.
+http://en.wikipedia.org/wiki/Call_option
+
+## Coupon Bond
+A coupon payment on a bond is a periodic interest payment that the bondholder receives during the time between when the bond is issued and when it matures.
+http://en.wikipedia.org/wiki/Coupon_bond
+
+
+## Credit Exposure
+The total amount of credit extended to a borrower by a lender. The magnitude of credit exposure indicates the extent to which the lender is exposed to the risk of loss in the event of the borrower's default. Credit exposure can be minimized through purchasing credit default swaps or other types of financial instruments.
+
+## Cross Gamma
+The rate of change of delta in one underlying to a change in the level of another underlying.
+http://en.wikipedia.org/wiki/Greeks_(finance)#Greeks_for_multi-asset_options
+
+## Currency Exchange Rate Exposure
+Describes the influence of exchange rate movements on the value of a trade, firm, or a sector of the economy.

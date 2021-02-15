@@ -93,18 +93,14 @@ $db.paris.aggregate ([
     for x in mydoc:
         print(x)
     
-### Mongoose 
- that helps us do the MongoDB object modeling:
-
-
 
 # MongoDB - Mongo DataBase
 
 http://www.mongodb.org/
 https://www.sitepoint.com/a-guide-to-serverless-deployment-with-express-and-mongodb/
 
-## Mongoose 
-	library that helps us do the MongoDB object modeling:
+
+download.md(data/orm/mongoose.md)
 
 ## NoSQL - MongoDB (Document database)
 

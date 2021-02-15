@@ -5,8 +5,14 @@ To crack password / encryption keys / api keys / ssh keys
 Done by bots/scripts targeting a website connection page
 Try by combine word/digits...
 
-Have a strategy to mitigate this attack: ip banish, 2 factors auth., complex passwords
-Security level = F(brute_force_penetration_time)
+Have a strategy to mitigate this attack: 
+- ip banish
+- 2 factors auth.
+- complex passwords
+- Rate limiting: common technique to protect applications from brute-force attacks is rate-limiting. Many Express packages exist to provide a rate-limiting feature. A popular one is express-rate-limit. https://github.com/nfriedly/express-rate-limit
+
+
+***Security level = F(brute_force_penetration_time)***
 
 |Number of password char|Password cracking computing time|
 |---|---|

@@ -1,4 +1,7 @@
 # H
+## hedge
+A hedge is an investment position intended to offset potential losses/gains that may be incurred by a companion investment. Insurance
+http://en.wikipedia.org/wiki/Hedge_(finance)
 
 ## Hedge funds
 

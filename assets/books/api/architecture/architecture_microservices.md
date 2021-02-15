@@ -140,6 +140,20 @@ We are using NGINX as a load balancer
 ### Services Communication 
 
 synchronous (HTTP1.1 / gRPC) or asynchronous
+Good recap: https://docs.nestjs.com/microservices/basics
+
+Redis
+MQTT
+NATS
+RabbitMQ
+Kafka
+gRPC
+Custom transporters
+Exception filters
+Pipes
+Guards
+Interceptors
+
 
 #### Retry pattern 
 
@@ -189,6 +203,14 @@ distributed cloud application.
 - https://itnext.io/understand-circuitbreaker-design-pattern-with-simple-practical-example-92a752615b42
 - https://dncmagazine.blob.core.windows.net/edition49/DNCMag-Issue49.pdf
 - https://docs.microsoft.com/sl-si/azure/architecture/patterns/circuit-breaker
+
+
+### Tools
+
+Progressive microservices framework for Node.js.
+https://moleculer.services/
+
+https://docs.nestjs.com/microservices/basics
 
 #### More
 
