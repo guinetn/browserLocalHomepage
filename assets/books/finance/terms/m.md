@@ -14,6 +14,9 @@ The amount of capital that has to be deposited as collateral in order to gain fu
 ## Market neutral
 Denotes an approach to investment where the emphasis is on the value of securities relative to each other and the use of arbitrage techniques [see Arbitrage], rather than market direction forecasting. By emphasising the relative value of securities and the exploitation of pricing anomalies between related securities, practitioners of market neutral approaches aim to generate profits regardless of the overall direction of broad market prices. Market neutrality is generally achieved by offsetting, or hedging, long and short positions or maintaining balanced exposure in the market. The term market neutral can be applied with some justification to the majority of alternative investment styles because of their ability to capitalise on both upward and downward price moves or to profit in a wide range of market environments.
 
+## Maturity Date (Maturity)
+The final payment date of a loan or other financial instrument, at which point the principal (and all remaining interest) is due to be paid.
+http://en.wikipedia.org/wiki/Maturity_%28finance%29
 ## Monte Carlo simulation
 A mathematical technique used to model the price characteristics of an investment structure based on random simulations of the underlying assets or variables that affect the price of that investment. In the context of the modeling carried out at Man, the analysis involves constructing multiple NAV paths for a product, net of all appropriate fees and interest, using random samples of gross monthly returns. The price characteristics that can be modeled using this powerful technique are known as 'path-dependent' characteristics, such as risk, return, and drawdowns, which depend on NAV movements over the life of an investment structure.
 
