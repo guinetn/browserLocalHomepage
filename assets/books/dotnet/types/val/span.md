@@ -142,6 +142,25 @@ public unsafe void dangerous_rocksdb_release_span(in Span<byte> span)
 }
 ```
 
+## SPAN and linguistic behavior 
+
+.NET has adopted Span<T> as a first-class citizen (and ReadOnlySpan<char> as the convention for a cheap string slice), there are also consistency issues to deal with. All Span<T>-based extension methods (including extension methods that operate on ReadOnlySpan<char>) are ordinal by default, unless an explicit StringComparison has been provided. As developers begin using span-based code more frequently, the risk of mixing and matching linguistic and non-linguistic operations on the same text increases.
+
+string str = GetString();
+bool b1 = str.StartsWith("Hello"); // uses 'CurrentCulture' by default (search a string in a string)
+
+ReadOnlySpan<char> span = str.AsSpan();
+bool b2 = span.StartsWith("Hello"); // uses 'Ordinal' by default
+This mismatch of expectations could cause developers to introduce latent bugs into their code bases.
+
+string str = GetString();
+if (str.StartsWith("Hello")) // This line produces warning CA1307.
+...    
+
+if (str.StartsWith("Hello", StringComparison.CurrentCulture)) // Explicit comparison specified, no warning produced.
+...
+
+Search a string in a string and search a char in a string are different: https://github.com/dotnet/runtime/issues/43956
 ## More 
 
 - https://docs.microsoft.com/en-us/dotnet/api/system.span-1?view=net-5.0

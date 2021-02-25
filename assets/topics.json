@@ -72,6 +72,7 @@
     "https://signal.org/(Signal: phone medias/call/videos)"
   ],
   "google": [
+    "https://myactivity.google.com",
     "https://translate.google.com",
     "https://research.google/pubs",
     "https://trends.google.com",
@@ -107,10 +108,12 @@
   "design_patterns": [],
   "hardware": [],
 
-  "repos": ["https://github.io"],
+  "repos": ["https://github.io",
+  "https://hub.docker.com"],
   "codenews": [
     "https://roadmap.sh(developer roadmap)",
     "https://dev.to",
+    "https://www.liquidweb.com",
     "https://www.sitepoint.com",
     "https://vas3k.com",
     "https://anthonychu.ca",
@@ -374,11 +377,14 @@
   "https://app.code2flow.com(code flow)",
   "https://pastebin.com",
   "https://cloud.mongodb.com",
-  "https://dashboard.fauna.com(fauna DB)"],
+  "https://dashboard.fauna.com(fauna DB)",
+  "https://playground.platform.uno/"
+  ],
   
   "weather": [
   "https://www.spaceweatherlive.com/",
   "https://stormhour.com/(meteo+weather photo)"
 ],
-"presentations":["https://remarkjs.com/", "http://showdownjs.com/"]
+"presentations":["https://remarkjs.com/", 
+  "http://showdownjs.com/"]
 }

@@ -29,6 +29,7 @@ download.page(finance/finance_maths.md)
 download.page(finance/company.md)
 
 download.page(finance/code/_code.md)
+download.page(finance/blockchain/_blockchain.md)
 
 
 

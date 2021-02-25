@@ -78,3 +78,4 @@ If the atom/molecule gains one or more electrons, it will end up with a negative
 
 
 - https://x-engineer.org/undergraduate-engineering/chemistry/general-chemistry/atoms-isotopes-ions-and-molecules/
+- https://medium.com/starts-with-a-bang/whats-really-inside-a-proton-5a0c9e8b31f8

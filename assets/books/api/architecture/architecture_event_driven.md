@@ -16,7 +16,7 @@ Dispatch some data with different computation times to different destinations:
 Sometimes though it can be an overkill or all we need is just a prototype, a proof of concept, in those cases a simple microservice can do well enough with little costs: https://codepr.github.io/posts/asyncio-pubsub/ ***
 
 
-
+! In an event oriented environment the linear flow of actions is often made unclear by the need to pause processing until an event occurs
 
 
 RabbitMQ and Kafka are very often used for asynchronous messaging for inter-service communication. Services communicating by exchanging messages over messaging channels.

@@ -3,22 +3,31 @@
 https://github.com/dotnet/core
 https://docs.microsoft.com/en-us/dotnet/core/tools
 
-There is No More .NET Core, it’s .NET 5
+||||
+|---|---|---|
+|.Net 6.0 		| 2021          | |
+|.Net 5.0 SDK	| 2020 November | ***There is No More .NET Core, it’s .NET 5*** |
+|.NET Core 4.0  |               |❌ Team omit 4.x and go straight to .NET 5.0 to avoid confusion with .NET Framework 4.x|
+|.NET Core 3.1	| 2019 December | |
+|.NET Core 3.0	| 2019 September| |
+|.NET Core 2.2	| 2018 December | | 
+|.NET Core 2.1	| 2018 May      | |
+|.NET Core 2.0	| 2017 August   | |
+|.NET Core 1.1	| 2016 November | |
+|.NET Core 1.0  | 2016 June     | |
 
-.Net 5.0
-.NET Core 4.0   ❌ Team omit 4.x and go straight to .NET 5.0 to avoid confusion with .NET Framework 4.x
-.NET Core 3.0	2019 September
-.NET Core 2.2	2018 December 
-.NET Core 2.0	2017 August
-.NET Core 1.1	2016 November 	
-.NET Core 1.0   2016 June
+[.NET Supported OS](https://github.com/dotnet/core/blob/master/os-lifecycle-policy.md)
 
 - Set of runtime, library and compiler component*
 - Open source GitHub sous la licence MIT
 - Cross-platform
 - Releases:  
-> major (highly stable), supported for three years after it ships, or 12 months after the next major release ships
-> minor (faster rate of change and innovation)
+> major releases (highly stable), supported for three years after it ships, or 12 months after the next major release ships
+> minor releases (faster rate of change and innovation)
+> servicing updates (patches)
+2 Support perspective:
+>Current releases: supported for a period of 3 months after the next major or minor release ships.
+>Long Term Support (LTS releases): supported for a minimum of 3 years, or 1 year after the next LTS release ships (whichever is longer).
 
 Component*:  
 Set of files or features included with a Microsoft product. May be shipped with it or updated/released later
@@ -83,3 +92,4 @@ The first goal of these tools are to help identify APIs that are not portable am
 - https://www.tutorialsteacher.com/core/internals-of-builtin-ioc-container-in-aspnet-cohérent
 - https://intellitect.com/ildasm-with-net-core/    
 - https://contextly.com/redirect/?id=Sk2Hb09xcy:33102:3307:18:RVM=::previous:6018f9e42c6bd6-56853379
+- https://medium.com/swlh/deploy-your-net-core-3-1-application-to-heroku-with-docker-eb8c96948d32

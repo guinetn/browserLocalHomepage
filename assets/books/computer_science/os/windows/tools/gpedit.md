@@ -1,19 +1,16 @@
 ## gpedit
 
-
+éditeur de stratégie de groupe local
 gpedit.msc
 
-* Les édition familles de Windows 10 n'inclut pas gpedit.msc :  l'éditeur de stratégie de groupe local.
-Cependant, il est possible d'activer gpedit.msc afin de pouvoir autoriser ou désactiver certains fonctionnalités de Windows 10.
+* Not present in Windows 10 family. Cependant, il est possible d'activer gpedit.msc afin de pouvoir autoriser ou désactiver certains fonctionnalités de Windows 10.
 
-GPEDIT.MSC
 Dans Windows on peut configurer des restrictions administrateurs.
 Cela se fait souvent en entreprise pour bloquer l'accès à certains composants.
 Cela permet d'éviter que les utilisateurs modifient ou accèdent à certains fonctions.
 
 On peut les configurer que dans certains éditions de Windows 10.
-Ainsi la version home ou famille ne possède pas ces restrictions et l'éditeur.
-Mais on peut activer l'éditeur de stratégies de groupes (gpedit.msc).
+Ainsi la version home ou famille ne possède pas ces restrictions
 
 INSTALL GPEDIT
     https://forums.commentcamarche.net/forum/affich-34991466-installer-gpedit-msc-sur-la-version-familiale-de-windows

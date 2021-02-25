@@ -1,6 +1,8 @@
 # FRONT
 ![](assets/books/web/front/assets/frontend.png)
 
+https://learn.cloudcannon.com/jekyll-templates/
+
 https://github.com/thedaviddias/Front-End-Checklist
 - Head
 - HTML

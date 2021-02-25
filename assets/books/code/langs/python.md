@@ -11,3 +11,8 @@
 
 ## Tools
 - https://towardsdatascience.com/rich-generate-rich-and-beautiful-text-in-the-terminal-with-python-541f39abf32e
+
+
+## More
+
+- https://towardsdatascience.com/the-perfect-python-cheatsheet-for-beginners-c7c16799de5

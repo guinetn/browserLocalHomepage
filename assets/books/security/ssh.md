@@ -151,9 +151,9 @@ Only work properly if you have ssh key authentication setup. Otherwise, you'd ha
 	scp [-12346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file] [-l limit] [-o ssh_option] [-P port] [-S program] [[user@]host1:]file1 ... [[user@]host2:]file2
 
 	scp file.txt server2:/tmp
-	rsync	Secure copy file.txt to remote host /tmp folder
-	rsync	
-	rsync -a /home/apps /backup/	Synchronize source to destination
+    
+    download.page(web/networks/tools/rsync.md)
+    
 
     From your local windows10-ubuntu bash use this command:
 

@@ -126,6 +126,8 @@ module.exports = (req, res, next) => {
 }
 
 ::::
+download.page(api/doc/_doc.md)
+::::
 download.page(api/architecture/_architecture.md)
 ::::
 download.page(api/controllers.md)

@@ -1,6 +1,7 @@
 # CLOUD
 
 https://www.cncf.io/
+https://www.thecloudfirst.io/
 
 Pool of configurable shared resources (vm, network, storage, applications, services) that can be quickly created with a minimal interaction with the cloud provider
 

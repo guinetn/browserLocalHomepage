@@ -2,6 +2,7 @@
 
 - hot topic in the industry
 - distributed architecture based
+- Microservices are modular components that are developed and deployed individually.
 
 Classic Server-side enterprise application:
 - Variety of clients (desktop, browsers, mobile...)
@@ -20,6 +21,9 @@ Application = a set of loosely coupled interacting services
 - Services are developed and deployed independently — it enables a team to develop and deploy a service without having to coordinate with other services and teams
 - Each service has its own database — in order to be decoupled from other services. 
 - Business transactions implemented as a sequence of local transactions (service-to-service) through event channels or message brokers.
+
+However a microservice based architecture has a performance cost: it needs to send a set of calls from one part to another to get the required response, which adds and overhead to the response time.
+Unlike a Monolithic architecture wich have all parts of the code tightly coupled meaning the response to a call is very quick.
 
 
 ![](assets/books/api/architecture/microservices/microservices03.png)
@@ -71,6 +75,9 @@ Mapping business logic from monolith to microservice requires a complete underst
 - one database per service. Use API to access data to another service
 
 ### Tools for Microservices Architecture
+
+A docker creates a container out of the application you build. And it is untouched by any changes done around it. So if you have multiple applications talking to each other, then each can be independently maintained if they are turned into individual containers.
+Kubernetes is the glue that sticks everything together. It orchestrates the “talking to” of containers which each other.
 
 * Containerization
 saves the time of deployment and improves release lifecycle. An engineer is responsible to write container related scripts that boost deployment lifecycle. [Kubernetes](https://kubernetes.io/) are one of the best ways to containerize your application in production. 
@@ -214,6 +221,7 @@ https://docs.nestjs.com/microservices/basics
 
 #### More
 
+- https://dotnet.microsoft.com/learn/aspnet/microservices-architecture
 - https://dncmagazine.blob.core.windows.net/edition49/DNCMag-Issue49.pdf ***
 
 - https://github.com/AleksK1NG/Go-gRPC-RabbitMQ-microservice
@@ -230,3 +238,4 @@ https://docs.nestjs.com/microservices/basics
 - https://levelup.gitconnected.com/microservices-architecture-74c26df8688
 - https://martinfowler.com/articles/microservices.html
 - https://medium.com/@dustin.wilcock/asp-net-core-3-1-microservice-quick-start-c0c2f4d6c7fa
+- https://towardsdatascience.com/a-data-scientists-introduction-to-microservices-7772d356fe4d

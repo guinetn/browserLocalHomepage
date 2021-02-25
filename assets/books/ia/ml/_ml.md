@@ -27,6 +27,7 @@ Dropout — one of the popular methods to stop overfitting. Dropout periodically
 ::::
 
 download.page(ia/ml/activation_functions.md)
+download.page(ia/ml/embedded/_embedded.md)
 
 ::::
 

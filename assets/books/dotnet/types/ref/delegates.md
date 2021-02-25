@@ -85,6 +85,26 @@ var myD2 = new methodDelegate( class1.mySignMethod );
 ## MulticastDelegate
 A delegate with more than one element in its invocation list (a linked list of delegates)
 
+All delegates are MulticastDelegates but for efficiency reasons an invocation list is only created if there is more than one method encapsulated. That is, a delegate that encapsulates a single method stores this method in its Method and Target properties and has a null invocation list.
+
++= operator    to add a method to the invocation list 
+-= operator    to remove methods from the invocation list 
+ 
+greetType DelA = hello;
+greetType DelB = goodbye;
+greetType DelC;
+DelC = DelA + DelB; DelC encapsulates the methods of DelA and DelB.
+DelC = DelC - DelA; removes one delegate’s invocation list from another 
+
+Two MulticastDelegates are considered equal if their invocation lists are identical and in the same order.
+ 
+Some static methods defined on the Delegate class such as Combine and Remove which can be used to manipulate arrays of Delegates as well as pairs of Delegates.
+ 
+Delegate[] InvList = DoGreet.GetInvocationList();
+foreach (Delegate d in InvList)
+    d.DynamicInvoke("Loop");
+DynamicInvoke rather than Invoke: reason is that neither Delegate nor MulticastDelegate support an Invoke method. When you use the classes directly in this way the invocation of the method cannot be checked at compile time, hence the need for a “DynamicInvoke”.
+
 var obj = new MethodClass();
 Del d1 = obj.Method1;
 Del d2 = obj.Method2;
@@ -105,6 +125,38 @@ Del oneMethodDelegate = allMethodsDelegate - d2;
 
 // Number of methods in a delegate's invocation list:
 int invocationCount = d1.GetInvocationList().GetLength(0);
+
+
+
+
+public int hello(string param)
+{
+ MessageBox.Show("Hello "+param);
+ return 1;
+}
+
+public int goodbye(string param)
+{
+ MessageBox.Show("Goodbye " + param);
+ return 2;
+}
+
+A suitable delegate type is just: delegate int greetType(string param);
+Create an instance of MulticastDelegate encapsulating two methods:
+greetType DoGreet = hello;
+DoGreet += goodbye;
+DoGreet += delegate(string param)
+{
+ MessageBox.Show("Goodbye " + param);
+ return 2;
+};
+
+Or, more properly if you agree that lambda expressions should be used in preference to  anonymous methods:
+DoGreet += (string param)=>
+{
+ MessageBox.Show("Goodbye " + param);
+ return 2;
+};
 ## Asynchronous delegates
 
 Don’t confuse asynchronous delegates with asynchronous methods (starts with Begin or End, such as File.BeginRead/File.EndRead)
@@ -195,17 +247,14 @@ object fooInstance = new Foo();
 dynamic dynamicFoo = fooInstance as dynamic;
 dynamicFoo.Bar(1, 2, false);
 ``` 
-## Lambdas
 
-```cs
-List<int> elements = new List<int>() { 10, 20, 31, 40 };
-int firstOddIndex = elements.FindIndex(x => x % 2 != 0);
-Console.WriteLine(firstOddIndex);
+download.code(dotnet/types/ref/delegate_standards.md)
 
-elements.Where(v => (int)v > 11).ToArray()
-```
+download.code(dotnet/types/ref/expression_lambdas.md)
 
+download.code(dotnet/types/ref/closures.md)
 
 ## More
 
 - https://www.davideguida.com/dynamic-method-invocation-with-net-core/
+- https://www.i-programmer.info/programming/c/870-multicast-delegates-and-events.html

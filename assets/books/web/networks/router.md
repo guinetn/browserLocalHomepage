@@ -131,3 +131,4 @@ Internet Gateway is the only component that allows communication between your VP
 It is attached to route table of NAT gateway and Public Subnet to enable them to communicate with Internet.
 
 download.page(web/networks/proxy.md)
+download.page(web/networks/proxy_reverse.md)

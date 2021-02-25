@@ -63,5 +63,8 @@ download.page(web/networks/router_table.md)
 download.page(web/networks/dhcp.md)
 ::::
 download.page(web/networks/wol.md)
+download.page(web/networks/tools/rsync.md)
 
+## More
+- https://www.lifewire.com/home-networking-fundamentals-4097193
 - https://www.cbouba.fr/adresses-ip-masque-de-sous-reseau-passerelle-par-defaut-et-serveur-dns/

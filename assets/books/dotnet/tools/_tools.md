@@ -1,6 +1,8 @@
 # TOOLS
 
-download.page(dotnet/tools/decompilers/_decompilers.md)
+download.page(dotnet/tools/regex.md)
+::::
+download.page(dotnet/tools/decompilers/il.md)
 ::::
 download.page(dotnet/tools/msbuild.md)
 ::::
@@ -35,8 +37,4 @@ download.page(dotnet/tools/interop.md)
 ::::
 download.page(dotnet/tools/testing.md)
 ::::
-download.page(dotnet/tools/etw_event_tracing.md)
-::::
-download.page(dotnet/tools/perfview.md)
-download.page(dotnet/tools/perfmon.md)
-download.page(dotnet/tools/gpedit.md)
+

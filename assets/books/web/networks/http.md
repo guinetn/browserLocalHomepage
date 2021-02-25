@@ -2,14 +2,7 @@
 
 ## SPEAKING THE HTTP PROTOCOL
 
-### curl - Client URL Request Library
-https://github.com/curl
-
-    curl -X POST "http://localhost:8000/login" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"email\":\"string\",\"password\":\"string\"}"
-          \___ Request                          \___ Headers                                                        \___ data
-
-curl is included in almost every modern device–smartphones, cars, TVs, laptops, servers, gaming consoles, printers and beyond.
-
+download.page(web/networks/tools/curl.md)
 ### jq - command-line JSON processor
 https://stedolan.github.io/jq/
 https://jqplay.org/

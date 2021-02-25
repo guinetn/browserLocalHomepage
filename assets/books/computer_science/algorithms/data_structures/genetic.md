@@ -22,3 +22,4 @@ Yes
 Stop 
 
 - https://medium.com/@thebinaryrealm/genetic-algorithm-everything-you-need-to-know-60df46ccb911
+- https://www.i-programmer.info/babbages-bag/277.html

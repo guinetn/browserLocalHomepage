@@ -2,6 +2,29 @@
 
 Operations: Accessing, inserting, deleting, finding, sorting 
 
+## Rules to bring the database fully into best development practices:
+***Critical databases should have at least one staging environment***
+Keep staging as production-like as possible
+Automate refresh/reset of staging environment as much as possible
+Monitor staging environment fully, use staging to validate monitoring and configuration changes just like code changes
+Use production datasets in staging
+Minimal permissions with automatic permission escalation for developers in staging
+***Development and test environments should be ephemeral***
+Dev and test environments should mimic production datasets (to an extent—see below), but NOT production availability techniques
+In the case when deployment order of changes is unknown or is potentially unpredictable, test environments should be able to be re-generated so that changes can be easily and quickly re-applied in the expected order following the re-shuffle. 
+***“Safe” datasets should be available for dev and test environments***
+No matter how you architect your dev and test environments, if they contain Personally Identifying Information or other sensitive data, you are putting your business at risk. Development and Test environments are an attractive target for a data breach.
+
+However, you implement a modern architecture for your dev and test databases, it is important that the source of the data you use – be it the source of a snapshot, a database “image”, or something else – contains data which has been sanitized in some way to limit the risks of a data breach.
+***Developers should have full control/ high permissions over dev and test environments***
+
+User Acceptance Testing (UAT) environments?
+User Acceptance Testing environments are common. UAT environments allow customers to review new features prior to deployment to production.
+UAT environments are quite different from Staging environments. The goal is often to allow a simple interaction with a new feature and NOT to present a production-like experience.
+
+The ability to generate UAT environments on the fly is very useful. This eliminates maintenance and support when the environment is not in use, and also allows generating multiple environments when needed if that is helpful.
+
+
 ### SCHEMA
 Collection of database objects including tables, views, triggers, stored procedures, indexes, types, interfaces, enums, unions...taht make up your application data model
 Organize the database objects into logical groups to make them more manageable. Also, schema can be treated as a dictionary with all the information objects of the database.
@@ -94,9 +117,11 @@ download.page(data/flux.md)
 ::::
 download.page(data/redux.md)
 ::::
-download.page(data/geodata.md)
+download.page(data/geodata/_geodata.md)
 ::::
-download.page(data/infludb.md)
+
+download.page(data/time_series_db/_time_series_db.md)
+
 ::::
 download.page(data/big_data.md)
 ::::
@@ -104,3 +129,11 @@ download.page(data/db_Kdb.md)
 
 ::::
 download.page(data/orm/_orm.md)
+::::
+download.page(data/tools/_tools.md)
+
+
+
+## More
+
+- https://www.red-gate.com/blog/architecting-database-dev-and-test-environments-best-practices-and-anti-patterns-for-sql-server

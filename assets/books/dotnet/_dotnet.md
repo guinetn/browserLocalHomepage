@@ -37,7 +37,7 @@ download.page(dotnet/dotnet_standard.md)
 ::::
 download.page(dotnet/dotnetcore/_dotnetcore.md)
 ::::
-download.page(dotnet/net/net5_replace_dotnetcore.md)
+download.page(dotnet/net/_.net.md)
 ::::
 download.page(dotnet/cs/_cs.md)
 ::::

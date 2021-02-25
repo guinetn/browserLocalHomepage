@@ -209,3 +209,4 @@ https://github.com/thoughtbot/rcm
 
 - https://www.kernel.org/
 - https://opensource.com/article/20/1/inter-process-communication-linux
+- https://www.lifewire.com/linux-4781560 **

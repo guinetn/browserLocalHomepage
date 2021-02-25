@@ -73,9 +73,7 @@ let main argv =
     printfn " * %s" t.FullName
 ```
 
-download.page(dotnet/tools/decompilers/ildasm.md)
 
-download.page(dotnet/tools/decompilers/ilspy.md)
 
 ## NOT FREE
 

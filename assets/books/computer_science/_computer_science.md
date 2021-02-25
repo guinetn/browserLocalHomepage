@@ -59,6 +59,8 @@ download.page(computer_science/os/_os.md)
 ::::
 download.page(computer_science/encoding.md)
 ::::
+download.page(computer_science/multilingual.md)
+::::
 download.page(computer_science/best_practices.md)
 ::::
 download.page(computer_science/software_design_rules/design_patterns/_design_patterns.md)

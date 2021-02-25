@@ -6,7 +6,9 @@ https://hyperpolyglot.org/
 download.page(code/hello_worlds.md)
 ::::
 download.page(code/editors/_editors.md)
-download.page(code/editors/dotfiles.md)
+::::
+download.page(code/dotfiles.md)
+download.page(code/filestypes.md)
 ::::
 download.page(code/scripting/_scripting.md)
 ::::

@@ -2,6 +2,8 @@
 
 To frequently deliver apps to customers by introducing automation into the stages of app development. 
 
+For software lifecycle,  CD/CI together mean that whatever changes are made to the code, should be integrated into the Production environment without turning the environment OFF.
+
 CI/CD pipeline enable teams to release a constant flow of software updates into production to quicken release cycles, lower costs, and reduce the risks associated with development.
 
 Continuous Integration (CI)

@@ -4,6 +4,10 @@
 A stochastic volatility model, which attempts to capture the volatility smile in derivatives markets. The name stands for "stochastic alpha, beta, rho", referring to the parameters of the model.
 http://en.wikipedia.org/wiki/SABR_volatility_model
 
+## SALES
+
+Person or organization expressing an interest in acquiring the offered item of value is referred to as a potential buyer, prospective customer or prospect. Buying and selling are understood to be two sides of the same “coin” or transaction. Both seller and buyer engage in a process of negotiation to consummate the exchange of values. The exchange, or selling, process has implied rules and identifiable stages.
+
 ## SEC - Securities and Exchange Commission
 
 Established the National Association of Securities Dealers (now Financial Industry Regulatory Authority) to make rules to assure the orderly commerce in publicly traded stocks.

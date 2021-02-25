@@ -8,8 +8,16 @@ All .NET events are based on
 - ***EventHandler delegate`
 public delegate void EventHandler(object sender, EventArgs e);
 public delegate void EventHandler<TEventArgs>(object? sender, TEventArgs e); // Generic version
-- ***EventArgs*** base class.
+- ***EventArgs*** base class
  
+An object cannot raise another object's event: an event restricts the invocation of its delegate to the object in which it is declared.
+ ```cs
+public event MyNewEventType MyNewEvent;    event instance wrapping an anonymous instance of the delegate type
+MyNewEvent+=new MyNewEventType(hello);     add a delegate to the event
+You can use anonymous methods and lambda expressions to add delegates to an event:
+MyNewEvent += (string param) => { MessageBox.Show("Goodbye " + param); return 2; };
+MyNewEvent("New Event");                   raise the event  
+ ```
 ### Custom event data
 
 ```cs

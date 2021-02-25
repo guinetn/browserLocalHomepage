@@ -1,4 +1,4 @@
-# GEODATA
+# Geo Data
 
 ## Geocoding 
 Converts an address/place name → latitude/longitude   
@@ -20,3 +20,5 @@ Converts geographic coordinates → a location description (place name, addressa
 ##### ARTICLES
 
 - [nodeGeocoder: geocoding with node](https://medium.com/javascript-in-plain-english/an-introduction-to-geocoding-using-node-js-fe1a5d3aa05c)
+
+- https://medium.com/swlh/calculating-the-distance-between-two-points-on-earth-bac5cd50c840

@@ -1,10 +1,12 @@
 ### Binary (base 2)
 
+
 `Bits` 
 Binary numbers: the 0s and 1s common to digital computers
 A bit is a binary digit - 0 or 1, true or false, on or off. 
+Groups of 8-bits known at an "octet", but usually just called a "byte"
 
-`Bytes`
+`Bytes - Octet`
 Eight bits is a byte, which is the basic unit of information that computers work with.
 
 `Nibble`

@@ -145,5 +145,6 @@ Preparing environment
 - https://developer.okta.com/blog/2019/04/16/graphql-api-with-aspnetcore
 - https://developer.okta.com/blog/2019/03/21/build-secure-microservices-with-aspnet-core
 
+- https://www.scarydba.com/2020/08/10/my-first-hand-built-aws-codepipeline/
 - https://medium.com/@adhasmana/how-to-quickly-deploy-react-and-node-app-on-aws-80e5dfe7d86e
 https://dev.to/edwardmercado/build-a-modern-web-application-3o4f
