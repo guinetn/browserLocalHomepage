@@ -10,7 +10,7 @@ download.page(sciences/geology/_geology.md)
 ::::
 download.page(sciences/oceanography/_oceanography.md)
 ::::
-download.page(sciences/biolog/_biology.md)
+download.page(sciences/biology/_biology.md)
 ::::
 download.page(sciences/thermodynamic/_thermodynamic.md)
 ::::

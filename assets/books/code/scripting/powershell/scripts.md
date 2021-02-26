@@ -10,7 +10,7 @@ When a function in a script isn't part of a module, the only way to load it into
 Scripts are called by .\xxx.ps1
 
 Stop-ServiceHello.ps1
-```powershell
+```bash
 function Get-MyPSVersion {
     $PSVersionTable
 }

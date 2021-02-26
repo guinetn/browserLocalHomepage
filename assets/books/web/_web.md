@@ -9,6 +9,8 @@ download.page(web/html.md)
 ::::
 download.page(web/favicon.md)
 ::::
+download.page(web/cookies.md)
+::::
 download.page(web/dom/_dom.md)
 ::::
 download.page(web/css/_css.md)

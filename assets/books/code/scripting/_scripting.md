@@ -11,7 +11,7 @@ download.page(code/scripting/powershell/powershell_ise.md)
 ::::
 download.page(code/scripting/powershell/powershell_dsc.md)
 ::::
-download.page(code/scripting/powershell/winrm.md)
+download.page(code/scripting/powershell/remote_managt/remote_winrm.md)
 ::::
 download.page(code/scripting/bash.md)
 

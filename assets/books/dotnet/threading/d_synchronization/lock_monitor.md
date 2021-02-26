@@ -61,7 +61,7 @@ attempts to acquire a lock, but doesn't block (or only blocks for a given period
 
 ### Wait, Pulse, PulseAll
 
-download.page(dotnet/threading/spinlock_spinwait.md)
+download.page(dotnet/threading/d_synchronization/spinlock_spinwait.md)
 
 ## More
 

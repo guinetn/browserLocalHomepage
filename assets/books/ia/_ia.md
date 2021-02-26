@@ -67,7 +67,7 @@ Ex: In IA, ONNX est écrit en protocol buffers (protobufs). Il existe un compila
 download.page(ia/bigdata/_bigdata.md)
 
 ::::
-download.page(ia/bigdata/articles.md)
+download.page(ia/articles.md)
 
 ## More
 

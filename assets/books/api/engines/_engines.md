@@ -16,7 +16,7 @@ download.page(api/engines/deno.md)
 ::::
 download.page(api/engines/expressjs.md)
 ::::
-download.page(api/engines/fastify.md.md)
+download.page(api/engines/fastify.md)
 ::::
 download.page(api/engines/adonisjs.md)
 ::::

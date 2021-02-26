@@ -1,5 +1,9 @@
 # authentification
 
+Authentication is the process of determining who you are
+Authorisation revolves around what you are allowed to do, i.e. permissions
+
+
 https://medium.com/@adhasmana/auth-token-management-with-node-js-observer-pattern-e51a63d945b2
 
 https://www.c-sharpcorner.com/article/basic-authentication-in-swagger-open-api-net-5/
@@ -8,14 +12,14 @@ https://www.c-sharpcorner.com/article/basic-authentication-in-swagger-open-api-n
 - Custom credential database
 - ASP.NET Identity
 - Identity Server
-- Commercial Identity Provider (e.g. Azure AD, Auth0, Ping Identity, Okta etc.)
+- Commercial Identity Provider (Azure AD, Auth0, Ping Identity, Okta etc.)
 - Social Providers (Facebook, Google ID, Apple ID etc.)
 - Windows or Kerberos authentication
 - Azure AD B2C
 - Azure Easy Auth
 - Any other authentication system
 
- OpenID is the standard and everyone writing "real" applications expected to be used by "real" users should use an Identity Management service. Please stop teaching people it's ok to roll their own auth.
+ OpenID is the standard and everyone writing "real" applications expected to be used by "real" users should use an Identity Management service. Stop teaching people it's ok to roll their own auth.
  
 ## OpenID 
 https://openid.net/

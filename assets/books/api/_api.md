@@ -19,7 +19,7 @@ Today definition is much more generic and abstract, and includes every thing, en
 
 
 
-![](assets/api/assets/api-diagram.webp)
+![](assets\books\api\assets\api-diagram.webp)
 
 
 - https://github.com/public-apis/public-apis

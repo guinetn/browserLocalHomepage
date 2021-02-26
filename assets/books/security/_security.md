@@ -7,6 +7,7 @@ download.page(security/terms.md)
 download.page(security/firewalls.md)
 ::::
 download.page(security/authentification.md)
+download.page(security/authorisation.md)
 ::::
 download.page(security/https.md)
 ::::
@@ -38,7 +39,6 @@ download.page(security/attack_webscraping.md)
 download.page(security/attack_xss.md)
 download.page(security/attack_sql_injection.md)
 download.page(security/attack_csrf.md)
-
 ::::
 download.page(security/backdoor.md)
 

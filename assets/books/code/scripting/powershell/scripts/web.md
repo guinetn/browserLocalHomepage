@@ -4,7 +4,7 @@
 
 https://hub-binder.mybinder.ovh/user/dotnet-interactive-cb9ukwlm/lab/tree/powershell/Docs/For-EachObject%20parallel.ipynb
 
-```powershell
+```bash
 function FetchGitHubRepos {
     $orgs = @(
         'PowerShell',

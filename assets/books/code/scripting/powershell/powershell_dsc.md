@@ -16,12 +16,12 @@ PowerShell modules ("how" to execute a task) modeling something...
 ***LCM Local Configuration Manager***
 Engine by which DSC facilitates the interaction between resources and configurations. LCM polls the system using the control flow implemented by resources to ensure that the state defined by a configuration is maintained. If the system is out of state, the LCM makes calls to the code in resources to "make it so" according to the configuration.
 
-```powershell
+```bash
 # Create a share in Windows Server 8
 New-SmbShare -Name MyShare -Path C:\Demo\Temp -FullAccess Alice -ReadAccess Bob
 ```
 
-```powershell
+```bash
 # A configuration is a special kind of PowerShell function
 Configuration Sample_Share
 {

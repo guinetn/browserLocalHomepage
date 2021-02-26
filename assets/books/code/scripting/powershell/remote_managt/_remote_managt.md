@@ -11,7 +11,6 @@ download.page(code/scripting/powershell/remote_managt/remote_rpc.md)
 download.page(code/scripting/powershell/remote_managt/remote_ssh.md)
 download.page(code/scripting/powershell/remote_managt/remote_winrm.md)
 
-
 ### Ways to run commands against remote computers
 
 * Remotely query WMI using the CIM cmdlets

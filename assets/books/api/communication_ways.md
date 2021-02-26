@@ -1,6 +1,6 @@
 # API ways of Communication
 
-download.page(api/architecture/architecture_event_driven.md)
+download.page(api/architecture/architecture_event_driven/_architecture_event_driven.md)
 
 https://docs.nestjs.com/microservices/basics
 

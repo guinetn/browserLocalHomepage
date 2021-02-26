@@ -8,7 +8,7 @@ web application security model
 
 
 ## Same-origin policy (SOP)
-Xeb browser permits scripts contained in a first web page to access data in a second web page, but only if both web pages have the same origin (combination of URI scheme, host name, port number)
+Wser permits scripts contained in a first web page to access data in a second web page, but only if both web pages have the same origin (combination of URI scheme, host name, port number)
 Prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
              
 The api Same-origin policy fights one of the most common cyber attacks out there: CSRF in wich  a malicious website attempts to take advantage of the browser’s cookie storage system.

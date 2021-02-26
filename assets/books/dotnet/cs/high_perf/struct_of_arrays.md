@@ -109,10 +109,12 @@ Extensions:
 
 
 Struct of Arrays (Entity Component System)
-.center[![:scale 60%](images\ecs01.png)]
+.center[![:scale 60%](assets/books/dotnet/cs/assets/hperf_struct_of_arrays_01.png)]
 
 Struct of Arrays (Entity Component System)
-.center[![:scale 100%](images\ecs02.png)]
+.center[![:scale 100%](assets/books/dotnet/cs/assets/hperf_struct_of_arrays_02.png)]
+
+.center[![:scale 100%](assets/books/dotnet/cs/assets/hperf_struct_of_arrays_03.png)]
 
 Examples from the real-world:
 * Unity ECS

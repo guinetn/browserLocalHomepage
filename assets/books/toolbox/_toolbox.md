@@ -86,7 +86,6 @@ download.page(toolbox/toolbox_subpage_1.md)
 ## Execute a javascript code file: will be run with eval()
 Can interact normally with DOM elements in the .md file
 - <span>download</span>.exec(https://...myfile.js)  
-download.exec(https://...myfile.js)  
 
 ## Render file as code snippet (file extension is checked)
 

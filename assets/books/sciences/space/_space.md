@@ -3,9 +3,9 @@
 https://twitter.com/i/status/1361915813016477699
 
 
-download.code(sciences/space/planets.md)
+download.page(sciences/space/planets.md)
 
-download.code(sciences/space/rovers.md)
+download.page(sciences/space/rovers.md)
 
 ## More
 

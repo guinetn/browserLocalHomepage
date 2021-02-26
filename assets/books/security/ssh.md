@@ -152,7 +152,7 @@ Only work properly if you have ssh key authentication setup. Otherwise, you'd ha
 
 	scp file.txt server2:/tmp
     
-    download.page(web/networks/tools/rsync.md)
+download.page(web/networks/tools/rsync.md)
     
 
     From your local windows10-ubuntu bash use this command:

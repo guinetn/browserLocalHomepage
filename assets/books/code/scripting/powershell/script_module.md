@@ -9,7 +9,7 @@ Module can be unloaded to remove its functions
 >Remove-Module -Name <ModuleName>
 
 MyScriptModule.psm1
-```powershell
+```bash
 function Get-MyPSVersion {    # Private Function
     $PSVersionTable           # only accessible by other functions within the module
 }

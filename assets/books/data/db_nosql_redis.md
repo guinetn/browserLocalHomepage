@@ -20,7 +20,7 @@ Redis transporter implements the publish/subscribe messaging paradigm and levera
 |Retrieve|GET server:name => "fido"|
 |Check existence|EXISTS server:name => 1<br/>EXISTS server:blabla => 0|
 
-```redis
+```md
 SET connections 10
 INCR connections        => 11
 INCR connections        => 12

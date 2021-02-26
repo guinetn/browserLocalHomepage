@@ -74,7 +74,7 @@ Loses one or more electrons: end up with a positive charge
 If the atom/molecule gains one or more electrons, it will end up with a negative charge
 `anion`: an ion with negative charge
 
-![](assets/books/sciences/chemistry/ions)
+![](assets/books/sciences/chemistry/ions.jpg)
 
 
 - https://x-engineer.org/undergraduate-engineering/chemistry/general-chemistry/atoms-isotopes-ions-and-molecules/

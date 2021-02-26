@@ -1,7 +1,7 @@
 
 # PARALLELIZE
 
-```powershell
+```bash
 1..5 | ForEach-Object -Process {write-output "This is number $_"; sleep 1}
 
 (Measure-Command { 

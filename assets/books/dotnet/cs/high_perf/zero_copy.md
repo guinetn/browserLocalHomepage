@@ -6,7 +6,7 @@
 **Consequences:** API and code is being polluted with technical-specific types, instead of using generic, intuitive ones.
 
 
-download.page(assets\books\dotnet\types\ref\span.md)
+download.page(dotnet/types/val/span.md)
 
 Other examples:
 * System.IO.Pipelines

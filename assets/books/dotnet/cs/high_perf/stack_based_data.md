@@ -191,8 +191,9 @@ unsafe struct StructWithFixedBuffer
   // other fields...
 }
 ```
-[:scale 100%](images\fixedbuffers01.png)
-![:scale 80%](images\fixedbuffers02.png)
+.center[![:scale 60%](assets/books/dotnet/cs/assets/hperf_stack_based_01.png)]
+.center[![:scale 60%](assets/books/dotnet/cs/assets/hperf_stack_based_02.png)]
+
 And we can `stackalloc` them! Or box in an array!
 
 

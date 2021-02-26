@@ -58,7 +58,7 @@ Add them one by one, but we can also create a group for easier targeting inside 
 
 Playbook sample: install and start-up httpd (apache) on the host 'mainserver.test.com'
 
-```ansible
+```bash
 ---
     name: install and start HTTPD         run this playbook only on one hostname – mainserver.test.com
     hosts: mainserver.test.com          ← to run this playbook on our webservers replace by a group name
@@ -79,7 +79,7 @@ Playbook sample: install and start-up httpd (apache) on the host 'mainserver.tes
 Install and configure Apache on all our servers within the [webservers] group noted in the inventory file.
 
 playbook.yaml
-```ansible
+```bash
  ---
      name: Install and configure Apache
      remote_user: root

@@ -98,7 +98,7 @@ Thread constructor accept a ThreadStart delegate (indicates where execution shou
 Start() runs the thread. It continues until its method returns, at which point the thread ends.
 
 .ThreadState
-![thread states](assets/books/dotnet/threading/t1_threads/thread_state.png)
+![thread states](assets/books/dotnet/threading/a_threads/thread_state.png)
 
 ```c#
 public static ThreadState SimpleThreadState (ThreadState ts)

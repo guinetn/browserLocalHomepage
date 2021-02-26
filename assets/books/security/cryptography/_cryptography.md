@@ -31,6 +31,6 @@ Algorithms for cryptography that use the same cryptographic keys for both encryp
 The keys may be identical or there may be a simple transformation to go between the two keys. The keys, in practice, represent a shared secret between two or more parties that can be used to maintain a private information link. This requirement that both parties have access to the secret key is one of the main drawbacks of symmetric key encryption
 
 
-download.page(security/rsa.md)
+download.page(security/cryptography/rsa.md)
 download.page(security/cryptography/encryption.md)
-download.page(security/cryptography/cryptography_hash_functions)
+download.page(security/cryptography/cryptography_hash_functions.md)

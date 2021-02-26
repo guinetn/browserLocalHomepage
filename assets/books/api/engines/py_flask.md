@@ -4,7 +4,7 @@ Provides annotations mapping URL paths to Python function
 Every URL for which you want the server to respond requires an annotation/function combination.
 
 $ python flaskpage.py  →  http://127.0.0.1:5000/ 
-```flask
+```python
 from flask import Flask
 app = Flask(__name__)
 
@@ -18,7 +18,7 @@ app.run()
 http://127.0.0.1:5000/index
 http://127.0.0.1:5000/index/Adam
 http://127.0.0.1:5000/data?format=idontknow
-```flask
+```python
 from flask import Flask
 from flask import request
 app = Flask(__name__)

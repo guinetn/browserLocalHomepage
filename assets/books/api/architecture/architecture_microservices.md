@@ -26,7 +26,7 @@ However a microservice based architecture has a performance cost: it needs to se
 Unlike a Monolithic architecture wich have all parts of the code tightly coupled meaning the response to a call is very quick.
 
 
-![](assets/books/api/architecture/microservices/microservices03.png)
+![](assets/books/api/architecture/microservices/microservices_03.png)
 
 download.page(api/architecture/api_gateway.md)
 
@@ -137,8 +137,9 @@ A service aggregating data from all other services and return desired results
 
 #### Architecture
 
-![](assets/books/api/architecture/microservices/microservices01.png)
-![](assets/books/api/architecture/microservices/microservices02.png)
+![](assets/books/api/architecture/microservices/microservices_00.png)
+![](assets/books/api/architecture/microservices/microservices_01.png)
+![](assets/books/api/architecture/microservices/microservices_02.png)
 
 If you are running anything in production, it is most likely you are running many instances of any given service. In this case, we are making the following changes:
 Running three instances of our service on different ports

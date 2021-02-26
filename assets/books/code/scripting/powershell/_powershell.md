@@ -337,7 +337,7 @@ download.page(code/scripting/powershell/ps_files_recursive_action.md)
 
 ## :: Static member operator
 Call the static properties operator and methods of a .NET Framework class.
-```powershell
+```bash
 [datetime] | gm -static     Find the static properties and methods of an object (gm = alias Get-Member)
 [datetime]::now
 [datetime]::Utcnow

@@ -29,7 +29,7 @@ Compare     Data
 * At scrit scope
 Functions are loaded in the Script scope. When the script completes, that scope is removed and the function is removed with it.
 
-```powershell
+```bash
 function Get-PSVersion {
     # Call bt 'Get-Version'
     # PS is the prefix (avoid conflicts). 
@@ -49,13 +49,13 @@ Check if functions are loaded into memory: exist on the Function PSDrive?
 
 ### Parameters
 
-```powershell
+```bash
 function Test-MyParameter {
     param ($ComputerName)
     Write-Output $ComputerName
 }
 ```
-```powershell
+```bash
 function Get-MyParameterCount {
     param ( [string[]]$ParameterName )
     foreach ($Parameter in $ParameterName) {
@@ -69,7 +69,7 @@ function Get-MyParameterCount {
 ```
 Get-MyParameterCount -ParameterName ComputerName, Computer, ServerName, Host, Machine
 
-```powershell
+```bash
 # https://hub-binder.mybinder.ovh/user/dotnet-interactive-cb9ukwlm/lab/tree/powershell/Docs/For-EachObject%20parallel.ipynb
 
 function FetchGitHubRepos {
@@ -93,7 +93,7 @@ FetchGitHubRepos
 
 ```
 
-```powershell
+```bash
 ```
 
 ## more

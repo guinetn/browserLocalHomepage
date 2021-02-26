@@ -763,7 +763,7 @@ docker cp d56a9442ccd0:usr/local/etc/php/php.ini-development temp\xxx.txt
 - https://joshmobley.net/writing/2017/04/09/easy-wordpress-migration-with-docker.html
 - https://cntnr.io/setting-up-wordpress-with-docker-262571249d50
 
-```bash
+```Dockerfile
 version: '2'
 services:
   wordpress:

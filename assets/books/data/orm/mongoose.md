@@ -1,10 +1,7 @@
 ### Mongoose 
 
-that helps us do the MongoDB object modeling:
-library that helps us do the MongoDB object modeling:
-popular MongoDB object modeling tool
+Popular `MongoDB object modeling` helper library
 
-
-
-https://mongoosejs.com/
-https://www.mongodb.org/
+## More
+- https://mongoosejs.com/
+- https://www.mongodb.org/
