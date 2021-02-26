@@ -82,7 +82,7 @@ download.page(code/scripting/powershell/help.md)
 
 download.page(code/scripting/powershell/providers.md)
 
-download.page(code/scripting/powershell/aliases.md)
+download.page(code/scripting/powershell/aliasing.md)
 
 download.page(code/scripting/powershell/pipeline_objects.md)
 

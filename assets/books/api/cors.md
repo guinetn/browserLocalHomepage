@@ -13,7 +13,7 @@ Prevents a malicious script on one page from obtaining access to sensitive data 
              
 The api Same-origin policy fights one of the most common cyber attacks out there: CSRF in wich  a malicious website attempts to take advantage of the browser’s cookie storage system.
 
-download.page(assets/books/security/attack_csrf.md)
+download.page(security/attack_csrf.md)
 
 ## Cors 
 

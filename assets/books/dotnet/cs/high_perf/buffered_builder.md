@@ -1,6 +1,5 @@
 # Buffered Builder
 
-
 **Problem:** We generate a lot of temporary objects due to many operations on immutable data.
 **Solution:** We create "builder" to manipulate data of immutable nature as "mutable". Ultra popular example is `StringBuilder`.
 **Benefits:** A lot less pressure on the GC, better data locality (internal buffer)
@@ -64,13 +63,6 @@ public string GetBuilder(int count)
     return sb.ToString();
 }
 ```
-
-
-![](images\stringbuilder.png)
-
-![](images\stringconcat01.png)
-
-![](images\stringconcat02.png)
 
 For example - `BigInteger`. Proposal [Expose a BigInteger.Builder to help avoid so many copies/allocations](https://github.com/dotnet/corefx/issues/37204):
 

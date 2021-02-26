@@ -88,7 +88,7 @@ class TemporaryFileStream
 }
 ```
 
-download.page(assets/books/dotnet/language/idispose.md)
+download.page(dotnet/language/idispose.md)
 
 ### Polymorphism
 

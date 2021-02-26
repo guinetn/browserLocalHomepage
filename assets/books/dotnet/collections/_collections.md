@@ -40,7 +40,7 @@ download.page(dotnet/collections/hashset.md)
 
 download.page(dotnet/collections/arrays.md)
 
-download.page(dotnet/collections/arrayslist.md)
+download.page(dotnet/collections/arraylist.md)
 
 download.page(dotnet/collections/list.md)
 

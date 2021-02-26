@@ -66,7 +66,7 @@ download.page(dotnet/threading/e_concurrent_structures/_concurrent_structures.md
 download.page(dotnet/threading/f_misc/_misc.md)
 ::::
 
-![](assets/books/dotnet/threading/t1_threads/threading.png)
+![](assets/books/dotnet/threading/a_threads/threading.png)
 
 
 

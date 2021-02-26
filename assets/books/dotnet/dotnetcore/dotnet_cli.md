@@ -229,7 +229,7 @@ watch             Démarrez un observateur de fichier qui exécute une commande 
 |Protocol Buffer File                           | proto                 |                  | Web/gRPC |
 
 
-download.page(code/dotnetcore/cli_usage.md)
+download.page(dotnet/dotnetcore/cli_usage.md)
    
    
 ## Extending the .NET CLI

@@ -70,11 +70,11 @@ Nullable reference types feature intends to warn you about null-unsafe behavior 
                                                 * produces a null if s is null (has nullable char?) 
 
 
-download.page(assets/books/dotnet/threading/b_async_3/iasyncenumerable.md)
+download.page(dotnet/threading/b_async_3/iasyncenumerable.md)
 
-download.page(assets/books/dotnet/threading/b_async_3/async_streams.md)
+download.page(dotnet/threading/b_async_3/async_streams.md)
 
-download.page(assets/books/dotnet/types/val/range.md)
+download.page(dotnet/types/val/range.md)
 
 
 

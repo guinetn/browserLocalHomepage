@@ -6,8 +6,8 @@ SynchronizationContext
 TaskCompletionSource
 AsyncLocal
 
-download.page(dotnet/threading/t2_async_2/synchronizationcontext.md)
+download.page(dotnet/threading/b_async_2/synchronizationcontext.md)
 ::::
-download.page(dotnet/threading/t2_async_2/taskcompletionsource.md)
+download.page(dotnet/threading/b_async_2/taskcompletionsource.md)
 ::::
-download.page(dotnet/threading/t2_async_2/asynclocal.md)
+download.page(dotnet/threading/b_async_2/asynclocal.md)

@@ -248,11 +248,11 @@ dynamic dynamicFoo = fooInstance as dynamic;
 dynamicFoo.Bar(1, 2, false);
 ``` 
 
-download.code(dotnet/types/ref/delegate_standards.md)
+download.code(assets/books/dotnet/types/ref/delegate_standards.md)
 
-download.code(dotnet/types/ref/expression_lambdas.md)
+download.code(assets/books/dotnet/types/ref/expression_lambdas.md)
 
-download.code(dotnet/types/ref/closures.md)
+download.code(assets/books/dotnet/types/ref/closures.md)
 
 ## More
 
