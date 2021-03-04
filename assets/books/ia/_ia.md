@@ -1,5 +1,7 @@
 # IA
 
+Cloud → Proliferation of data and compute power → IA (computer vision...)
+
 * Takeaways
 
 AI Artificial intelligence: machine mimic human behavior
