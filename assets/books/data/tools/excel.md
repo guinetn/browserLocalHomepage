@@ -12,4 +12,8 @@ Locking file with a password, i.e. without key phrase opening file is not possib
 Protecting workbook’s structure
 Protecting individual worksheets from a handful of operations
 
+
+## Designed Excel files
+
+- Ultimate excel Dashboard: https://www.youtube.com/watch?v=cKkXtyjleX4
 ## More
