@@ -151,6 +151,8 @@ but then to continue where it left off on the following frame.
 
 Can control where execution continues immediately after they yield, while generators cannot, instead transferring control back to the generator's caller.
 
+coroutines are functions that can invoke each other but do not share a stack, so can flexibly suspend their execution at any point to enter a different coroutine
+
 Generalized form of subroutines.
 can be entered, exited, and resumed at many different points.
 can pause execution and yield control back to the caller or another coroutine. The caller can then resume the coroutine when appropriate.
@@ -177,11 +179,10 @@ capturing continuations
 expressing backtracking algorithms
 AI agents such as behavior trees
 
-Coroutines are computer program components that generalize subroutines to allow multiple entry points
-for suspending and resuming execution at certain locations. Coroutines are well-suited for implementing
-more familiar program components such as cooperative tasks, exceptions, event loop, iterators,
-infinite lists and pipes.
+Coroutines are computer program components that generalize subroutines to allow multiple entry points for suspending and resuming execution at certain locations. Coroutines are well-suited for implementing more familiar program components such as cooperative tasks, exceptions, event loop, iterators, infinite lists and pipes.
 Coroutines are used is lexers and parsers. Without coroutines in the language or emulated somehow, lexing and parsing code needs to be mixed together even though they're really two separate concerns. But using a coroutine, you can separate out the lexing and parsing code.
+
+- https://www.scs.stanford.edu/~dm/blog/c++-coroutines.html
 
 ### GENERATORS: lazy producer/iterator
 

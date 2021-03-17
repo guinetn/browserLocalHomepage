@@ -235,6 +235,13 @@ a:link {
 |:root||root element (html)|
 |:empty||has no child|										
 |:not(selector)|||        
+|:is(selector)|https://codepen.io/kevinpowell/pen/RwojMKB||        
+
+```css
+header :is(h1, :a, .btn, small) { color: green; }
+:is(header, .card) p:hover { color: red; }
+.card :is(.title, p a) { color: red; }
+```
 
 
 |PSEUDO ELEMENTS|to style a specific part of the selected element|

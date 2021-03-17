@@ -30,6 +30,8 @@ Hack (Facebook)
 Strictly speaking, this is not a separate language but a dialect of PHP. However it’s provocative name meant I couldn’t leave it out of this list, although it also makes it unlikely that it will be adopted by nervous banking CTOs.
 
 ::::
+download.page(code/langs/comments.md)
+::::
 download.page(code/langs/assembler.md)
 ::::
 download.page(code/langs/c/_c.md)

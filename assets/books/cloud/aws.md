@@ -81,6 +81,7 @@ AWS Fargate est un moteur de calcul sans serveur pour les conteneurs. Il fonctio
 Fargate vous aide à vous concentrer sur la création de vos applications. Ce service évite d’avoir à provisionner et gérer des serveurs, permet de spécifier et payer pour les ressources en fonction des applications et améliore la sécurité grâce à une isolation intégrée de l’application
 
 https://aws.amazon.com/fr/fargate
+https://medium.com/@tribasukikurniawan/deploy-docker-container-as-serverless-architecture-to-aws-fargate-1121bafa1d8c
 
 ## SAGEMAKER
 

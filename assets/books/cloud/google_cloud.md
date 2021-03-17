@@ -24,6 +24,9 @@ un entrepôt de données à très grande échelle basé sur Dremel.
 Plusieurs API de haut niveau
 
 ## GCP - Google Cloud Platform
+- https://console.cloud.google.com/
+- https://towardsdatascience.com/bioinformatics-on-the-cloud-144c4e7b60d1
+- https://github.com/DataBiosphere/dsub
 
 ## GCP data processing/analytics products
 
