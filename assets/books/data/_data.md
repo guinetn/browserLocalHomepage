@@ -1,6 +1,14 @@
-# DATA
+# DATA STRUCTURES
+
+Code structures for storing and organizing data that make it easier to modify, navigate, and access information. Data structures determine how data is collected, the functionality we can implement, and the relationships between data.
 
 Operations: Accessing, inserting, deleting, finding, sorting 
+
+Data structures help to:
+- Manage and use large datasets
+- Quickly search for particular data 
+- Build clear hierarchical/relational connections between data points
+- Simplify and speed up data processing
 
 ## Rules to bring the database fully into best development practices:
 ***Critical databases should have at least one staging environment***

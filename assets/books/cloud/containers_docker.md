@@ -1,5 +1,13 @@
 # Docker
 
+Run a project without any environment management = focus on development
+
+Docker Image: It’s a template containing instructions to create containers
+Docker Container: A Container is the running instance of an image
+>docker run       command is used to run a container from an image
+If the image does not exist on the host machine, Docker will pull that from [Docker Hub](https://hub.docker.com/)
+Once downloaded on your local machine, Docker uses the same image for consecutive container creation. 
+
 Windows: [Docker Desktop](https://docs.docker.com/desktop/#download-and-install)
 Linux: download [Docker Engine](https://docs.docker.com/engine/install/)
  
@@ -603,6 +611,14 @@ Bind mount enables Docker to use the files directly in the local filesystem, wit
 This has the added benefits that if there are some auto-generated changes from your code, they will be reflected in the local filesystem.
 https://docs.docker.com/storage/bind-mounts/
 
+https://towardsdatascience.com/how-to-mount-a-directory-inside-a-docker-container-4cee379c298b
+To run Ruby code, use the ruby image:
+docker run -it --rm -v $HOME/Desktop/scripts:/scripts --name scripts ruby:2.5 bash
+To run Python code, use the python image:
+docker run -it --rm -v $HOME/Desktop/scripts:/scripts --name scripts python bash
+
+
+
 - tmpfs mount (Docker on Linux)
 Stored in the host system’s memory only
 Not persisted on disk
@@ -672,6 +688,31 @@ docker cp d56a9442ccd0:usr/local/etc/php/php.ini-development .
 docker cp d56a9442ccd0:usr/local/etc/php/php.ini-production .    
 docker cp d56a9442ccd0:usr/local/etc/php/php.ini-development temp\xxx.txt
 ```
+
+
+
+To mount a volume, just run this line in your terminal
+docker run -v /host/directory:/container/directory
+
+To mount a scripts folder inside the scripts folder of the container
+docker run -it --rm -v $HOME/Desktop/scripts:/scripts --name scripts ruby bash
+
+***Flags***
+
+-i -t (often written as -it) is used to access the container in an interactive mode. 
+
+--rm (optional) removes the container when you exit or stop it to free system resources (CPU, memory). If you don’t use that after you stop or exit the container, it has to be manually removed if you want to free disk space. 
+
+-v flag is used to mount a host folder, and it consists of two fields separated by a colon. The first part is the path in the host machine. The second part is the path in the container.
+-v /host/directory:/container/directory
+
+--name (optional) is used to give the container a specific name. If you don’t want to provide one, Docker will randomly assign a name, so you may want to choose one specifically if you want to keep track of your containers more easily. 
+
+The ruby command is used to load the image. If you want to use the 2.5 version of Ruby specifically, use the ruby:2.5 command.
+docker run -it --rm -v $HOME/Desktop/scripts:/scripts --name scripts ruby:2.5 bash
+
+To run Python code, use the python image:
+docker run -it --rm -v $HOME/Desktop/scripts:/scripts --name scripts python bash
 
 ## TIPS
 

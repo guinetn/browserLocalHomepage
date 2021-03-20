@@ -32,6 +32,8 @@ download.page(web/front/blazor.md)
 download.page(web/front/angular.md)
 ::::
 download.page(web/front/forgo.md)
+::::
+download.page(web/front/templating/_templating.md)
 
 
 https://facebookincubator.github.io/infima/

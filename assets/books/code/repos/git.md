@@ -95,6 +95,10 @@ https://github.com/guinetn/braincache
 ### Set up different accounts on your local machine
 
 using SSH keys instead of the usual HTTPS connection.
+
+### Git Bash
+
+Provides a UNIX-based environment on Windows OS machines when we install Git.
  
 ## More
 - https://dev.to/codetraveling/how-to-manage-multiple-github-accounts-on-your-local-machine-3gj0

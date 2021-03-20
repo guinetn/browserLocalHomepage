@@ -411,8 +411,11 @@ download.page(web/css/css_layout_flexbox.md)
 
 download.page(web/css/css_bem.md)
 
+download.page(web/css/css_modules.md)
+
 download.page(web/css/preprocessors/_preprocessors.md)
 
+download.page(web/css/cssframeworks/cssframeworks.md)
 
 ## STYLE GUIDES
 
