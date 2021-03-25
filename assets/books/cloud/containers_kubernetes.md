@@ -5,6 +5,7 @@ https://kubernetes.io/
 to add:
 https://www.c-sharpcorner.com/article/build-cicd-pipeline-for-azure-kubernetes/ ***
 https://developers.redhat.com/blog/2020/05/11/top-10-must-know-kubernetes-design-patterns/
+https://andrewlock.net/running-kubernetes-and-the-dashboard-with-docker-desktop
 
 Course 70+videos
 https://www.youtube.com/playlist?list=PLn6POgpklwWqfzaosSgX2XEKpse5VY2v5

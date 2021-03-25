@@ -27,7 +27,7 @@ See also IValueTaskSource
 - Slides: https://prodotnetmemory.com/slides/PerformancePatterns/#1
 - https://prodotnetmemory.com
 - https://blogs.msdn.microsoft.com/dotnet/2018/04/18/performance-improvements-in-net-core-2-1/
-
+- https://www.youtube.com/watch?v=nK54s84xRRs
 	
 
 

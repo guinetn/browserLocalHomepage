@@ -1044,4 +1044,5 @@ The shell is divided into regions, which you dynamically fill with user control 
 - https://intellitect.com/interfacing-multithreading-patterns/
 - https://github.com/Code52/Enhance
 - https://www.codeproject.com/Tips/5294830/WPF-with-PRISM-View-and-ViewModel-First-Implementa
-
+- https://www.youtube.com/watch?v=3ox-6NFAt8I&t=3s
+- https://www.youtube.com/watch?v=fehVTLNQorQ&t=1s

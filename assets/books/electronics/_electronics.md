@@ -1,5 +1,6 @@
 # Electronic
 
+download.page(robotics/_robotics.md)
 
 - https://www.nextpcb.com
 - https://www.circuitstoday.com/
