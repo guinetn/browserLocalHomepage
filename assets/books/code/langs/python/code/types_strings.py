@@ -4,19 +4,59 @@ delimited by single or double quotation marks (but the quotes have to match):
 single_quoted_string = 'data science'
 double_quoted_string = "data science"
 
-name = 'Brad'
-tab_string = "\t"  # backslashes to encode special characters
-not_tab_string = r"\t" # Raw string: represents the characters '\' and 't'
+
+# Strings enclosed in tripe quotes (''') can span over multiple lines
+multiline_string = = """ this is a very
+        long string which will not include 
+        blanks or newlines..."""
 
 multi_line_string = """This is the first line.
 and this is the second line
 and this is the third line"""
 
+multiline_string = ("this is a very"
+      "long string too"
+      "which will NOT INCLUDE ANY EXTRA BLANKS OR NEWLINES..."
+     ) # → 'this is a verylong string too which will NOT INCLUDE ANY EXTRA BLANKS OR NEWLINES...'
 
 
-# string interpolation
+# Reverse
+mystring = "Python is awesome"
+mystring_reversed = mystring[::-1]
+mystring_reversed
+'emosewa si nohtyP'
 
-	f-strings (Python 3.6)
+
+name = 'Brad'
+tab_string = "\t"  		# \ Backslash: to encode special characters
+not_tab_string = r"\t"  #  Raw string: to represents all characters '\' and 't'
+
+
+# Format number to strings
+x=123.456789
+xs = "{:3.2}".format(x)   # → 123.46
+
+# STRING INTERPOLATION
+
+ ## Old way
+	
+	%-format (old method)
+		
+		print("%s %s" %('Hello','World',))
+
+		name = 'world'
+		program ='python'
+		print('Hello %s! This is %s.'%(name,program))
+
+	Escaping percent sign
+	test = "have it break"
+	selectiveEscape = "Print percent %% in sentence and not %s" % test
+	print selectiveEscape
+	Print percent % in sentence and not have it break.
+
+## Python 3.6
+
+	f-strings 
 		user = 'Joe'
 		print(f"I am {user}")   
 
@@ -32,13 +72,6 @@ and this is the third line"""
 		print(f"{some_variable=}")
 		# some_variable=HELLO!
 
-	%-format (old method)
-		
-		print("%s %s" %('Hello','World',))
-
-		name = 'world'
-		program ='python'
-		print('Hello %s! This is %s.'%(name,program))
 
 	Template
 	
@@ -51,8 +84,7 @@ and this is the third line"""
 
 
 
-# immutable: can't change a part of it. Error if s[1]='i'
-# Strings enclosed in tripe quotes (''') can span over multiple lines
+# immutable: can't change a part of it. s[1]='i' → Error xxxxxx
 
 age = 37
 print(str(age) + " years old")

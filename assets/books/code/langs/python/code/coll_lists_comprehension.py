@@ -50,6 +50,18 @@ romaia = [[1, 2], [3, 4]]
 [3, 3, 4, 4]
 
 
+# Iterating over one column - `f` is some function that processes your data
+result = [f(x) for x in df['col']]
+
+# Iterating over two columns, use `zip`
+result = [f(x, y) for x, y in zip(df['col1'], df['col2'])]
+
+# Iterating over multiple columns - same data type
+result = [f(row[0], ..., row[n]) for row in df[['col1', ...,'coln']].to_numpy()]
+
+# Iterating over multiple columns - differing data type
+result = [f(row[0], ..., row[n]) for row in zip(df['col1'], ..., df['coln'])]
+
 
 
 # Without list comprehension
@@ -69,3 +81,5 @@ Example:
 >>> text = (("Hi", "Steve!"), ("What's", "up?"))
 >>> [word for sentence in text for word in sentence]
 ['Hi', 'Steve!', "What's", 'up?']
+
+

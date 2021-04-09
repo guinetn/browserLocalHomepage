@@ -1,6 +1,6 @@
 # WASM - WebAssembly
 
-JavaScript compliment (not a replacement) to run bytecode on the web.
+JavaScript complement (not a replacement) to run bytecode on the web
 Runs on
 - all major web browsers
 - V8 runtimes (Node.js) or

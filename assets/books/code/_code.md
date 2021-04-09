@@ -34,6 +34,8 @@ download.page(code/scheduling.md)
 ::::
 download.page(code/microsoft.md)
 ::::
+download.page(code/com.md)
+::::
 download.page(code/bot.md)
 ::::
 download.page(code/sdk.md)

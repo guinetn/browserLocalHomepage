@@ -300,7 +300,14 @@
     "https://developers.google.com/analytics"
   ],
 
-  "maths": ["https://math.libretexts.org"],
+  
+  "maths": [
+    "https://math.libretexts.org", 
+    "https://www.khanacademy.org/",
+    "[Parth G. Youtube]https://www.youtube.com/channel/UC9lztld5qPi-6WZ9_QIVR6g"
+  ],
+  
+  
   "latex": ["https://www.overleaf.com(overleaf: online .tex files)"],
 
   "ml": [
@@ -320,7 +327,7 @@
     "https://coral.ai(coral.ai: toolkit to build products with local AI)"
   ],
 
-  "electronic": [],
+  "electronic": ["http://www.learningaboutelectronics.com"],
 
   "science": [
     "https://arxiv.org",
