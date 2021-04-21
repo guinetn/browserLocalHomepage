@@ -950,7 +950,9 @@ Orchestrators enable you to manage their images, containers, and hosts through a
 - https://dev.to/nas5w/how-to-serve-a-vue-app-with-nginx-in-docker-4p54
 - https://hub.docker.com/r/clue/json-server/~/dockerfile/
 -https://levelup.gitconnected.com/asynchronous-tasks-in-python-with-celery-rabbitmq-redis-480f6e506d76
-
+- https://codeburst.io/direct-connection-to-a-docker-container-with-ssh-56e1d2744ee5
 
 ## TO READ
 https://andrewlock.net/running-kubernetes-and-the-dashboard-with-docker-desktop
+
+https://www.kdnuggets.com/2021/04/dockerize-any-machine-learning-application.html

@@ -1,7 +1,5 @@
-# xalient
+# 3D
 
-https://sdk.xailient.com/
-Library for face detection
-
-## More 
-- https://www.xailient.com/post/multiprocessing-video-in-python
+## pythreejs
+A Python / ThreeJS bridge for Jupyter Widgets.
+https://github.com/jupyter-widgets/pythreejs

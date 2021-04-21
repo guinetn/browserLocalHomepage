@@ -1,3 +1,20 @@
+
+# Copy Files
+# The shutil module contains a function for copying files.
+import shutil
+copied_path = shutil.copy('my_file.txt', 'copied_file.txt')
+# If my_file.txt is a symlink, the above code will create copied_file.txt as a separate file.
+# You can create a copy of a symlink instead like this:
+copied_path = shutil.copy('my_file.txt', 'copied_file.txt', follow_symlinks=False)
+
+# Move Files
+# You can move files from one location to another like this:
+import shutil
+shutil.move('file1.txt', 'file3.txt')
+
+
+
+
 from datetime import *
 import time, os, stat
 from os.path import join

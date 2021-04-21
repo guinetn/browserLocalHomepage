@@ -1,9 +1,40 @@
 # AZURE
 
+
 https://azure.microsoft.com/
 https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
 
 200 produits et services cloud 
+
+## AZURE TRAINING
+https://www.youtube.com/watch?v=O_u2oPuZ8Mw
+
+00:00​ = Introduction
+00:21​ = Agenda
+03:00​ = Cloud computing overview
+06:22​ = Scalability vs Elasticity
+07:32​ = Bring your own license: BYOL
+09:33​ = Cloud service model : IaaS, PaaS, SaaS
+16:33​ = Cloud Deployment models: Public, Private, Hybrid
+21:53​ = Account,Subscriptions & Billing
+28:03​ = Compute service: VM, App service, Functions, Logic Apps, Container, Kubernetes
+01:00:25​ = Network Service: VNet, Subnet, VPN Getaway, Express Route, NSG, Bastion Host
+01:08:04​ = Storage Service: Storage Account, Blob, File, Disk, Queue
+01:13:00​ = Database Service Azure SQL,Cosmos, Synaps, Azure Data factory, Azure Data Lake
+01:19:54​ = Data Protection: VM Backups, Azure site Recovery
+01:24:25​ = Monitoring Service: Monitor, Alerts, Log Analytics
+01:33:43​ = VM Migration Service: VMware & Hyper-V
+01:36:01​ = Data Transfer Service
+01:38:05​ = Data Box & Import/Export
+01:41:10​ = Azure DevOps: Boards, Repos, Pipelines, Test Plans, Azure Artifacts
+01:48:24​ = Al & ML on Azure for Data Scientists
+01:58:21​ = Global Infrastructure: Region, paired Region, Availability Zone, Update & Fault Domain
+02:07:03​ = Resource, ARM, Resource & Management Group
+02:13:08​ = Management Tools: portal, Cloud Shell, CLI, power Shell, ARM Templates
+02:24:36​ = Lab: Create Azure Cloud Account
+02:40:02​ = Azure Road-map
+02:41:54​ = FREE Class
+02:42:14​ = Registration link for FREE Class
 
 ## Containerize Your Application With Docker
 
@@ -175,3 +206,5 @@ https://github.com/telekom-security/tpotce
 - https://github.com/microsoft/AzureTipsAndTricks
 
 - https://hub-binder.mybinder.ovh/user/dotnet-interactive-cb9ukwlm/lab/tree/powershell/Samples/Managing-Azure.ipynb
+
+

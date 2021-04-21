@@ -2,7 +2,7 @@
 
 dll = shared libraries in UNIX-based operating systems
 - to share code and resources
-- to shrink the size of your apps.
+- to shrink the size of your apps
 - to extend your app
 
 The DLL uses the C calling convention

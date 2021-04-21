@@ -253,3 +253,15 @@ funcdict = {
     ....
 }
 funcdict[myvar](parameter1, parameter2)
+
+
+
+# SLOW FUNCTION
+
+def slow_function(i):
+    print(int(i),list(x for x in range(int(i)) if 
+                str(x)==str(x)[::-1] and 
+                str(x**2)==str(x**2)[::-1]))
+    return
+%%time
+slow_function(1e6)

@@ -1,7 +1,7 @@
 # Electronic
 
-download.page(electronic/components/_components.md)
-download.page(electronic/robotics/_robotics.md)
+download.page(electronics/components/_components.md)
+download.page(electronics/robotics/_robotics.md)
 
 - https://www.nextpcb.com
 - https://www.circuitstoday.com

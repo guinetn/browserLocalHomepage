@@ -84,3 +84,5 @@ app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
 CORS Anywhere is a NodeJS reverse proxy which adds CORS headers to the proxied request.
 - https://github.com/Rob--W/cors-anywhere/#documentation
+
+- https://blog.bitsrc.io/how-and-why-you-should-avoid-cors-in-single-page-apps-db25452ad2f8

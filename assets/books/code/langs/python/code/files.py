@@ -282,17 +282,3 @@ If you prefer to do it with shell, then find is your friend, with the following 
 
 -ctime n File's status was last changed n*24 hours ago.
 -mtime n File's data was last modified n*24 hours ago.
-
-
-import os
-from os.path import join
-import datetime
-def modification_date(filename):
-        t = os.path.getmtime(filename)
-        return t
-def creation_date(filename):
-        t = os.path.getctime(filename)
-        return t
-for root, dirs, files in os.walk("."):
-        for name in files:
-        print join(root, name), modification_date(join(root, name)), creation_date(join(root, name))

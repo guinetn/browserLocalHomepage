@@ -8,6 +8,8 @@ Open-source language; 6,000 contributors
 Mozilla (2010, release in 2015) as an alternative to the C/C++
 MIT and Apache License 
 
+Rust: It is a safe, concurrent, practical language. It is a systems programming language that combines strong compile-time correctness guarantees with fast performance. It is most loved programming language as per stackoverflow. The development of web, desktop and mobile apps all are supported in Rust too.
+
 
 “most-loved programming language”
 For systems that emphasize parallelism, speed, memory safety
@@ -47,6 +49,15 @@ IDE
 - https://intellij-rust.github.io/
 
 
-## More
+## web applications
+[Crates:  Rust community’s crate registry](https://crates.io/)
+
+[Rocket](https://rocket.rs/)
+[Actix](https://crates.io/crates/actix-web)
+[Nickel](https://crates.io/crates/nickel)
+
+[warp](https://crates.io/crates/warp)
+[gotham](https://crates.io/crates/gotham)
+## ## More
 
 - https://www.liquidweb.com/kb/how-to-install-and-configure-the-rust-programming-language

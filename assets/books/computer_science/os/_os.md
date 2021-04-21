@@ -1,5 +1,22 @@
 # OS
 
+Complex embedded systems require various software stacks, multi-processes, file system operations, I/O operations, network implementations... An Operating System will provide all of these in a bundle.
+
+- Operating System Structures
+- Virtual Memory
+- Memory Mapping
+- Paging
+- Threads and Processes
+- Interprocess Communication
+- Process Scheduling
+- Memory Management
+- File Systems
+- Deadlocks
+- The Portable Operating System Interface (POSIX) Standards
+- User space and kernel space architecture
+- kernel modules
+- device drivers 
+
 |||
 |---|---|
 |Hardware|Memory, CPU, ALU, I/O devices, peripheral devices, storage devices, keyboards, mice, disk drives, printers, network adapters, display devices|
@@ -70,5 +87,7 @@ download.page(computer_science/os/windows/os_windows.md)
 download.page(computer_science/os/os_unix.md)
 ::::
 download.page(computer_science/os/windows/wsl.md)
+::::
+download.page(computer_science/os/rtos.md)
 ::::
 

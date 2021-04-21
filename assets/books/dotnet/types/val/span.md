@@ -1,25 +1,25 @@
-## Span<T>
+## Span&lt;T&gt;
 
 System.Memory NuGet package
 using Systems
 A new memory efficient value type 
 Philosophy of no allocations and no data copies
 
-Span<T> runtime type to work with slices of existing memory
+Span&lt;T&gt; runtime type to work with slices of existing memory
 - New type to unify working With any kind of contiguous memory 
 Arrays, array segments, strings and substrinqs, native mernoty, stackalloc.. 
 - Provides array-like API - indexer 
-ReadOnlySpan<T> provides getter indexer only 
+ReadOnlySpan&lt;T&gt; provides getter indexer only 
 - Type safe - each element is of type T 
 - Array-like performance 
 Not quite, but newer runtimes have special suppo«t 
 - Slicing 
-Cteate a new Span<T> With a sub-section of existing Span - without allocations! 
+Cteate a new Span&lt;T&gt; With a sub-section of existing Span - without allocations! 
 
 It contains a length and a *managed pointer*, it cannot appear on the Managed Heap
 
 ```cs
-public ref struct Span<T>
+public ref struct Span&lt;T&gt;
 {
    * internal ref T _pointer;
    private int _length;
@@ -37,11 +37,11 @@ Slicing is quite efficient because you don't need to allocate anything on the he
 
 
 
-Span<T> - a fast synchronous accessor of a continuous chunk of memory. It’s not the memory, it’s just a really performance friendly view of it.
-Memory<T> - an actual memory chunk, that can be passed wherever needed and accessed using its fast synchronous accessor Span<T>.
-ReadOnlySpan<T> - a span but readonly
-ReadOnlyMemory<T> - a memory but readonly
-ReadOnlySequence<T> - a linked list of ReadOnlyMemory<T> elements. It provides a special case properties for its convenient usage where it contains a single element.
+Span&lt;T&gt; - a fast synchronous accessor of a continuous chunk of memory. It’s not the memory, it’s just a really performance friendly view of it.
+Memory&lt;T&gt; - an actual memory chunk, that can be passed wherever needed and accessed using its fast synchronous accessor Span&lt;T&gt;.
+ReadOnlySpan&lt;T&gt; - a span but readonly
+ReadOnlyMemory&lt;T&gt; - a memory but readonly
+ReadOnlySequence&lt;T&gt; - a linked list of ReadOnlyMemory&lt;T&gt; elements. It provides a special case properties for its convenient usage where it contains a single element.
 
 C# 7.2 Ref struct: cannot be placed on the managed heap
 
@@ -55,37 +55,37 @@ Span cannot be used as a generic type argument.
 Span cannot be an instance field of a type that itself is not stack-only.
 
 
-Span<T> represents a contiguous region of arbitrary memory
+Span&lt;T&gt; represents a contiguous region of arbitrary memory
 A ref struct that is allocated on the stack rather than on the managed heap. 
 Isolated view of a part of a larger array without any memory operations
 It is very useful for efficient parsing and other processing of large inputs.
 Used to implement a new HttpClient class for better networking performance.
 
-use Span<T> as an abstraction to uniformly represent arrays, strings, memory allocated on the stack, and unmanaged memory.
+use Span&lt;T&gt; as an abstraction to uniformly represent arrays, strings, memory allocated on the stack, and unmanaged memory.
 ~ C# arrays with ability to create a view of a portion of the array without allocating a new object on the heap or copying the data. This feature is called 'slicing' and types with this feature are known as 'sliceable types'
 Span promises type and memory safety with checks to avoid out-of-bounds access, but that type of safety comes with certain usage restrictions enforced by the C# compiler and runtime.
-ReadOnlySpan<T> is the read-only flavor of Span<T> 
+ReadOnlySpan&lt;T&gt; is the read-only flavor of Span&lt;T&gt; 
 
-Spans are only a view into the underlying memory and aren't a way to instantiate a block of memory. Span<T> provides read-write access to the memory and ReadOnlySpan<T> provides read-only access. Therefore, creating multiple spans on the same array creates multiple views of the same memory.
+Spans are only a view into the underlying memory and aren't a way to instantiate a block of memory. Span&lt;T&gt; provides read-write access to the memory and ReadOnlySpan&lt;T&gt; provides read-only access. Therefore, creating multiple spans on the same array creates multiple views of the same memory.
 
-Span<T> gains certain benefits because of these restrictions. These limitations enable efficient buffer access, safe and concrete lifetime semantics that are tied to stack unwinding, and they circumvent concurrency issues like struct tearing. To support the developer scenarios that cannot be addressed by span due to its usage constraints, .NET Core 2.1 also provides another type called Memory<T>.
+Span&lt;T&gt; gains certain benefits because of these restrictions. These limitations enable efficient buffer access, safe and concrete lifetime semantics that are tied to stack unwinding, and they circumvent concurrency issues like struct tearing. To support the developer scenarios that cannot be addressed by span due to its usage constraints, .NET Core 2.1 also provides another type called Memory&lt;T&gt;.
 
 
 Span has a constructor that accepts an array and there's an extension method on the array itself to support fluent interface (method chaining)
 
 ```cs
 var array = new int[64];
-Span<int> span1 = new Span<int>(array);
-Span<int> span2 = new Span<int>(array, start: 8, length: 4);
+Span&lt;int&gt; span1 = new Span&lt;int&gt;(array);
+Span&lt;int&gt; span2 = new Span&lt;int&gt;(array, start: 8, length: 4);
 
-Span<int> span3 = stackalloc[] { 1, 2, 3, 4, 5 };
+Span&lt;int&gt; span3 = stackalloc[] { 1, 2, 3, 4, 5 };
 
 IntPtr memory = Marshal.AllocHGlobal(64);
 void* ptr = memory.ToPointer();
-Span<byte> span4 = new Span<byte>(ptr, 64);
+Span&lt;byte&gt; span4 = new Span&lt;byte&gt;(ptr, 64);
 
 string str = "Hello world";
-ReadOnlySpan<char> span5 = str.AsSpan();
+ReadOnlySpan&lt;char&gt; span5 = str.AsSpan();
 
 var span6 = span.Slice(0, 4); // Zero-copy slicing:
 
@@ -93,41 +93,41 @@ int value = int.Parse("123");
 int value = int.Parse("content-length:123".Substring(15)); // this allocates a string
   
 public struct Int32 {
-    static bool TryParse(this ReadOnlySpan<char> text, out int value);
+    static bool TryParse(this ReadOnlySpan&lt;char&gt; text, out int value);
 }
 Int32.TryParse("content-length:123".AsReadOnlySpan().Slice(15), out int value);
 ```
 
 ### Async-await problem
-Span<char> cannot be declared in async methods or lambda expressions
+Span&lt;char&gt; cannot be declared in async methods or lambda expressions
 Main concern - `async` methods with their *boxing* state machines
 
 ```cs
 // Compile error: 
-// "Parameters or locals of type 'Span<char>' cannot be declared in async methods or lambda expressions"
-public async Task DoAsync(Span<char> data)
+// "Parameters or locals of type 'Span&lt;char&gt;' cannot be declared in async methods or lambda expressions"
+public async Task DoAsync(Span&lt;char&gt; data)
 {
     Do(data.Slice(0, 10));
     await DoOtherAsync();
 }
 ```
 
-Use `Memory<T>` instead - general-purpose slicing of arrays, strings and ...
+Use `Memory&lt;T&gt;` instead - general-purpose slicing of arrays, strings and ...
 
 ```cs
 // Does compile - Span is not a local variable here!
-public async Task DoAsync(Memory<char> data)
+public async Task DoAsync(Memory&lt;char&gt; data)
 {
 	DoSync(data.Span.Slice(0, 10));
 	await DoOtherAsync();
 }
 
-private void DoSync(Span<char> data) => Console.WriteLine(data.Length);
+private void DoSync(Span&lt;char&gt; data) =&gt; Console.WriteLine(data.Length);
 ```
 
 
 ```cs
-public unsafe Span<byte> rocksdb_get_span(
+public unsafe Span&lt;byte&gt; rocksdb_get_span(
 	IntPtr db,
 	IntPtr read_options,
 	byte[] key,
@@ -138,10 +138,10 @@ public unsafe Span<byte> rocksdb_get_span(
 	...
 	var resultPtr = rocksdb_get(db, read_options, key, skLength, out UIntPtr valueLength, out errptr)
 	...
-	return new Span<byte>((void*)resultPtr, (int)valueLength);
+	return new Span&lt;byte&gt;((void*)resultPtr, (int)valueLength);
 }
 
-public unsafe void dangerous_rocksdb_release_span(in Span<byte> span)
+public unsafe void dangerous_rocksdb_release_span(in Span&lt;byte&gt; span)
 {
 	ref byte ptr = ref MemoryMarshal.GetReference(span);
 	IntPtr intPtr = new IntPtr(Unsafe.AsPointer(ref ptr));
@@ -151,12 +151,12 @@ public unsafe void dangerous_rocksdb_release_span(in Span<byte> span)
 
 ## SPAN and linguistic behavior 
 
-.NET has adopted Span<T> as a first-class citizen (and ReadOnlySpan<char> as the convention for a cheap string slice), there are also consistency issues to deal with. All Span<T>-based extension methods (including extension methods that operate on ReadOnlySpan<char>) are ordinal by default, unless an explicit StringComparison has been provided. As developers begin using span-based code more frequently, the risk of mixing and matching linguistic and non-linguistic operations on the same text increases.
+.NET has adopted Span&lt;T&gt; as a first-class citizen (and ReadOnlySpan&lt;char&gt; as the convention for a cheap string slice), there are also consistency issues to deal with. All Span&lt;T&gt;-based extension methods (including extension methods that operate on ReadOnlySpan&lt;char&gt;) are ordinal by default, unless an explicit StringComparison has been provided. As developers begin using span-based code more frequently, the risk of mixing and matching linguistic and non-linguistic operations on the same text increases.
 
 string str = GetString();
 bool b1 = str.StartsWith("Hello"); // uses 'CurrentCulture' by default (search a string in a string)
 
-ReadOnlySpan<char> span = str.AsSpan();
+ReadOnlySpan&lt;char&gt; span = str.AsSpan();
 bool b2 = span.StartsWith("Hello"); // uses 'Ordinal' by default
 This mismatch of expectations could cause developers to introduce latent bugs into their code bases.
 

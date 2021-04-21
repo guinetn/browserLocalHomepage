@@ -1,8 +1,20 @@
 # ALGORITHMS
 
+Top-tiers companies don't, generally, care about your library/framework knowledge but they do give attention to your capability on coding and using algorithms.
+
 - Definition
 - Possible Follow­Up Questions
 - What watch for (what to check to validate the algorithm)
+
+Most fundamental ones to learn:
+- Sorting algorithms
+- Searching algorithms 
+
+Topics to move further:
+- hashing
+- dynamic programming
+- binary exponentiation
+
 
 ::::
 download.page(computer_science/big-o.md)

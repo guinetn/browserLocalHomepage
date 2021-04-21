@@ -16,6 +16,21 @@
 - https://jupyter.org	
 
 
+* Interpreted  
+Unlike native languages like C/C++, Python code gets interpreted at runtime instead of being compiled to native code at compile time.
+* Just In Time (JIT) Compiler
+Other interpreted languages like Java/.NET bytecode run faster that Python because their standard distribution includes a JIT compiler that compiles bytecode into native code at runtime.
+* Global Interpreter Lock (GIL)
+It prevents multi-threading by mandating the interpreter to execute only a single thread within a single process (i.e. an instance of Python interpreter) at a time.
+
+* Major Competitors
+
+Julia- It is an open source language and community is also growing very fast. It can replace Python in data science, deep earning and machine learning world because Julia is an amazing programming language in terms of speed. Julia programs compile to efficient native code for multiple platforms via LLVM. Only issue with Julia right now is that it has less number of packages/libraries w.r.t Python so many people are still working with Python. But since Julia’s packages/libraries are also increasing, so probably in coming few years Julia will be a very big competitor of Python.
+
+Golang: This language is by Google and its code is extremely easy to write and maintain. Go programmers are among the highest paid programmers in the marker as per stackoverflow. The development of web, desktop and mobile apps all are supported in Go.
+
+Rust: It is a safe, concurrent, practical language. It is a systems programming language that combines strong compile-time correctness guarantees with fast performance. It is most loved programming language as per stackoverflow. The development of web, desktop and mobile apps all are supported in Rust too.
+
 C:\Users\nguin\anaconda3\python.exe
 
 Start Menu open the Anaconda Prompt.

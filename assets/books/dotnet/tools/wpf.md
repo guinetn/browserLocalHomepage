@@ -42,21 +42,24 @@ Generic implementation of a loosely coupled command.
 
 - Coupling scenario
 XAML is tightly coupled to the code behind due to the event handler declaration
+```xml
 <Button x Name="BtnFireEvent" Content="Fire" Click ="btnFireEvent_Click"/>
 private void btnFireEvent_Click( object sender, RoutedEventArgs e) {
     MessageBox.Show("Hello Event Handler!"
 }
+```
 
 - ICommand 
 allow to implement a class to act as a generic command
 
-CanExecute()
+***CanExecute()***  
 A support method that returns a Boolean indicating whether the command is in an executable state. The WPF data binding mechanism will check the return value of this method and enable or disable the associated control based on the value.
-Execute()
+***Execute()***  
 A method that contains the code that should be executed to accomplish the task associated with the command.
 
 Button.Command can be binded to an ICommand
 
+```xml
 <Window x:Class="WPFExample.ButtonClick" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="ButtonClick" Height="300" Width="300" xmlns:viewModel="clr-namespace:WPFCommand"> 
 <Window.Resources> 
     <viewModel:CommandViewModel x:Key="commandViewModel" /> 
@@ -67,7 +70,9 @@ Button.Command can be binded to an ICommand
     CommandParameter="{Binding}" /> 
 </Grid> 
 </Window>
+```xml
 
+```c#
 namespace WPFCommand { 
     public class CommandViewModel { 
         public ICommand ButtonClickCommand { 
@@ -88,7 +93,6 @@ namespace WPFCommand {
             var viewModel = (CommandViewModel)parameter;
             viewModel.ShowMessagebox("Hello decoupled command!");
 
-```cs
 event EventHandler CanExecuteChanged;    // invoked when changes occur that can change whether or not the command can be executed.
 bool CanExecute(object parameter);       // whether the command can be executed or not
 void Execute(object parameter);          // Runs the command logic
@@ -261,6 +265,7 @@ public class RelayCommand : ICommand
 }  
 ```
 
+```xml
 <CheckBox Content="CheckBox"
           Command="{Binding YourCommand}"
           CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}" />
@@ -271,6 +276,7 @@ public class RelayCommand : ICommand
           Command="{Binding DataContext.AddRemovePresetAssignmentCommand,
           RelativeSource={RelativeSource FindAncestor,
                            AncestorType={x:Type UserControl}}}">
+```
                     
 MVVM
 
@@ -278,6 +284,7 @@ XAML's namespaces:
 xmlns:t="http://schemas.telerik.com/2008/xaml/presentation" 
 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"          Add System.Windows.Interactivity in project references
 
+```xml
 <CheckBox IsChecked="{Binding ServiceOrderItemTask.IsCompleted, Mode=TwoWay}" Content="{Binding ServiceOption.Name}">
 
     <i:Interaction.Triggers>
@@ -300,9 +307,11 @@ xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"          Ad
         </i:EventTrigger>
     </i:Interaction.Triggers>
 </CheckBox>
+```
 
 implement INotifyPropertyChanged on the ViewModel 
 
+```c#
 public event PropertyChangedEventHandler PropertyChanged;
 private void OnPropertyChanged(string name) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
@@ -317,22 +326,23 @@ public bool SomeBoolProperty {
 
 public ICommand MyOnCheckedCommand { get; } = new RelayCommand(o => { SomeBoolProperty = true; });
 public ICommand MyOnUncheckedCommand { get; } = new RelayCommand(o => { SomeBoolProperty = false;});
-     
+```
+
 * Existing commands
      
-ApplicationCommands 
+ApplicationCommands   
 Close, Copy, Cut, Delete, Find, Help, New, Open, Paste, Print, PrintPreview, Properties, Redo, Replace, Save, SaveAs, SelectAll, Stop, Undo, and more.
 
-ComponentCommands 
+ComponentCommands   
 MoveDown, MoveLeft, MoveRight, MoveUp, ScrollByLine, ScrollPageDown, ScrollPageLeft, ScrollPageRight, ScrollPageUp, SelectToEnd, SelectToHome, SelectToPageDown, SelectToPageUp, and more.
 
-MediaCommands 
+MediaCommands  
 ChannelDown, ChannelUp, DecreaseVolume, FastForward, IncreaseVolume, MuteVolume, NextTrack, Pause, Play, PreviousTrack, Record, Rewind, Select, Stop, and more.
 
-NavigationCommands 
+NavigationCommands   
 BrowseBack, BrowseForward, BrowseHome, BrowseStop, Favorites, FirstPage, GoToPage, LastPage, NextPage, PreviousPage, Refresh, Search, Zoom, and more.
 
-EditingCommands 
+EditingCommands   
 AlignCenter, AlignJustify, AlignLeft, AlignRight, CorrectSpellingError, DecreaseFontSize, DecreaseIndentation, EnterLineBreak, EnterParagraphBreak, IgnoreSpellingError, IncreaseFontSize, IncreaseIndentation, MoveDownByLine, MoveDownByPage, MoveDownByParagraph, MoveLeftByCharacter, MoveLeftByWord, MoveRightByCharacter, MoveRightByWord and more.
 
 ## Logical tree vs. visual tree
@@ -341,6 +351,7 @@ Templates allow you to change the appearance as well as the behavior of your con
 
 Each WPF control has a “lookless” design. This means that the look of the control can be completely changed from its default appearance. The behavior of the control is baked into the classes that represent the control, and the appearance is defined by what is known as a control template
 
+```xml
 <Window.Resources> 
     <ControlTemplate x:Key="CustomButtonTemplate" TargetType="{x:Type Button}"> 
         <Border Name="Border" BorderBrush="Blue" BorderThickness="3" CornerRadius="2" Background="BlueViolet" TextBlock.Foreground="White"> 
@@ -358,15 +369,19 @@ Each WPF control has a “lookless” design. This means that the look of the co
 </Window.Resources> 
 <Grid> 
 <Button Width="100" Height="30" Margin="10" Template="{StaticResource CustomButtonTemplate}">Button Template in action</Button>
+```xml
 
 ## Data templates
 
+```xml
 <ListBox Name="lstProducts" Width="300" Height="200"> 
     <ListBox.ItemTemplate> 
         <DataTemplate> 
             <Border BorderThickness="3" CornerRadius="6" BorderBrush="AliceBlue" Background="DarkBlue">
             <TextBlock Grid.Column="1" Grid.Row="0" x:Name="txtProductName" Text="{Binding ProductName}" Foreground="White" />
-            
+```
+
+```c#
 public partial class MainWindow : Window { 
     public ProductViewModel ViewModel { get; set; }       
     InitializeComponent(); 
@@ -377,8 +392,7 @@ public partial class MainWindow : Window {
 public class Product : INotifyPropertyChanged { 
     private string _productName; 
     private string _productPrice;
-    ...
-    
+        
 namespace BindObservableCollectionToListbox {
     public class ProductViewModel : ObservableCollection<Product> { 
         public ProductViewModel() { 
@@ -388,6 +402,7 @@ namespace BindObservableCollectionToListbox {
         } 
     } 
 }
+```
 
 ## Triggers
 used in styles and templates to change a control's property when another property value is changed
@@ -489,8 +504,8 @@ namespace WpfSimple
     }  
 }  
 ```
-```C#
 
+```C#
 public partial class App : Application  
 {  
     protected override void OnStartup(StartupEventArgs e)  
@@ -548,6 +563,7 @@ class ProductViewModel
     }  
 }  
 ```
+
 ```xml
 <Window x:Class="WpfMvvmTest.MainWindow"  
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
@@ -640,13 +656,9 @@ CanExecute method raises the PreviewCanExecute and CanExecute events.
 Defines an ICommand that is routed through the element tree and contains a text property.
 RoutedUICommand includes a Text property (RoutedUICommand not)
 
-```
-```
-
 https://docs.microsoft.com/en-gb/dotnet/api/system.windows.input.routedcommand?view=net-5.0
 
-#### 
-
+#### ----
 
 Achieving the same marshalling check on the Windows Presentation Foundation (WPF) platform involves a slightly different approach. WPF includes a static member property called Current of type DispatcherObject on the System.Windows.Application class. Calling CheckAccess() on the dispatcher serves the same function as InvokeRequired on controls in Windows Forms.
 
@@ -708,6 +720,7 @@ WPF assembly namespaces start with 'System.Windows'
 
 By specifying the URI, the code will search each of the namespaces and automatically resolve that the Window element maps to the System.Windows.Window class. It will find the Grid resides in the System.Windows.Controls assembly namespace
 
+```xml
 <Window 
 x:Class="Chapter01.MainWindow"   ← Window’s class name (code behind in to access the window programmatically)
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"    ← defines standard WPF controls (default XAML namespace, no prefix needed for elements inside)
@@ -737,7 +750,9 @@ Height="350" Width="300" Background="White"
     <Button x:Name="btnGetRenderingTier" Content="Get Rendering Tier" Grid.Row="1" Grid.Column="1" Width="130" Height="30" Click="btnGetRenderingTier_Click" /> 
 </Grid> 
 </Window>
+```xml
 
+```c#
 using System.Windows; 
 using System.Windows.Media; 
 namespace Chapter01 { 
@@ -755,6 +770,7 @@ namespace Chapter01 {
         }
     }
 }
+```
 
 ### XAML attributes
 specified as strings, many properties must be converted to a more complex data type  by a class called System.ComponentModel.TypeConverter
@@ -775,24 +791,30 @@ StackPanel
     WPF ItemsControls like ComboBox, ListBox, Menu use a StackPanel as their internal layout panel
 DockPanel
     Orientation=Vertical/Horizontal
-    <DockPanel LastChildFill="True">
-    <Button Content="" DockPanel.Dock="Top"> Bottom / Left / Right
+
+```xml
+<DockPanel LastChildFill="True">
+<Button Content="" DockPanel.Dock="Top"> Bottom / Left / Right
+```
 WrapPanel
-    Orientation=Vertical/Horizontal
-    It does not stack all child elements to one row. It wraps them to new lines if no space is left in the width of the container
+Orientation=Vertical/Horizontal
+It does not stack all child elements to one row. It wraps them to new lines if no space is left in the width of the container
 Canvas
-    <Canvas> 
-        <Rectangle Canvas.Left="40" Canvas.Top="31" Width="63" Height="41" Fill="Blue" /> 
-        <Ellipse Canvas.Left="130" Canvas.Top="79" Width="58" Height="58" Fill="Blue" /> 
-        <Path Canvas.Left="61" Canvas.Top="28" Width="133" Height="98" Fill="Blue" Stretch="Fill" Data="M61,125 L193,28"/> 
-    </Canvas>    
+
+```xml
+<Canvas> 
+    <Rectangle Canvas.Left="40" Canvas.Top="31" Width="63" Height="41" Fill="Blue" /> 
+    <Ellipse Canvas.Left="130" Canvas.Top="79" Width="58" Height="58" Fill="Blue" /> 
+    <Path Canvas.Left="61" Canvas.Top="28" Width="133" Height="98" Fill="Blue" Stretch="Fill" Data="M61,125 L193,28"/> 
+</Canvas>    
+```
     
 Layout best practices
- Avoid fixed positions; instead, use the Alignment properties in combination with Margins to position elements in a panel.
- Avoid fixed sizes. Set the Width and Height of elements to Auto whenever possible.
- Don't use the Canvas panel to specify the layout of common controls; instead use it to arrange vector graphics.
- Use a StackPanel to lay out dialog confirmation buttons on a dialog.
- Use a Grid to lay out complex user interfaces and data entry forms.
+* Avoid fixed positions; instead, use the Alignment properties in combination with Margins to position elements in a panel.
+* Avoid fixed sizes. Set the Width and Height of elements to Auto whenever possible.
+* Don't use the Canvas panel to specify the layout of common controls; instead use it to arrange vector graphics.
+* Use a StackPanel to lay out dialog confirmation buttons on a dialog.
+* Use a Grid to lay out complex user interfaces and data entry forms.
 - Media
 - Toolbars
 - Scrolls
@@ -803,34 +825,34 @@ Layout best practices
 
 System.ComponentModel.TypeConverter class provides a unified way of converting XAML string attribute values to corresponding object value types.
 
-CanConvertTo()
+***CanConvertTo()***  
 A support method that returns a Boolean indicating whether the value can be converted to the specified type.
 
-CanConvertFrom()
+***CanConvertFrom()***  
 A support method that returns a Boolean indicating whether the value can be converted from a specified type.
 
-ConvertTo()
+***ConvertTo()***  
 Converts the given value object to the specified type.
 
-ConvertFrom()
+***ConvertFrom()***  
 Converts the given value to the type of this converter
 
 ## Data binding
 Process that establishes a connection between the application UI and the business logic.
 If the binding has the correct settings and the data provides the proper notifications, when the data changes its value, the elements that are bound to the data reflect changes automatically
 
-OneWay 
+***OneWay***   
 binding causes changes to the source property to automatically update the target property, but changes to the target property are not propagated back to the source property.
 
-TwoWay 
+***TwoWay***   
 binding causes changes to either the source property or the target property to automatically update the other
 TextBox.Text and CheckBox.IsChecked default to TwoWay binding
 A programmatic way to determine whether a dependency property binds one-way or two-way by default is to get the property metadata using GetMetadata and the
 
-OneWayToSource 
+***OneWayToSource***   
 Reverse of OneWay binding; it updates the source property when the target property changes. One example scenario is if you only need to re-evaluate the source value from the UI.
 
-OneTime 
+***OneTime***   
 Causes the source property to initialize the target property, but subsequent changes do not propagate. This means that if the data context undergoes a change or the object in the data context changes, then the change is not reflected in the target property.
 
 ## DataContext
@@ -846,13 +868,14 @@ You can create a resource dictionary at the Application, Window, and UserControl
 
 ## INotifyPropertyChanged
 
+```c#
 namespace SimpleData-binding {
-  public class Person : INotifyPropertyChanged { 
-    
+    public class Person : INotifyPropertyChanged { 
+
     private string _FirstName; 
     private string _LastName; 
     private string _FullName;
-    
+
     public string FirstName { 
         get { return _FirstName; } 
         set { 
@@ -862,8 +885,7 @@ namespace SimpleData-binding {
                     OnPropertyChanged("FirstName"); 
                 } 
             } 
-        }
-    ...
+        }    
         
     public event PropertyChangedEventHandler PropertyChanged; 
     private void OnPropertyChanged(string propertyName) { 
@@ -871,12 +893,16 @@ namespace SimpleData-binding {
         if (handler != null) { 
             handler(this, new PropertyChangedEventArgs(propertyName)); 
         } 
-    }
-    
+}
+```
+
+```xml    
 <TextBox Name="txtFirstName" Grid.Column="1" Grid.Row="1" FontSize="20" Text="{Binding Path=FirstName}" />   
 <TextBox Name="txtLastName" Grid.Column="1" Grid.Row="2" FontSize="20" Text="{Binding Path=LastName}" /> 
 <TextBlock Name="txtFullName" Grid.Column="1" Grid.Row="3" FontSize="20" Text="{Binding Path=FullName}" />
+```
 
+```c#
 public partial class MainWindow : Window { 
     private Person _person; 
     
@@ -889,11 +915,13 @@ public partial class MainWindow : Window {
     } 
     
     private void btnClose_Click(object sender, RoutedEventArgs e) { this.Close(); }
+```
 
 ## MultiBinding
 
 involves creating an IMultiValueConverter and binding the converter to the txtFullName element. The IMultiValueConverter interface works just like the IValueConverter interface except that it accepts an array of values to convert. The array of values comes from the element properties that we define in the MultiBinding xaml definition. A brief example will make things clearer
 
+```xml
 <Window x:Class="MultiBinding.MainWindow" 
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
@@ -902,7 +930,9 @@ xmlns:tc="clr-namespace:MultiBinding">
 <Window.Resources> 
     <tc:FullnameConverter x:Key="fullNameConverter" /> 
 </Window.Resources>
+```
 
+```c#
 using System; 
 using System.Collections.Generic; 
 using System.Linq; 
@@ -931,7 +961,9 @@ public class FullnameConverter : IMultiValueConverter
 } 
 
 }
+```
 
+```xml
 <TextBox Name="txtFirstName" Grid.Column="1" Grid.Row="1" FontSize="20" Text="{Binding Path=FirstName}" />
 <TextBox Name="txtFullName" Grid.Column="1" Grid.Row="3" FontSize="20"> 
     <TextBox.Text> 
@@ -941,20 +973,20 @@ public class FullnameConverter : IMultiValueConverter
         </MultiBinding> 
     </TextBox.Text> 
 </TextBox>
-
+```
 
 ## MVVM - Model-View-ViewModel 
 
 Separate the user interface from the logic required to facilitate the user interface and the business logic and data. Separation of UI, business logic, and data allows for a nice, clean, testable piece of software.
 
-Model
+***Model***  
 The Model represents the data that you wish to interact with. implement the INotifyPropertyChanged
-ViewModel 
+***ViewModel***   
 Class with properties that point to your model's properties. Use Data binding to bind to ViewModel.
-Views
+***Views***  
 WPF Windows or UserControls
 
-
+```c#
 public class Contact : INotifyPropertyChanged { 
     private string _firstName;
     private string _lastName;
@@ -964,20 +996,24 @@ public class Contact : INotifyPropertyChanged {
     public event PropertyChangedEventHandler PropertyChanged; // This will cause an event to notify WPF via data-binding that a change has occurred. 
     private void OnPropertyChanged(string propertyName) {...}
 }
+```
 
 ## ObservableCollection
-    WPF data binding knows when items are added or removed.
-   
-    Bind a ListView's ItemsSource property to the ViewModel as well as bind the main grid's DataContext property to the ViewModel. By setting the DataContext of the top-level grid, we will cause the child controls to inherit the DataContext for data binding. The ItemsSource property of the ListView will populate the ListView with each item that exists in our ObservableCollection
+WPF data binding knows when items are added or removed.
 
-    public class ContactManagerViewModel : ObservableCollection<Contact> {
-        public ContactManagerViewModel() { PrepareContactCollection(); } 
-        private void PrepareContactCollection() { 
-        var ContactOne = new Contact { FirstName = "John", LastName = "Doe", EmailAddress = "jdoe@email.com", TelephoneNumber = "555-555-5555" }; 
-        Add(ContactOne); 
-        // inheriting from ObservableCollection<Contact> we gain an Add() method. This allows us to populate the ViewModel with instances of our Contact Model.
-    }
-    
+Bind a ListView's ItemsSource property to the ViewModel as well as bind the main grid's DataContext property to the ViewModel. By setting the DataContext of the top-level grid, we will cause the child controls to inherit the DataContext for data binding. The ItemsSource property of the ListView will populate the ListView with each item that exists in our ObservableCollection
+
+```c#
+public class ContactManagerViewModel : ObservableCollection<Contact> {
+    public ContactManagerViewModel() { PrepareContactCollection(); } 
+    private void PrepareContactCollection() { 
+    var ContactOne = new Contact { FirstName = "John", LastName = "Doe", EmailAddress = "jdoe@email.com", TelephoneNumber = "555-555-5555" }; 
+    Add(ContactOne); 
+    // inheriting from ObservableCollection<Contact> we gain an Add() method. This allows us to populate the ViewModel with instances of our Contact Model.
+}
+```
+
+```xml
 <Window 
 x:Class="ExceptionValidation.ContactManager" 
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
@@ -996,6 +1032,7 @@ DisplayMemberPath="FirstName" Margin="0,0,0,28" Grid.RowSpan="2" />
 <TextBlock Grid.Column="0" Grid.Row="1" Text="First name" />
 <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=FirstName}" /> 
 <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=LastName}" />
+```
 
 ## 
 
@@ -1038,6 +1075,7 @@ The shell is divided into regions, which you dynamically fill with user control 
 
 
 ## MODERN WPF UI
+- https://www.youtube.com/watch?v=PzP8mw7JUzI&t=679s
 
 
 ## More

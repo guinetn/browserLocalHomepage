@@ -1,11 +1,11 @@
 # components
 
-download.page(electronic/components/diode.md)
+download.page(electronics/components/diode.md)
 
-download.page(electronic/components/transistor.md)
+download.page(electronics/components/transistor.md)
 
-download.page(electronic/components/inducer.md)
+download.page(electronics/components/inducer.md)
 
-download.page(electronic/components/capacitor.md)
+download.page(electronics/components/capacitor.md)
 
-download.page(electronic/components/magnetometer.md)
+download.page(electronics/components/magnetometer.md)

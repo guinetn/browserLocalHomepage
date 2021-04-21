@@ -24,6 +24,10 @@ f = True
 g = False
 h = int("5.6")
 
+#Duplicate Strings 
+name = "Banana"
+print(name * 4)
+
 # Prints the Unique ID of a Variable
 # id() method allows you to find the unique id of a variable. You just need to pass the variable name in the method.
 print( id(a) )

@@ -20,11 +20,15 @@ multiline_string = ("this is a very"
      ) # → 'this is a verylong string too which will NOT INCLUDE ANY EXTRA BLANKS OR NEWLINES...'
 
 
-# Reverse
+# Reverse a String
 mystring = "Python is awesome"
 mystring_reversed = mystring[::-1]
 mystring_reversed
 'emosewa si nohtyP'
+
+sentence = "This is just a test"
+reversed = sentence[::-1]
+print(reversed)
 
 
 name = 'Brad'
@@ -96,6 +100,11 @@ print(f"My name is {name}, and I am {age} years old")
 ## METHOD 3: Join
 print(''.join(["My name is ", name, ", and I am ", str(age), " years old"]))
 
+#a List of Strings Into One String
+words = ["This", "is", "a", "Test"]
+combined = " ".join(words)
+print(combined)
+
 ## METHOD 4: modulus operator
 print("My name is %s, and I am %d years old." % (name, age))
 
@@ -131,6 +140,10 @@ s = "my string"
 print(s)
 print("a"+"b")
 print("a"*3)   		aaa
+
+#Duplicate Strings 
+name = "Banana"
+print(name * 4)
 
 print("val = %e" % a) 		exponential     1.000000e+00
 print("val = %f" % a) 		float 			1.000000
@@ -331,3 +344,66 @@ print('\n'.join('😀' * i for i in range(1, n + 1)))
 😀😀😀😀
 😀😀😀😀😀
 
+
+#Most Frequent Element in a List
+test = [6, 2, 2, 3, 4, 2, 2, 90, 2, 41]
+most_frequent = max(set(test), key = test.count)
+print(most_frequent)
+
+
+# Rich: Beautiful Text Formatting
+
+open-source python library that is used for beautiful text-formatting. It contains a large variety of text-formatting options whether it is a font, color of text, or style of the text Rich got it all covered. 
+
+pip install rich
+
+from rich import print
+from rich.console import Console
+from rich.table import Table
+from rich.progress import track
+from time import sleep
+import os
+import sys
+from rich.columns import Columns
+from rich.markdown import Markdown
+from rich.syntax import Syntax
+
+print("Hello, [bold red]World[/bold red]!")
+print("Hello, [italic red]World[/italic red]!")
+
+console = Console()
+console.print("Hello", "World!")
+console.print("Hello", "World!", style="italic magenta")
+console.print("Where there is a [bold cyan]Will[/bold cyan] there [u]is[/u] a [i]way[/i].")
+
+# Emoji’s
+console.print(":smiley: :vampire: :pile_of_poo: :thumbs_up: :raccoon: :cry: :thumbs_down: :kiss: :cool:")
+
+Formatting Tables
+# Table
+table = Table(show_header=True, header_style="bold magenta")
+table.add_column("Date", style="dim", width=12)
+table.add_column("Title")
+table.add_column("Production Budget", justify="right")
+table.add_column("Box Office", justify="right")
+table.add_row(
+    "Dev 20, 2019", "Star Wars: The Rise of Skywalker", "$275,000,000", "$375,126,118"
+)
+table.add_row(
+    "May 25, 2018",
+    "[red]Solo[/red]: A Star Wars Story",
+    "$275,000,000",
+    "$393,151,347",
+)
+table.add_row(
+    "Dec 15, 2017",
+    "Star Wars Ep. VIII: The Last Jedi",
+    "$262,000,000",
+    "[bold]$1,332,539,889[/bold]",
+)
+console.print(table)
+
+Markdown function
+for i in 'i am best programmer'.split():
+    markdown = Markdown(i)
+    console.print(markdown)

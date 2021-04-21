@@ -1,5 +1,24 @@
 # C
 
+C is a low-level (high-level compared to assembly of course) language, which lets you have total control over MCUs and memory, leading to need for manual memory management. Also, C is not a type-safe language
+As it resides at the lowest level of abstraction C is largely used to code 
+- device firmware
+- device drivers
+- kernel
+
+***Keypoints***  
+- Variable Declarations
+- Definitions and Scope
+- Data Types
+- Storage Classes
+- I/O Operations
+- Operators
+- Preprocessor
+- Enums
+- Structs
+- Functions
+- Pointers
+
 Compiled languages: preprocessed → compiled → assembled → linked
 
 add: - [Hash Table in C]https://www.yo utube.com/watch?v=2Ti5yvumFTU&t=1040s

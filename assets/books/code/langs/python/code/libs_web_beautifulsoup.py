@@ -2,6 +2,8 @@
 Python library for pulling data out of HTML and XML files.
 Parse tree navigating, searching, modifying
 http://www.crummy.com/software/BeautifulSoup/
+
+for gathering and organizing web data, BeautifulSoup makes scraping websites easy. BeautifulSoup is great for web pages that use special characters as you can easily pass different encoding formats to its functions when gathering web data.
 '''
 
 

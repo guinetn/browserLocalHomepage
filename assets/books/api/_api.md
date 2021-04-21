@@ -38,6 +38,8 @@ Today definition is much more generic and abstract, and includes every thing, en
 - https://www.coindesk.com/coindesk-api
 - https://github.com/1Forge/javascript-forex-quotes
 
+- https://github.com/ContinuumIO/tranquilizer
+
 - https://hoppscotch.io/
 - https://pokeapi.co/
 - https://api.nasa.gov/

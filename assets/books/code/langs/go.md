@@ -6,6 +6,8 @@ Good at running across large networks like the server farms that power the world
 https://github.com/twpayne/chezmoi/blob/master/main.go
 use a github command
 
+Golang: This language is by Google and its code is extremely easy to write and maintain. Go programmers are among the highest paid programmers in the marker as per stackoverflow. The development of web, desktop and mobile apps all are supported in Go.
+
 ## PACKAGES
 
 ***Standard Library Packages***

@@ -11,6 +11,9 @@ Classes, objects of which are used to store other objects of the same type
 **vector, list, set, map, unordered_set, unordered_map**
 
 They are all containers, so generally they do the same thing. They provide interfaces to insert, remove and find elements in them, but these they do in a very different way, with different complexities and using different amount of memory.
+
+https://www.youtube.com/watch?v=6OoSgY6NVVk&t=1s
+
  
 ## 2. ALGORITHMS  
 set of helpful and reliable algorithms

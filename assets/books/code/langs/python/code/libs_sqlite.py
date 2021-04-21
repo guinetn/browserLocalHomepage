@@ -5,7 +5,7 @@
 https://www.sqlalchemy.org/
 
 To create, modify, and interact with relational databases in Python via an object relational mapper. The main idea to wrap your head around is that SQLAlchemy uses Python classes to represent database tables. Instances of a Python class can be considered rows of a table.
-
+SQLAlchemy is an open-source SQL toolkit and object-relational mapper for the Python programming language
 
 
 https://www.fullstackpython.com/object-relational-mappers-orms.html

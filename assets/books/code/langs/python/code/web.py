@@ -7,18 +7,70 @@ urllib2.urlopen("http://example.com/foo/bar").read()
 # Python 3.x:
 import urllib.request
 fileobject = urllib.request.urlopen("http://www.sidc.be/silso/DATA/SN_d_tot_V2.0.txt")
-
+fileobject
 
 import json
 import urllib
 url_mag="https://services.swpc.noaa.gov/products/solar-wind/mag-7-day.json"
 url_plasma="https://services.swpc.noaa.gov/products/solar-wind/plasma-7-day.json"
 mag=urllib.request.urlopen(url_mag)
-plasma=urllib.request.urlopen(url_plasma)mag_json=json.loads(mag.read())
+mag_json=json.loads(mag.read())
+plasma=urllib.request.urlopen(url_plasma)
 plasma_json=json.loads(plasma.read())
 
 
 
+#Used to make requests
+import urllib.request
+x = urllib.request.urlopen('https://www.google.com/')
+print(x.read())
+
+# used to parse values into the url
+import urllib.parse
+url = 'https://www.google.com/search'
+values = {'q' : 'python programming tutorials'}
+
+data = urllib.parse.urlencode(values)
+data = data.encode('utf-8') # data should be bytes
+req = urllib.request.Request(url, data)
+resp = urllib.request.urlopen(req)
+respData = resp.read()
+
+print(respData)
+
+
+
+try:
+    x = urllib.request.urlopen('https://www.google.com/search?q=test')
+    #print(x.read())
+
+    saveFile = open('noheaders.txt','w')
+    saveFile.write(str(x.read()))
+    saveFile.close()
+except Exception as e:
+    print(str(e))
+    
+    
+    
+try:
+    url = 'https://www.google.com/search?q=python'
+
+    # now, with the below headers, we defined ourselves as a simpleton who is still using internet explorer.
+    headers = {}
+    headers['User-Agent'] = "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17"
+    req = urllib.request.Request(url, headers = headers)
+    resp = urllib.request.urlopen(req)
+    respData = resp.read()
+
+    saveFile = open('withHeaders.txt','w')
+    saveFile.write(str(respData))
+    saveFile.close()
+except Exception as e:
+    print(str(e))
+    
+    
+    
+    
 import random
 import urllib.request
 
@@ -139,17 +191,11 @@ print(data)
 
 
 
-
-
-
-
-
-
-
 #%%
 # python.exe xxxx.py
 
 # Networking and Connectivity
+# https://pythonprogramming.net/python-sockets/?completed=/ftp-transfers-python-ftplib/
 
 import socket 			#  socket class that provides a way of accessing the network at a low level, it has to support many networking protocols.
 host = '192.168.1.5'
@@ -241,18 +287,3 @@ print(my_frm.status)
 
 # Note that we can use mechanize or urllib2, there are many ways to achieve that.
 
-
-# Create a Mini Server
-
-import socket 	# The socket class supports listening for incoming connections.
-host = ''
-port = 3535
-my_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-my_server.bind((host, port))
-my_server.listen(1)
-
-# Now you can accept incoming connections like this:
-addr = my_server.accept()
-print('Connected ... ', addr)
-data = conn.recv(1024)
-conn.close()

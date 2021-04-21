@@ -14,10 +14,11 @@
 
 
 ## More
-
+- https://pythonprogramming.net ***
 - https://towardsdatascience.com/the-perfect-python-cheatsheet-for-beginners-c7c16799de5
 
 download.page(code/langs/python/python.md)
+download.page(code/langs/python/ipython.md)
 download.page(code/langs/python/pep.md)
 
 download.page(code/langs/python/pip.md)
@@ -97,9 +98,9 @@ download.code(assets/books/code/langs/python/code/files_rename_inside.py)
 ## FILES ZIP
 download.code(assets/books/code/langs/python/code/files_zip.py)
 ## FILE CSV
-download.code(assets/books/code/langs/python/code/file_csv.py)
+download.code(assets/books/code/langs/python/code/files_csv.py)
 
-download.code(assets/books/code/langs/python/code/file_sample.txt)
+download.code(assets/books/code/langs/python/code/files_sample.txt)
 ## FTP
 download.code(assets/books/code/langs/python/code/ftp.py)
 ## FUNCTIONAL PROGRAMMING PYTHON
@@ -149,12 +150,12 @@ download.code(assets/books/code/langs/python/code/inputs.py)
 download.code(assets/books/code/langs/python/code/libs_bcrypt.py)
 
 ## LIBS BEAUTIFULSOUP
-download.code(assets/books/code/langs/python/code/libs_beautifulsoup.py)
+download.code(assets/books/code/langs/python/code/libs_web_beautifulsoup.py)
 ## LIBS SCRAPY
 download.code(assets/books/code/langs/python/code/libs_scrapy.py)
 
 ## FASTAPI
-download.code(assets/books/code/langs/python/code/libs_fastapi.md)
+download.code(assets/books/code/langs/python/code/libs_web_fastapi.md)
 
 ## FAKER: fake data
 download.code(assets/books/code/langs/python/code/libs_faker.py)
@@ -164,7 +165,7 @@ download.code(assets/books/code/langs/python/code/libs_dash.py)
 ## LIBS DATEUTIL
 download.code(assets/books/code/langs/python/code/libs_dateutil.py)
 ## LIBS FLASK
-download.code(assets/books/code/langs/python/code/libs_flask.py)
+download.code(assets/books/code/langs/python/code/libs_web_flask.py)
 ## LIBS GLOB
 download.code(assets/books/code/langs/python/code/libs_glob.py)
 ## LIBS IMAGES FACE DETECTION  XALIENT
@@ -180,11 +181,11 @@ download.code(assets/books/code/langs/python/code/libs_multiprocessing.py)
 ## LIBS NUMPY
 download.code(assets/books/code/langs/python/code/libs_numpy.py)
 ## LIBS OPENCV
-download.code(assets/books/code/langs/python/code/libs_opencv.py)
+download.code(assets/books/code/langs/python/code/libs_images_opencv.py)
 ## LIBS OS
 download.code(assets/books/code/langs/python/code/libs_os.py)
 ## LIBS PILLOW
-download.code(assets/books/code/langs/python/code/libs_pillow.py)
+download.code(assets/books/code/langs/python/code/libs_images_pillow.py)
 ## LIBS PROGRESSBAR
 download.code(assets/books/code/langs/python/code/libs_progressbar.py)
 ## LIBS PyInstaller
@@ -194,9 +195,7 @@ download.code(assets/books/code/langs/python/code/libs_PyGame.py)
 ## LIBS REQUESTS
 download.code(assets/books/code/langs/python/code/libs_requests.py)
 ## LIBS SERIALIZATION  PICKLE
-download.code(assets/books/code/langs/python/code/libs_serialization__pickle.py)
-
-download.code(assets/books/code/langs/python/code/libs_serialization__pickle.py.data)
+download.code(assets/books/code/langs/python/code/libs_serialization_pickle.py)
 ## LIBS STREAMLIT
 download.code(assets/books/code/langs/python/code/libs_streamlit.py)
 ## LIBS SUBPROCESS
@@ -282,3 +281,15 @@ download.code(assets/books/code/langs/python/code/web-fastapi.py)
 download.code(assets/books/code/langs/python/code/web-json.py)
 ## WEB
 download.code(assets/books/code/langs/python/code/web.py)
+## API
+download.code(assets/books/code/langs/python/code/api.py)
+
+download.code(assets/books/code/langs/python/code/doctest_test_interactive_python_examples.py)
+download.code(assets/books/code/langs/python/code/files_scripting.py)
+download.code(assets/books/code/langs/python/code/functions_fastcore.py)
+download.code(assets/books/code/langs/python/code/)
+download.code(assets/books/code/langs/python/code/)
+download.code(assets/books/code/langs/python/code/)
+download.code(assets/books/code/langs/python/code/)
+download.code(assets/books/code/langs/python/code/)
+download.code(assets/books/code/langs/python/code/)

@@ -7,6 +7,10 @@ Pool of configurable shared resources (vm, network, storage, applications, servi
 
 digital infrastructure: computing, storage, data management + cloud services (business enterprise systems )
 
+
+***Cloud computing***  
+on-demand delivery of computing power, database storage, applications, and other IT resources through a cloud services platform via the Internet with pay-as-you-go pricing. Cloud computing provides a simple way to access servers, storage, databases, and a broad set of application services over the Internet. A cloud services platform such as Amazon Web Services owns and maintains the network-connected hardware required for these applications services, while you provision and use what you need via a web application
+
 Leading cloud vendors: Amazon AWS, Microsoft Azure, Google Cloud
 
 ![what-is-the-cloud](assets/books/cloud/assets/what-is-the-cloud.png)

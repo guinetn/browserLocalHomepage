@@ -1,0 +1,4 @@
+# RTOS - Real Time Operating System
+
+RTOSes are used in/for time critical systems/tasks. They also offer OS level stacks, drivers, file systems and etc. RTOSes are somewhere in between an OS-level and bare metal in terms of programming experience.  
+Multitasking, scheduling, context switching, inter-task communication are topics that need to be covered. FreeRTOS is a great option to practice all these RTOS related concepts. There are several FreeRTOS ports for different kinds of microcontrollers in the market. By getting those supported ones, you can quickly develop your first “real” real-time applications.

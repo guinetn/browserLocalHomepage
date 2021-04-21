@@ -1,8 +1,9 @@
 
 # Serialisation
   
-  Pickle : Python pickle module is used for serializing and de-serializing python object structures. The process to convert any kind of python object (list, dict, etc.) into byte streams (0s and 1s) is called pickling or serialization or flattening or marshalling. We can converts the byte stream (generated through pickling) back into python objects by a process called as unpickling.
-  https://www.analyticsvidhya.com/blog/2020/09/integrating-machine-learning-into-web-applications-with-flask
+Pickle : Python pickle module is used for serializing and de-serializing python object structures. The process to convert any kind of python object (list, dict, etc.) into byte streams (0s and 1s) is called pickling or serialization or flattening or marshalling. We can converts the byte stream (generated through pickling) back into python objects by a process called as unpickling.
+https://www.analyticsvidhya.com/blog/2020/09/integrating-machine-learning-into-web-applications-with-flask
+https://pythonprogramming.net/python-pickle-module-save-objects-serialization/
 
 # Saving model to current directory
 # Pickle serializes objects so they can be saved to a file, and loaded in a program again later on.

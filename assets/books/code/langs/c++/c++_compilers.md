@@ -18,9 +18,11 @@ void main()
 >g++ cpp01.cpp -o cpp01.exe && ./c++01.exe  
 
 * On Linux
+```c
 $ wget http://git.zx2c4.com/CVE-2012-0056/plain/mempodipper.c
 $ gcc mempodipper.c -o mempodipper
 $ ./mempodipper
+```
 
 ## Compil c++ library
 
@@ -47,7 +49,8 @@ Executable will be a.exe (windows) instead of than a.out (Linux based Operating 
     ld.exe
     gdb.exe
     make.cmd          
-    
+
+```c
 gcc hello.c -o hello.exe     
 g++ hello.c -o hello.exe
 gcc hello.c sqlite3.dll -o hello.exe     if a dll is needed
@@ -62,6 +65,7 @@ g++ -std=c++17 -O2 -Wall -pedantic -pthread hello.cpp && ./a.out
                             -O2  Full 
                             -O3  Max  
                             -O   reduce code size and execution time   without performing any optimizations             
+```
     
 https://www.gnu.org/software/gcc/
 https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html

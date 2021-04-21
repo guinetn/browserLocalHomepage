@@ -4,9 +4,51 @@ https://aws.amazon.com
 https://devopsmyway.com
 https://devopsmyway.com/list-of-aws-services/
 
+
+
+## AWS TRAINING
+
+https://www.youtube.com/watch?v=yPHt0slwMVQ
+
+00:02:54​ = Overview Cloud Computing
+00:13:55​ = Introduction to AWS
+00:18:49​ = Global Infrastructure
+00:26:28​ = AWS Services
+00:36:29​ = IAM Services
+00:47:20​ = Compute Services
+00:55:20​ = Storage Services
+01:02:46​ = Network Services
+01:11:18​ = Database Services
+01:17:54​ = Automation & Configuration Management
+01:24:12​ = Audit & Monitoring
+01:28:43​ = SNS, SES, SQS, SWF Application Services
+01:38:04​ = DevOps Tools
+01:46:48​ = AWS Architecture
+01:52:12​ = Access Services
+01:53:50​ = AWS : Create a Free Cloud Account
+02:34:45​ = Reset Password for Windows in EC2
+02:41:00​ = Configure Web Server (IIS) on EC2
+03:18:40​ = How to use AWS CLI
+03:41:40​ = Learning path for AWS certified Solution Architect Asscociate [SAA-C02]
+03:42:38​ = Free Training on Amazon AWS Solution Architect Certification for Beginners
+03:42:56​ = Registration Link for AWS Solution Architect Certification for Beginners
+03:42:59​ = Learning path for AWS certified DevOps Engineering Professional [DOP-C01]
+03:44:02​ = Free Training on AWS DevOps Certification for Beginners
+03:44:17​ = Registration Link for AWS DevOps Certification for Beginners
+
+
+
+
 2006
+>Amazon Web Services (AWS) began offering IT infrastructure services to businesses in the form of web services—now commonly known as cloud computing. One of the key benefits of cloud computing is the opportunity to replace up-front capital infrastructure expenses with low variable costs that scale with your business. With the cloud, businesses no longer need to plan for and procure servers and other IT infrastructure weeks or months in advance. Instead, they can instantly spin up hundreds or thousands of servers in minutes and deliver results faster.
+
 175 services complets issus de centres de données du monde entier. Des millions de clients dont certaines des startups les plus dynamiques au monde, de très grandes entreprises et des agences fédérales de premier plan utilisent AWS pour réduire leurs coûts, gagner en agilité et innover plus rapidement. »
 
+2 main products
+- EC2: Amazon’s virtual machine service
+- S3: Amazon’s storage system. 
+
+Furthermore, some of the major services AWS provides include Amazon Cloud Front, Amazon Elastic Compute Cloud (EC2), Amazon Relational Database Service (Amazon RDS), Amazon Simple Notification Service (Amazon SNS), Amazon Simple Queue Service (Amazon SQS), Amazon Simple Storage Service (Amazon S3), Amazon SimpleDB, and Amazon Virtual Private Cloud (Amazon VPC).
 AWS regroupe une centaine de services répartis en diverses catégories telles que le 
 stockage cloud
 puissance de calcul

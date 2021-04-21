@@ -1,5 +1,48 @@
 # THE DEVELOPER
 
+## RoadMap
+
+1. Languages and Data Structures
+
+2. MCUs, Platforms and Systems
+
+Platforms (Environments):
+    Bare Metal Programming
+    Programming on Real Time Operating System (RTOS)
+    Programming on Operating System (OS)
+Microcontroller Unit (MCU)
+    GPIO, PWM, comm...
+General Operating Systems Concepts
+    - Operating System Structures
+    - Virtual Memory
+    - Memory Mapping
+    - Paging
+    - Threads and Processes
+    - Interprocess Communication
+    - Process Scheduling
+    - Memory Management
+    - File Systems
+    - Deadlocks
+    - The Portable Operating System Interface (POSIX) Standards
+    - User space and kernel space architecture
+    - kernel modules
+    - device drivers 
+
+3. RepeatCrowning your Software Engineering
+Design Patterns
+SOLID Principles
+Test Driven Development (TDD)
+Agile/SCRUM Methodology
+Continuous Integration and Continuous Deployment (CI/CD)
+    Version Control Systems
+        Git
+    Building, Testing and Deployment tools
+        Jenkins/Travis/GitLab
+    Issue and Bug Tracking & Agile Project Management tools
+        JIRA, Trello, Asana
+    Team Collaboration Software
+        Confluence
+
 ![](assets/books/computer_science/assets/skills-acquisition-dreyfus-model.png)
 
 ## Be leader in Software Engineering
@@ -74,3 +117,4 @@ goût du partage d'expérience
 
 - https://gumroad.com
 - https://github.com/sponsors/  ex: https://jsonplaceholder.typicode.com/
+- https://medium.com/@clockwork1337/cracking-the-embedded-software-engineering-a71e63736126
