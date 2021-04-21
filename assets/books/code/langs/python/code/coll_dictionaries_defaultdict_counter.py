@@ -44,7 +44,7 @@ num_students = len(grades) # equals 3
 try:
   kates_grade = grades["Kate"]
 except KeyError:
-  print "no grade for Kate!"
+  print("no grade for Kate!")
 
 # check for the existence of a key using in:
 joel_has_grade = "Joel" in grades # True
@@ -72,7 +72,7 @@ print(person.valuess())	# Get dict values
 
 # Get dict items
 print(person.items())    # returns a list of its key-value pairs
-.iteritems() lazily yields the key-value pairs one at a time as we iterate over it: a generator
+# .iteritems() lazily yields the key-value pairs one at a time as we iterate over it: a generator
 
 # Copy dict
 person2 = person.copy()
