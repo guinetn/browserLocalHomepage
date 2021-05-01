@@ -6,10 +6,10 @@ Component-based: reusable code
 ```html
 <div id="app">{{ message }}</div>
 ```
-download.code(assets/books/web/front/vue_samples/01/script.js)
+download.code(assets/books/web/front/vue_samples/vue01_script.js)
 
 ### LIVE Result
-download.iframe(assets/books/web/front/vue_samples/01/index.html,500,200)
+download.iframe(assets/books/web/front/vue_samples/vue01.html,500,200)
 
 ## More
 

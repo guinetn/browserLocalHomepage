@@ -73,3 +73,31 @@ point[0] = 20   		ERROR !! (immutable)
 
 rectangle = (30.0, 70.0)
 longueur = rectangle[-1]  		70
+
+
+
+# Jupyter: ipywidgets HBox, VBox... are tuples
+# How to add new items to a HBox after being created ?
+- https://github.com/jupyter-widgets/ipywidgets/issues/1764
+
+NewLabelWidget = widgets.Label('New Column')
+HorizBox.children += (NewLabelWidget,)
+
+# Python 3 'splatting syntax' to create the new tuple: 
+HorizBox.children = (*HorizBox.children, NewLabelWidget)
+
+
+Convert tuple into list with list()
+Convert list into tuple with tuple()
+
+# Change items in tuples
+L = list(t)
+L[1] = 100
+t_change = tuple(L)
+print(t_change)       # (0, 100, 2)
+
+# Remove items in tuples
+L = list(t)
+L.remove(1)
+t_remove = tuple(L)
+print(t_remove)   # (0, 2)

@@ -32,6 +32,9 @@ print(time3.date())
 # FORMAT DATE AND TIME
 import datetime
 date1 = datetime.datetime.now()
+print(date1.strftime('%Y%m%d')) # YYYYMMDD
+
+
 print(date1.strftime('%d. %B %Y %I:%M%p'))
 #			  \
 #			   \___ Format specification
@@ -56,6 +59,25 @@ print(date1.strftime('%d. %B %Y %I:%M%p'))
 
 date1 = datetime.datetime.strptime("2015-11-21", "%Y-%m-%d")
 date1 = datetime.datetime(year=2015, month=11, day=21)
+
+
+# PARSING Dates
+
+class Birthday: 
+    def init (self, year = 0, month = 0, day = 0): 
+        self.year = year 
+        self.month = month 
+        self.day = day 
+    def out_date(self): 
+        return "year %d, month: %d, day: %d" %(self.year, self.month, self.day)         
+    @classmethod 
+    def pre_out(cls, date_string): 
+        year, month, day = map(int, date_string.split("-")) 
+        return cls(year, month, day) 
+        
+date = "2319-3-23" 
+Birthday = Birthday.pre_out(date) 
+print(Birthday.out_date()) # output 
 
 
 

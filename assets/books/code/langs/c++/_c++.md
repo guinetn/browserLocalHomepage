@@ -92,3 +92,4 @@ C++ has types like std::shared_ptr and std::unique_ptr that act as pointers with
 
 - https://docs.microsoft.com/fr-fr/c++/build/walkthrough-creating-and-using-a-static-library-cpp?view=msvc-160
 - https://www.codeproject.com/Articles/5278932/Synchronization-with-Visual-Cplusplus-and-the-Wind
+- https://learn.saylor.org/course/resources.php?id=65

@@ -88,6 +88,6 @@ download.page(computer_science/os/os_unix.md)
 ::::
 download.page(computer_science/os/windows/wsl.md)
 ::::
-download.page(computer_science/os/rtos.md)
+download.page(computer_science/os/os_rtos.md)
 ::::
 

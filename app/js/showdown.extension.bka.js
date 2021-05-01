@@ -171,7 +171,11 @@ USAGE:
                 "width",
                 width,
                 "px"
-              )} ${addAttribute("height", height, "px")}></iframe>`;
+              )} ${addAttribute(
+                "height",
+                height,
+                "px"
+              )}, window.document></iframe>`;
             }
           );
         },

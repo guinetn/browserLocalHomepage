@@ -39,6 +39,11 @@ cash, spot (immédiat, liquide). Que l'on peut compter immédiatement ; disponib
 
 ## Stock - action
 
+A stock (also known as equity) is a security that represents the ownership of a fraction of a corporation. This entitles the owner of the stock to a proportion of the corporation’s assets and profits equal to how much stock they own. Units of stock are called “shares.”-Investopedia
+Stock trading refers to the buying and selling of shares in a particular company; if you own the stock, you own a piece of the company. Now, to achieve a profitable return, you either go long or short in markets: you either buy shares thinking that the stock price will go up to sell at a higher price in the future, or you sell your stock, expecting that you can buy it back at a lower price and realize a profit. When you follow a fixed plan to go long or short in markets, you have a trading strategy.
+Building a trading strategy is similar to building a machine learning model. You need to understand the current data, fill in the missing values and find an appropriate model to predict the output. Finally, we use accuracy or other metrics to measure our performance
+
+
 an asset (thing that has potential or actual value to an organization)
 a bond or a tangible product, such as gold or oil.
 Stock is evidence of ownership in a corporation. 

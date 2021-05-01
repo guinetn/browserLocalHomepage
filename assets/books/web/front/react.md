@@ -7,10 +7,12 @@ JSX
 ```html
 <div id="root"></div>
 ```
-download.code(assets/books/web/front/react_samples/01/script.js)
+download.code(assets/books/web/front/react_samples/react01_script.js)
 
 ### LIVE Result
-download.iframe(assets/books/web/front/react_samples/01/index.html,500,200)
+download.iframe(assets/books/web/front/react_samples/react01.html,500,200)
+
+***Preact:***
 download.iframe(assets/books/web/front/react_samples/preact.html,500,100)
 
 ## Setting up React application 

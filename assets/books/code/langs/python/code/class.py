@@ -34,11 +34,50 @@ class User:
     return "User [%s, %i]" % (self.name, self.age)
 
 
-joe = User('joe', 'joe@mail.com", 26)  # __init__ called
+joe = User('joe', 'joe@mail.com', 26)  # __init__ called
 print("%s" % joe)  # __str__ called
 
 
-# Define Static Method: called by an instance of a class or by the class itself
+
+# STATICS
+# https://radek.io/2011/07/21/static-variables-and-methods-in-python/
+
+''' STATIC VARIABLES
+  Static: the member is on a class level rather on the instance level. 
+  Static variables exist only on class level and aren't instantiated. 
+  If you change a static variable in one instance of the class, the change will affect its value in all other instances.
+'''
+
+class Example:
+    staticVariable = 5 # Access through class
+
+print Example.staticVariable # prints 5
+
+# Access through an instance
+instance = Example()
+print instance.staticVariable # still 5
+
+# Change within an instance
+instance.staticVariable = 6
+print instance.staticVariable # 6
+print Example.staticVariable # 5
+
+# Change through the class
+class Example.staticVariable = 7
+print instance.staticVariable # still 6
+print Example.staticVariable # now 7
+
+
+
+'''
+Static Method: 
+called by an instance of a class or by the class itself
+Static methods don't refer to any instance of the class and can be called outside of it. 
+They also cannot access any non-static data members of the class
+
+with @staticmethod or @classmethod (class method recieves one mandatory argument - a class it was called from)
+'''
+
 class person:
   @staticmethod
   def greet():
@@ -132,7 +171,7 @@ instead of a dictionary (__dict__) look-up.
 
 class A:
 
-  def __init__(self, some)
+  def __init__(self, some)!
     self._b = some
 
   def get_b(self):
@@ -252,25 +291,107 @@ print(human.to_fahrenheit())
 coldest_thing = Celsius(-300)
 
 
-# @classmethod decorator: to call that method using the class name instead of the object.
-class person:
-  totalObjects=0
+'''
+@classmethod decorator
+Call method using class name instead of the object
+The class method can be called both by the class and its object.
+@classmethod
+def func(cls, args...)
+
+method bounded to a class rather than its object (don't require creation of a class instance, much like staticmethod)
+* Static method knows nothing about the class and just deals with the parameters
+* Class method works with the class since its parameter is always the class itself.
+
+'''
+
+class Person:
+  age = 0
   def __init__(self):
-      person.totalObjects=person.totalObjects+1
+      Person.age = Person.age + 1
 
   @classmethod
-  def showcount(cls):  # cls parameter refers to the person class
-      print("Total objects: ",cls.totalObjects)
+  def show_age(cls):  # cls parameter refers to the Person class
+      print("Age: ", cls.age, cls.__name__)    # cls.__name__ is the class name
+  @classmethod
+  def show_age_x(cls, x):  # cls parameter refers to the Person class
+      print("Age: ", cls.age*x) 
+      
+p1=Person()
+p2=Person()
+Person.show_age() # age: 2
+p1.show_age()     # age: 2
+p1.show_age(10)     # age: 2
 
-p1=person()
-p2=person()
-person.showcount()
-# Total objects: 2
-p1.showcount()
-# Total objects: 2
+
+'''
+CLASS METHOD USAGE:
+
+return a modified initialitialized class
+
+1. Factory methods: return a class object (like constructor) for different use cases. ~ function overloading in C++
+'''
+
+from datetime import date
+
+# random Person
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @classmethod
+    def fromBirthYear(cls, name, birthYear):
+        return cls(name, date.today().year - birthYear)
+
+    def display(self):
+        print(self.name + "'s age is: " + str(self.age))
+
+person = Person('Adam', 19)
+person.display()
+
+person1 = Person.fromBirthYear('John',  1985)
+person1.display()
+
+'''
+2. Correct instance creation in inheritance
+'''
+from datetime import date
+
+# random Person
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @staticmethod
+    def fromFathersAge(name, fatherAge, fatherPersonAgeDiff):
+        return Person(name, date.today().year - fatherAge + fatherPersonAgeDiff)
+
+    @classmethod
+    def fromBirthYear(cls, name, birthYear):
+        return cls(name, date.today().year - birthYear)
+
+    def display(self):
+        print(self.name + "'s age is: " + str(self.age))
+
+class Man(Person):
+    sex = 'Male'
+
+man = Man.fromBirthYear('John', 1985)
+print(isinstance(man, Man))
+
+man1 = Man.fromFathersAge('John', 1965, 20)
+print(isinstance(man1, Man))
 
 
 
+# get the class name from within a class method 
+# A classmethod receives the class as its argument. 
+# Calling it cls: cls.__name__
+
+__name__ :  gives the program name
+__class__.__name__ gives the class name
+inspect.stack()[0][3] gives the module name. (you have to import inspect).
 
 class Set:
   # these are the member functions
@@ -353,7 +474,8 @@ class Car(object):
 ## Type Annotations (PEP 526)
 https://www.python.org/dev/peps/pep-0526
 
-Python has dynamic types: don’t have to specify the type of a variable, you just use variables as labels for containers of data. But in bigger projects, having types is helpful.
+Python has dynamic types: don’t have to specify the type of a variable, you just use 
+variables as labels for containers of data. But in bigger projects, having types is helpful.
 
 def some_function(param_name : typename) -> return_type_name:
     ...  # whatever the function does
@@ -515,5 +637,126 @@ def main():
     pprint(inspect.getmembers(Comment, inspect.isfunction))
 
 
-if __name__ == '__main__':
-    main()
+
+
+
+
+
+
+
+
+
+
+
+
+# Define Static Method: 
+class Person: 
+  
+  @staticmethod 
+  def greet(): 
+  print("Hello static Person.greet()") 
+  
+class Master(Person): 
+  
+  def __init__(self, cry=None):
+  # called by an instance of a class or by the class itself 
+    self.cry = cry
+
+  def run(self): 
+    if self. cry is not None: 
+      self.cry() 
+
+  Person. greet( ) 
+  pl = Person ( ) 
+  pl.greet ( ) 
+  m=Master(pl.greet) 
+  m.run() 
+  # Error  self.cellCIicked():  TypeError: 'tuple' object is not callable 
+  
+
+  #Hint: check functions addresses 
+  class A: 
+    def hello(self): 
+      print("Hello")
+  class B:
+    def __init(self, target):
+      self.target = target
+    def run(self):
+      print(self.target)
+a = A()      
+print(a.hello)
+b = B(a.hello)
+print(b.target)
+b.run()
+
+  # STEP 2 
+  # Define Static Method: 
+  class Person: 
+  @staticmethod 
+  def greet(): 
+  print ( "Hello I 
+  class Master(Person) : 
+  def init (self, 
+  cal led by an instance of a class o 
+  cel-LCLicked = None) : 
+  b 
+  the class itself 
+  = cellC1icked, 
+  self. cellC1icked 
+  def run(seLf) : 
+  is not None: 
+  if seLf.ce11C1icked 
+  self. 
+  Person. greet() 
+  pl=Person() 
+  pl. greet() 
+  print (pl. greet) 
+  m = Master(pl.greet) 
+  print (m. cellC1icked) 
+  m. run() 
+  print ( ) 
+  print ( 
+  print() 
+  # <function Person.greet at exeaee01F777EF75E8> 
+  (<function Person.greet at 
+  # self. 
+  1 
+  The same but is in A TUPLE, 
+  so call with 
+
+
+  class Person: 
+    @staticmethod 
+    def greet(): 
+      print("Hello from Person static!") 
+    def greet2(seLf, caLLer_msg): 
+      print("He1101 %s"%(caller_msg)) 
+class Master(Person) : 
+    def init (self, ceLLCLicked = None): 
+      seLf.ce11C1icked = cellC1icked 
+      self.rowClicked = rowClicked 
+    def run(seLf): 
+    if self.cellC1icked is not None: 
+      self.cellC1icked()
+    if seLf.rowClicked is not None: 
+      self.rowC1icked( 'from Master') 
+      
+Person. greet( ) 
+pl-Person() 
+pl. greet() 
+pl. greet2( • from Person') 
+print (pl. greet) 
+# <function 
+m = Master(pl.greet, pl.greet2) 
+# (<function 
+print (m. cellClicked) 
+# (<function 
+print (m. rowClicked) 
+m.run() 
+rowCLicked None) : 
+at axaeeea1F777EF75E8> 
+at axaeeea1F777EF75E8>,) 
+at exaaeea1F777EF75E8>,) 
+1 
+The same but in a tuple 
+

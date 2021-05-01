@@ -35,6 +35,33 @@ Find the minimum value in a list
 Maximum sum sublist
 Print products of all elements
 """
+# TAKE AWAY
+nums = [1, 2, 3, 4, 5]
+nums = [1, 2, 3, 4, 5] + [6]
+for x in nums:
+  print(x)
+print(nums[-1])
+print(nums[1:])
+print(nums[2:3])
+print(nums[2:-1])
+len(nums)
+sum(nums)
+nums.append(7)
+nums.pop(1)
+nums.insert(3, 100)      # .insert(index,value) 
+nums.extend([200,201])   # .extend() adds multiple items to the list
+nums2 = [i * 10 for i in nums]
+nums=[-1 if i==4 else i for i in nums]  # You can also use List Comprehension to replace values
+s= [1,2,3,4,5]
+(s * 5).tolist()  # [5, 10, 15, 20, 25]
+nums_x_10 = list(map(lambda x: x * 10, nums))
+nums_x_5 = list(map(lambda x: x*5,[5, 10, 15, 20, 25]))
+nums.remove(3)
+del nums[1]            # del function deletes items based on Index
+nums.pop(0)            # .pop() too deletes items based on Index
+del nums[1::2]         # Deleting Multiple Elements from a List
+
+
 
 # Create list
 numbers = [1, 2, 3, 4, 5]

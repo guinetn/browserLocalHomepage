@@ -147,8 +147,12 @@ FORTRAN
 
 ### COROUTINE
 
+https://medium.com/pranayaggarwal25/coroutines-in-cpp-15afdf88e17e
+
 Function that has the ability to pause execution and return control
 but then to continue where it left off on the following frame. 
+
+Stackless functions for enabling co-operative Multitasking by allowing execution to be suspended and resumed. well-suited for cooperative tasks, exceptions, event loops, state machines, and pipes.
 
 Can control where execution continues immediately after they yield, while generators cannot, instead transferring control back to the generator's caller.
 

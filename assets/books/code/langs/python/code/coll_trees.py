@@ -1,8 +1,19 @@
 # Trees
 
+- https://dev.to/edwardcashmere/binary-search-tree-javascript-and-python-22om
+- https://dev.to/edwardcashmere/binary-search-tree-series-part-2-503k
+
 Trees are another relation-based data structure, which specialize in representing hierarchical structures. Like a linked list, they’re populated with Node objects that contain a data value and one or more pointers to define its relation to immediate nodes.
 Each tree has a root node that all other nodes branch off from. The root contains pointers to all elements directly below it, which are known as its child nodes. These child nodes can then have child nodes of their own. Binary trees cannot have nodes with more than two child nodes.
 Any nodes on the same level are called sibling nodes. Nodes with no connected child nodes are known as leaf nodes.
+
+A binary search tree is a data structure that quickly allows us to maintain a sorted list of numbers.
+
+It is called a binary tree because each tree node has a maximum of two children.
+It is called a search tree because it can be used to search for the presence of a number in O(log(n)) time.
+
+The value of the key of the left sub-tree is less than the value of its parent (root) node's key. The value of the key of the right sub-tree is greater than or equal to the value of its parent (root) node's key.
+The logic being lower value as compared to the parent node should always be on the left.
 
 
 				     			Root node

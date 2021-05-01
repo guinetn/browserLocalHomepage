@@ -3,6 +3,9 @@
 [Packages pypi](https://pypi.org)
 >pip3 install <package_name>
 
+## in vs code
+- [VSCode's Python Interactive mode (= notebook live) is AMAZING!](https://www.youtube.com/watch?v=lwN4-W1WR84&t=358s)
+
 ## Great projects
 - [Computer Vision Security Camera + Alarm](https://www.youtube.com/watch?v=UOIKXp82iEw)
 - [Computer Vision to Control Apps (~sendkeys)](https://github.com/ProgrammingHero1/webcamfun)
@@ -100,9 +103,6 @@ download.code(assets/books/code/langs/python/code/files_zip.py)
 ## FILE CSV
 download.code(assets/books/code/langs/python/code/files_csv.py)
 
-download.code(assets/books/code/langs/python/code/files_sample.txt)
-## FTP
-download.code(assets/books/code/langs/python/code/ftp.py)
 ## FUNCTIONAL PROGRAMMING PYTHON
 download.code(assets/books/code/langs/python/code/functional_programming_Python.py)
 ## CLASSIC
@@ -152,10 +152,7 @@ download.code(assets/books/code/langs/python/code/libs_bcrypt.py)
 ## LIBS BEAUTIFULSOUP
 download.code(assets/books/code/langs/python/code/libs_web_beautifulsoup.py)
 ## LIBS SCRAPY
-download.code(assets/books/code/langs/python/code/libs_scrapy.py)
-
-## FASTAPI
-download.code(assets/books/code/langs/python/code/libs_web_fastapi.md)
+download.code(assets/books/code/langs/python/code/libs_web_scrapy.py)
 
 ## FAKER: fake data
 download.code(assets/books/code/langs/python/code/libs_faker.py)
@@ -267,7 +264,7 @@ download.code(assets/books/code/langs/python/code/types_time.py)
 ## TYPES TUPLES SETS
 download.code(assets/books/code/langs/python/code/types_tuples_sets.py)
 ## INPUT
-download.code(assets/books/code/langs/python/code/user-input.py)
+download.code(assets/books/code/langs/python/code/user_inputs.py)
 ## VALIDATOR
 download.code(assets/books/code/langs/python/code/validator.py)
 ## VARIABLES
@@ -275,21 +272,20 @@ download.code(assets/books/code/langs/python/code/variables.py)
 ## WALRUS OPERATOR
 download.code(assets/books/code/langs/python/code/walrus_operator,.py)
 
-## FASTAPI
-download.code(assets/books/code/langs/python/code/web-fastapi.py)
+
 ## JSON
-download.code(assets/books/code/langs/python/code/web-json.py)
+download.code(assets/books/code/langs/python/code/web_json.py)
+
 ## WEB
 download.code(assets/books/code/langs/python/code/web.py)
+### FASTAPI
+download.code(assets/books/code/langs/python/code/web_fastapi.py)
 ## API
 download.code(assets/books/code/langs/python/code/api.py)
+## FTP
+download.code(assets/books/code/langs/python/code/web_ftp.py)
 
 download.code(assets/books/code/langs/python/code/doctest_test_interactive_python_examples.py)
 download.code(assets/books/code/langs/python/code/files_scripting.py)
 download.code(assets/books/code/langs/python/code/functions_fastcore.py)
-download.code(assets/books/code/langs/python/code/)
-download.code(assets/books/code/langs/python/code/)
-download.code(assets/books/code/langs/python/code/)
-download.code(assets/books/code/langs/python/code/)
-download.code(assets/books/code/langs/python/code/)
-download.code(assets/books/code/langs/python/code/)
+

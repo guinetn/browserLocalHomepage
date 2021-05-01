@@ -1,26 +1,49 @@
-# Regular Expressions: a way of searching text. useful but complicated
+# REGEX - REGULAR EXPRESSIONS
+# a way of searching text. useful but complicated
+
+- https://www.tutorialspoint.com/python/python_reg_expressions.htm
+- https://docs.python.org/3/howto/regex.html
+
 
 import re
-
-re.search("c", "dog") 		# contains
-
-re.match("a*", "cat") 		# starts with
-
-re.split("[ab]", "carbs"), 	# split on a or b to ['c','r','s']
-
+re.split("[ab]", "carbs"), 	    # split on a or b to ['c','r','s']
 re.sub("[0-9]", "-", "R2D2") 	# Replace digits with dashes. R-D-
 
-my_regex = re.compile("[0-9]+", re.I)
 
-# alias if you already had a different re in your code
+# Matching Versus Searching: all checks for a match…
+#   match    …only at the beginning of the string
+#   search   … anywhere in the string 
+
+#!/usr/bin/python
+import re
+re.search("c", "dog") 		    # contains
+re.match("a*", "cat") 		    # starts with
+
+# EXTRACT SOME PARTS OF A STRING 
+line = "Cats are smarter than dogs";
+found = re.search( r'(.*) are (.*?) .*', line, re.M|re.I)
+if found:
+   print "found.group() : ", found.group()      # Cats are smarter than dogs
+   print "found.group(1) : ", found.group(1)    # Cats
+   print "found.group(2) : ", found.group(2)    # smarter
+else:
+   print "Nothing found!!"
+
+
+
+import re
+my_regex = re.compile("[0-9]+", re.I)
+# 'regex' alias if you already had a different 're' in your code
 import re as regex
 my_regex = regex.compile("[0-9]+", regex.I)
 
+
+
 import re
-print(all([ 					# all of these are true, because
-	not re.match("a", "cat"), 		# * 'cat' doesn't start with 'a'
-	re.search("a", "cat"), 			# * 'cat' has an 'a' in it
-	not re.search("c", "dog"), 		# * 'dog' doesn't have a 'c' in it
+print(all([ 					            # ALL OF THESE ARE TRUE, BECAUSE
+	not re.match("a", "cat"), 		        # * 'cat' doesn't start with 'a'
+	re.search("a", "cat"), 			        # * 'cat' has an 'a' in it
+	not re.search("c", "dog"), 		        # * 'dog' doesn't have a 'c' in it
 	3 == len(re.split("[ab]", "carbs")), 	# * split on a or b to ['c','r','s']
 	"R-D-" == re.sub("[0-9]", "-", "R2D2") 	# * replace digits with dashes
 	])) # True
@@ -160,3 +183,4 @@ def test_re():
 # Counting occurrence of a pattern
 import re; 
 len(re.findall('python','python is a programming language. python is python.'))  # 3
+

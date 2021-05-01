@@ -3,7 +3,7 @@
 https://aws.amazon.com
 https://devopsmyway.com
 https://devopsmyway.com/list-of-aws-services/
-
+https://static.coggle.it/diagram/XhbybXDSoKh9k_fr/t/amazon-web-services
 
 
 ## AWS TRAINING

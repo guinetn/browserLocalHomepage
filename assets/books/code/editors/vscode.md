@@ -15,3 +15,7 @@ process of attaching to a development environment sitting either in a
 
 - https://code.visualstudio.com/docs/remote/remote-overview
 - https://cloudblogs.microsoft.com/industry-blog/en-gb/cross-industry/2020/12/15/run-blazor-in-a-docker-container-with-visual-studio-code-remote-development/
+
+
+- [VSCode's Python Interactive mode is AMAZING!](https://www.youtube.com/watch?v=lwN4-W1WR84&t=358s)
+VS Code:  xxxx.py  # %%   → get a notebook	

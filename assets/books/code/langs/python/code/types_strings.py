@@ -1,12 +1,11 @@
 # Strings 
 
-delimited by single or double quotation marks (but the quotes have to match):
+Delimited by single or double quotation marks (but the quotes have to match):
 single_quoted_string = 'data science'
 double_quoted_string = "data science"
 
-
 # Strings enclosed in tripe quotes (''') can span over multiple lines
-multiline_string = = """ this is a very
+multiline_string = """ this is a very
         long string which will not include 
         blanks or newlines..."""
 
@@ -14,17 +13,34 @@ multi_line_string = """This is the first line.
 and this is the second line
 and this is the third line"""
 
+# 'this is a verylong string toowhich will NOT INCLUDE ANY EXTRA BLANKS OR NEWLINES...'
 multiline_string = ("this is a very"
       "long string too"
       "which will NOT INCLUDE ANY EXTRA BLANKS OR NEWLINES..."
-     ) # → 'this is a verylong string too which will NOT INCLUDE ANY EXTRA BLANKS OR NEWLINES...'
+     ) 
 
+# SUBSTRINGS
+s = "hello joe"
+s[6:]   # joe
+s[:-3]  # joe
 
+# Contains
+if 'r' not in s: 
+    passed
+	
+#Repeat String 
+print( '- ' * 10 )
+
+# Remove trailing 's'
+term='cars'
+if term[-1].lower() == 's':
+    term = term[0:-1]
+	
+	
 # Reverse a String
 mystring = "Python is awesome"
 mystring_reversed = mystring[::-1]
-mystring_reversed
-'emosewa si nohtyP'
+mystring_reversed # emosewa si nohtyP'
 
 sentence = "This is just a test"
 reversed = sentence[::-1]
@@ -33,12 +49,17 @@ print(reversed)
 
 name = 'Brad'
 tab_string = "\t"  		# \ Backslash: to encode special characters
-not_tab_string = r"\t"  #  Raw string: to represents all characters '\' and 't'
+tab_string      # '	'
+not_tab_string = r"\t"  #  Raw string: to represents all characters '\' 
+not_tab_string  # 't'
 
 
 # Format number to strings
 x=123.456789
 xs = "{:3.2}".format(x)   # → 123.46
+
+
+
 
 # STRING INTERPOLATION
 
@@ -91,13 +112,13 @@ xs = "{:3.2}".format(x)   # → 123.46
 name = "Abhay"
 age = 21
 
-## METHOD 1: Concatenation
+## METHOD A: Concatenation
 print("My name is "+name+", and I am "+str(age)+ " years old.")
 
-## METHOD 2: F-strings (Python 3+)
+## METHOD B: F-strings (Python 3+)
 print(f"My name is {name}, and I am {age} years old")
 
-## METHOD 3: Join
+## METHOD C: Join
 print(''.join(["My name is ", name, ", and I am ", str(age), " years old"]))
 
 #a List of Strings Into One String
@@ -216,7 +237,15 @@ split_string_two = string_two.split('\n')
 print(split_string_two)		
 
 # Find position
-print(s.find('r'))
+myString = 'position of a char'
+print(s.find('o'))    # -1 if not found
+print(s.index('o'))   # valueError if not found
+
+# string.index(s, sub[, start[, end]])
+s = 'shak#spea#e'
+c = '#'
+print([pos for pos, char in enumerate(s) if char == c])
+# which will print: [4, 9]
 
 # Contains
 if 'r' not in s: 

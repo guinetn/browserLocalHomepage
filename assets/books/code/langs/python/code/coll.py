@@ -19,3 +19,5 @@ Simplify and speed up data processing
 - Trees
 - Graphs
 - Hash tables
+
+![](data_structures.jpg)
