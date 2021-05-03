@@ -136,3 +136,81 @@ let app = document.querySelector('#app');
 app.before(p);                    // <p>Hello!</p><div id="elem">Good evening</div>
 app.before(p, `What's poppin?`);  // <p>Hello!</p>What's poppin'<div id="elem">Good evening</div>
 ```
+
+## DOM EVENTS
+
+ CustomEvent object:  a way to create and emit custom events, as well as pass in custom event details.
+ 
+ As an optional second argument, pass in an object of options, including whether or not the event bubbles and is cancelable. Both booleans, and both are false by default.
+
+```js
+
+// Create a custom event
+let event = new CustomEvent('my-custom-event', {
+	bubbles: true,
+	cancelable: true,
+  detail: 'This could also be an object or array'   	 // Including additional information with your event
+});
+
+// Emit the event
+document.dispatchEvent(event);
+
+// listening for the custom event
+document.addEventListener('my-custom-event', function (event) {
+	console.log('The event happened!', event.detail);
+});
+```
+
+***canceling an event***
+```js
+document.addEventListener('my-custom-event', function (event) {
+  ...
+	// Cancel the event
+	event.preventDefault();
+});
+
+let canceled = !document.dispatchEvent(event);
+Element.dispatchEvent() method returns false if the event was canceled, and true if it was not.
+```
+ 
+ ***event naming conventions***
+ prefix them with your library name to prevent naming collisions between the custom events in your library and others
+emitEvent('greetings-before-hi');
+emitEvent('greetings-before-hi');       // kebab-case naming
+emitEvent('greetings:before-hi');       // prefix-kebab: events more readable (put a colon (:) between the library name and the event type)
+
+// prefix-kebab naming
+
+***custom event helper function***
+```js
+/**
+ * Emit a custom event
+ * @param  {String} type   The event type
+ * @param  {Object} detail Any details to pass along with the event
+ * @param  {Node}   elem   The element to attach the event to
+ */
+function emitEvent (type, detail = {}, elem = document) {
+
+	// Make sure there's an event type
+	if (!type) return;
+
+	// Create a new event
+	let event = new CustomEvent(type, {
+		bubbles: true,
+		cancelable: true,
+		detail: detail
+	});
+
+	// Dispatch the event
+	return elem.dispatchEvent(event);
+}
+```
+
+
+```js
+```
+
+
+
+```js
+```

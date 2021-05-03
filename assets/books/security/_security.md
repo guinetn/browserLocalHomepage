@@ -1,5 +1,7 @@
 # Security
 
+
+
 download.page(security/cryptography/_cryptography.md)
 ::::
 download.page(security/terms.md)
@@ -50,3 +52,18 @@ https://www.cloudflare.com/fr-fr/learning/bots/what-is-credential-stuffing
 
 - https://github.com/mbcrump
 - https://dev.to/kmistele/how-to-securely-hash-and-store-passwords-in-your-next-application-4e2f
+- https://tools.ietf.org/html/rfc6749
+- https://tools.ietf.org/html/rfc7519
+- http://auth0.com
+- https://oauth.net
+- https://openid.net
+- https://openid.net/connect
+- https://tools.ietf.org/html/rfc8446
+- https://tools.ietf.org/html/rfc6101
+- https://www.abetterinternet.org/about
+- https://letsencrypt.org
+- http://auth0.com
+- https://auth0.com/signup
+- https://tools.ietf.org/html/rfc7519
+- https://jwt.io
+- https://pragprog.com/titles/maapis/source_code

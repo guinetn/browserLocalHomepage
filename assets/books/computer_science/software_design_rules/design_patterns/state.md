@@ -58,3 +58,5 @@ public class TCPHandler {
         public TCPState state;
 }
 ```
+
+https://www.codeproject.com/Articles/1275479/State-Machine-Design-in-C

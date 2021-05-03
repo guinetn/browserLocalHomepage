@@ -29,6 +29,11 @@ download.page(computer_science/algorithms/paths/_paths.md)
 ::::
 download.page(computer_science/algorithms/strings/_strings.md)
 ::::
+download.page(computer_science/algorithms/optimiz/opl.md)
+::::
+download.page(computer_science/algorithms/state_machine.md)
+
+::::
 ## Backtracking algorithms
 
 ## Bit manipulation algorithms

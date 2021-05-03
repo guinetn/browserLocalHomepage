@@ -1076,7 +1076,7 @@ The shell is divided into regions, which you dynamically fill with user control 
 
 ## MODERN WPF UI
 - https://www.youtube.com/watch?v=PzP8mw7JUzI&t=679s
-
+- https://www.youtube.com/watch?v=fzBcXicj2G8&t=630s
 
 ## More
 - https://intellitect.com/interfacing-multithreading-patterns/

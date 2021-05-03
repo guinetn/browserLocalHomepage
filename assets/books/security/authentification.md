@@ -19,26 +19,9 @@ https://www.c-sharpcorner.com/article/basic-authentication-in-swagger-open-api-n
 - Azure Easy Auth
 - Any other authentication system
 
- OpenID is the standard and everyone writing "real" applications expected to be used by "real" users should use an Identity Management service. Stop teaching people it's ok to roll their own auth.
- 
-## OpenID 
-https://openid.net/
+download.page(security/authentification_openid.md)
 
-Federated authentication: A client accepts an identity assertion from any provider (although clients are free to whitelist or blacklist providers). 
-HTTP-based protocols for authentication and/or authorization
-Allows to sign with an existing account into multiple websites without creating new passwords.
-Choose to associate information (name, email...) with your OpenID that can be shared with the websites you visit
-Your password is only given to your identity provider, and that provider then confirms your identity to the websites you visit.
-
-OpenID Connect
-
-## OAuth
-
-OAuth is intended for delegated authorization.
-HTTP-based protocols for authorization
-
-https://oauth.net/2
-industry-standard protocol for authorization.
+download.page(security/authentification_oauth.md)
 
 ## WebAuthn - Web Authentication 
 

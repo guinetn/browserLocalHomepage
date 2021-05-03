@@ -4,8 +4,12 @@ https://www.elastic.co/products/kibana
 
 Real time `DATA VISUALISATION` dashboard
 Open source from Elastic company
-Elasticsearch project
+Elasticsearch web project service
 Need a ElasticSearch cluster to store data
+
+To work: 
+- Elasticsearch base localisation
+- way of presenting data 
 
     Logs
         ↓ unstructured data

@@ -760,3 +760,7 @@ at exaaeea1F777EF75E8>,)
 1 
 The same but in a tuple 
 
+
+
+## more
+# https://medium.com/@dr-bruce-cottman/twelve-dataclass-examples-for-better-python-code-d1318f362d93?source=email-d34df8fefae2-1619917329596-digest.reader------2-71------------------18bf3841_cdb9_4fb3_8abe_774bacfcfdbe-27-62736a19_0aef_4828_ad07_c7a217634093----&sectionName=icymi

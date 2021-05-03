@@ -9,6 +9,7 @@
 
 download.page(computer_science/algorithms/mathematical/prime_number.md)
 download.page(computer_science/algorithms/mathematical/fibonacci.md)
+download.page(computer_science/algorithms/mathematical/factorial.md)
 download.page(computer_science/algorithms/mathematical/hanoi.md)
 download.page(computer_science/algorithms/mathematical/matrix.md)
 download.page(computer_science/algorithms/mathematical/two_­sum.md)

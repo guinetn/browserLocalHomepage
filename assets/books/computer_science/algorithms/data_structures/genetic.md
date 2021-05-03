@@ -23,3 +23,4 @@ Stop
 
 - https://medium.com/@thebinaryrealm/genetic-algorithm-everything-you-need-to-know-60df46ccb911
 - https://www.i-programmer.info/babbages-bag/277.html
+- https://medium.com/pragmatic-programmers/table-of-contents-879fc8614df

@@ -193,3 +193,60 @@ EmpId	EmpName	EmpAddr	DeptName	DeptDesc
 104	e4	e4addr4	FS	Financial Services
 105	e5	e5addr5	HR	Human Resources
 */
+
+
+## Json
+
+https://jsonformatter.org/json-pretty-print
+
+- https://docs.microsoft.com/en-us/sql/relational-databases/json/json-data-sql-server
+
+- https://levelup.gitconnected.com/how-to-easily-parse-and-transform-json-in-sql-server-c0b091a964de
+
+- https://docs.microsoft.com/en-us/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server?view=sql-server-ver15
+
+CREATE TABLE superHero(
+ [heroID] [int] PRIMARY KEY CLUSTERED IDENTITY(1,1) NOT NULL,
+ [description] nvarchar(MAX) NOT NULL,
+) ON [PRIMARY]
+insert into superhero([description])
+select '{
+  "universe": "dc",
+  "characters": [
+    {
+      "hero": "superman",
+      "alias": "clark kent",
+      "powers": [
+        "x-ray vision",
+        "super strength",
+        "super speed",
+        "laser eyes",
+        "bullet proof"
+      ],
+      "friends": [
+        {
+          "hero": "batman",
+          "alias": "bruce wayne"
+        },
+        {
+          "hero": "cyborg",
+          "alias": "victor stone"
+        }
+      ]
+    }
+  ]
+}'
+
+select * from superHero
+select * 
+from OPENJSON((select description from superHero where heroID = 1))
+
+select * 
+from OPENJSON(
+    (select description from superHero where heroID = 1),
+    '$.characters[0]'
+  )
+  
+  select *
+from superHero s
+CROSS APPLY OPENJSON(s.description)

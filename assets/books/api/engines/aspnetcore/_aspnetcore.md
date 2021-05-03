@@ -89,4 +89,4 @@ download.page(api/engines/aspnetcore/razor.md)
 - https://intellitect.com/quickly-configure-asp-net-core-api-to-work-with-vue-cli-3/
 - https://www.ezzylearning.net/tutorial/a-developers-guide-for-creating-web-apis-with-asp-net-core-5
 - https://medium.com/swlh/consuming-wsdl-services-using-asp-net-core-141fbc77924f
-
+- https://www.ezzylearning.net/tutorial/display-live-sports-updates-using-asp-net-core-signalr

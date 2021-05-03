@@ -338,9 +338,10 @@ http://www.infoq.com/presentations/Data-Structures
 
 # DATA STRUCTURES AND ALGORITHMS
 
-https://github.com/wdi-sf-jan/notes/tree/master/ds_algorithms
-http://www.csharpstar.com/csharp-algorithms/
-https://www.toptal.com/algorithms/interview-questions
+- https://github.com/wdi-sf-jan/notes/tree/master/ds_algorithms
+- http://www.csharpstar.com/csharp-algorithms/
+- https://www.toptal.com/algorithms/interview-questions
+- https://betterprogramming.pub/top-30-apple-coding-interview-questions-with-solutions-19990071ebfc
 # See also <Coding_functional_programming.md>
 
 

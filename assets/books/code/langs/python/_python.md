@@ -3,6 +3,15 @@
 [Packages pypi](https://pypi.org)
 >pip3 install <package_name>
 
+
+Python is nothing more than a bunch of rules.    
+The rules that govern Python could be implemented in some languages.     
+The most popular Python implementation is in C.    
+- https://github.com/python/cpython
+
+On top of that, a decent number of Python packages like NumPy are written with C and its younger brother C++ to address efficiency drawbacks because Python is dead slow in comparison.
+
+
 ## in vs code
 - [VSCode's Python Interactive mode (= notebook live) is AMAZING!](https://www.youtube.com/watch?v=lwN4-W1WR84&t=358s)
 
@@ -36,6 +45,10 @@ download.code(assets/books/code/langs/python/code/async.py)
 download.code(assets/books/code/langs/python/code/built-in-functions.py)
 ## C SHARP WITH PYTHON
 download.code(assets/books/code/langs/python/code/csharp_with_python.py)
+
+## C WITH PYTHON
+- https://betterprogramming.pub/dont-start-coding-with-python-begin-with-c-8567ae65948d
+- https://github.com/python/cpython
 ## CLASS
 download.code(assets/books/code/langs/python/code/class.py)
 ## CLASS: MAGIC METHODS
@@ -288,4 +301,10 @@ download.code(assets/books/code/langs/python/code/web_ftp.py)
 download.code(assets/books/code/langs/python/code/doctest_test_interactive_python_examples.py)
 download.code(assets/books/code/langs/python/code/files_scripting.py)
 download.code(assets/books/code/langs/python/code/functions_fastcore.py)
+
+
+## DOCUMENTS: pdf...
+
+download.code(assets/books/code/langs/python/code/libs_export_pdf.py)
+download.code(assets/books/code/langs/python/code/libs_office_word_excel.py)
 

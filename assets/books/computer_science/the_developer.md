@@ -118,3 +118,18 @@ goût du partage d'expérience
 - https://gumroad.com
 - https://github.com/sponsors/  ex: https://jsonplaceholder.typicode.com/
 - https://medium.com/@clockwork1337/cracking-the-embedded-software-engineering-a71e63736126
+
+## INTERVIEWS
+
+* Data structures to know
+Arrays, Linked Lists, Stacks, Queues, Trees, Graphs, Heaps, Hash sets, Hash maps
+* Algorithms to know
+Depth-first search, Breadth-first search, Binary search, Quicksort, Mergesort, Dynamic programming, Divide and conquer
+
+
+### DATA STRUCTURES AND ALGORITHMS
+
+- https://github.com/wdi-sf-jan/notes/tree/master/ds_algorithms
+- http://www.csharpstar.com/csharp-algorithms/
+- https://www.toptal.com/algorithms/interview-questions
+- https://betterprogramming.pub/top-30-apple-coding-interview-questions-with-solutions-19990071ebfc

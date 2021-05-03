@@ -929,6 +929,7 @@ Orchestrators enable you to manage their images, containers, and hosts through a
 ## More
 - [Running your first container](https://github.com/docker/labs/blob/master/beginner/chapters/alpine.md)
 
+- https://python.plainenglish.io/turn-your-python-script-into-a-real-program-with-docker-c200e15d5265
 - https://github.com/clue/docker-json-server
 - https://github.com/priximmo/sommaire-xavki-devops-fr
 - https://devopsmyway.com/install-docker-on-windows/
@@ -956,3 +957,5 @@ Orchestrators enable you to manage their images, containers, and hosts through a
 https://andrewlock.net/running-kubernetes-and-the-dashboard-with-docker-desktop
 
 https://www.kdnuggets.com/2021/04/dockerize-any-machine-learning-application.html
+
+https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers

@@ -79,6 +79,8 @@ print(lst)
 lst = [("Hello "+i) for i in ['Karl','Abhay','Zen']]
 print(lst) # ['Hello Karl', 'Hello Abhay', 'Hello Zen']
 
+[i for i, j in enumerate(['foo', 'bar', 'baz']) if j == 'bar']
+
 # List Operations
 
 list_length = len(integer_list) # equals 3
@@ -87,6 +89,17 @@ list_sum = sum(integer_list) # equals 6
 item_list = [1, 2, 3, 1, 2, 3]
 item_set = set(item_list) # {1, 2, 3}
 distinct_item_list = list(item_set) # [1, 2, 3]
+
+# Finding the index of an item in a list
+["foo", "bar", "baz"].index("bar")    # 1
+# list.index(x[, start[, end]])
+# Return zero-based index in the list of the first item whose value is equal to x. Raises a ValueError if there is no such item.
+
+# To get all indexes:
+indexes = [i for i,x in enumerate(xs) if x == 'foo']
+
+a = ["foo","bar","baz",'bar','any','much']
+indexes = [index for index in range(len(a)) if a[index] == 'bar']
 
 
 cars = ["Toyota", "Tesla", "Ford"]
