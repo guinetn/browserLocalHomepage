@@ -6,6 +6,8 @@ https://docs.nestjs.com/microservices/basics
 
 [ways of Communication](https://michaelscodingspot.com/rest-vs-grpc-for-asp-net/)
 
+[Messaging Patterns](https://www.redhat.com/architect/architectural-messaging-patterns): essential patterns of message exchange architectures and routing methods used in technologies such as Redis, Apache Kafka, RabbitMQ, ZeroMQ, and IBM MQ.
+
 [gRPC](https://grpc.io/)(gRPC Remote Procedure Call) is an open-source remote procedure call system developed by Google. It’s a bit like REST in the way that it provides a way to send requests from a client to a server. But it’s different in many ways
 
 [GraphQL](https://graphql.org/) is a query language for APIs developed by Facebook. It allows the client to ask for exactly the data it needs from the server. This way, you can create just one endpoint on the server that will be extremely flexible and return only the data the client needs. GraphQL is becoming very popular in recent years.

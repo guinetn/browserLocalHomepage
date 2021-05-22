@@ -54,10 +54,27 @@ https://azure.microsoft.com/services/event-hubs/
 Azure Event Hubs is a highly scalable publish-subscribe service that can ingest millions of events per second and stream them to multiple consumers. This lets you process and analyze the massive amounts of data produced by your connected devices and applications. Once Event Hubs has collected the data, you can retrieve, transform, and store it using any real-time analytics provider, such as Azure Stream Analytics, or with batching/storage adapters.
 
 
-## Message Broker 
+## Message Broker Pub/Sub
 
- ways to route messages to the proper destination without the originating application being aware of the ultimate destination of the message. 
+[Messaging Patterns](https://www.redhat.com/architect/architectural-messaging-patterns): essential patterns of message exchange architectures and routing methods used in technologies such as Redis, Apache Kafka, RabbitMQ, ZeroMQ, and IBM MQ.
+
+ways to route messages to the proper destination without the originating application being aware of the ultimate destination of the message. 
  
 decouple the destination of a message from the sender and maintain central control over the flow of messages
 
 receive messages from multiple senders, determine the correct destination and route the message to the correct channel
+
+Pub-Sub pattern: asynchronous, no blocking lock between sender and receiver
+Messages in the Pub-Sub pattern tend to be discrete, containing all the information that a process needs to act upon the data provided.
+
+- A publisher 
+>The sender sends the message to the broker and then moves onto other tasks.  
+ Sends a message to a topic (~inbox: RabbitMQ Exchange, Kafka Yopic) on a message broker.
+
+- A subscriber 
+>The receiver accepts a message at its convenience.   
+  binds to the topic and receives messages from the topic in an asynchronous manner
+
+Fanout:   
+interested parties will bind (a.k.a, subscribe) to a given topic. Then, when a message is sent to the topic, all subscribers will receive a copy of the message sent to the topic. The message is “fanned out.” 
+Twitter = Fanout pattern: One single tweet is sent to all the parties following the person sending the tweet.

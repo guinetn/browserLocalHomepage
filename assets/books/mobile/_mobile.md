@@ -10,3 +10,5 @@ download.page(mobile/kotlin.md)
 download.page(mobile/xamarin.md)
 ::::
 download.page(mobile/maui.md)
+::::
+download.page(mobile/ionic.md)

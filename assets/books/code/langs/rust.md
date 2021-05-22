@@ -1,10 +1,11 @@
 # Rust
 
-https://www.rust-lang.org
-https://foundation.rust-lang.org/
-https://github.com/microsoft/windows-rs
-https://doc.rust-lang.org/book/title-page.html
-https://cheats.rs/
+- https://www.rust-lang.org
+- https://foundation.rust-lang.org/
+- https://github.com/microsoft/windows-rs
+- https://doc.rust-lang.org/book/title-page.html
+- https://cheats.rs/
+- https://github.com/microsoft/windows-rs/tree/master/examples
 
 Open-source language; 6,000 contributors
 Mozilla (2010, release in 2015) as an alternative to the C/C++
@@ -15,6 +16,15 @@ MIT and Apache License
 * Guaranteed memory safety without garbage collection 
 
 Rust: It is a safe, concurrent, practical language. It is a systems programming language that combines strong compile-time correctness guarantees with fast performance. It is most loved programming language as per stackoverflow. The development of web, desktop and mobile apps all are supported in Rust too.
+
+Safer alternative to C++ for low-level Windows programming. Rust is syntactically similar to C++ but has built-in protection against memory bugs that have long plagued developers working with the tricky and complicated C++. Thus Rust is sparking great interest in the .NET community
+ 
+Microsoft's Rust v0.9 provides full consumption support, meaning the language is now capable of calling ANY WINDOWS API. Done with a "LANGUAGE PROJECTION" (developers interact with Windows Runtime (WinRT) APIs in ways natural -- or idiomatic -- to specific languages).   
+Language projections:   
+- C++/WinRT
+- C#/WinRT
+- Rust/WinRT ["Rust for Windows"](https://github.com/microsoft/windows-rs)
+
 
 Start:
 1. https://github.com/microsoft/windows-rs
@@ -110,7 +120,11 @@ IDE
 
 [warp](https://crates.io/crates/warp)
 [gotham](https://crates.io/crates/gotham)
-## ## More
+
+## More
 
 - https://www.liquidweb.com/kb/how-to-install-and-configure-the-rust-programming-language
 - https://www.youtube.com/embed/LajquCjHXK4
+
+- https://github.com/saschagrunert/webapp.rs
+- https://medium.com/@saschagrunert/lessons-learned-on-writing-web-applications-completely-in-rust-2080d0990287

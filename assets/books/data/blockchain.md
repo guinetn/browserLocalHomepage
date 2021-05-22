@@ -124,3 +124,4 @@ saveCoin.addBlock(new Block(2, "01/01/2021", { amount: 8 }));
 
 - https://python.plainenglish.io/create-your-own-cryptocurrency-blockchain-in-python-3-9-4-806f8825608e
 - https://gist.github.com/bryandijkhuizen/c681fe0f554e707ad846188d86a23366#file-fullcodeblock-chain-py
+- https://www.youtube.com/watch?v=coQ5dg8wM2o

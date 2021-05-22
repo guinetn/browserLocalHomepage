@@ -11,3 +11,6 @@ https://pandoc.org/installing.html
 
 - https://github.com/wang0618/PyWebIO
  series of imperative functions to obtain user input and output on the browser, turning the browser into a "rich text terminal", and can be used to build simple web applications or browser-based GUI applications without the need to have knowledge of HTML and JS. 
+ 
+Screen recorder
+https://www.youtube.com/watch?v=1J8dQA6gN7k&t=924s

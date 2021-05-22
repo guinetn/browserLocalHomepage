@@ -98,3 +98,5 @@ The "nonLocal" variable was captured, or "closed over", by the delegate code, ca
 ## More
 
 - http://www.blackwasp.co.uk/CSharpClosures.aspx
+- [Closures in C# and why you NEED to know about them](https://www.youtube.com/watch?v=h3MsnBRqzcY)
+When it comes time to optimize your code for memory allocations, closures tend to be the usual suspect for a big chunck of your allocated memory.

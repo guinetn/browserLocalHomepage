@@ -2,6 +2,10 @@
 
 Serverless or Function as a Service (FaaS) describes the idea that the deployment unit is a single function. A function takes input and returns output
 
+Serverless is 
+- about event-driven programming
+- running complex workloads at scale 
+
 ### Serverless Manifesto
 http://blog.rowanudell.com/the-serverless-compute-manifesto/
 

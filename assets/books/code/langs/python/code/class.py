@@ -235,7 +235,23 @@ dir(User)  #  ['__doc__', '__init__', '__module__']
 dir(joe)  #  ['__doc__', '__init__', '__module__', 'name', 'email', 'age']
 
 
-# Extend class
+# Extend class: inheritance
+
+implicit delegation: when the object cannot satisfy a request, it first tries to forward the request to its ancestors
+
+
+class Parent(object):
+    def __init__(self):
+        self.value = 5
+
+    def get_value(self):
+        return self.value
+
+class Child(Parent):
+    pass
+
+
+
 # class parent:
 #    statements                  
 # class child(parent):
@@ -274,6 +290,22 @@ class MyCustomError(Exception):
         super().__init__(message)
         self.message = message
         
+
+# Method overriding
+
+class Parent(object):
+    def __init__(self):
+        self.value = 5
+
+    def get_value(self):
+        return self.value
+
+class Child(Parent):
+    def get_value(self):
+        return self.value + 1
+>>> c = Child()
+>>> c.get_value()
+6
 
 
 # Multiple Inheritance
@@ -376,7 +408,7 @@ print(human.to_fahrenheit())
 human.temperature = -300
 
 
-
+https://www.thedigitalcatonline.com/blog/2014/05/19/method-overriding-in-python/
 
 
 # @[decorator_function_name] syntax to specify a decorator (a function that receives another function as argument)
@@ -519,11 +551,24 @@ class Person:
 class Man(Person):
     sex = 'Male'
 
+
 man = Man.fromBirthYear('John', 1985)
 print(isinstance(man, Man))
 
 man1 = Man.fromFathersAge('John', 1965, 20)
 print(isinstance(man1, Man))
+
+
+# isinstance(obj, type)
+# built-in function to determine if an object is of a particular type or not.
+if isinstance(a, int):
+    print("a is an integer")
+else:
+    print("a is not an integer")
+if isinstance(c, list):
+    print("c is a list")
+else:
+    print("c is not a list")
 
 
 

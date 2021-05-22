@@ -6,6 +6,11 @@ Small anonymous functions can be created with the lambda keyword. Lambda functio
 wherever function objects are required. They are syntactically restricted to a single expression.
 Semantically, they are just syntactic sugar for a normal function definition. Like nested function
 definitions, lambda functions can reference variables from the containing scope.
+
+
+To define a function without defining it using def. Helps define anonymous functions mainly one-line functions. 
+To define a complicated function, it is better to define a function using def.
+
 """
 
 
@@ -23,7 +28,9 @@ print(getSum(10, 3))
 s=lambda a,b:a+b
 print(s(2,4))
 
-
+beta = lambda x: x>0
+print(beta(10))
+print(beta(-10))
 
 x = lambda a : a + 10
 print(x(5))
@@ -40,6 +47,15 @@ mytripler = myfunc(3)
 
 print(mydoubler(11))
 print(mytripler(11)))
+
+
+student_tuples = [
+     ('john', 'A', 15),
+     ('jane', 'B', 12),
+     ('joe', 'B', 10),
+]
+sorted(student_tuples, key=lambda student: student[2])
+# [('joe', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
 
 
 # Prime Number

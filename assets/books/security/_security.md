@@ -6,6 +6,8 @@ download.page(security/cryptography/_cryptography.md)
 ::::
 download.page(security/terms.md)
 ::::
+download.page(security/password managers.md)
+::::
 download.page(security/firewalls.md)
 ::::
 download.page(security/authentification.md)

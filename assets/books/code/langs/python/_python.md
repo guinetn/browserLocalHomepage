@@ -16,6 +16,9 @@ Cython creates C modules that speed up Python code execution, important for comp
 ## in vs code
 - [VSCode's Python Interactive mode (= notebook live) is AMAZING!](https://www.youtube.com/watch?v=lwN4-W1WR84&t=358s)
 
+## Python to .exe
+download.page(assets/books/code/langs/python/python_to_exe.md)
+
 ## Great projects
 - [Computer Vision Security Camera + Alarm](https://www.youtube.com/watch?v=UOIKXp82iEw)
 - [Computer Vision to Control Apps (~sendkeys)](https://github.com/ProgrammingHero1/webcamfun)
@@ -201,8 +204,6 @@ download.code(assets/books/code/langs/python/code/libs_os.py)
 download.code(assets/books/code/langs/python/code/libs_images_pillow.py)
 ## LIBS PROGRESSBAR
 download.code(assets/books/code/langs/python/code/libs_progressbar.py)
-## LIBS PyInstaller
-download.code(assets/books/code/langs/python/code/libs_pyinstaller.py)
 ## LIBS PYGAME
 download.code(assets/books/code/langs/python/code/libs_PyGame.py)
 ## LIBS REQUESTS

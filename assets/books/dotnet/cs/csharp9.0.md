@@ -1,9 +1,8 @@
 # C# 9 (.net 5) #
 
-
 .NET 5 is paired with C# 9, which brings many new features to the language. Here are a few highlights:
 
-* Records: Immutable reference types that behave like value types, and introduce the new with keyword into the language.
+* Records: Immutable reference types that BEHAVE LIKE VALUE TYPES (objects that are considered identical because they have the same values in their properties, not because they share a primary key or location in memory), and introduce the new with keyword into the language.
 * Relational pattern matching: Extends pattern matching capabilities to relational operators for comparative evaluations and expressions, including logical patterns - new keywords and, or, and not.
 * Top-level statements: As a means for accelerating adoption and learning of C#, the Main method can be omitted and application as simple as the following is valid:
     System.Console.Write("Hello world!");

@@ -17,6 +17,7 @@ Gamma  | light EM radiation e- at high energy | | Lead
 - [ABCs of Radiation](https://www.youtube.com/watch?v=qjkTzk8NAxM)
 - [“neutron dance” in a reactor](https://www.youtube.com/watch?v=RZQwL-2WTgA)
 - [Xenon Can Be a Problem](https://www.youtube.com/watch?v=RZQwL-2WTgA)
+- [Radiation around you](https://www.youtube.com/watch?v=ugGVrI8pi6w&t=65s)
 
 I¹³⁵ → Xe¹³⁵ + beta + neutron
 

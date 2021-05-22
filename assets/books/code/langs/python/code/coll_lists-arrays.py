@@ -423,3 +423,42 @@ for i in range(size):
        list1[i] = list1[j] 
        list1[j] = temp
 print(list1)    
+
+
+# Flatten a List of Lists
+# Original List [[1, 2, 3, 4], [5, 6, 7], [8, 9, 10]]
+# Transformed Flat List [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Using a List Comprehension
+regular_list = [[1, 2, 3, 4], [5, 6, 7], [8, 9]]
+flat_list = [item for sublist in regular_list for item in sublist]
+
+
+# with loop in loop
+
+def flatten_list(_2d_list):
+    flat_list = []
+    # Iterate through the outer list
+    for element in _2d_list:
+        if type(element) is list:
+            # If the element is of type list, iterate through the sublist
+            for item in element:
+                flat_list.append(item)
+        else:
+            flat_list.append(element)
+    return flat_list
+
+nested_list = [[1, 2, 3, 4], [5, 6, 7], [8, 9, 10]]
+print('Original List', nested_list)
+print('Transformed Flat List', flatten_list(nested_list))
+
+# Recursively
+
+def flatten(list_of_lists):
+    if len(list_of_lists) == 0:
+        return list_of_lists
+    if isinstance(list_of_lists[0], list):
+        return flatten(list_of_lists[0]) + flatten(list_of_lists[1:])
+    return list_of_lists[:1] + flatten(list_of_lists[1:])
+
+print(flatten([[1, 2, 3, 4], [5, 6, 7], [8, 9], 10]))

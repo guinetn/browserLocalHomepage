@@ -182,4 +182,5 @@ The need to keep the runtime stable has prevented us from implementing new langu
 
 
 
-https://www.codeproject.com/Articles/1265802/New-Features-of-Csharp-8
+- https://www.codeproject.com/Articles/1265802/New-Features-of-Csharp-8
+- https://medium.com/codex/5-methods-that-drastically-shorten-drastically-your-code-in-c-8-0-e7bc1ca1b480

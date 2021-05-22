@@ -14,3 +14,4 @@ Magnitude of 1500 is 3 because 1500 = 1.5 × 10^3
 
 If two numbers differ by one order of magnitude, one is about ten times larger than the other. If they differ by two orders of magnitude, they differ by a factor of about 100.
 
+download.page(mathematics/to_be_solved.md)

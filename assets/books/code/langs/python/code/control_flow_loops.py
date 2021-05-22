@@ -271,3 +271,13 @@ categorical_columns = [x for x in categorical_columns if x not in ['Item_Identif
 for col in categorical_columns:
     print '\nFrequency of Categories for varible %s'%col
     print data[col].value_counts()
+    
+    
+    
+# create a random DataFrame
+
+{ '': , '':, '': } 
+{ 'Country': , 'Price':, 'Year': } 
+{ 'Country': ['US','GB']*3, 'Price':, 'Year': } 
+{ 'Country': ['US','GB']*3, 'Price': np.random.randint(50, size=6), 'Year': } 
+{ 'Country': ['US','GB']*3, 'Price': np.random.randint(50, size=6), 'Year': [i for i in range(1990,1993,1) for j in range(3) ] } 

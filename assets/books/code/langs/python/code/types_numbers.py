@@ -11,7 +11,6 @@
 # python.exe xxxx.py
 
 import matplotlib.pyplot as plt
-import random 			# The random module gives functions to generate random numbers
 from decimal import * 	#  decimal module that handles numbers of user-defined precision
 
 # Define integers, floats the same way.
@@ -31,15 +30,6 @@ print(round(a,5))
 a=Decimal(5.5)
 print(a)
 print(int(a))
-
-
-# GENERATE RANDOM NUMBERS
-print(random.random())   # 0.0 - 1.0
-numbers=[1,2,3,4,5,6,7]
-print(random.choices(numbers))  # generate a random number from your choices 
-
-import random; 
-random.choice(['Head',"Tail"])
 
 # INT
 

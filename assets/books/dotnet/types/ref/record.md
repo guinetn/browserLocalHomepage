@@ -1,6 +1,9 @@
-## RECORD - ENREGISTREMENTS
+## RECORD - ENREGISTREMENTS - Value Objects
 
-Immutable reference types that behave like value types, and introduce the new with keyword into the language.
+Immutable référence type qui fournit des méthodes synthétisées pour FOURNIR UNE SÉMANTIQUE DE VALEUR → POUR L’ÉGALITÉ ←
+
+
+Immutable reference types that BEHAVE LIKE VALUE TYPES (objects that are considered identical because they have the same values in their properties, not because they share a primary key or location in memory), and introduce the new with keyword into the language.
 
 Combine different kinds of data into an aggregate. They cannot be null and come with default comparison and equality.
 Records are comparable and equatable:
@@ -8,11 +11,18 @@ Records are comparable and equatable:
 One of the key features of C#9 would be records. Init-only properties can work wonders for individual properties immutable and behave like a value, then declaring it as a record. Records are "values" and not mere objects.
 They depict change by creating new records which signify new state and are defined not by identity, but by their contents.
 
+creating a copy of an object (assigning a value from one object to another):  
+- Structs (and other value types): assigning a value from one struct to another copies the data
+- classes: assigning one variable to another just copies pointers around and both variables end up pointing to the same object in memory rather than getting their own copies of the data
+
+The problem with creating a copy of a value object is that the two copies can have separate changes made to them -- what started off as two identical objects drift apart. As a result, value objects are often made to be immutable, something that requires a fair amount of code to set up in .NET. That actually makes copying the data a bigger problem: You now have data that is guaranteed to be identical taking up twice as much space as necessary.
+
+
 
 Type référence qui fournit des méthodes synthétisées pour FOURNIR UNE SÉMANTIQUE DE VALEUR POUR L’ÉGALITÉ
 
 ```C#
-            ___ = class (check IL)
+         ___ = class (check IL)
         /
 public record Person
 {
@@ -25,11 +35,11 @@ public Person(string first, string last) => (FirstName, LastName) = (first, last
 
 Elle est immuable: aucune des propriétés ne peut être modifiée une fois qu’elle a été créée. 
 When record is used, le compilateur synthétise plusieurs autres méthodes pour vous :
-Méthodes pour les comparaisons d’égalité basées sur des valeurs
-Remplacer pour GetHashCode()
-Copier et cloner des membres
-PrintMembers et ToString()
-Méthode Deconstruct
+- Méthodes pour les comparaisons d’égalité basées sur des valeurs
+- Remplacer pour GetHashCode()
+- Copier et cloner des membres
+- PrintMembers et ToString()
+- Méthode Deconstruct
 
 ```C#
 public record Teacher : Person
@@ -46,6 +56,92 @@ public sealed record Student : Person
   public Student(string first, string last, int level) : base(first, last) => Level = level;
 }
 ```
+
+```C#
+public record Address
+{
+   public string Street { get; }
+   public string City { get; }        
+   public Address()
+   {
+      this.Street = string.Empty;
+      this.City = string.Empty;
+   }
+   public Address(string Street, string City)
+   {
+      this.Street = Street;
+      this.City = City;
+   }
+}
+
+Address addr1 = new Address("Ridout", "London");
+Address addr2 = new Address("Ridout", "London");
+
+// looks like I'm creating a reference type. 
+// BUT when you compare the two record objects, they're compared like value types -- it's the value of the properties that matter (provided the two objects are of the same type). So, in this code, the test will pass because the Street and City properties have the same values in both of the objects:
+if (addr1 == addr2) { 
+ //….addresses are the same
+}
+```
+
+# Controlling and Defining Properties in Records
+
+init of a prperty: indicate a readonly property (can be set when an object is instantiated)
+```C#
+public record Address
+{
+   public string Street { get; init; }
+   public string City { get; init; }
+}
+Address addr = new Address {Street = "Kensignton", City = "London" }
+Address addr = new ( "Kensignton", "London") // "TARGET TYPING": The same (reduce the amount of typing)
+
+// Force a copy to be created by using the `with` keyword:
+Address newAddress = addr1 with { City = "Liverpool" }
+
+// Deconstructing a record
+// Extract record's properties into individual variables:
+var (street, city) = addr;
+MessageBox.Show("The city is " + city);
+
+// Custom record deconstruction
+public void Deconstruct(out string city)
+{
+  city = City;
+}
+
+// Short definition
+public record Address(string Street, string City);  // Note ended ;
+
+// adds a body to the record and makes the Street property writeable
+public record Address(string Street, string City)
+{
+   public string Street {get; set; } // writeable property 
+}
+```
+
+## TARGET TYPING
+
+```C#
+Address addr = new Address {Street = "Kensignton", City = "London" }
+Address addr = new ( "Kensignton", "London") // "TARGET TYPING": The same (reduce the amount of typing)
+```
+
+Microsoft calls this "target typing" and it works almost everywhere 
+Pays off when you're loading multiple copies of the same type into a collection:
+
+```C#
+List<Address> addrs = new();
+addrs.Add(new( "Ridout", "London" ), new( "Shore", "London" ), new( "St. Patrick", "Goderich" ));
+```
+
+```C#
+PrintAddress (new("Ridout", "London"));
+…
+public void PrintAddress(Address addr)
+{...}
+```
+
 
 ## Enregistrements positionnels
 
@@ -67,7 +163,8 @@ Console.WriteLine(last);
 ```
 
 les expressions: Une instruction with-expression demande au compilateur de créer une copie d’un enregistrement, mais avec les propriétés spécifiées modifiées :
-Person brother = person with { FirstName = "Paul" };
+
+>Person brother = person with { FirstName = "Paul" };
 
 ## F# records #
 

@@ -17,8 +17,9 @@ WPF and WinForms applications
 - only run on Windows
 - are part of the Microsoft.NET.Sdk.WindowsDesktop 
 
-https://github.com/dotnet/wpf
-https://github.com/Microsoft/WPF-Samples
+- https://github.com/dotnet/wpf
+- https://github.com/Microsoft/WPF-Samples
+- [good train](https://www.youtube.com/watch?v=oSeYvMEH7jc&t=1442s)
 
 ## start
 
@@ -1084,3 +1085,8 @@ The shell is divided into regions, which you dynamically fill with user control 
 - https://www.codeproject.com/Tips/5294830/WPF-with-PRISM-View-and-ViewModel-First-Implementa
 - https://www.youtube.com/watch?v=3ox-6NFAt8I&t=3s
 - https://www.youtube.com/watch?v=fehVTLNQorQ&t=1s
+- [Relay commands](https://www.youtube.com/watch?v=8WfD2cFRymM&t=306s)
+- [WPF Introduction](https://www.youtube.com/watch?v=WYBoTT2ce8c)
+- [WPF Introduction](https://www.youtube.com/watch?v=gSfMNjWNoX0&t=375s)
+- [Relative source + debug](https://www.youtube.com/watch?v=QLEvT0vMrdc)
+- https://www.youtube.com/channel/UCWo4JEf0ZBxU2qXtRMfs8Xw

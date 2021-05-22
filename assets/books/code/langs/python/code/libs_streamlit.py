@@ -1,10 +1,12 @@
 # streamlit
 
-Streamlit makes it easy for you to visualize, mutate, and share data.
+Open-source app framework built specifically for Machine Learning and Data Science projects.
+
+Streamlit makes it easy for you to visualize, mutate, share data: deploy, record screencast
 create beautiful data web applications using Streamlit
 
 >pip install streamlit
->streamlit hello
+>streamlit hello                 <------- demos
 >streamlit run first_app.py
 
 https://streamlit.io/
@@ -59,3 +61,19 @@ import pandas as pd
 
 >streamlit run first_app.py
 >streamlit run https://raw.githubusercontent.com/streamlit/demo-uber-nyc-pickups/master/streamlit_app.py
+
+
+## more
+
+- [Streamlit app in 1 min](https://www.youtube.com/watch?v=iPj6QKMd8qA)
+
+streamlit run streamlit-helloworld-in-1-minute.py
+
+```
+import streamlit as st
+
+st.write("""
+# Hello world!
+This is my **first** *app*!
+""")
+```

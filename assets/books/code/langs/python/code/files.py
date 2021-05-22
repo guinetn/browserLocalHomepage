@@ -4,6 +4,7 @@
 import os
 print(os.getcwd())
 
+
 # Open a file
 myFile = open('file_sample.txt', 'w')
 
@@ -282,3 +283,23 @@ If you prefer to do it with shell, then find is your friend, with the following 
 
 -ctime n File's status was last changed n*24 hours ago.
 -mtime n File's data was last modified n*24 hours ago.
+
+
+# Parsing some files
+
+import glob 
+files=glob.glob('*') 
+print("%s files"%(len(files)) )
+
+out=open(r"D:\me\data\out.txt', 'w')
+for filename in files:
+    extract_info(filename)
+
+def extract_info(filename):
+    f=open(r"D:\me\data\%s"(%filename), 'r')
+    line_1 = f.readline()
+    line_2 = f.readline().replace(',','|')
+    out.write("- " + filename + "\n")
+    out.write(line1.replace(',','|') + "\n")
+    out.write("---|"*line_1.count(',') + "---\n")
+    out.write(line2.replace(',','|') + "\n")
