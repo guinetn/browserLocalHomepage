@@ -63,3 +63,5 @@ download.page(dotnet/tools/_tools.md)
 ::::
 download.page(dotnet/mono.md)
 
+
+- [YouTube DotNet](https://www.youtube.com/channel/UCvtT19MZW8dq5Wwfu6B0oxw)

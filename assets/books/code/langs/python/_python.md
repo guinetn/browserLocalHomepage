@@ -17,7 +17,7 @@ Cython creates C modules that speed up Python code execution, important for comp
 - [VSCode's Python Interactive mode (= notebook live) is AMAZING!](https://www.youtube.com/watch?v=lwN4-W1WR84&t=358s)
 
 ## Python to .exe
-download.page(assets/books/code/langs/python/python_to_exe.md)
+download.page(code/langs/python/python_to_exe.md)
 
 ## Great projects
 - [Computer Vision Security Camera + Alarm](https://www.youtube.com/watch?v=UOIKXp82iEw)

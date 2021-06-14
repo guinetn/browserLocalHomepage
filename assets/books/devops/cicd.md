@@ -22,6 +22,13 @@ With a deployment pipeline, teams can release software in a fast, repeatable and
 
 ![](assets/books/devops/assets/ci_cd_process02.png)
 
+
+## Release 
+Snapshot of the deployment process and the associated assets (packages, scripts, variables) as they existed when the release was created. The release is given a version number, and you can deploy that release as many times as you need to.  
+SQL Server 2019 is a release of SQL Server.   
+
+A deployment is what happens when someone deploys a release to an environment. Releases are deployed many times as they progress through each of your environments, for instance, from dev to test to staging and finally into production.
+
 ## Staging environment
 - where changes are run against production-equivalent infrastructure and data to ensure that they will work properly when released.
 - use the 'develop' branch

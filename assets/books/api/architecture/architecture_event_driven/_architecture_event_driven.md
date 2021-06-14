@@ -78,3 +78,7 @@ Messages in the Pub-Sub pattern tend to be discrete, containing all the informat
 Fanout:   
 interested parties will bind (a.k.a, subscribe) to a given topic. Then, when a message is sent to the topic, all subscribers will receive a copy of the message sent to the topic. The message is “fanned out.” 
 Twitter = Fanout pattern: One single tweet is sent to all the parties following the person sending the tweet.
+
+
+
+https://developer.lightbend.com/docs/akka-platform-guide/concepts/message-driven-event-driven.html

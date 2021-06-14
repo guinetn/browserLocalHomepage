@@ -74,3 +74,5 @@ align-items: baseline place flex-item to base item.
 </div>
 
 </div>
+
+https://dev.to/heyonuoha/a-simple-css-flexbox-cheat-sheet-4k2b

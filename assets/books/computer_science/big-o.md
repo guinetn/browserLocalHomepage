@@ -211,3 +211,8 @@ Factorial growth in complexity.
 ::::
 ![big_o_sorting_algo](assets/books/computer_science/assets/big_o_sorting_algo.png)
 ![big_o_data_graph_algorithms](assets/books/computer_science/assets/big_o_data_graph_algorithms.png)
+
+
+## more
+
+- https://dev.to/wlcreate/big-o-notation-from-a-non-cs-perspective-2edj

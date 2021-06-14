@@ -336,7 +336,7 @@ font-size: var(--size);
 ```
 
 ### ANIMATIONS
-```csA
+```css
 
 Endless rotating
 <div style='transform: rotate(360deg); animation: spin 2s linear infinite; '>Q</div>

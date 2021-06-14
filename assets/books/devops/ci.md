@@ -35,6 +35,8 @@ download.page(devops/cicd_githubactions.md)
 
 download.page(devops/cicd_appveyor.md)
 
+download.page(devops/cicd_octopus.md)
+
 
 GitLab – A complete DevOps platform that does everything from project planning and source code management to CI/CD and monitoring.
 

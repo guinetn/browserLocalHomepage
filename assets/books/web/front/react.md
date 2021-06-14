@@ -28,3 +28,4 @@ $ npm start
 - https://github.com/facebook/react
 - https://github.com/dance2die/react-use-localstorage
 - [set a CD pipeline for React.JS application](https://buddy.works/guides/reactjs-to-aws)
+- https://fireship.io/tags/react/

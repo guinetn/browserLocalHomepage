@@ -18,3 +18,7 @@ Native Android development strongly suggest using Kotlin
 - https://levelup.gitconnected.com/writing-a-flutter-starter-application-for-beginners-f3e2ce591e3e
 - https://raphaelstaebler.medium.com/from-zero-to-mvp-in-3-months-with-flutter-d6adcc1db9a7
 - with REST APIs, retrofit is a great package that generates a lot of the code you would otherwise have to write yourself: https://pub.dev/packages/retrofit
+- https://insights.dice.com/2021/06/02/flutter-what-you-need-to-know-about-cross-platform-development/
+- [Dashboard](https://www.youtube.com/watch?v=_uOgXpEHNbc&t=205s)
+- [Flutter way](https://www.youtube.com/channel/UCJm7i4g4z7ZGcJA_HKHLCVw)
+- [firebase+Flutter](https://www.youtube.com/watch?v=niJ4wNee_Eo)

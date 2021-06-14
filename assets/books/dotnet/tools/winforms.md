@@ -6,3 +6,4 @@
 
 ## More
 - https://intellitect.com/interfacing-multithreading-patterns/
+- [connect C# forms with SQLite database](https://www.youtube.com/channel/UCiP3dlCCZ2Sx6CUyQ7W_vaw)

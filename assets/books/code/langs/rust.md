@@ -7,13 +7,52 @@
 - https://cheats.rs/
 - https://github.com/microsoft/windows-rs/tree/master/examples
 
+```rust
+fn main() {
+       let v = vec![1,2,3,4,5];    
+    let b: Vec<i32> = v.iter().map(|e| e * 2).collect();    
+    println!("{:?}", b);
+}
+```
+
+Rust chaining: a single statement can apply any number of functional operations to a collection
+```rust
+fn main() {
+    let v = vec![1,2,3,4];
+    
+    let b = v.iter().map(|e| e * 2).filter(|e| e % 6 == 0).fold(0, |acc, x| acc + x);
+    
+    println!("{:?}", b);
+}
+```
+
+```c++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+
+  std::vector<int> v{1,2,3,4};
+  
+  std::vector<int> b;
+  std::transform(v.begin(), v.end(), std::back_inserter(b), [](int a){return 2 * a;});
+  
+  for (const auto& e : b) {
+    std::cout << e << "\n";
+  }
+  
+  return 0;
+}
+```
+
 Open-source language; 6,000 contributors
 Mozilla (2010, release in 2015) as an alternative to the C/C++
 MIT and Apache License 
 
 * Systems programming language 
-* Syntax and performance similar to C++ 
 * Guaranteed memory safety without garbage collection 
+* Syntax and performance similar to C++ (but incorporates functional ideas properly). Both Rust and C++ have a first-class function concept. However, Rust lets you express your ideas in a way that’s much closer to pure functional.
 
 Rust: It is a safe, concurrent, practical language. It is a systems programming language that combines strong compile-time correctness guarantees with fast performance. It is most loved programming language as per stackoverflow. The development of web, desktop and mobile apps all are supported in Rust too.
 

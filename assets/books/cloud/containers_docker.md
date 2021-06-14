@@ -954,6 +954,9 @@ Orchestrators enable you to manage their images, containers, and hosts through a
 - https://codeburst.io/direct-connection-to-a-docker-container-with-ssh-56e1d2744ee5
 
 ## TO READ
+
+- https://medium.com/spatial-data-science/how-to-create-your-first-docker-for-geospatial-environment-c6893d98ce0e
+
 - https://andrewlock.net/running-kubernetes-and-the-dashboard-with-docker-desktop
 
 - https://www.kdnuggets.com/2021/04/dockerize-any-machine-learning-application.html

@@ -68,3 +68,5 @@ download.page(code/langs/basic.md)
 download.page(code/langs/vb.md)
 ::::
 download.page(code/langs/clojure.md)
+::::
+download.page(code/langs/zig.md)

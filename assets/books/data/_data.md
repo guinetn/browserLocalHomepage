@@ -146,6 +146,8 @@ download.page(data/distributed_database.md)
 ::::
 download.page(data/blockchain.md)
 ::::
+download.page(data/blockchain_nft.md)
+::::
 download.page(data/flux.md)
 ::::
 download.page(data/redux.md)

@@ -155,7 +155,9 @@ app.before(p, `What's poppin?`);  // <p>Hello!</p>What's poppin'<div id="elem">G
 
 ## DOM EVENTS
 
- CustomEvent object:  a way to create and emit custom events, as well as pass in custom event details.
+- https://domevents.dev/
+
+CustomEvent object:  a way to create and emit custom events, as well as pass in custom event details.
  
  As an optional second argument, pass in an object of options, including whether or not the event bubbles and is cancelable. Both booleans, and both are false by default.
 

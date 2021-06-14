@@ -1,397 +1,155 @@
 {
-  "gems":["https://www.youtube.com/channel/UCiGxYawhEp4QyFcX0R60YdQ(Pysics by Michel van Biezen)",
-  "https://www.youtube.com/channel/UCJ0yBou72Lz9fqeMXh9mkog(Physics Videos by Eugene Khutoryansky)"],
-  "navIcons": [
-    "https://gmail.com[inline fas fa-envelope]",
-    "https://www.linkedin.com[inline fab fa-linkedin]",
-    "https://twitter.com[inline fab fa-twitter]",
-    "https://github.com/guinetn[inline fab fa-github]",
-    "https://coggle.it[inline fas fa-sitemap]",
-    "https://www.pinterest.fr/nguinet[inline fab fa-pinterest]",
-    "https://www.facebook.com/profile.php?id=100008401895918[inline fab fa-facebook]",
-    "https://youtube.com[inline fab fa-youtube]"
-  ],
-
-  "live": [
-    "http://192.168.0.1(Router 192.168.0.1)",
-    "https://httpbin.org/ip[!getjson](★ my ip: $origin)",
-    "http://ip-api.com/json/[!getjson](★ my lat/lon: $lat $lon)",
-    "https://api.wheretheiss.at/v1/satellites/25544[!getjson300](⏳ iss: N $latitude $longitude)",
-    "https://api.coindesk.com/v1/bpi/currentprice.json[!getjson300](⏳ btc: $rate $ £)"
-  ],
-
-  "news": [
-    "https://www.wsj.com(Wall Street Journal)",
-    "https://www.nytimes.com",
-    "https://www.washingtonpost.com",
-    "https://www.lefigaro.fr",
-    "https://www.nasaspaceflight.com",
-    "https://modis.gsfc.nasa.gov/gallery/",
-    "https://www.nasa.gov/",
-    "https://earthobservatory.nasa.gov/"
-  ],
-  "photos": [    
-  ],
-  "notebooks": [
-    "https://wolframcloud.com",
-    "https://observablehq.com/@guinetn",
-    "https://colab.research.google.com(colaboratory)"
-  ],
-  "videos": ["https://youtube.com", "https://www.ted.com(TEDx)"],
-
-  "daily_routine": ["https://calendly.com/", 
-    "https://monday.com/",
-    "https://skillvalue.com/"
-  ],
-  "online_tools": [
-    "https://docs.w3cub.com",
-    "https://vclock.com(countdown, alarms)",
-    "https://asciiflow.com",
-    "https://app.diagrams.net(draw.io)",
-    "https://app.code2flow.com(code flow)",
-    "https://pastebin.com",
-    "https://cloud.mongodb.com",
-    "https://dashboard.fauna.com(fauna DB)"
-  ],
-  "blogs": [
-    "https://medium.com", 
-    "https://guinetn.github.io",
-    "https://medium.com/younited-tech-blog",
-    "https://news.efinancialcareers.com/uk-en/en/advice"
-  ],
-  "communication": [
-    "https://www.skype.com",
-    "https://www.meetup.com",
-    "https://zoom.us",
-    "https://www.slack.com",
-    "https://trello.com/guinetn(Trello: project organ/management)",    
-    "https://www.instagram.com",
-    "https://discord.com/channels/@me",
-    "https://www.whatsapp.com/(Whatsapp: phone msg/video)",
-    "https://telegram.org/(Telegram: phone encrypted conversations+open api)",
-    "https://signal.org/(Signal: phone medias/call/videos)"
-  ],
-  "google": [
-    "https://myactivity.google.com",
-    "https://translate.google.com",
-    "https://research.google/pubs",
-    "https://trends.google.com",
-    "https://photos.google.com",
-    "https://drive.google.com",
-    "https://myaccount.google.com",
-    "https://www.google.com/maps/timeline(google maps timeline)",
-    "https://adssettings.google.com(google ads settings)",
-    "https://code.google.com",
-    "https://developers.google.com",
-    "https://developers.google.com/products(developers.google.com/products)",
-    "https://developers.google.com/analytics(developers.google.com/analytics)"
-  ],
-  "helpers": [
-    "https://gitter.im",
-    "https://www.quora.com",
-    "https://stackoverflow.com"
-  ],
-  "games": [
-    "https://fable.io/samples-browser/d3map(countries name on globe)",
-    "https://kripken.github.io/BananaBread/cube2/bb.html(doom like)",
-    "https://duckface-hunt.glitch.me(duck hunt with facial reco)",
-    "https://jsfiddle.net/q76uzxwe/1(jsfiddle chess)",
-    "https://p5js.org(p5js: browser's sketch)"
-  ],
-
-  "algorithms": ["https://www.interviewbit.com/tutorial/sorting-algorithms/"],
-  "architectures": [
-    "https://levelup.gitconnected.com/software-architecture-the-important-architectural-patterns-you-need-to-know-a1f5ea7e4e3d"
-  ],
-  "regex": [],
-  "best_practices": [],
-  "design_patterns": [],
-  "hardware": [],
-
-  "repos": ["https://github.io",
-  "https://hub.docker.com"],
-  "codenews": [
-    "https://roadmap.sh(developer roadmap)",
-    "https://dev.to",
-    "https://www.liquidweb.com",
-    "https://www.sitepoint.com",
-    "https://vas3k.com",
-    "https://anthonychu.ca",
-    "http://www.codeproject.com",
-    "https://neelbhatt.com",
-    "https://gunnarpeipman.com",
-    "http://www.johnpapa.net",
-    "http://www.hanselman.com/blog",
-    "https://martinfowler.com",
-    "https://tutorialzine.com",
-    "https://alligator.io/explore",
-    "https://dzone.com",
-    "https://www.toptal.com/developers/blog",
-    "https://www.blinkingcaret.com",
-    "https://blog.soat.fr",
-    "https://www.smashingmagazine.com",
-    "https://scotch.io",
-    "https://www.telerik.com/blogs",
-    "https://hackaday.com",
-    "https://www.dotnetcurry.com",
-    "https://freecodecamp.com",
-    "https://www.hackster.io",
-    "https://hackernoon.com",
-    "https://pioneercode.com",
-    "https://developpez.com",
-    "https://www.hongkiat.com"
-  ],
-
-  "microsoft": [
-    "https://visualstudiomagazine.com",
-    "https://docs.microsoft.com/en-us/archive/msdn-magazine/msdn-magazine-issues(msdn-magazine)",
-    "https://login.microsoftonline.com(microsoftonline * office)",
-    "https://developer.microsoft.com"
-  ],
-  "dot_net": [
-    "https://www.c-sharpcorner.com",
-    "https://dotnet.microsoft.com",
-    "https://docs.microsoft.com/en-us/dotnet/core/introduction",
-    "https://dotnet.microsoft.com/learn",
-    "http://anthonygiretti.com"
-  ],
-
-  "cplusplus": ["https://github.com/onelonecoder(onelonecoder)"],
-  "documentation": ["https://readthedocs.io"],
-  "code_sample": [
-    "https://docs.microsoft.com/fr-fr/samples(microsoft samples)"
-  ],
-  "internationalization": [],
-  "depency_injection_ioc": [],
-  "testing": [],
-
-  "javascript": [
-    "https://github.com/you-dont-need/You-Dont-Need-JavaScript(You-Dont-Need-JavaScript)",
-    "https://github.com/airbnb/javascript(Airbnb JavaScript Style Guide)"
-  ],
-  "linters": [
-    "https://eslint.org(ESLint: lint ts, js)",
-    "https://palantir.github.io/tslint(TSLint)"
-  ],
-  "json": ["https://jwt.io", "https://jsonlint.com"],
-  "html": ["https://simpl.info"],
-  "network": ["https://httpstat.us(httpstat.us APi: HTTP codes generator)"],
-  "css": ["https://css-tricks.com"],
-  "localhost": [
-    "http://192.168.0.1(Router 192.168.0.1)",
-    "localhost:1234(:1234)",
-    "localhost:1313(:1313)",
-    "localhost:1337(:1337)",
-    "localhost:3000(:3000)",
-    "localhost:3333(:3333)",
-    "localhost:4444(:4444)",
-    "localhost:5000(:5000)",
-    "localhost:8000(:8000)",
-    "localhost:8080(:8080)",
-    "localhost:8888(:8888)",
-    "localhost:10000(:10000)",
-    "http://www.locallhost.com(View ip, request headers…)"
-  ],
-  "chrome": [
-    "chrome://bookmarks[copy]",
-    "chrome://flags[copy]",
-    "chrome://help[copy]",
-    "chrome://inspect[copy]",
-    "chrome://settings[copy]",
-    "chrome://version[copy]",
-    "chrome://extensions[copy]",
-    "chrome://gpu[copy]",
-    "chrome://histograms[copy]",
-    "chrome://indexeddb-internals[copy]",
-    "chrome://inspect[copy]",
-    "chrome://nacl[copy]",
-    "chrome://omnibox[copy]",
-    "chrome://tracing[copy]",
-    "https://www.chromestatus.com",
-    "https://www.chromestatus.com/samples",
-    "https://v8.dev",
-    "https://github.com/GoogleChrome",
-    "https://github.com/samdutton/samples",
-    "https://www.chromeexperiments.com",
-    "https://chrome.google.com/webstore/category/extensions(chrome web store)"
-  ],
-  "node": ["https://www.npmjs.org"],
-  "mywebsites": ["https://hotellespalmiers.com"],
-  "seo": ["https://www.woorank.com/en/www/hotellespalmiers.com(woorank.com)"],
-  "webplayground": ["https://css-transform.moro.es(css-transformations)"],
-  "maps": ["https://developers.google.com/maps"],
-  "ui_automation": [
-    "https://github.com/cypress-io/cypress",
-    "https://www.selenium.dev(selenium automate brwosers)",
-    "https://github.com/puppeteer/puppeteer(puppeteer: Headless Chrome Node.js API)",
-    "https://phantomjs.org(phantomjs - soon off?)",
-    "https://www.lambdatest.com/blog/selenium-webdriver-with-python"
-  ],
-
-  "cors": ["https://flaviocopes.com/cors"],
-  "code_api": [
-    "https://developers.google.com/api-client-library",
-    "https://console.developers.google.com",
-    "https://app.swaggerhub.com(swagger hub)",
-    "https://swagger.io/tools/swagger-editor(swagger-editor)"
-  ],
-  "tokens": [
-    "https://github.com/settings/tokens(github)",
-    "https://www.mapbox.com/account(mapbox)",
-    "https://openweathermap.org(openweathermap)",
-    "https://manage.auth0.com(auth0)",
-    "https://dev-589321.oktapreview.com(oktapreview.com)"
-  ],
-  "hosting": [
-    "https://www.netlify.com",
-    "https://surge.sh(surge.sh: publish static web)",
-    "https://vercel.com(websites, serverless APIs. Free, easy)",
-    "https://render.com(Render.com host static, APIs, db...)",
-    "https://console.firebase.google.com(Firebase)",
-    "https://console.aws.amazon.com(Aws)",
-    "https://cloud.google.com(Google Cloud platform)",
-    "https://search.google.com(Google Search Console)",
-    "https://www.gandi.net"
-  ],
-  "serverless": [
-    "https://console.cloud.google.com/functions(Firebase cloud.google.com)"
-  ],
-
-  "providers": [
-    "https://aws.amazon.com(Amazon Web Services AWS)",
-    "https://portal.azure.com(Microsoft Azure)",
-    "https://cloud.google.com(Google Cloud)",
-    "https://www.alibabacloud.com(Alibaba Cloud)",
-    "https://www.ibm.com/cloud(IBM Cloud)",
-    "https://www.oracle.com/cloud/(Oracle Cloud Infrastructure OCI)",
-    "https://www.salesforce.com(Salesforce)",
-    "https://www.sap.com(SAP)",
-    "https://www.rackspace.com/cloud(Rackspace Cloud)",
-    "https://www.vmware.com(VMWare)",
-    "https://www.confluent.io(Confluent)"
-  ],
-  "azure": [
-    "https://portal.azure.com(Microsoft Azure)",
-    "https://nguinet.visualstudio.com(az devops/you.visualstudio.com)"
-  ],
-  "workflow": ["https://www.pulumi.com(pulumi.com: Many clouds, one workflow)"],
-
-  "mobiles": [
-    "https://appsgeyser.com",
-    "https://aws.amazon.com/fr/amplify(amazon amplify)"
-  ],
-  "android": [
-    "https://platform.appgyver.com(appgyver.com)",
-    "https://my.swiftic.com(swiftic.com, old como)",
-    "https://appsgeyser.com"
-  ],
-
-  "online_paiement": ["https://www.paypal.com"],
-  "data_vizu": [
-    "https://setosa.io",
-    "https://app.diagrams.net(draw.io)",
-    "https://codepen.io/DonKarlssonSan/post/particles-in-simplex-noise-flow-field(particles field weather ****)",
-    "https://css-tricks.com/exploring-data-with-serverless-and-vue-part-2(css-tricks)",
-    "https://webdesigner.withgoogle.com",
-    "https://www.canva.com"
-  ],
-  "analytics": [
-    "https://www.tableau.com/(tableau: see/understand data)",
-    "https://developers.google.com/analytics"
-  ],
-
+  "algorithms":["https://www.interviewbit.com/tutorial/sorting-algorithms/"],
   
-  "maths": [
-    "https://math.libretexts.org", 
-    "https://www.khanacademy.org/",
-    "[Parth G. Youtube]https://www.youtube.com/channel/UC9lztld5qPi-6WZ9_QIVR6g"
-  ],
+  "analytics":["https://www.tableau.com/(tableau: see/understand data)","https://developers.google.com/analytics"],
+  
+  "android":["https://platform.appgyver.com(appgyver.com)","https://my.swiftic.com(swiftic.com, old como)","https://appsgeyser.com"],
+  
+  "architectures":["https://levelup.gitconnected.com/software-architecture-the-important-architectural-patterns-you-need-to-know-a1f5ea7e4e3d", "https://www.youtube.com/channel/UC_ML5xP23TOWKUcc-oAE_Eg(Hussein Nasser - software engineering)"],
+  
+  "azure":["https://portal.azure.com(Microsoft Azure)","https://nguinet.visualstudio.com(az devops/you.visualstudio.com)"],
+
+  "best_practices":[],
+  
+  "biology":[], 
+
+  "blogs":["https://medium.com","https://guinetn.github.io","https://medium.com/younited-tech-blog","https://news.efinancialcareers.com/uk-en/en/advice"],
+  
+  "chrome":["chrome://bookmarks[copy]","chrome://flags[copy]","chrome://help[copy]","chrome://inspect[copy]","chrome://settings[copy]","chrome://version[copy]","chrome://extensions[copy]","chrome://gpu[copy]","chrome://histograms[copy]","chrome://indexeddb-internals[copy]","chrome://inspect[copy]","chrome://nacl[copy]","chrome://omnibox[copy]","chrome://tracing[copy]","https://www.chromestatus.com","https://www.chromestatus.com/samples","https://v8.dev","https://github.com/GoogleChrome","https://github.com/samdutton/samples","https://www.chromeexperiments.com","https://chrome.google.com/webstore/category/extensions(chrome web store)"],
+  
+  "code_api":["https://developers.google.com/api-client-library","https://console.developers.google.com","https://app.swaggerhub.com(swagger hub)","https://swagger.io/tools/swagger-editor(swagger-editor)"],
+  
+  "code_sample":["https://docs.microsoft.com/fr-fr/samples(microsoft samples)"],
+  
+  "codenews":["https://roadmap.sh(developer roadmap)","https://dev.to","https://www.liquidweb.com","https://www.sitepoint.com","https://vas3k.com","https://anthonychu.ca","http://www.codeproject.com","https://neelbhatt.com","https://gunnarpeipman.com","http://www.johnpapa.net","http://www.hanselman.com/blog","https://martinfowler.com","https://tutorialzine.com","https://alligator.io/explore","https://dzone.com","https://www.toptal.com/developers/blog","https://www.blinkingcaret.com","https://blog.soat.fr","https://www.smashingmagazine.com","https://scotch.io","https://www.telerik.com/blogs","https://hackaday.com","https://www.dotnetcurry.com","https://freecodecamp.com","https://www.hackster.io","https://hackernoon.com","https://pioneercode.com","https://developpez.com","https://www.hongkiat.com"],
+  
+  "communication":["https://www.skype.com","https://www.meetup.com","https://zoom.us","https://www.slack.com","https://trello.com/guinetn(Trello: project organ/management)","https://www.instagram.com","https://discord.com/channels/@me","https://www.whatsapp.com/(Whatsapp: phone msg/video)","https://telegram.org/(Telegram: phone encrypted conversations+open api)","https://signal.org/(Signal: phone medias/call/videos)"],
+  
+  "cors":["https://flaviocopes.com/cors"],
+  
+  "c":["https://www.youtube.com/channel/UCwd5VFu4KoJNjkWJZMFJGHQ(Jacob sorber)"],
+  "cplusplus":["https://github.com/onelonecoder(onelonecoder)"],
+  "c_sharp":["https://foxlearn.com", "https://www.youtube.com/channel/UCrkPsvLGln62OMZRO6K-llg(Nick Chapsas)"],
+  
+  "css":["https://css-tricks.com"],
+  
+  "courses":["https://academind.com/courses"],
+  
+  "daily_routine":["https://calendly.com/","https://monday.com/","https://skillvalue.com/"],
+  
+  "data_vizu":["https://setosa.io","https://app.diagrams.net(draw.io)","https://codepen.io/DonKarlssonSan/post/particles-in-simplex-noise-flow-field(particles field weather ****)","https://css-tricks.com/exploring-data-with-serverless-and-vue-part-2(css-tricks)","https://webdesigner.withgoogle.com","https://www.canva.com"],
   
   
-  "latex": ["https://www.overleaf.com(overleaf: online .tex files)"],
-
-  "ml": [
-    "https://www.datasciencecentral.com",
-    "https://www.datasciencecentral.com/profiles/blogs/data-science-cheat-sheet(datasciencecentral cheat-sheet)",
-    "https://www.analyticsvidhya.com",
-    "https://anaconda.org",
-    "https://colab.research.google.com"
-  ],
-  "maths_for_ml": ["https://ml-cheatsheet.readthedocs.io"],
-  "ml_samples": [
-    "https://teachablemachine.withgoogle.com(Google Teachable Machine)",
-    "https://www.analyticsvidhya.com/blog/2020/12/deep-learning-with-google-teachable-machine(Head Mouse Control using Google Teachable Machine)",
-    "https://jairiidriss.medium.com/gradient-descent-algorithm-from-scratch-using-python-2b36c1548917"
-  ],
-  "embedded_ml": [
-    "https://coral.ai(coral.ai: toolkit to build products with local AI)"
-  ],
-
-  "electronic": ["http://www.learningaboutelectronics.com"],
-
-  "science": [
-    "https://arxiv.org",
-    "https://eos.org",
-    "https://www.newscientist.com",
-    "https://newatlas.com",
-    "https://www.cea.fr/comprendre",
-    "https://newatlas.com/"
-  ],
-  "physic": ["http://www.splung.com","https://www.youtube.com/channel/UCiGxYawhEp4QyFcX0R60YdQ(Pysics by Michel van Biezen)",
-  "https://www.youtube.com/channel/UCJ0yBou72Lz9fqeMXh9mkog(Physics Videos by Eugene Khutoryansky)"],
-  "geology": ["http://www.geologycafe.com"],
-  "biology": [],
-  "mechanic": ["https://github.com/rajathkmp/BMC(BMC biomechanic ****)"],
-  "physic_quantic": [],
-  "thermodynamic": [],
-
-  "crowdfunding": [
-    "https://www.patreon.com",
-    "https://www.tudigo.co",
-    "https://www.kickstarter.com"
-  ],
-
-  "plane": ["https://www.sia.aviation-civile.gouv.fr(aviation-civile.gouv.fr)",
-  "https://www.rotorandwing.com"
-  ],
-  "finances": ["https://tradingeconomics.com/", "https://fred.stlouisfed.org/"],
-  "jobs": [
-    "https://www.malt.fr",
-    "https://www.codeur.com",
-    "https://www.freelancer.com/jobs",
-    "https://verduron.com",
-    "http://www.viadeo.com",
-    "https://hired.com",
-    "https://www.humaniance.com",
-    "https://www.dogfinance.com",
-    "https://www.codingame.com",
-    "https://remoteok.io",
-    "https://www.cremedelacreme.io",
-    "https://pasteque.io",
-    "https://welovedevs.com",
-    "https://eFinancialCareers.fr",
-    "https://www.expectra.fr",
-    "https://fr.indeed.com",
-    "https://mobiskill.fr/",
-    "https://sept-lieues.com/",
-    "https://ignition-program.com/",
-    "https://www.efinancialcareers.co.uk/"
-  ],
-  "toolbox_online_tools":["https://docs.w3cub.com",
-  "https://vclock.com(countdown, alarms)",
-  "https://asciiflow.com",
-  "https://app.diagrams.net(draw.io)",
-  "https://app.code2flow.com(code flow)",
-  "https://pastebin.com",
-  "https://cloud.mongodb.com",
-  "https://dashboard.fauna.com(fauna DB)",
-  "https://playground.platform.uno/"
-  ],
+  "design_patterns":[],
   
-  "weather": [
-  "https://www.spaceweatherlive.com/",
-  "https://stormhour.com/(meteo+weather photo)"
-],
-"presentations":["https://remarkjs.com/", 
-  "http://showdownjs.com/"]
-}
+  "documentation":["https://readthedocs.io"],
+  
+  "dot_net":["https://www.c-sharpcorner.com","https://dotnet.microsoft.com","https://docs.microsoft.com/en-us/dotnet/core/introduction","https://dotnet.microsoft.com/learn","http://anthonygiretti.com", "https://www.youtube.com/channel/UCvtT19MZW8dq5Wwfu6B0oxw(YouTube DotNet)", "https://github.com/dotnet/maui"],
+  
+  "electronic":["http://www.learningaboutelectronics.com"],
+  
+  "embedded_ml":["https://coral.ai(coral.ai: toolkit to build products with local AI)"],
+  
+  "finances":["https://tradingeconomics.com/","https://fred.stlouisfed.org/"],
+  
+  "games":["https://fable.io/samples-browser/d3map(countries name on globe)","https://kripken.github.io/BananaBread/cube2/bb.html(doom like)","https://duckface-hunt.glitch.me(duck hunt with facial reco)","https://jsfiddle.net/q76uzxwe/1(jsfiddle chess)","https://p5js.org(p5js: browser's sketch)"],
+  
+  "gems":["https://www.youtube.com/channel/UCiGxYawhEp4QyFcX0R60YdQ(Pysics by Michel van Biezen)","https://www.youtube.com/channel/UCJ0yBou72Lz9fqeMXh9mkog(Physics Videos by Eugene Khutoryansky)"],
+  
+  "geology":["http://www.geologycafe.com"],
+  
+  "google":["https://myactivity.google.com","https://translate.google.com","https://research.google/pubs","https://trends.google.com","https://photos.google.com","https://drive.google.com","https://myaccount.google.com","https://www.google.com/maps/timeline(google maps timeline)","https://adssettings.google.com(google ads settings)","https://code.google.com","https://developers.google.com","https://developers.google.com/products(developers.google.com/products)","https://developers.google.com/analytics(developers.google.com/analytics)"],
+    
+  "hardware":[],
+  
+  "helpers":["https://gitter.im","https://www.quora.com","https://stackoverflow.com"],
+  
+  "hosting":["https://www.netlify.com","https://surge.sh(surge.sh: publish static web)","https://vercel.com(websites, serverless APIs. Free, easy)","https://render.com(Render.com host static, APIs, db...)","https://console.firebase.google.com(Firebase)","https://console.aws.amazon.com(Aws)","https://cloud.google.com(Google Cloud platform)","https://search.google.com(Google Search Console)","https://www.gandi.net"],
+  
+  "html":["https://simpl.info"],
+  
+  "internationalization":[],"depency_injection_ioc":[],"testing":[],"javascript":["https://github.com/you-dont-need/You-Dont-Need-JavaScript(You-Dont-Need-JavaScript)","https://github.com/airbnb/javascript(Airbnb JavaScript Style Guide)"],
+  
+  "jobs":["https://www.malt.fr","https://www.codeur.com","https://www.freelancer.com/jobs","https://verduron.com","http://www.viadeo.com","https://hired.com","https://www.humaniance.com","https://www.dogfinance.com","https://www.codingame.com","https://remoteok.io","https://www.cremedelacreme.io","https://pasteque.io","https://welovedevs.com","https://eFinancialCareers.fr","https://www.expectra.fr","https://fr.indeed.com","https://mobiskill.fr/","https://sept-lieues.com/","https://ignition-program.com/","https://www.efinancialcareers.co.uk/"],
+  
+  "json":["https://jwt.io","https://jsonlint.com"],
+  
+  "latex":["https://www.overleaf.com(overleaf: online .tex files)"],
+  
+  "linters":["https://eslint.org(ESLint: lint ts, js)","https://palantir.github.io/tslint(TSLint)"],
+  
+  "live":["http://192.168.0.1(Router 192.168.0.1)","https://httpbin.org/ip[!getjson](★ my ip: $origin)","http://ip-api.com/json/[!getjson](★ my lat/lon: $lat $lon)","https://api.wheretheiss.at/v1/satellites/25544[!getjson300](⏳ iss: N $latitude $longitude)","https://api.coindesk.com/v1/bpi/currentprice.json[!getjson300](⏳ btc: $rate $ £)"],
+  
+  "localhost":["http://192.168.0.1(Router 192.168.0.1)","localhost:1234(:1234)","localhost:1313(:1313)","localhost:1337(:1337)","localhost:3000(:3000)","localhost:3333(:3333)","localhost:4444(:4444)","localhost:5000(:5000)","localhost:8000(:8000)","localhost:8080(:8080)","localhost:8888(:8888)","localhost:10000(:10000)","http://www.locallhost.com(View ip, request headers…)"],
+  
+  "maps":["https://developers.google.com/maps"],
+  
+  "maths":["https://math.libretexts.org","https://www.khanacademy.org/","[Parth G. Youtube]https://www.youtube.com/channel/UC9lztld5qPi-6WZ9_QIVR6g"],
+  
+  "maths_for_ml":["https://ml-cheatsheet.readthedocs.io"],
+  
+  "mechanic":["https://github.com/rajathkmp/BMC(BMC biomechanic ****)"],
+
+  "microsoft":["https://visualstudiomagazine.com","https://docs.microsoft.com/en-us/archive/msdn-magazine/msdn-magazine-issues(msdn-magazine)","https://login.microsoftonline.com(microsoftonline * office)","https://developer.microsoft.com"],
+  
+  "ml":["https://www.datasciencecentral.com","https://www.datasciencecentral.com/profiles/blogs/data-science-cheat-sheet(datasciencecentral cheat-sheet)","https://www.analyticsvidhya.com","https://anaconda.org","https://colab.research.google.com", "https://vivadata.org"],
+  
+  "ml_samples":["https://teachablemachine.withgoogle.com(Google Teachable Machine)","https://www.analyticsvidhya.com/blog/2020/12/deep-learning-with-google-teachable-machine(Head Mouse Control using Google Teachable Machine)","https://jairiidriss.medium.com/gradient-descent-algorithm-from-scratch-using-python-2b36c1548917"],
+  
+  "mobiles":["https://appsgeyser.com","https://aws.amazon.com/fr/amplify(amazon amplify)"],
+  
+  "mywebsites":["https://hotellespalmiers.com"],
+  
+  "navIcons":["https://gmail.com[inline fas fa-envelope]","https://www.linkedin.com[inline fab fa-linkedin]","https://twitter.com[inline fab fa-twitter]","https://github.com/guinetn[inline fab fa-github]","https://coggle.it[inline fas fa-sitemap]","https://www.pinterest.fr/nguinet[inline fab fa-pinterest]","https://www.facebook.com/profile.php?id=100008401895918[inline fab fa-facebook]","https://youtube.com[inline fab fa-youtube]"],
+  
+  "network":["https://httpstat.us(httpstat.us APi: HTTP codes generator)"],
+  
+  "news":["https://www.wsj.com(Wall Street Journal)","https://www.nytimes.com","https://www.washingtonpost.com","https://www.lefigaro.fr","https://www.nasaspaceflight.com","https://modis.gsfc.nasa.gov/gallery/","https://www.nasa.gov/","https://earthobservatory.nasa.gov/","https://www.quantamagazine.org/"],
+  
+  "node":["https://www.npmjs.org"],
+  
+  "online_paiement":["https://www.paypal.com"],
+  
+  "online_tools":["https://docs.w3cub.com","https://vclock.com(countdown, alarms)","https://asciiflow.com","https://app.diagrams.net(draw.io)","https://app.code2flow.com(code flow)","https://pastebin.com","https://cloud.mongodb.com","https://dashboard.fauna.com(fauna DB)"],
+  
+  "photos":[],"notebooks":["https://wolframcloud.com","https://observablehq.com/@guinetn","https://colab.research.google.com(colaboratory)"],
+  
+  "physic":["http://www.splung.com","https://www.youtube.com/channel/UCiGxYawhEp4QyFcX0R60YdQ(Pysics by Michel van Biezen)","https://www.youtube.com/channel/UCJ0yBou72Lz9fqeMXh9mkog(Physics Videos by Eugene Khutoryansky)", "https://www.youtube.com/channel/UCqZQJ4600a9wIfMPbYc60OQ(physics in engineering)"],
+  
+  "physic_quantic":[],"thermodynamic":[],"crowdfunding":["https://www.patreon.com","https://www.tudigo.co","https://www.kickstarter.com"],
+  
+  "plane":["https://www.sia.aviation-civile.gouv.fr(aviation-civile.gouv.fr)","https://www.rotorandwing.com"],
+  
+  "presentations":["https://remarkjs.com/","http://showdownjs.com/"],
+  
+  "providers":["https://aws.amazon.com(Amazon Web Services AWS)","https://portal.azure.com(Microsoft Azure)","https://cloud.google.com(Google Cloud)","https://www.alibabacloud.com(Alibaba Cloud)","https://www.ibm.com/cloud(IBM Cloud)","https://www.oracle.com/cloud/(Oracle Cloud Infrastructure OCI)","https://www.salesforce.com(Salesforce)","https://www.sap.com(SAP)","https://www.rackspace.com/cloud(Rackspace Cloud)","https://www.vmware.com(VMWare)","https://www.confluent.io(Confluent)"],
+  
+  "react":["https://fireship.io/tags/react"  ],
+
+  "regex":[],
+      
+  "repos":["https://github.io","https://hub.docker.com"],
+  
+  "science":["https://arxiv.org","https://eos.org","https://www.newscientist.com","https://newatlas.com","https://www.cea.fr/comprendre","https://newatlas.com/","https://www.quantamagazine.org/"],
+  
+  "seo":["https://www.woorank.com/en/www/hotellespalmiers.com(woorank.com)"],
+  
+  "serverless":["https://console.cloud.google.com/functions(Firebase cloud.google.com)"],
+  
+  "tokens":["https://github.com/settings/tokens(github)","https://www.mapbox.com/account(mapbox)","https://openweathermap.org(openweathermap)","https://manage.auth0.com(auth0)","https://dev-589321.oktapreview.com(oktapreview.com)"],
+  
+  "toolbox_online_tools":["https://docs.w3cub.com","https://vclock.com(countdown, alarms)","https://asciiflow.com","https://app.diagrams.net(draw.io)","https://app.code2flow.com(code flow)","https://pastebin.com","https://cloud.mongodb.com","https://dashboard.fauna.com(fauna DB)","https://playground.platform.uno/"],
+  
+  "ui_automation":["https://github.com/cypress-io/cypress","https://www.selenium.dev(selenium automate brwosers)","https://github.com/puppeteer/puppeteer(puppeteer: Headless Chrome Node.js API)","https://phantomjs.org(phantomjs - soon off?)","https://www.lambdatest.com/blog/selenium-webdriver-with-python"],
+  
+  "videos":["https://youtube.com","https://www.ted.com(TEDx)"],
+  
+  "weather":["https://www.spaceweatherlive.com/","https://stormhour.com/(meteo+weather photo)"],
+  
+  "webplayground":["https://css-transform.moro.es(css-transformations)"],
+  
+  "web_online_tools":["https://fireship.io", "https://blog.webdevsimplified.com", "https://codepen.io/WebDevSimplified"],
+  
+  "workflow":["https://www.pulumi.com(pulumi.com: Many clouds, one workflow)"]
+  
+  }
