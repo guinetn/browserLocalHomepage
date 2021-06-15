@@ -69,7 +69,7 @@ méthode anonyme: méthode… sans nom, morceau de code représentant le corps d
 
 
 C# 2.0
-
+```c#
 public class DemoDelegate
 {
   delegate T Func<T>(T a, T b);
@@ -105,8 +105,11 @@ static void Main(string[] args)
 {
   DemoDelegate.LancerDemo();
 }
+```
 
-expressions Lambda pour réécrire le code de la méthode LancerDemo :
+
+Expressions Lambda pour réécrire le code de la méthode LancerDemo :
+```c#
 public static void LancerDemoCS3()
 {
   int somme; 
@@ -114,6 +117,7 @@ public static void LancerDemoCS3()
   somme = DemoDelegate.Agreger(lesEntiers, (int x, int y) => { return x + y; });
   Console.WriteLine("La somme = {0}", somme);
 }
+```
 
 Expression = « étant donné les paramètres x et y de type entier, retourner la somme de x et y. »
 Les expressions lambda supportent le typage implicite des paramètres: (x, y) => { return x + y; }
@@ -122,11 +126,13 @@ L’inférence des types est effectuée à la compilation, bien entendu, et non 
 => « Tel Que » si prédicat (expression booléenne généralement utilisée pour créer un filtre )
 => « Deviens » si projection (expression retournant un type différent de son unique paramètre)
 
+```c#
 somme = DemoDelegate.Agreger(lesEntiers, (x, y) => x + y );
-
+```
 
 Encore plus simple:
 
+```c#
 public delegate T Func2<T>(T x);
 public static T Agreger2<T>(List<T> l, Func2<T> f)
 {
@@ -142,8 +148,9 @@ public static void LancerDemoCS3v4()
  somme = DemoDelegate.Agreger2(lesSimples, (x) => somme += x);
  Console.WriteLine("La somme = {0}", somme);
 }
+```
 
-elle peut se permettre d’utiliser la variable locale somme à l’intérieur même de sa définition. 
+Elle peut se permettre d’utiliser la variable locale somme à l’intérieur même de sa définition. 
 En effet, somme est une locale de la méthode contenant l’expression et sa portée ainsi que sa durée de vie sont étendues à l’instance de la méthode anonyme définit par l’expression Lambda.
 
 Lorsqu’il n’y a qu’un seul paramètre on peut omettre les parenthèses qui l’entourent: x => somme += x
@@ -152,6 +159,8 @@ Que des petits bouts de code et non des pages entières :  filtres ou autres fon
 
 
 Code de type filtrage (prédicat):
+
+```c#
 public class DemoPredicat
 {
  public static void AfficheListe<T>(T[] items, Func<T, bool> leFiltre)
@@ -168,15 +177,18 @@ public class DemoPredicat
   AfficheListe(villes, s => s.Contains('i'));
  }
 }
+```
 
 Les expressions Lambda rendent le code concis et clair. 
 pas de delegate déclaré. Nous avons utilisé une déclaration existante dans le Framework:
 
-• public delegate T Func< T >();
-• public delegate T Func< A0, T >( A0 arg0 );
-• public delegate T Func<A0, A1, T> ( A0 arg0, A1 arg1 );
-• public delegate T Func<A0, A1, A2, T >( A0 arg0, A1 arg1, A2 arg2 );
-• public delegate T Func<A0, A1, A3, T> ( A0 arg0, A1 arg1, A2 arg2, A3 arg3 );
+```c#
+public delegate T Func< T >();
+public delegate T Func< A0, T >( A0 arg0 );
+public delegate T Func<A0, A1, T> ( A0 arg0, A1 arg1 );
+public delegate T Func<A0, A1, A2, T >( A0 arg0, A1 arg1, A2 arg2 );
+public delegate T Func<A0, A1, A3, T> ( A0 arg0, A1 arg1, A2 arg2, A3 arg3 );
+```
 
 Il n’y a bien entendu aucune obligation d’utiliser ces types définis dans System.Linq
 (ajouté automatiquement aux projets sous VS 2008). Vous pouvez utiliser vos propres types.
@@ -196,8 +208,10 @@ requêtes Linq C# en syntaxe SQL (Linq to ADO.NET)  conforme à la base cible. C
 Expression trees permit lambda expressions to be represented as data structures instead of executable code. A lambda expression that is convertible to a delegate type D is also convertible to an expression tree of type System.Query.Expression<D>. Whereas the conversion of a lambda expression to a delegate type causes executable code to be generated and referenced by a delegate, conversion to an expression tree type causes code that creates an expression tree instance to be emitted. Expression trees are efficient in-memory data representations of lambda expressions and make the structure of the expression transparent and explicit.
 The following example represents a lambda expression both as executable code and as an expression tree. Because a conversion exists to Func<int,int>, a conversion also exists to Expression<Func<int,int>>.
 
+```c#
 Func<int,int> f = x => x + 1;					// Code
 Expression<Func<int,int>> e = x => x + 1;		// Data
+```
 
 Delegate f references a method that returns x+1
 Expression tree e references a data structure that describes the expression x+1
@@ -208,6 +222,7 @@ Expression tree e references a data structure that describes the expression x+1
 Pouvoir ajouter des méthodes à une classe sans modifier la dite classe…
 Pour simplifier la syntaxe de Linq, la rendre plus lisible et plus concise.
 
+```c#
 public struct Article
 {
  public int Code;
@@ -241,13 +256,14 @@ public static class Afficheur
   public static void Affiche(this object o)
   { Console.WriteLine(o.ToString()); }
 }
+```
 
 Article et Client ne partageant rien en commun. 
 Les paramètres de Affiche, et l’utilisation de this, en font automatiquement un class helper.
 C’est ce qui permet d’appeler Affiche depuis des instances de Article ou de Client. 
 Si void Affiche(Article): seule la classe Article aurait pu utiliser Affiche 
 
-
+```c#
 namespace Acme.Utilities
 {
 	public static class Extensions
@@ -264,20 +280,22 @@ namespace Acme.Utilities
 		}
 	}
 }
-
+```
 
 
 
 ## Les expressions d’initialisation des objets
 
 C# 1.0 proposait déjà quelques facilités syntaxiques, pour rappel :
+```c#
 string s = "Bonjour" ;
 single x = 10.0f ;
 Synthé synthé = new Synthé("Prophet",5,"Sequential Circuit") ; // Cette Approche oblige à coder les surcharges du ctor
+```
 
 C#3.0:
 
-
+```c#
 public class Point
 {
 	int x, y;
@@ -285,8 +303,10 @@ public class Point
 	public int Y { get { return y; } set { y = value; } }
 }
 var a = new Point { X = 0, Y = 1 };
+```
 
 which has the same effect as
+```c#
 var a = new Point(); a.X = 0; a.Y = 1;
 
 
@@ -328,7 +348,7 @@ var contacts = new[] {
 
 List<int> digits = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 Dictionary<int,Order> orders = new Dictionary<int,Order>();
-
+```
 
 
 
@@ -340,6 +360,7 @@ An anonymous object initializer declares an anonymous type and returns an instan
 
 * The name of an anonymous type is automatically generated by the compiler and cannot be referenced in program text.
 
+```c#
 new { p1 = e1 , p2 = e2 , … pn = en } declares an anonymous type of the form
 class __Anonymous1
 {
@@ -352,9 +373,11 @@ class __Anonymous1
 	…
 	public T1 p1 { get { return f1 ; } set { f1 = value ; } }
 }
+```
 
 * Two anonymous object initializers that specify a sequence of properties of the same names and types in the same order will produce instances of the same anonymous type. 
 
+```c#
 var p1 = new { Name = "Lawnmower", Price = 495.00 };
 var p2 = new { Name = "Shovel", Price = 26.95 };
 p1 = p2; // permitted assignment because p1 and p2 are of the same anonymous type
@@ -369,6 +392,7 @@ Console.WriteLine("le processeur est un " + bidule.Type + " de chez " + bidule.M
 Output:
 la couleur du truc est Color [Red] et sa forme est un Carré
 le processeur est un Xeon de chez Intel avec 4 coeurs.
+```
 
 C# créé bien des classes (un type) pour truc et bidule 
 GetType() donne
@@ -395,6 +419,7 @@ The initial from clause can be followed by zero or more from, let, or where clau
 C# 3.0 translates query expressions into invocations of methods that adhere to the query expression pattern. Specifically, query expressions are translated into invocations of methods named Where, Select, SelectMany, Join, GroupJoin, OrderBy, OrderByDescending, ThenBy, ThenByDescending, GroupBy, and Cast that are expected to have particular signatures and result types
 These methods can be instance methods of the object being queried or extension methods that are external to the object, and they implement the actual execution of the query
 
+```c#
 from Customer c in customers where c.City == "London" select c
 is translated into
 from c in customers.Cast<Customer>() where c.City == "London" select c
@@ -538,10 +563,11 @@ except when v is the identifier x, the translation is
 from c in customers group c.Name by c.Country
 is translated into
 customers.GroupBy(c => c.Country, c => c.Name)
-
+```
 
 Transparent identifiers
 
+```c#
 from c in customers
 from o in c.Orders
 orderby o.Total descending
@@ -572,7 +598,7 @@ Select(* => new { c.Name, o.OrderDate, p.ProductName })
 the final translation of which is
 customers.Join(orders, c => c.CustomerID, o => o.CustomerID, (c, o) => new { c, o }).Join(details, x => x.o.OrderID, d => d.OrderID, (x, d) => new { x, d }).Join(products, y => y.d.ProductID, p => p.ProductID, (y, p) => new { y, p }).Select(z => new { z.y.x.c.Name, z.y.x.o.OrderDate, z.p.ProductName })
 where x, y, and z are compiler generated identifiers that are otherwise invisible and inaccessible.
-
+```
 
 
 query-expression:

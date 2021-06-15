@@ -21,7 +21,7 @@
   
   "code_sample":["https://docs.microsoft.com/fr-fr/samples(microsoft samples)"],
   
-  "codenews":["https://roadmap.sh(developer roadmap)","https://dev.to","https://www.liquidweb.com","https://www.sitepoint.com","https://vas3k.com","https://anthonychu.ca","http://www.codeproject.com","https://neelbhatt.com","https://gunnarpeipman.com","http://www.johnpapa.net","http://www.hanselman.com/blog","https://martinfowler.com","https://tutorialzine.com","https://alligator.io/explore","https://dzone.com","https://www.toptal.com/developers/blog","https://www.blinkingcaret.com","https://blog.soat.fr","https://www.smashingmagazine.com","https://scotch.io","https://www.telerik.com/blogs","https://hackaday.com","https://www.dotnetcurry.com","https://freecodecamp.com","https://www.hackster.io","https://hackernoon.com","https://pioneercode.com","https://developpez.com","https://www.hongkiat.com"],
+  "codenews":["https://roadmap.sh(developer roadmap)","https://dev.to","https://www.liquidweb.com","https://www.sitepoint.com", "https://www.ctrl-alt-suppr.dev", "https://vas3k.com","https://anthonychu.ca","http://www.codeproject.com","https://neelbhatt.com","https://gunnarpeipman.com","http://www.johnpapa.net","http://www.hanselman.com/blog","https://martinfowler.com","https://tutorialzine.com","https://alligator.io/explore","https://dzone.com","https://www.toptal.com/developers/blog","https://www.blinkingcaret.com","https://blog.soat.fr","https://www.smashingmagazine.com","https://scotch.io","https://www.telerik.com/blogs","https://hackaday.com","https://www.dotnetcurry.com","https://freecodecamp.com","https://www.hackster.io","https://hackernoon.com","https://pioneercode.com","https://developpez.com","https://www.hongkiat.com"],
   
   "communication":["https://www.skype.com","https://www.meetup.com","https://zoom.us","https://www.slack.com","https://trello.com/guinetn(Trello: project organ/management)","https://www.instagram.com","https://discord.com/channels/@me","https://www.whatsapp.com/(Whatsapp: phone msg/video)","https://telegram.org/(Telegram: phone encrypted conversations+open api)","https://signal.org/(Signal: phone medias/call/videos)"],
   
@@ -32,7 +32,7 @@
   "c_sharp":["https://foxlearn.com", "https://www.youtube.com/channel/UCrkPsvLGln62OMZRO6K-llg(Nick Chapsas)"],
   
   "css":["https://css-tricks.com"],
-  
+
   "courses":["https://academind.com/courses"],
   
   "daily_routine":["https://calendly.com/","https://monday.com/","https://skillvalue.com/"],
@@ -108,11 +108,13 @@
   
   "node":["https://www.npmjs.org"],
   
+  "notebooks":["https://wolframcloud.com","https://observablehq.com/@guinetn","https://colab.research.google.com(colaboratory)"],
+
   "online_paiement":["https://www.paypal.com"],
   
   "online_tools":["https://docs.w3cub.com","https://vclock.com(countdown, alarms)","https://asciiflow.com","https://app.diagrams.net(draw.io)","https://app.code2flow.com(code flow)","https://pastebin.com","https://cloud.mongodb.com","https://dashboard.fauna.com(fauna DB)"],
   
-  "photos":[],"notebooks":["https://wolframcloud.com","https://observablehq.com/@guinetn","https://colab.research.google.com(colaboratory)"],
+  "photos":["https://www.photopea.com/"], 
   
   "physic":["http://www.splung.com","https://www.youtube.com/channel/UCiGxYawhEp4QyFcX0R60YdQ(Pysics by Michel van Biezen)","https://www.youtube.com/channel/UCJ0yBou72Lz9fqeMXh9mkog(Physics Videos by Eugene Khutoryansky)", "https://www.youtube.com/channel/UCqZQJ4600a9wIfMPbYc60OQ(physics in engineering)"],
   

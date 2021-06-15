@@ -282,6 +282,7 @@ download.code(assets/books/code/langs/python/code/user_inputs.py)
 download.code(assets/books/code/langs/python/code/validator.py)
 ## VARIABLES
 download.code(assets/books/code/langs/python/code/variables.py)
+download.code(assets/books/code/langs/python/code/variables_env_vars.py)
 ## WALRUS OPERATOR
 download.code(assets/books/code/langs/python/code/walrus_operator,.py)
 

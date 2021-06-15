@@ -2,20 +2,23 @@
 
 .NET 5 is paired with C# 9, which brings many new features to the language. Here are a few highlights:
 
-* Records: Immutable reference types that BEHAVE LIKE VALUE TYPES (objects that are considered identical because they have the same values in their properties, not because they share a primary key or location in memory), and introduce the new with keyword into the language.
-* Relational pattern matching: Extends pattern matching capabilities to relational operators for comparative evaluations and expressions, including logical patterns - new keywords and, or, and not.
-* Top-level statements: As a means for accelerating adoption and learning of C#, the Main method can be omitted and application as simple as the following is valid:
-    System.Console.Write("Hello world!");
-* Function pointers: Language constructs that expose the following intermediate language (IL) opcodes: ldftn and calli.
-
+* Records
+Immutable reference types that BEHAVE LIKE VALUE TYPES (objects that are considered identical because they have the same values in their properties, not because they share a primary key or location in memory), and introduce the new with keyword into the language.
+* Relational pattern matching
+Extends pattern matching capabilities to relational operators for comparative evaluations and expressions, including logical patterns - new keywords and, or, and not.
+* Top-level statements
+As a means for accelerating adoption and learning of C#, the Main method can be omitted and application as simple as the following is valid: System.Console.Write("Hello world!");
+* Function pointers
+Language constructs that expose the following intermediate language (IL) opcodes: ldftn and calli.
 
 
 download.page(dotnet/types/ref/record.md)
 
-## SETTER INIT UNIQUEMENT
+## INIT ONLY SETTER: { set; } --> { init; }
 
-pour définir des propriétés de classe de base à partir de classes dérivées.
+get rid of a lot of boilerplate code because no need of a constructor to set properties that can be set only one time with 'init' that makes it immutable or read-only
 
+```c#
     public struct WeatherObservation
     {
         public DateTime RecordedAt { get; init; }
@@ -26,8 +29,8 @@ pour définir des propriétés de classe de base à partir de classes dérivées
             $"At {RecordedAt:h:mm tt} on {RecordedAt:M/d/yyyy}: " +
             $"Temp = {TemperatureInCelsius}, with {PressureInMillibars} pressure";
     }
-    Les appelants peuvent utiliser la syntaxe de l’initialiseur de propriété pour définir les valeurs, tout en préservant l’immuabilité :
 
+    // Callers use property initializer to set values while keeping immutability:
     var now = new WeatherObservation 
     { 
         RecordedAt = DateTime.Now, 
@@ -37,18 +40,49 @@ pour définir des propriétés de classe de base à partir de classes dérivées
 
     // Error! CS8852.
     now.TempetureInCelsius = 18;
+```
 
-### INSTRUCTIONS DE NIVEAU SUPÉRIEUR
+### Top-level statements - instructions de niveau supérieur
 
-suppriment la cérémonie canonique
+eliminate the boilerplate code and start coding the logic right away.
 Un seul fichier de votre application peut utiliser des instructions de niveau supérieur
 Pour documents pédagogiques.
 expérience de type script pour les expérimentations similaires à celles fournies par les blocs-notes Jupyter. 
 Les instructions de niveau supérieur sont idéales pour les petits programmes et utilitaires de console. 
 Azure Functions est un cas d’usage idéal pour les instructions de niveau supérieur.
+To identifies entry point, if C# 9 have a class file with the top-level statement, then it is assumed to be the entry point of the application. Top-level statements are great for small console programs, snippets, and utilities. It makes life simpler.
 
-    using System;
-    Console.WriteLine("Hello World!");
+The program has to occur after the use and before any type or namespace declarations in the file
+
+```c#
+using System;
+Console.WriteLine("Hello World!");
+```
+
+```c#
+using System.Console;
+using System.Threading.Tasks;
+WriteLine("Hello ", args[0]);
+WriteLine( Add(x:4, y:8) );
+await Task.Delay(1000);
+return 0
+
+// Local functions ~ statement are permitted but cannot be called outside of the top-level statement section
+static double Add(double x, double y) { 
+    return x+y; 
+}
+```
+
+A simple C# program requires a considerable amount of boilerplate code, ie consider the canonical 'Hello World!' program:
+```c#
+using System;
+public class Program {
+    
+    public static void Main(string[] args) {
+        Console.WriteLine("Hello World!");
+    }
+}
+```
 
 ### AMÉLIORATIONS DES CRITÈRES SPÉCIAUX
 
@@ -61,16 +95,32 @@ Azure Functions est un cas d’usage idéal pour les instructions de niveau sup�
 
 ### SUPPRIMER L’ÉMISSION DE L’INDICATEUR LOCALSINIT
 
+```c#
 private List<WeatherObservation> _observations = new();
+```
 
 Le type de cible nouveau peut également être utilisé lorsque vous devez créer un nouvel objet à passer en tant que paramètre à une méthode. Envisagez une ForecastFor() méthode avec la signature suivante :
 
+```c#
 public WeatherForecast ForecastFor(DateTime forecastDate, WeatherForecastOptions options)
 var forecast = station.ForecastFor(DateTime.Now.AddDays(2), new());
+```
 
 Une autre utilisation intéressante de cette fonctionnalité est de l’associer aux propriétés init only pour initialiser un nouvel objet. Les parenthèses sur new sont facultatives :
+```c#
 WeatherStation station = new() { Location = "Seattle, WA" };
-### NOUVELLES EXPRESSIONS TYPÉES CIBLES
+```
+
+### TARGET-TYPED ‘NEW’ EXPRESSIONS - NOUVELLES EXPRESSIONS TYPÉES CIBLES
+
+```c#
+Person person = new Person("Bill", "Wagner");
+Person person = new("Bill", "Wagner");
+
+Point p[] = { new(1,2), new(3,4) };
+```
+
+
 ### FONCTIONS ANONYMES STATIQUES
 
 ### EXPRESSIONS CONDITIONNELLES TYPÉES CIBLE
@@ -96,8 +146,47 @@ Object initializers are developer's delight and free the type author from writin
 Immutable, with init-only public properties, Records can be non-destructively modified through with-expressions. Records often change the defaults to optimize for that common case.
 It makes up for explicit record declarations.
 It makes for beautiful and clear record declarations. In case the requirement is of a single field, you can just clearly add the private modifier.
+
 ### Pattern Matching
 New and, or, and not Keywords for the pattern which afford more flexibility and robustness with conjunctive, disjunctive, and negated patterns
+
+match a value (or an object) with certain patterns to pick a branch/block of the code.
+
+C# 7.0 Switch statement
+```c#
+int myValue = 10;
+switch(myValue) {
+    case int value when value <=0:
+        WriteLine("Less than/equal to 0");
+        break;
+    case int value when value > 0 && value <=10:
+        WriteLine( "More then 0 and less/equal to 10");
+        break;    
+    default:
+        WriteLine("More than 10");
+}
+```
+
+C# 8.0 Switch Expressions
+```c#
+int myValue = 10;
+var messae = myValue switch {
+    int value when value <=0 => "Less than/equal to 0";
+    int value when value >=0 && value <=10 => "More then 0 and less/equal to 10";
+    _ => "More than 10"    
+}
+```
+
+C# 9.0 Relational patterns: allow to use < > <= and >= in patterns
+```c#
+int myValue = 10;
+var message = myValue switch {
+    <=0 => "Less than/equal to 0";
+    1 or 2 => "More than 1 or equal to 1";
+    >2 and <=20: "More then 2 and less/equal to 20";
+    _ => "More than 10"    
+}
+```
 
 ### Logical patterns
 If you want to minimize confusion in the operators used in expressions, logical operators such as "and, or and not" should be spelled out.

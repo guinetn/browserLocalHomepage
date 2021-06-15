@@ -2,6 +2,9 @@
 
 Immutable référence type qui fournit des méthodes synthétisées pour FOURNIR UNE SÉMANTIQUE DE VALEUR → POUR L’ÉGALITÉ ←
 
+Records define an immutable reference type and behave like a value type. Once the record is defined, we can’t modify the values of any properties of the record instances.
+To make the entire object immutable, an init keyword must be defined on each of the properties in case of implicit parameterless constructors are used.
+
 
 Immutable reference types that BEHAVE LIKE VALUE TYPES (objects that are considered identical because they have the same values in their properties, not because they share a primary key or location in memory), and introduce the new with keyword into the language.
 
@@ -20,18 +23,37 @@ The problem with creating a copy of a value object is that the two copies can ha
 
 
 Type référence qui fournit des méthodes synthétisées pour FOURNIR UNE SÉMANTIQUE DE VALEUR POUR L’ÉGALITÉ
+Members are implicitly public in records if you don’t precise it
 
 ```C#
-         ___ = class (check IL)
-        /
+        class (check IL)
+          ↓
 public record Person
 {
-public string LastName { get; }
-public string FirstName { get; }
+   public string LastName { get; }
+   public string FirstName { get; }
 
-public Person(string first, string last) => (FirstName, LastName) = (first, last);
+   public Person(string first, string last) => (FirstName, LastName) = (first, last);
 }
 ```
+
+```C#
+public record Person
+{
+   public string LastName { get; init; }  // init → no constructor needed
+   public string FirstName { get; init;}
+}
+```
+
+Records introduce public init-only auto-property that is a shorthand of the previous declaration:
+```C#
+public record Person
+{
+   string LastName;        ←→ public string LastName { get; init; }
+   string FirstName;
+}
+```
+
 
 Elle est immuable: aucune des propriétés ne peut être modifiée une fois qu’elle a été créée. 
 When record is used, le compilateur synthétise plusieurs autres méthodes pour vous :
@@ -48,6 +70,7 @@ public record Teacher : Person
   public Teacher(string first, string last, string sub) : base(first, last) => Subject = sub;
 }
 ```
+
 Sceller les enregistrements pour éviter toute dérivation supplémentaire :
 ```C#
 public sealed record Student : Person
@@ -56,6 +79,8 @@ public sealed record Student : Person
   public Student(string first, string last, int level) : base(first, last) => Level = level;
 }
 ```
+
+By default, regular classes are equal when they underlying reference. Its behavior changes if you declare your class as a record. As opposed to comparing the object reference, the RECORDS ARE COMPARED BY VALUE. IT MEANS TWO DIFFERENT OBJECTS HOLDING THE SAME VALUES WILL BE CONSIDERED EQUAL AND HASHCODE WILL BE THE SAME. Contents will able to define the Records, not by identity.
 
 ```C#
 public record Address
@@ -76,17 +101,20 @@ public record Address
 
 Address addr1 = new Address("Ridout", "London");
 Address addr2 = new Address("Ridout", "London");
+```
 
-// looks like I'm creating a reference type. 
-// BUT when you compare the two record objects, they're compared like value types -- it's the value of the properties that matter (provided the two objects are of the same type). So, in this code, the test will pass because the Street and City properties have the same values in both of the objects:
-if (addr1 == addr2) { 
- //….addresses are the same
+Looks like I'm creating a reference type. 
+BUT when you compare the two record objects, they're compared like value types -- it's the value of the properties that matter (provided the two objects are of the same type). So, in this code, the test will pass because the Street and City properties have the same values in both of the objects:
+
+```c#
+(addr1 == addr2)    // True addresses are the same
+addr1.Equals(addr2) // True and same hashCode
 }
 ```
 
 # Controlling and Defining Properties in Records
 
-init of a prperty: indicate a readonly property (can be set when an object is instantiated)
+init of a property: indicate a readonly property (can be set when an object is instantiated)
 ```C#
 public record Address
 {
@@ -143,13 +171,31 @@ public void PrintAddress(Address addr)
 ```
 
 
-## Enregistrements positionnels
+## Positional records - Enregistrements positionnels
+
+There is value in adopting a more positional approach to a record and its contents are given via constructor arguments and can be extracted with positional deconstruction. It is entirely possible to define your own constructor and deconstructor in a record:
+
 
 ```C#
-public record Person(string FirstName, string LastName);
-public record Teacher(string FirstName, string LastName,string Subject): Person(FirstName, LastName);
-public sealed record Student(string FirstName,string LastName, int Level) : Person(FirstName, LastName);
+public record Person
+{
+   public string LastName { get; init;}
+   public string FirstName { get; init;}
+
+   public Person(string first, string last) => (FirstName, LastName) = (first, last);
+   public void Deconstruct(out string first, out string last) => (firstName, lastName) = (First, Last);
+}
 ```
+
+Shorter, declares public init-only auto-properties and constructor() and deconstructor()
+```C#
+public record Person(string First, string LastName);
+var person = new Person('Joe','Black'); // positional construction
+var (f,l) = person;                     // positional deconstruction
+//let you write:
+
+```
+
 Le compilateur produit une `Deconstruct()` méthode pour les enregistrements positionnels. 
 La Deconstruct méthode a des paramètres qui correspondent aux noms de toutes les propriétés publiques dans le type d’enregistrement. 
 La Deconstruct méthode peut être utilisée pour déconstruire l’enregistrement dans ses propriétés de composant :
@@ -162,9 +208,18 @@ Console.WriteLine(first);
 Console.WriteLine(last);
 ```
 
-les expressions: Une instruction with-expression demande au compilateur de créer une copie d’un enregistrement, mais avec les propriétés spécifiées modifiées :
+## 'with' expressions
+Non—Destructive mutation = create new value from immutable data to represent the new state 
+Creates an updated copy of a record but with some properties modified:  
+Calls the copy constructor and applies the object initializer at the top to change the properties accordingly
 
->Person brother = person with { FirstName = "Paul" };
+```c#
+var person = new Person("Bill", "Wagner");
+var brother = person with { FirstName = "Paul" };
+```
+
+
+
 
 ## F# records #
 
@@ -175,7 +230,7 @@ type ContactCard =
       ZipCode: string }
 
 // Create a new record
-{ Name = "Alf"; Phone = "(555) 555-5555"; ZipCode = "90210" }
+{ Name = "Joe"; Phone = "(555) 555-5555"; ZipCode = "90210" }
 ```
 
 - https://devblogs.microsoft.com/dotnet/c-9-0-on-the-record/

@@ -171,4 +171,5 @@ download.page(data/tools/_tools.md)
 
 ## More
 
+- https://www.sqlservercentral.com
 - https://www.red-gate.com/blog/architecting-database-dev-and-test-environments-best-practices-and-anti-patterns-for-sql-server

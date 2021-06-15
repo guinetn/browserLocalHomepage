@@ -59,7 +59,7 @@ Allow to
     write additional conditions in case statements
     switch on any type
     use patterns in case statement
-
+```c#
 class Customer
     {
     public int CustomerId { get; set; }
@@ -69,13 +69,13 @@ class Customer
 
 class Agent : Customer {}
 class DirectConsumer : Customer {}
-
+```
 
 So we can write switch case statements as below:    
 . Now the sequence of the case statement matters as the first which satisfies the condition will be processed just like catch clauses
 . Even though you put default first before null case, it will first check whether it fits with null and if it does not then only it goes for default case so default will be executed at the last
 . If customer object is null, processing will fall into the Null case, even if it is an Agent or DirectConsumer null instance
-
+```c#
     switch(customer)
     {
     case Agent a when (a.CustomerId == 11):
@@ -93,10 +93,11 @@ So we can write switch case statements as below:
     case Null:
     throw new ArgumentNullException(nameof(shape));
     }
-
+```
 
 ## Another sample
 
+```c#
 class Point
 {
     public int X { get; }
@@ -117,35 +118,43 @@ static string Display(object o)
             return "unknown";
     }
 }
-
+```
 
 
     From C# 7.0 onwards, we can use is with:
 
 Type pattern:
     With type pattern, we can check whether the object is compatible or not:
-    if (a is Agent p) Console.WriteLine($"it's an agent: {p.Name}");
-    if (d is DirectConsumer b && (b.City == "Pune")) Console.WriteLine($"it's a direct cosumer lives in {b.City}");
+```c#    
+if (a is Agent p) Console.WriteLine($"it's an agent: {p.Name}");
+if (d is DirectConsumer b && (b.City == "Pune")) Console.WriteLine($"it's a direct cosumer lives in {b.City}");
+```
 
 Const pattern:
     It can be used to verify any constant numbers or Null:
-    if (a is null) throw new ArgumentNullException(nameof(a));
-    if (a is 10) Console.WriteLine("it is 10");
+```c#    
+if (a is null) throw new ArgumentNullException(nameof(a));
+if (a is 10) Console.WriteLine("it is 10");
+```
 
 Let us take some example to check whether the object is a string:
+```c#
 object obj = "Hello, World!";
 if (obj is string str)
 {
     Console.WriteLine(str);
 }
+```
+
 One more example where we want to check whether an object is equal to some constants:
+```c#
 object obj = 1; 
 
 if (obj is 1)
 {
     Console.WriteLine(true);
 }
-
+```
 
 ## C# 7.1 
 
@@ -154,26 +163,31 @@ Visual Studio 2017 > 15.3 or .NET Core SDK 2.0
     right-click on the project node in Solution Explorer and select Properties. Select the Build tab and select the Advanced button. In the dropdown, select C# latest minor version (latest), or the specific version C# 7.1 
     (uses the language version selection configuration element to select the compiler language version)
     or in .csproj:
-    <PropertyGroup>
-        <LangVersion>latest</LangVersion>
-    </PropertyGroup>
+
+```xml
+<PropertyGroup>
+    <LangVersion>latest</LangVersion>
+</PropertyGroup>
+```
 
 # ASYNC MAIN
 
 The entry point for an application can have the async modifier.
 Main entry point method can now return a Task or a Task<int>: execution  wait for the returned task to complete before shutting down the program.
 
+```c#
 static async Task Main() // make the Main method async
 {}
 static async Task Main(string[] args) // make the Main method async
 { }
-This lets you await directly in the Main method
-
+// This lets you await directly in the Main method
 WriteLine($"Fib {tuple.input} = {await tuple.task}");
+```
+
 What you had to do previously was quite unappetizing: first you’d create an async helper method, MainAsync, say, with all the logic in. Then you’d write this cryptic Main method:
 static void Main(string[] args) => MainAsync().GetAwaiter().GetResult();
 Now you can just make your Main method async, and the compiler will rewrite it for you.
-
+```c#
     static string Main()
     {
         await AsyncMethod1();   // Before, to put await for your async method, you need to use GetAwaiter() method
@@ -183,20 +197,24 @@ Now you can just make your Main method async, and the compiler will rewrite it f
     {
         await AsyncMethod1();  
     }
+```
 
 ## Inferred tuple element names
 
 The names of tuple elements can be inferred from tuple initialization in many cases.
-
+```c#
     int count = 5;
     string label = "Colors used in the map";
     var pair = (count: count, label: label);        
     var pair = (count, label); // # 7.1: element names are "count" and "label"
+```
 
 In this lambda expression inside the query:
 input => (input, task: FibonacciAsync(input))
 You notice that we create a tuple, but only give a name, task, for the second element. Yet a few lines later we are able to say
+```c#
 WriteLine($"Fib {tuple.input} = {await tuple.task}");
+```
 Accessing the first element by the name tuple.input. That’s because when you create a tuple with an expression that "has" a name, like input in the lambda expression above, we’ll now automatically give the corresponding tuple element that name.
 
 ## Default literals expressions
@@ -205,7 +223,7 @@ You can use default literal expressions in default value expressions when the ta
 This avoids tedious repetition of type names, or typing out long ones when they are already given by context.
 
 If there’s an expected type for a default expression, you can now omit the mention of the type, as we do for the CancellationToken in in the signature of the FibonacciAsync method:
-
+```c#
     private static Task<int> FibonacciAsync(int n, CancellationToken token = default)
 
 
@@ -214,6 +232,7 @@ If there’s an expected type for a default expression, you can now omit the men
                                 #7.1: omit the type on the right-hand side of the initialization
                                                 ↓
     Func<string, bool> whereClause = default;
+```
 
 ## Reference semantics with value types 
 
@@ -234,14 +253,18 @@ Named arguments can be followed by positional arguments.
 To supply arguments for only a few parameters from a list of optional parameters. This capability greatly facilitates calls to COM interfaces such as the Microsoft Office Automation APIs.
 
 C# 4: named and optional arguments
+```c#
 PrintOrderDetails(orderNum: 31, productName: "Red Mug", sellerName: "Gift Shop");
 PrintOrderDetails(orderNum: 31, productName: "Red Mug", sellerName: "Gift Shop");
 PrintOrderDetails(productName: "Red Mug", sellerName: "Gift Shop", orderNum: 31);
+```
 
 Leading underscores in numeric literals
 Numeric literals can now have leading underscores before any printed digits.
 Hex and binary numeric literals for may now begin with an _
+```c#
 int binaryValue = 0b_0101_0101;
+```
 
 private protected access modifier
 A member may be accessed by derived classes that are declared in the same assembly. 
@@ -266,7 +289,7 @@ Tuple can have two values or more.
 "Manage NuGet Packages" → "System.ValueTuple"
 
 * First way to use tuple is to just write types of the variables returned
-
+```c#
     static (string, string, int) MyData()  
     {  
         return ("Omar", "maher", 123456);  
@@ -279,12 +302,12 @@ Tuple can have two values or more.
             $"{ userData.Item2} and my password is " +  
             $"{ userData.Item3}");  
               }  
-        userData.Item1 refers to first variable and userData.Item2 refers to the second variable...
-
+```
+userData.Item1 refers to first variable and userData.Item2 refers to the second variable...
 
 
 * Second way to use tuple is to give variables a name
-
+```c#
     static (string firstName, string lastName, int password) MyData2()  
     {  
         return ("Omar", "maher", 123456);  
@@ -301,11 +324,11 @@ Tuple can have two values or more.
             $"{ userData2.Item2} and my password is " +  
             $"{ userData2.Item3}");  
       }   
-
+```
 
 
 * Third way to consume tuple is by Deconstructions (will create new variables to assign to its values from the return of the method)
-
+```c#
     static void Main(string[] args)  
     {  
        (var firstName, var lastName, var password) = MyData2();   // way 1
@@ -315,7 +338,7 @@ Tuple can have two values or more.
              $"{ lastName} and my password is " +  
              $"{ password}");  
      }   
-
+```
 
 ## Local Functions
     you can create a function within anther function and it is fully encapsulates within that function
@@ -332,7 +355,7 @@ Local functions can improve the readability of complex methods. Yes you could us
     1. Create a private method inside the class and call it in the function but that will end up having many private methods, which wouldn’t be reused.
     2. Using Func and Actions types with the anonymous methods but this solution has a limitation like you can’t use generics , out , ref and params.
     Now in C# 7 world, you can declare a function inside anther one.
-
+```c#
     static void Main(string[] args)  
     {  
         // Method calling  ( after or before the local function declaration)
@@ -344,10 +367,11 @@ Local functions can improve the readability of complex methods. Yes you could us
             Console.WriteLine( "My Name Is Omar Maher"  );  
         }          
     }   
-
+```
 
 ## Example 2
 
+```c#
     static void Main(string[] args)  
     {  
         // Method calling  
@@ -359,9 +383,10 @@ Local functions can improve the readability of complex methods. Yes you could us
             Console.WriteLine($"My Name Is {name}");  
         }  
     }   
+```
 
 ## Example 3
-
+```c#
     static void Main(string[] args)  
     {  
         string name = "Omar Maher";  
@@ -374,9 +399,10 @@ Local functions can improve the readability of complex methods. Yes you could us
             Console.WriteLine($"My Name Is {name}");  
         }  
     }   
+```
 
 ## Example 4
-
+```c#
     class MyData  
     {  
         public MyData()  
@@ -405,10 +431,10 @@ Local functions can improve the readability of complex methods. Yes you could us
     {  
         MyData data = new MyData();  
     }   
-
+```
 
 ## Example 5
-
+```c#
     class MyData  
     {  
         public MyData(string name)  
@@ -429,6 +455,7 @@ Local functions can improve the readability of complex methods. Yes you could us
         MyData data1 = new MyData("Omar Maher");  
     }   
     The result will be the same
+```
 
 ## Discards _ write only
 
@@ -443,12 +470,16 @@ Local functions can improve the readability of complex methods. Yes you could us
     For example, if you are calling the method and it returns the object but caller is only interested in calling the method but not interested in the return object. In such case, we can use discards variable so that it can reduce in terms of memory allocation and make your code clear as well.
 
     Without Discards Variable
+```c#    
         bool boolParsedValue;
         if (bool.TryParse("False", out boolParsedValue)) { /* Custom Code */ }
+```        
     With Discards Variable
+```c#    
         if (bool.TryParse("False", out _)) { /* Custom Code */ }
+```
 
-
+```c#
     // not considered as discard (since you are explicitly declaring _)
     var _ = true;
     if (bool.TryParse("False", out _)) { bool b = _; }
@@ -473,7 +504,7 @@ Local functions can improve the readability of complex methods. Yes you could us
     * Use discards when not interested in all tuple values: var (a, _, _) = (1, 2, 3)
 
     * Use discards with Task.Run method where you are not interested in return result: _ = Task.Run(() => { }
-
+```
 
 
 ## More

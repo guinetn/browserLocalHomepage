@@ -58,6 +58,7 @@ Nullable reference types feature intends to warn you about null-unsafe behavior 
         <NullableReferenceTypes>true</NullableReferenceTypes>     turn them on
 
     mycode.cs
+```c#    
         string? s = null;
         WriteLine($"The first letter of {s} is {s[0]}");                        Warning
         if (s != null) WriteLine($"The first letter of {s} is {s[0]}");         Fix 1
@@ -68,7 +69,7 @@ Nullable reference types feature intends to warn you about null-unsafe behavior 
                                             Null conditional indexing operator s?[0]
                                                 * avoids the dereference 
                                                 * produces a null if s is null (has nullable char?) 
-
+```
 
 download.page(dotnet/threading/b_async_3/iasyncenumerable.md)
 
@@ -93,7 +94,7 @@ C# 8.0 Fix: Default methods
 Let you provide a body for an interface member. 
 Thus, if somebody doesn’t implement that member (perhaps because it wasn’t there yet when they wrote the code), they will just get the default implementation instead.
 Default methods will only work if the class is contextually treated as interfaces if we are not doing that then Default method implementation will not be available for the use
-
+```c#
     interface ILogger
     {
         void Log(LogLevel level, string message);
@@ -105,6 +106,7 @@ Default methods will only work if the class is contextually treated as interface
         public void Log(LogLevel level, string message) { ... }
         // Log(Exception) gets default implementation
     }
+```
 
 The ConsoleLogger class doesn’t have to implement the Log(Exception) overload of ILogger, because it is declared with a default implementation. Now you can add new members to existing public interfaces as long as you provide a default implementation for existing implementors to use.
 
@@ -127,7 +129,7 @@ Diamond Problem risk (Multiple Inheritance)
 
 ## RECURSIVE PATTERNS
 We’re allowing patterns to contain other patterns:
-
+```c#
     IEnumerable<string> GetEnrollees()
     {
         foreach (var p in People)
@@ -136,6 +138,7 @@ We’re allowing patterns to contain other patterns:
             if (p is Student { Graduated: false, Name: string name }) yield return name;
         }
     }
+```
 
 The pattern Student { Graduated: false, Name: string name } checks that the Person is a Student, then applies the constant pattern false to their Graduated property to see if they’re still enrolled, and the pattern string name to their Name property to get their name (if non-null). 
 If p is a Student, has not graduated and has a non-null name, we yield return that name.
@@ -143,7 +146,7 @@ If p is a Student, has not graduated and has a non-null name, we yield return th
 ## SWITCH EXPRESSIONS
 
 "lightweight" version of Switch statements with patterns (C# 7)
-
+```c#
     var area = figure switch 
     {
         Line _      => 0,
@@ -158,12 +161,15 @@ If p is a Student, has not graduated and has a non-null name, we yield return th
         Point p                           => $"({p.X}, {p.Y})",
         _                                 => "unknown"
     };
+```
 
 # TARGET-TYPED NEW-EXPRESSIONS
 
 When you’re creating a new object, the type is often already given from context, so omit the type:
 
-    Point[] ps = { new (1, 4), new (3,-2), new (9, 5) }; // all Points
+```c#
+Point[] ps = { new (1, 4), new (3,-2), new (9, 5) }; // all Points
+```
 
 ## PLATFORM DEPENDENCIES
 

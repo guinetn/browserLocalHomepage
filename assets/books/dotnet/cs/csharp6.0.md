@@ -51,27 +51,29 @@ https://quizlet.com/137612626/miscellaneous-development-flash-cards/
 
 ## AUTO-PROPERTY INITIALIZERS
 
-	public int X { get; set; } = x;		
-	public int X { get = 2; };		
-	Before: can init at declaration level, only at constructor level			
-	Now   : can init at declaration level
+```c#
+public int X { get; set; } = x;		
+public int X { get = 2; };		
+Before: can init at declaration level, only at constructor level			
+Now   : can init at declaration level
 
-	public class Customer
-	{
-	    public string First { get; set; } = "Jane";
-	    public string Last { get; set; } = "Doe";
-	}
-	complete old notions
-	getter-only -  allow you to omit a setter
-	public class Customer
-	{
-		public string First { get; } = "Jane";
-		public string Last { get; } = "Doe";
-	}
+public class Customer
+{
+    public string First { get; set; } = "Jane";
+    public string Last { get; set; } = "Doe";
+}
+complete old notions
+getter-only -  allow you to omit a setter
+public class Customer
+{
+    public string First { get; } = "Jane";
+    public string Last { get; } = "Doe";
+}
 
-	Getter-only auto-properties						
-	public int Y { get; } = y;		
-	assignment at declaration or ctor level		Y = 15											
+Getter-only auto-properties						
+public int Y { get; } = y;		
+assignment at declaration or ctor level		Y = 15											
+```
 
 ## USING STATIC MEMBERS							
 
@@ -115,14 +117,18 @@ public int Double(int x) => Add(x,x);
 public Point Move(int dx, int dy) => new Point(X + dx, Y + dy);
 Simplify methods/pties made of a single return
 ```
+
 ## INDEX INITIALIZERS
+```c#
 var numbers = new Dictionary<int, string> { [7] = "seven", [9] = "nine", [13] = "thirteen" }; // set values to keys through any indexer that the new object has
+```
 
 ## DICTIONARY INITIALIZER
 
 More readable
 Works with any type having an indexer
 
+```c#
 JObject { ["x"] = 3, ["y"] = 7 }				
 var newWay = new Dictionary<string, string>()
 {	
@@ -130,7 +136,7 @@ var newWay = new Dictionary<string, string>()
 	["Iran"] = "Tehran",
 	["India"] = "Delhi"
 };
-
+```
  
 ## AWAIT IN CATCH/FINALLY							
 try … catch { await someCall } finally { await someCall }		
@@ -254,82 +260,100 @@ public static async void DownloadAsync()
     http://www.csharpstar.com/top-10-new-features-of-csharp6/
     https://msdn.microsoft.com/en-us/magazine/dn802602.aspx
 
-    Expression-bodied property      
-                                public bool property => method();
-                                a new syntax to create computed properties in the same way as you would create a lambda expression.
+Expression-bodied property      
+```c#    
+public bool property => method();
+```
+a new syntax to create computed properties in the same way as you would create a lambda expression.
 
-                                Expression bodied property
+Expression bodied property
+```c#
+    => used in property is an expression body. 
+    Shorter and cleaner way to write a property with only getter
 
-                                    => used in property is an expression body. 
-                                    Shorter and cleaner way to write a property with only getter
+    public string Text =>  $"{TimeStamp}: {Process} - {Config} ({User})";
 
-                                    public string Text =>  $"{TimeStamp}: {Process} - {Config} ({User})";
+    public bool MyProperty => myMethod();
+    is translated to
+    public bool MyProperty { get { return myMethod(); } }
 
-                                    public bool MyProperty => myMethod();
-                                    is translated to
-                                    public bool MyProperty { get { return myMethod(); } }
+    private sealed class DapperTable
+    {
+        private string[] fieldNames;
+        internal string[] FieldNames => fieldNames;
+        public int FieldCount => fieldNames.Length;
+```
 
-                                    private sealed class DapperTable
-                                    {
-                                        private string[] fieldNames;
-                                        internal string[] FieldNames => fieldNames;
-                                        public int FieldCount => fieldNames.Length;
+Expression bodied functions
+```c#
+    public int TwoTimes(int number) => 2 * number;
+    public override string ToString() => string.Format("{0}, {1}", First, Second);
 
-                                Expression bodied functions
-                                    public int TwoTimes(int number) => 2 * number;
-                                    public override string ToString() => string.Format("{0}, {1}", First, Second);
+    static bool TheUgly(int a, int b)
+    {
+        if (a > b) return true;
+        else return false;
+    }
+    static bool TheNormal(int a, int b) { return a > b; }
+    static bool TheShort(int a, int b) => a > b; // beautiful, isn't it?
+```
 
-                                    static bool TheUgly(int a, int b)
-                                    {
-                                        if (a > b) return true;
-                                        else return false;
-                                    }
-                                    static bool TheNormal(int a, int b) { return a > b; }
-                                    static bool TheShort(int a, int b) => a > b; // beautiful, isn't it?
+## String Interpolation                
 
-## String Interpolation                public string FullName => $"{FirstName} {LastName}";
+```c#
+public string FullName => $"{FirstName} {LastName}";
 
-                                        specify a format stringwith a colon (:): var aNumberAsString = $"{aDoubleValue:0.####}";
+    specify a format stringwith a colon (:): var aNumberAsString = $"{aDoubleValue:0.####}";
 
-    Dictionary Initializer              var BookDictionary = new Dictionary<int,string> { 
-                                        [1] = "ASP.net", [2] = "C#.net", [3] = "ASP.net Razor", [4] = "ASP.net MVC5" }
+Dictionary Initializer              var BookDictionary = new Dictionary<int,string> { 
+    [1] = "ASP.net", [2] = "C#.net", [3] = "ASP.net Razor", [4] = "ASP.net MVC5" }
 
-    Null-Conditional Operator
-                                        return value?.Substring(0, Math.Min(value.Length, length));
+Null-Conditional Operator
+    return value?.Substring(0, Math.Min(value.Length, length));
 
-                                        OnTemperatureChanged?.Invoke(this, value)       Checking for Null Before Invoking a Delegate
+    OnTemperatureChanged?.Invoke(this, value)       Checking for Null Before Invoking a Delegate
 
-                                        List<string> linesOfCode = ParseSourceCodeFile("Program.cs");s
-                                        return linesOfCode?.Count ?? 0;
+    List<string> linesOfCode = ParseSourceCodeFile("Program.cs");s
+    return linesOfCode?.Count ?? 0;
 
-                                         public static IEnumerable<T> GetValueTypeItems<T>( IList<T> collection, params int[] indexes) where T : struct
-                                        {
-                                            foreach (int index in indexes)
-                                            {
-                                                T? item = collection?[index];
-                                                if (item != null) yield return (T)item;
-                                            }
-                                        }
+        public static IEnumerable<T> GetValueTypeItems<T>( IList<T> collection, params int[] indexes) where T : struct
+    {
+        foreach (int index in indexes)
+        {
+            T? item = collection?[index];
+            if (item != null) yield return (T)item;
+        }
+    }
+```
 
-    Getter-only Auto Properties         public DateTime BirthDate { get; } // true readonly auto implemented properties
-                                        (in C# 5 and lower, you must provide a get and set)
+Getter-only Auto Properties         
+```c#
+public DateTime BirthDate { get; } // true readonly auto implemented properties
+                                    (in C# 5 and lower, you must provide a get and set)
+```                                        
 
-    await in catch and finally block    try { // code that might throw exception }
-                                        catch(Exception ex) { await LogExceptionAsync(ex); }
+await in catch and finally block    try { // code that might throw exception }
+```c#
+catch(Exception ex) { await LogExceptionAsync(ex); }
+```
 
-    Exception Filters
-                                        try { throw new customexception("Test Exception") }
-                                        catch(customexception ex) if (ex.Message=="Not Test") { //Control will not come here because exception name is not test }
-                                        catch(customexception ex) if (ex.Message=="Test Exception") { //Control will come here because exception name is Test Exception }                                    
-    Auto Property Initializer
-                                        class customer
-                                        {
-                                            public string Firstname{get; set;} = "Csharpstar";
-                                            public string Lastname{get; set;} = "Admin";
-                                            public int Age{get;} = 20;
-                                            Public DateTime BirthDate { get; set; }
-                                        }
+Exception Filters
+```c#
+try { throw new customexception("Test Exception") }
+catch(customexception ex) if (ex.Message=="Not Test") { //Control will not come here because exception name is not test }
+catch(customexception ex) if (ex.Message=="Test Exception") { //Control will come here because exception name is Test Exception }                                    
+```
 
+Auto Property Initializer
+```c#
+class customer
+{
+    public string Firstname{get; set;} = "Csharpstar";
+    public string Lastname{get; set;} = "Admin";
+    public int Age{get;} = 20;
+    Public DateTime BirthDate { get; set; }
+}
+```
 
 
 
