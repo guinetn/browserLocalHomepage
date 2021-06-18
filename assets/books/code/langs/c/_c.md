@@ -6,6 +6,9 @@ As it resides at the lowest level of abstraction C is largely used to code
 - device drivers
 - kernel
 
+# C SAMPLES
+download.slideshow(assets/books/code/langs/c/code_samples/c01.md)
+
 ***Keypoints***  
 - Variable Declarations
 - Definitions and Scope
@@ -44,7 +47,6 @@ locale.h	This file contains locale functions
 errno.h	Error handling functions are given in this file
 assert.h	This contains diagnostics functions
 https://fresh2refresh.com/c-programming/c-function/c-library-functions/
-
 
 
 ## MEMORY

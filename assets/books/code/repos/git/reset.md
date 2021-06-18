@@ -1,7 +1,54 @@
 ## git reset
 
+
+
+code clean-up before doing a commit
+permanent undo (no way to retrieve the original copy)
+Reset current HEAD to the specified state (~rollback)
+Don’t Reset a public History (a pushed to a public repository commit)
+
+      _____
+     /     \ 							
+    ↓       \
+o---o--------x---→ 	reseting
+
+git reset will move the branch pointer back in the chain (typically) to "undo" changes
+
+						 main
+						  ↓
+9ef9173  ←  7c709f0  ←  b764644
+line1       line1 		line1
+            line2       line2
+            			line3
+git log --oneline
+b764644 File with three lines
+7c709f0 File with two lines
+9ef9173 File with one line
+
+git reset 9ef9173     to roll back to a previous commit
+git reset current~2   is the same, the results of this operation is:
+
+main
+  ↓
+9ef9173  ←  7c709f0  ←  b764644
+line1       line1 		line1
+            line2       line2
+            			line3
+git log --oneline
+9ef9173 File with one line     we'll see just the one commit
+
+
 git reset					Reset staging area to match most recent commit, but leave the working directory unchanged.
-git reset --hard			Reset staging area and working directory to match most recent commit and overwrites all changes in the working directory.
+, populate the working directory with the contents of the commit, and reset the staging area; soft to only reset the pointer in the repository; and mixed (the default) to reset the pointer and the staging area.
+options: 
+* hard 
+to reset the commit being pointed to in the repository, populate the working directory with the contents of the commit, and reset the staging area
+* soft
+to only reset the pointer in the repository
+* mixed (the default) 
+to reset the pointer and the staging area
+
+git reset --hard			Reset staging (planned next commits) area and working directory to match most recent commit and overwrites all changes in the working directory. It overwrites any uncommitted changes.
 git reset `commit`			Move the current branch tip backward to `commit`, reset the staging area to match, but leave the working directory alone.
 git reset --hard `commit`	Same as previous, but resets both the staging area & working directory to match. Deletes uncommitted changes, and all commits after `commit`.
 
@@ -86,8 +133,8 @@ Fix the last commit (replace it) with staged elements (forget a file...bad commi
 
 $ git commit -m 'initial commit'
 $ git add `my_forgotten_file`
-$ git commit --amend 			 takes your staging area and uses it for the commit
-									overwrites your previous commit msg
+$ git commit --amend 			Takes your staging area and uses it for the commit
+								Overwrites your previous commit msg
 $ git commit –a --amend -m “Message Text” 	Adds all changes to the previous commit, overwriting the commit message
 											with the new 'Message Text'. Does not include new files
 UNDOING LAST COMMIT
@@ -103,18 +150,6 @@ Internally it moves HEAD to a different branch and update the working directory 
 ![][img/git/checkout.svg]	
 
 
-
-git reset
-
-code clean-up before doing a commit
-permanent undo (no way to retrieve the original copy)
-Reset current HEAD to the specified state
-Don’t Reset Public History (a pushed to a public repository commit)
-
-	_____
-	/     \ 							
-↓       \
-o---o--------x---` 	reseting
 
 * SOFT RESET - NO FILE IMPACT (working directory unchanged, just unstaging)
 
@@ -138,10 +173,9 @@ git reset
 
 	git checkout hotfix
 	git reset HEAD~2  	remove commits from the current branch:	moves the hotfix branch backwards by two commits.
-	![][img/git/reset.svg]	
 
 		git reset --soft HEAD  		Undo most recent commit but retain changes in staging area
-		git reset --soft HEAD~1     reset the most recent commit. 
+		git reset --soft HEAD~1     reset the most recent commit
 		git reset --soft HEAD~2     reset back more 
 					↓
 				--soft                reset only HEAD

@@ -2,8 +2,11 @@
 
 $id: commit, branch, tagname
 
+View a file of another branch
+
 git show $id
 git show $id:$file
+git show main:README.md
 
 View the changes made in the commit
 Show various types of objects

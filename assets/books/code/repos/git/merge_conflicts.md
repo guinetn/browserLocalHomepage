@@ -1,4 +1,5 @@
 ## CONFLICTS
+
 git diff --base $file 		against base file
 git diff --ours $file 		against your changes
 git diff --theirs $file 	against theirs changes	 

@@ -2,6 +2,54 @@
 
 GIT FIX MISTAKES: amending commits & rebasing
 
+- [Merge vs rebase](https://www.youtube.com/watch?v=CRlGDDprdOQ)
+
+main 				m1  →  m2  → m3
+						   ↓
+feature 			       m2  →  f1  → f2
+
+way 1
+git merge feature 		will merge all changes + all commits of the feature branch (not a pb as git track how the project elvolve)
+
+way 2
+git merge --squash feature 		will merge all changes + all commitsof the feature branch (not a pb as git track how the project elvolve)
+                                --squash allow to summarize all "feature" branch commits in one commit message:
+git commit -m "feature and master merged"      must be added
+main combined      m1  →  m2  → m3 → "feature and master merged"
+
+way 3: rebase
+git rebase master  			(done from feature branch)
+First, rewiding head to replay your work on top of it...
+Applying it...
+git log
+feature 			m1  →  m2  →  m3  →  f1  →  f2
+
+1. git check last commit in the 2 branches
+
+* Manage history: rebasing
+
+https://medium.freecodecamp.org/how-to-become-a-git-expert-e7c38bf54826
+Good practise: keep your local repository code up-to-date with the code in the remote repository. This avoids a lot of merge conflicts later when you raise a pull request
+Every time you pull the code from the remote repository to the local repository a new merge commit is created in your local repository. This means that your local commit history is going to have a lot of merge commits which can make things look confusing to the reviewer.
+
+to ensure the Feature branch gets the latest code from the Release branch.
+Rebasing tries to add each commit, one by one, and checks for conflicts. 
+
+Use rebase when you are updating your local code repository with the latest code from the remote repository. 
+Use merge when you are dealing with pull requests to merge the Feature branch back with the Release or Master branch.
+Rebase when the commit history is a mess
+git checkout feature
+git rebase release      this get the commits from the Release branch into your Feature branch
+
+git rebase `source branch name`
+git rebase `source branch name` `destination branch name`
+
+Rebasing is the rewinding of existing commits on a branch with the intent of moving the branch start point forward, then replaying the rewound
+commits. This allows developers to test their branch changes safely in isolation on their private branch just as if they were made on top of the
+mainline code, including any recent mainline bug fixes.
+
+
+
 git rebase -i `base`   		Interactively rebase current branch onto `base`. Launches editor to enter commands for how each commit will be transferred to the new base.
 git pull --rebase `remote` 	Fetch the remote’s copy of current branch and rebases it into the local copy. Uses git rebase instead of merge to integrate the branches.
 
@@ -54,109 +102,109 @@ git rebase
 
 		
 
-		Rebasing interactively 
+	Rebasing interactively 
 
-			Re-writing the repositories history is done using git rebase -interactive. By putting rebase into interactive mode you have more control over the changes you want to make. After launching into interactive mode you are given six commands to perform on each commit in the repository. By using the editor which opens, by default Vim, you define which actions you want to perform on each commit.
-			Commands:
-				* p 	pick	 use commit
-				* r 	reword	 use commit, but edit the commit message
-				* e 	edit	 use commit, but stop for amending
-				* s 	squash	 use commit, but meld (fusion) into previous commit
-				* f 	fixup	 like "squash", but discard this commit's log message
-				* x 	exec	 run command (the rest of the line) using shell
+		Re-writing the repositories history is done using git rebase -interactive. By putting rebase into interactive mode you have more control over the changes you want to make. After launching into interactive mode you are given six commands to perform on each commit in the repository. By using the editor which opens, by default Vim, you define which actions you want to perform on each commit.
+		Commands:
+			* p 	pick	 use commit
+			* r 	reword	 use commit, but edit the commit message
+			* e 	edit	 use commit, but stop for amending
+			* s 	squash	 use commit, but meld (fusion) into previous commit
+			* f 	fixup	 like "squash", but discard this commit's log message
+			* x 	exec	 run command (the rest of the line) using shell
 
-			
-			git rebase --interactive --root 			enter Interactive Rebase mode
-			i 											insert mode                  
-			pick a096aaf Initial comit of the list  	
-				↑	                  \_____ Error: a 'm' is missing
-			.... to change 'comit' to 'commit', change 'pick' to 'reword', esc, :wq...
-				↓
-			reword a096aaf Initial comit of the list  	
-			pick 542fde3 New Item
-			pick 51f5b2f Final Item
+		
+		git rebase --interactive --root 			enter Interactive Rebase mode
+		i 											insert mode                  
+		pick a096aaf Initial comit of the list  	
+			↑	                  \_____ Error: a 'm' is missing
+		.... to change 'comit' to 'commit', change 'pick' to 'reword', esc, :wq...
+			↓
+		reword a096aaf Initial comit of the list  	
+		pick 542fde3 New Item
+		pick 51f5b2f Final Item
 
-			A faster alternative to change the last commit message is using git commit --amend					
-			git rebase --interactive HEAD~8 			 we want to modify the previous 8 commits using 
-														use squash instead of 'pick'
+		A faster alternative to change the last commit message is using git commit --amend					
+		git rebase --interactive HEAD~8 			 we want to modify the previous 8 commits using 
+													use squash instead of 'pick'
 
 
 
-			git rebase -i `after-this-commit`
-						\___ interactively
-								Means that you have a chance to edit the commits which are rebased
-								You can reorder the commits, and you can remove them 
+		git rebase -i `after-this-commit`
+					\___ interactively
+							Means that you have a chance to edit the commits which are rebased
+							You can reorder the commits, and you can remove them 
 
-			git rebase -i HEAD~5
-			reorder the last 5 commits, such that HEAD~4 becomes the new HEAD
+		git rebase -i HEAD~5
+		reorder the last 5 commits, such that HEAD~4 becomes the new HEAD
 
-			Re-order Commits
-				git rebase --interactive HEAD~2    in vim, use dd(delete a line) p(paste a line)
+		Re-order Commits
+			git rebase --interactive HEAD~2    in vim, use dd(delete a line) p(paste a line)
 
-			Split Commit
-				git rebase --interactive HEAD~1 			define commit to split
-				Splitting Commits
-				After defining we want to edit the commit we are now in a state that allows us to change the history.
-				As we want to split an existing commit we first we need to remove it using git reset HEAD^.
-				The commit has been removed but the files still exist. We can now perform the commits as we previously desire, as two separate actions.
-				Execute the commands:
+		Split Commit
+			git rebase --interactive HEAD~1 			define commit to split
+			Splitting Commits
+			After defining we want to edit the commit we are now in a state that allows us to change the history.
+			As we want to split an existing commit we first we need to remove it using git reset HEAD^.
+			The commit has been removed but the files still exist. We can now perform the commits as we previously desire, as two separate actions.
+			Execute the commands:
 
-				git add file3.txt
-				git commit -m "File 3"
-				git add file4.txt
-				git commit -m "File 4"
+			git add file3.txt
+			git commit -m "File 3"
+			git add file4.txt
+			git commit -m "File 4"
 
-				git rebase --continue
-				You can see the output and the two new commits using git log --oneline
+			git rebase --continue
+			You can see the output and the two new commits using git log --oneline
 
-	git rebase `base`
-		Rebase the current branch onto `base`, which can be any kind of commit reference (an ID, a branch name, a tag, or a relative reference to HEAD).
+git rebase `base`
+	Rebase the current branch onto `base`, which can be any kind of commit reference (an ID, a branch name, a tag, or a relative reference to HEAD).
 
-	Rebase to combine all of those commits into a single, concise commit.
-		git rebase -i HEAD~4
-		open a vim window
-			pick 130deo9 oldest commit message
-			pick 4209fei second oldest commit message
-			pick 4390gne third oldest commit message
-			pick bmo0dne newest commit message
-		To combine these, we need to change the “pick” option to “fixup”
-		Merge all of your commits into the commit with the message “oldest commit message”.
-			pick 130deo9 oldest commit message
-			fixup 4209fei second oldest commit message
-			fixup 4390gne third oldest commit message
-			fixup bmo0dne newest commit message
-			:wq
+Rebase to combine all of those commits into a single, concise commit.
+	git rebase -i HEAD~4
+	open a vim window
+		pick 130deo9 oldest commit message
+		pick 4209fei second oldest commit message
+		pick 4390gne third oldest commit message
+		pick bmo0dne newest commit message
+	To combine these, we need to change the “pick” option to “fixup”
+	Merge all of your commits into the commit with the message “oldest commit message”.
+		pick 130deo9 oldest commit message
+		fixup 4209fei second oldest commit message
+		fixup 4390gne third oldest commit message
+		fixup bmo0dne newest commit message
+		:wq
 
-	git reset --hard commit-id 	remove the entire commit
-	git rebase -i 				default text editor will open with your list of commits (-i = interactive)
-	git rebase -i HEAD~1  		to remove last commit
-	git rebase -i HEAD~2  		to squash (écraser) your last few commits
-	git rebase -i --root 		prevents your branch from being limited by requiring an upstream branch.
-	When you save the file, Git will open your commit message to edit. Exit with :q!
+git reset --hard commit-id 	remove the entire commit
+git rebase -i 				default text editor will open with your list of commits (-i = interactive)
+git rebase -i HEAD~1  		to remove last commit
+git rebase -i HEAD~2  		to squash (écraser) your last few commits
+git rebase -i --root 		prevents your branch from being limited by requiring an upstream branch.
+When you save the file, Git will open your commit message to edit. Exit with :q!
 
-	# Start a new feature
-	git checkout -b new-feature master
-	# Edit files
-	git commit -a -m "Start developing a feature"
-	# Fix a security hole:
-	# Create a hotfix branch based off of master
-	git checkout -b hotfix master
-	# Edit files
-	git commit -a -m "Fix security hole"
-	# Merge back into master
-	git checkout master
-	git merge hotfix
-	git branch -d hotfix
+# Start a new feature
+git checkout -b new-feature master
+# Edit files
+git commit -a -m "Start developing a feature"
+# Fix a security hole:
+# Create a hotfix branch based off of master
+git checkout -b hotfix master
+# Edit files
+git commit -a -m "Fix security hole"
+# Merge back into master
+git checkout master
+git merge hotfix
+git branch -d hotfix
 
-	After merging the hotfix into master, WE HAVE A FORKED PROJECT HISTORY. 
-	Instead of a plain git merge, we’ll integrate the feature branch with a rebase to maintain a linear history:
-	
-	git checkout new-feature
-	git rebase master			
-	This moves new-feature to the tip of master, which lets us do a standard fast-forward merge from master:
+After merging the hotfix into master, WE HAVE A FORKED PROJECT HISTORY. 
+Instead of a plain git merge, we’ll integrate the feature branch with a rebase to maintain a linear history:
 
-	git checkout master
-	git merge new-feature
+git checkout new-feature
+git rebase master			
+This moves new-feature to the tip of master, which lets us do a standard fast-forward merge from master:
+
+git checkout master
+git merge new-feature
 
 How do you revert a commit that has just been made?
 git revert HEAD~2..HEAD
@@ -204,3 +252,5 @@ git checkout master
 git pull
 git checkout mybranch
 git rebase master
+
+https://opensource.com/article/18/6/git-reset-revert-rebase-commands

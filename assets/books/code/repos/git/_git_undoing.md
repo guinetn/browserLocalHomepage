@@ -33,9 +33,6 @@ git commit --amend --no-edit
 download.page(code/repos/git/clean.md)
 download.page(code/repos/git/revert.md)
 download.page(code/repos/git/reset.md)
-download.page(code/repos/git/rebase.md)
-
-
 
 
 ## UNDOING CHANGES

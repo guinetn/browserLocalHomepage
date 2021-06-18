@@ -184,6 +184,24 @@ Represents each Unicode code point as a sequence of one or two 16-bit integers. 
 ## UTF-32	
 Represents each Unicode code point as a 32-bit integer. Both little-endian and big-endian byte orders are supported. UTF-32 encoding is used when applications want to avoid the surrogate code point behavior of UTF-16 encoding on operating systems for which encoded space is too important. Single glyphs rendered on a display can still be encoded with more than one UTF-32 character.
 
+
+# Common text encodings
+
+Name	How To Create	Description
+UTF-8	Encoding.UTF8	The most common multi-byte representation, where ASCII characters are always represented as single bytes, but other characters can take more,up to 3 bytes for a character within the BMP. This is usually the encoding used by .NET if you don't specify one (for instance, when creating a StreamReader). When in doubt, UTF-8 is a good choice of encoding.
+System default	Encoding.Default	This is the default encoding for your operating system,which is not the same as it being the default for .NET APIs! It's typically a Windows code page,1252 is the most common value for Western Europe and the US, for example.
+
+UTF-16	Encoding.Unicode, Encoding. BigEndianUnicode	UTF-16 represents each character in a .NET string as 2 bytes, whatever its value. Encoding. Unicode is little-endian, as opposed to Encoding. BigEndianUnicode.
+
+ASCII	Encoding.ASCII	ASCII contains Unicode values 0-127. It does not include any accented or "special" characters. "Extended ASCII" is an ambiguous term usually used to describe one of the Windows code pages.
+
+Windows code page	Encoding. GetEncoding(page)	If you need a Windows code page encoding other than the default, use Encoding. GetEncoding(Int32).
+
+ISO-8859-1 ISO-Latin-1	Encoding. GetEncoding( 28591)	Windows code page 28591 is also known as ISO-Latin-1 or ISO-8859-1, which is reasonably common outside Windows.
+
+UTF-7	Encoding.UTF7	This is almost solely used in email, and you're unlikely to need to use it. I only mention it because many people think they've got UTF7-encoded text when it's actually a different encoding entirely.
+
+
 ## More
 - https://www.rapidtables.com/code/text/alt-codes.html
 - https://www.rapidtables.com/code/text/unicode-characters.html

@@ -121,9 +121,9 @@ git status
 git commit      Permanently store the contents of the index in the repository 
 git commit -m "first"
 git remote add origin https://github.com/guinetn/gatsby_try.git
-git push -u origin master -----` deprecated, see below
+git push -u origin master -----→ deprecated, see below
 								 git branch -m master main    Renaming: master → main
-git push -u origin main   -----` 'main' from the 01/10/2020 in Github & GitLab
+git push -u origin main   -----→ 'main' from the 01/10/2020 in Github & GitLab
 		  \    \      \___ master: name of the target branch 
 		   \    \___ origin: standard common name to give to the PRIMARY remote in a repo
 		    \
@@ -191,7 +191,7 @@ git tag -a v1.2 9fceb02			Tagging later
 
 git show TagName 					Print information about a specific tag to the console window
 
-## to impact working directory
+To impact working directory
 	
 	git reset --hard `commit`
 	git checkout `file` 			to discard changes in working directory
@@ -203,7 +203,7 @@ git show TagName 					Print information about a specific tag to the console wind
 	  						Using touch, create a file with a name of your choice, then git add it. 
 	  						Verify that running git checkout -f gets rid of it.
 
-## Tags are not pushed by defaut, explicitly push tags
+Tags are not pushed by defaut, explicitly push tags
 git push origin v1.4            
 git push --tags 				  push tags to a remote repository
 git push origin --tags            transfer all of your tags to the remote server that are not already there
@@ -213,7 +213,7 @@ git checkout v2.0.0 				Checking out Tags = detached HEAD
 git checkout -b version2 v2.0.0   To make changes(say you’re fixing a bug on an older version)
 
 
-## CONTRIBUTE 
+## CONTRIBUTING
 
 git checkout -b my-work origin/master
 
@@ -225,14 +225,12 @@ git commit 				commit those changes
 
 https://github.com/jupyter/notebook/issues/2379
 
-I just submitted a PR that should fix this for both French and German keyboards. Since I have an English keyboard, I can't test myself, so I need someone here to help test.
+I just submitted a PR that should fix this for both French and German keyboards. 
+Since I have an English keyboard, I can't test myself, so I need someone here to help test.
 
-	git fetch jupyter pull/2535/head:pr/2535
-	git checkout pr/2535
-	npm run build
-
-
-
+git fetch jupyter pull/2535/head:pr/2535
+git checkout pr/2535
+npm run build
 
 
 
@@ -242,59 +240,6 @@ I just submitted a PR that should fix this for both French and German keyboards.
 
 
 
-## Useful Git Commands
-
-## About it
-` Have you recently started using Git? This should give you the base commands you need to perform the most common actions in Git. If you find a command that is not here, or could be explained better, please don't hesitate in * [Contributing](#contributing). Cheers!
-
-## Table of contents
-
-* [Install git](#install-git)
-* [Setting up git](#setting-up-git)
-* [Applying colour to git ](#applying-colour-to-git)
-* [Initializing a repository in an existing directory](#initializing-a-repository-in-an-existing-directory)
-* [Checking the status of your files](#checking-the-status-of-your-files)
-* [Staging files](#staging-files)
-* [Stashing files](#stashing-files)
-* [Committing files](#committing-files)
-* [Branching and merging](#branching-and-merging)
-* [Resetting](#resetting)
-* [Git remote](#git-remote)
-* [Git grep](#git-grep)
-* [Git blame](#git-blame)
-* [Git log](#git-log)
-* [Checking what you are committing](#checking-what-you-are-committing)
-* [Useful Commands](#useful-commands)
-* [Useful Alias](#useful-alias)
-* [Contributing](#contributing)
-
-#### Git
-
-## Git is a distributed version control system, very easy to learn and supper fast!
-
-#### Install Git
-
-## There are a few different ways to install git (from source or for Linux) but the purpose of this page is to focus on git commands, so I am going to assume you are installing git on a Mac.
-
-## To view other ways of installing it visit the [Git official site](http://git-scm.com/book/en/Getting-Started-Installing-Git)
-
-## Click [here](http://git-scm.com/download/mac) to download and install Git
-
-##### Setting up git
-
-```sh
-$ git config --global user.name "User Name"
-
-$ git config --global user.email "email"
-```
-
-##### Applying colour to git
-
-```sh
-$ git config --global color.ui true
-```
-
-##### Initializing a repository in an existing directory
 
 ## If you’re starting to track an existing project in Git, you need to go to the project’s directory and type:
 

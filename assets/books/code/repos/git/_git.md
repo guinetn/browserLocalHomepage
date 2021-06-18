@@ -131,28 +131,23 @@ download.page(code/repos/git/_git_repo.md)
 download.page(code/repos/git/_git_basics.md)
 
 download.page(code/repos/git/_git_branches.md)
-download.page(code/repos/git/tags.md)
 download.page(code/repos/git/_git_remotes.md)
 
 download.page(code/repos/git/_git_workflow.md)
 
-
 download.page(code/repos/git/_git_repo.md)
-download.page(code/repos/git/git_undoing.md)
-
-download.page(code/repos/git/merge_rebase.md)
 
 download.page(code/repos/git/_git_commands.md)
 
-download.page(code/repos/git/_git_best_practices.md)
-download.page(code/repos/git/_github.md)
-download.page(code/repos/git/_gitlab.md)
+download.page(code/repos/git/archive.md)
 
+download.page(code/repos/git/_git_best_practices.md)
+download.page(code/repos/git/_git_github.md)
+download.page(code/repos/git/_git_gitlab.md)
+download.page(code/repos/git/_git_bash.md)
 download.page(code/repos/git/_git_hooks.md)
 download.page(code/repos/git/_git_submodules.md)
 download.page(code/repos/git/_git_lfs.md)
-download.page(code/repos/git/_git_bash.md)
-download.page(code/repos/git/archive.md)
 
 download.page(code/repos/git/_git_internals.md)
 

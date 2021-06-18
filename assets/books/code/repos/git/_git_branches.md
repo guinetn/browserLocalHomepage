@@ -29,8 +29,8 @@ The feature branch has a clear and highly-focused purpose—to add specific func
 ## Création d’une branche par Feature / Bug
 
 master		default development branch
-master 		for production ---` deprecated, see below
-masin 		for production ---` 'main' from the 01/10/2020 in Github & GitLab 
+master 		for production ---→ deprecated, see below
+main 		for production ---→ 'main' from the 01/10/2020 in Github & GitLab 
 release 	branche de version
 develop 	for development
 feature 	pour new functionality	
@@ -90,6 +90,7 @@ Having a dedicated branch for each new feature is a dramatic shift from the trad
 		foo..bar 	from branch 'foo' to branch 'bar'
 		'master' is the default branch
 		
-download.page(code/repos/git/_git_branches.md)
+download.page(code/repos/git/branch.md)
 download.page(code/repos/git/_git_branches_head.md)
 download.page(code/repos/git/checkout.md)
+download.page(code/repos/git/tag.md)

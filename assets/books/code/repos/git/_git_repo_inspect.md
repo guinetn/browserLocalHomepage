@@ -14,6 +14,8 @@ git grep author                         Print lines matching a pattern.
 git bisect								Binary search algorithm to find the commit that introduced a bug
 
 download.page(code/repos/git/log.md)
+download.page(code/repos/git/reflog.md)
+download.page(code/repos/git/git_whatchanged.md)
 download.page(code/repos/git/diff.md)
 download.page(code/repos/git/blame.md)
 download.page(code/repos/git/status.md)

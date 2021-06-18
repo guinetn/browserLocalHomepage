@@ -1,12 +1,32 @@
 ## git log
 
-Learn to dig
+Designed to report Git activity to you. Learn to dig and find what file changed in a commit
 
-git log 						Viewing the commit history: author and message,
+git log 					Viewing project's commit history using the default format (author and message)
+							Displays committed snapshots. It lets you list the project history, filter it, and search for specific changes. 
 git log -3
-git log -p -2 					Shows the difference introduced in each commit at level 2...
-git log -p index.js   			File history  
+
+						 main
+						  ↓
+9ef9173  ←  7c709f0  ←  b764644
+line1       line1 		line1
+            line2       line2
+            			line3
 git log --oneline
+b764644 File with three lines
+7c709f0 File with two lines
+9ef9173 File with one line
+
+
+git log --raw               WHICH FILES CHANGED
+							Show file changed (A: added, M: modified, R: renamed, D: deleted)
+
+git log --patch 			VIEW CHANGES
+							Inline diff, a line-by-line display of all changes for each file
+git log -p index.js			Single file history  
+git log -p -2 				Shows the difference introduced in each commit at level 2...
+
+
 git log --since=yesterday
 git log --since=2.weeks
 git log --stat
@@ -16,12 +36,7 @@ git log | grep someFunction -C 3  (3 lines of context)
 git log --pretty=format:"%h %an %ar - %s"
 git log --pretty=format:"%h %s" --graph
 git log --pretty=oneline
-			
-git log
-	Viewing the entire project commit history using the default format (author and message)	
-	Displays committed snapshots. It lets you list the project history, filter it, and search for specific changes. 
 
-	git log --oneline
 
 	git log --oneline --decorate   
 		git log shows where the branch pointers (master, Head) are pointing
@@ -30,9 +45,6 @@ git log
 			b3756bf Name updated
 			fc2470c Name added
 	
-	git log --since=yesterday
-	git log --since=2weeks
-
 	git log | grep someFunction -C 3 			(-C 3 will show your matches with three lines of context).
 
 	git log --author="John Smith" -p hello.py
@@ -128,31 +140,3 @@ git log
 		git log since..until 			Show commits that occur between since and until. Args can be a commit ID, branch name, HEAD, or any other kind of revision reference.
 		git log -- file 				Only display commits that have the specified file.
 		git log --graph --decorate      --graph flag draws a text based graph of commits on left side of commit msgs. --decorate adds names of branches or tags of commits shown.
-
-
-
-
-
-
-## git reflog
-
-Git keeps track of updates to the tip of branches using a mechanism called reflog. This allows you to go back to changesets even though they are not referenced by any branch or tag. After rewriting history, the reflog contains information about the old state of branches and allows you to go back to that state if necessary.
-
-$ git reflog
-189aa32 HEAD@{0}: commit: all deleted: 0 files
-e6f1ac7 HEAD@{1}: commit: 5th commit:  5 files
-2792e62 HEAD@{2}: commit: 4th commit:  4 files
-60699ba HEAD@{3}: commit: 3rd commit:  3 files
-4ece4c7 HEAD@{4}: commit: 2nd commit:  2 files
-cc6b274 HEAD@{5}: commit: 1st commit:  1 file
-
-759a70d HEAD@{25}: checkout: moving from fix to master
-1a7de13 HEAD@{26}: commit: fix virus 2
-6b65e3d HEAD@{27}: commit: fix virus 1
-759a70d HEAD@{28}: checkout: moving from master to fix
-759a70d HEAD@{29}: checkout: moving from nf to master
-8fb5e8e HEAD@{30}: commit: can mul
-1055dd0 HEAD@{31}: commit: can add
-759a70d HEAD@{32}: checkout: moving from master to nf
-759a70d HEAD@{33}: commit: 1st change
-debbc2e HEAD@{34}: commit (initial): 1st commit				

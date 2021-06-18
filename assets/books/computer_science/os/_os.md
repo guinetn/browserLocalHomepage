@@ -71,6 +71,8 @@ https://beta.hackndo.com/rappels-d-architecture/
 
 ::::
 download.page(computer_science/os/os_posix.md)
+download.page(computer_science/os/os_posix_cygwin.md)
+download.page(computer_science/os/os_posix_mingw.md)
 ::::
 download.page(computer_science/os/os_linux.md)
 ::::

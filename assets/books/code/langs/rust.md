@@ -7,9 +7,11 @@
 - https://cheats.rs/
 - https://github.com/microsoft/windows-rs/tree/master/examples
 
+Get the latest version of Rust: rustup update
+
 ```rust
 fn main() {
-       let v = vec![1,2,3,4,5];    
+    let v = vec![1,2,3,4,5];    
     let b: Vec<i32> = v.iter().map(|e| e * 2).collect();    
     println!("{:?}", b);
 }
@@ -63,6 +65,54 @@ Language projections:
 - C++/WinRT
 - C#/WinRT
 - Rust/WinRT ["Rust for Windows"](https://github.com/microsoft/windows-rs)
+
+
+
+
+
+
+
+
+
+
+Welcome to Rust!
+
+This will download and install the official compiler for the Rust
+programming language, and its package manager, Cargo.
+
+Rustup metadata and toolchains will be installed into the Rustup
+home directory, located at:
+
+  C:\Users\nguin\.rustup
+
+This can be modified with the RUSTUP_HOME environment variable.
+
+The Cargo home directory located at:
+
+  C:\Users\nguin\.cargo
+
+This can be modified with the CARGO_HOME environment variable.
+
+The cargo, rustc, rustup and other commands will be added to
+Cargo's bin directory, located at:
+
+  C:\Users\nguin\.cargo\bin
+
+Cargo: the Rust build tool and package manager
+When you install Rustup you’ll also get the latest stable version of the Rust build tool and package manager, also known as Cargo. Cargo does lots of things:
+
+build your project with cargo build
+run your project with cargo run
+test your project with cargo test
+build documentation for your project with cargo doc
+publish a library to crates.io with cargo publish
+To test that you have Rust and Cargo installed, you can run this in your terminal of choice:
+
+cargo --version
+
+
+
+ 
 
 
 Start:

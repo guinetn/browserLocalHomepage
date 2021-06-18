@@ -100,3 +100,6 @@ git merge hotfix
 	If you need to pull it in, you can merge your master branch into your myWork branch by running
 	'git merge master', or you can wait to integrate those changes until you decide to pull the myWork
 	branch back into master later.
+
+
+https://opensource.com/article/21/4/context-switching-git

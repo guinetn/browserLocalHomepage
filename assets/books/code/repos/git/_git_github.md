@@ -61,3 +61,4 @@ SERVICES
     You can setup Continuous Integration using CircleCI. https://circleci.com/
     You might create a Codeclimate integration that analyzes the code and provides a report of “Technical Debt” and test coverage. https://codeclimate.com/
 
+download.page(code/repos/git/_git_githubpages.md)

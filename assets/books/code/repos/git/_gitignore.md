@@ -1,6 +1,7 @@
 ## .gitignore
 
 Ignoring certain files and file patterns
+By using this file, you are telling Git not to store many unwanted files like binaries, temporary files...
 
 ## Where to put .gitignore?
 

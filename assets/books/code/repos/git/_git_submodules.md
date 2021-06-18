@@ -1,4 +1,6 @@
-# GIT SUBMODULES 
+# git submodules 
+
+Submodules and subtrees help you manage child projects across multiple repositories.
 
 ## To incorporate external code in your repository
 
@@ -158,3 +160,5 @@ Working with submodules on a specific branch, where you want to commit changes t
 	git pull
 	git submodule foreach git pull
 	This will ensure that the repository and submodules are kept up to date on the appropriate branch.
+
+https://opensource.com/article/20/5/git-submodules-subtrees

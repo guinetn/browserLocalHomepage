@@ -1,4 +1,4 @@
-## C Compilers 
+## C Compilers
 
 C is a compiled language: preprocessed → compiled → assembled → linked
 

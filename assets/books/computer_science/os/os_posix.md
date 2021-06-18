@@ -14,6 +14,8 @@ provides substantial POSIX API functionality
 * MingWin
 Minimalistic GNU for Windows. A less POSIX-compliant fork of Cygwin. Toolsets: .h, .lib, gcc, gdb, make…
 
+
+Posix:
 * Asynch and Synch I/O
 * Bus Errors
 * C Library (Standard C)
@@ -34,3 +36,5 @@ Minimalistic GNU for Windows. A less POSIX-compliant fork of Cygwin. Toolsets: .
 * Shared Memory
 * Signals
 * Timers
+
+
