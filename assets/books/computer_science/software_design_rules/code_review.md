@@ -1,5 +1,0 @@
-﻿### CODE REVIEW
-
-Perform, improve, make reliable, learn, give
-
-download.page(computer_science/software_design_rules/code_review_how_to_read_code.md)
