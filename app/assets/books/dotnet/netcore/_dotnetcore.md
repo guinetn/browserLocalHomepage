@@ -1,5 +1,6 @@
 # .Net Core
 
+https://dotnet.microsoft.com/download
 https://github.com/dotnet/core
 https://docs.microsoft.com/en-us/dotnet/core/tools
 

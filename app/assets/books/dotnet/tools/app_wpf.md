@@ -23,6 +23,7 @@ WPF and WinForms applications
 - https://github.com/Microsoft/WPF-Samples
 - [good train](https://www.youtube.com/watch?v=oSeYvMEH7jc&t=1442s)
 
+- https://www.noesisengine.com
 ## start
 
 ```bash
@@ -1081,6 +1082,9 @@ The shell is divided into regions, which you dynamically fill with user control 
 - https://www.youtube.com/watch?v=PzP8mw7JUzI&t=679s
 - https://www.youtube.com/watch?v=fzBcXicj2G8&t=630s
 - https://www.youtube.com/watch?v=YkZq3u9gmRc&t=76s
+
+- https://www.noesisengine.com
+
 
 ## More
 - https://intellitect.com/interfacing-multithreading-patterns/

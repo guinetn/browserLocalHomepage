@@ -190,3 +190,4 @@ export default MyFilez;
 - https://nextjs.org/
 - https://buddy.works/tutorials/creating-our-first-app-in-next-js
 - https://egghead.io/projects/create-an-ecommerce-store-with-next-js-and-stripe-checkout
+- https://dev.to/dabit3/magic-link-authentication-and-route-controls-with-supabase-and-next-js-leo

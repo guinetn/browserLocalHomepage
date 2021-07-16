@@ -1,19 +1,27 @@
 # DOCKERFILE
 
+Docker images can be automatically built from text files, named Dockerfiles. A Docker file contains step-by-step ordered instructions or commands used to create and configure a Docker image.
+
 - Named `Dockerfile` by default, in the root of the context
 - Text instructions to assemble an image (add packages, copy files...)
 - Commands a user could call on the command line 
 - The Docker daemon runs the instructions in the Dockerfile
 - https://docs.docker.com/engine/reference/builder
 
+
+
 📄 DOCKERFILE
 ```conf
-FROM node:12-alpine
+FROM node:12-alpine                    pull the base image from which you are building the new image
 WORKDIR /app                   
 COPY . .
-RUN yarn install --production
-CMD ["node", "/app/src/index.js"]
+RUN yarn install --production          Runs any commands after a Docker image has been created. Many Run...can exists
+CMD ["node", "/app/src/index.js"]      Run a command when the Docker image is started. Only one CMD can exists
 ```
+Creating the image
+>docker build -t node .
+>docker build -t mycontainername /var/docker/ubuntu/apache/
+
 
 ## DOCKERFILE COMMANDS
 
@@ -32,6 +40,8 @@ FROM busybox:$VERSION
 
 INSTRUCTION arguments                  INSTRUCTION are not case-sensitive
 
+RUN
+    can be used on multiple lines and runs any commands after a Docker image has been created.
 RUN <command> (shell form, the command is run in a shell, which by default is /bin/sh -c on Linux or cmd /S /C on Windows)
 RUN ["executable", "param1", "param2"] (exec form, parsed as a JSON array so use "" not '')     
 
@@ -84,6 +94,9 @@ ADD
     ADD --chown=1 files* /somedir/
     ADD --chown=10:11 files* /somedir/
 
+CMD
+    Run any command when the Docker image is started. Use only one CMD instruction in a Dockerfile.
+
 COPY
     copies new files or directories from <src> 
     and adds them to the filesystem of the container at the path <dest>
@@ -93,13 +106,14 @@ COPY
     COPY hom* /mydir/
 
 ENV <key>=<value> ...
-    sets the environment variable. Persist if container is run from the resulting image
+    Set container environment variables. Persist if container is run from the resulting image
     ENV MY_NAME="John Doe"
     docker inspect     
     docker run --env <key>=<value>
 
 ENTRYPOINT
     configure a container that will run as an executable
+    Same as CMD but used as the main command for the image.
     ENTRYPOINT ["executable", "param1", "param2"]
     ENTRYPOINT command param1 param2    
     
@@ -113,17 +127,22 @@ ENTRYPOINT
     docker exec -it test ps aux
 
 EXPOSE <port> [<port>/<protocol>...]
-    container listen on the specified network ports at runtime.
+    container listen on the specified network ports at runtime
+    Instructs the container to listen on network ports when running. The container ports are not reachable from the host by default.
     EXPOSE 80/tcp
     EXPOSE 80/udp
     docker run -p 80:80/tcp -p 80:80/udp ...
 
 FROM
+    Instructs Docker to pull the base image from which you are building the new image
 
 LABEL
     key-value pair that adds metadata to an image
     LABEL version="1.0"
     docker image inspect --format='' myimage
+
+MAINTAINER
+    Author of the build image
 
 SHELL ["executable", "parameters"]    
     To overridde the default shell that is on: 

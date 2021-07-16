@@ -42,10 +42,17 @@ code .
 
 asp.net
 https://docs.microsoft.com/fr-fr/learn/modules/build-web-api-aspnet-core/3-exercise-create-web-api
+https://www.red-gate.com/simple-talk/dotnet/c-programming/build-a-rest-api-in-net-core/
+
 
 dotnet new webapi --no-https
 dotnet new webapi -o api01 --no-https     → http://localhost:5000
 dotnet new webapi -o api01                → https://localhost:5001  
+dotnet add package Microsoft.EntityFrameworkCore.InMemory
+
+dotnet new sln
+dotnet new webapi --no-https
+dotnet sln add .
 
   Controllers/	Contient des classes avec des méthodes publiques exposées en tant que points de terminaison HTTP.
   Program.cs	Contient une méthode Main, qui est le point d’entrée managé de l’application.
@@ -73,3 +80,12 @@ https://app.serverless.com/guinetn/apps/new
 npx create-react-app my-app
 yarn create react-app my-app
 https://github.com/facebook/create-react-app
+
+
+Blazor
+  dotnet new blazorserver -o Auth0BlazorServer
+  cd Auth0BlazorServer
+  dotnet run
+
+  https://andrewlock.net/adding-authentication-to-a-blazor-server-app-using-auth0
+  dotnet add package Microsoft.AspNetCore.Authentication.OpenIdConnect

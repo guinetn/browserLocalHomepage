@@ -32,6 +32,9 @@ download.page(computer_science/algorithms/strings/_strings.md)
 download.page(computer_science/algorithms/optimiz/opl.md)
 ::::
 download.page(computer_science/algorithms/state_machine.md)
+::::
+download.page(computer_science/algorithms/uuid.md)
+download.page(computer_science/algorithms/nanoid.md)
 
 ::::
 ## Backtracking algorithms

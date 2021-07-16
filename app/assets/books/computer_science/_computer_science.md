@@ -83,3 +83,5 @@ download.page(computer_science/open_source.md)
 download.page(computer_science/licences.md)
 ::::
 download.page(computer_science/fsm/_fsm.md)
+::::
+download.page(computer_science/augmented_reality.md)

@@ -1,16 +1,19 @@
 # JAVASCRIPT
 
-https://www.freecodecamp.org/news/javascript-hacks/ to add
+- https://www.freecodecamp.org/news/javascript-hacks/ to add
 
-https://github.com/ProgrammingHero1/oop-object-oriented-programming
-https://github.com/ProgrammingHero1/data-structure-algorithm-time-complexity
-https://github.com/microsoft/Web-Dev-For-Beginners
-https://www.dofactory.com/products/dofactory-js
-https://www.dofactory.com/javascript/reference
-https://dev.to/rahxuls/17-pro-javascript-tricks-you-didn-t-know-5gog
-https://davidwalsh.name/cache
-https://krasimirtsonev.com/blog/article/Javascript-template-engine-in-just-20-line
-https://www.i-programmer.info/programming/javascript/13092-javascript-canvas-offscreencanvas.html
+- https://stdlib.io/docs/api/v0.0.90/@stdlib/assert
+library for JavaScript and Node.js, with an emphasis on numerical and scientific computing applications. The library provides a collection of robust, high performance libraries for mathematics, statistics, data processing, streams
+
+- https://github.com/ProgrammingHero1/oop-object-oriented-programming
+- https://github.com/ProgrammingHero1/data-structure-algorithm-time-complexity
+- https://github.com/microsoft/Web-Dev-For-Beginners
+- https://www.dofactory.com/products/dofactory-js
+- https://www.dofactory.com/javascript/reference
+- https://dev.to/rahxuls/17-pro-javascript-tricks-you-didn-t-know-5gog
+- https://davidwalsh.name/cache
+- https://krasimirtsonev.com/blog/article/Javascript-template-engine-in-just-20-line
+- https://www.i-programmer.info/programming/javascript/13092-javascript-canvas-offscreencanvas.html
 
 Specifications: Standard ECMA-262
 ## PLAYGROUND

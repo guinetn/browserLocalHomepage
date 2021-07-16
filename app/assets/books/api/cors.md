@@ -6,6 +6,7 @@ Allows resources to be requested from another domain
 web application security model
 "cross-domain" requests (Ajax, XmlHttpRequest) are forbidden by default by the same-origin security policy.
 
+By default, browser security doesn’t allow a web page to make requests to a different domain other than the one from where the web page is served. This restriction is called the same-origin policy.
 
 ## Same-origin policy (SOP)
 Wser permits scripts contained in a first web page to access data in a second web page, but only if both web pages have the same origin (combination of URI scheme, host name, port number)
@@ -86,3 +87,27 @@ CORS Anywhere is a NodeJS reverse proxy which adds CORS headers to the proxied r
 - https://github.com/Rob--W/cors-anywhere/#documentation
 
 - https://blog.bitsrc.io/how-and-why-you-should-avoid-cors-in-single-page-apps-db25452ad2f8
+
+
+
+## Enable CORS in ASP.NET Core Web API
+
+By default, browser security doesn’t allow a web page to make requests to a different domain other than the one from where the web page is served. This restriction is called the same-origin policy.
+
+```c#
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddCors(policy =>
+    {
+        policy.AddPolicy("CorsPolicy", opt => opt
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+    });
+ 
+    services.AddControllers();
+}
+
+// Also add the following line in the Configure method of Startup.cs file
+app.UseCors("CorsPolicy");
+```

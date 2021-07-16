@@ -1,6 +1,8 @@
 # Docker
 
 Container runtime 
+A container is a virtualization on top of the operating system layer. Containers do not need to boot up another operating system to run an application. All you need is your application code and its dependent libraries packaged into a single image. The important advantage of containers is that you do not need to boot up another operating system with all the software packages needed for your application on top of the host machine.
+
 https://www.katacoda.com/courses/docker
 
 VSCode: green indicator at left/bottom → "remote containers...open, attach, clone in..." ★★★
@@ -66,6 +68,14 @@ docker rmi johnpapa/success
 
 
 - https://docs.microsoft.com/en-us/azure/app-service/tutorial-custom-container
+
+* Container Manipulation in CentOS and RHEL
+1. https://www.tecmint.com/install-docker-and-learn-containers-in-centos-rhel-7-6/
+2. https://www.tecmint.com/install-run-and-delete-applications-inside-docker-containers/
+3. https://www.tecmint.com/build-and-configure-docker-container-images-with-dockerfile/
+4. https://www.tecmint.com/ctop-monitor-docker-containers/
+ctop is a free open source, simple and cross-platform top-like command-line tool for monitoring container metrics in real-time. It allows you to get an overview of metrics concerning CPU, memory, network, I/O for multiple containers and also supports inspection of a specific container.
+
 
 download.page(cloud/containers_docker_commands.md)
 download.page(cloud/containers_docker_compose.md)
@@ -206,6 +216,8 @@ a MINGW64 environment
 - https://blog.logrocket.com/node-js-docker-improve-dx/
 - https://blog.bitsrc.io/setting-up-a-logging-infrastructure-in-nodejs-ec34898e677e
 - https://blog.bitsrc.io/
+
+- https://blog.bitsrc.io/best-practices-for-writing-a-dockerfile-68893706c3
 
 - https://medium.com/swlh/deploy-your-net-core-3-1-application-to-heroku-with-docker-eb8c96948d32
 

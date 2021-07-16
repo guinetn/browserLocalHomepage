@@ -7,6 +7,12 @@ a guideline to write maintainable, expandable and easy to understand code
 - Interface Segregation Principle
 - Dependency Inversion Principle
 
+The Single-responsibility principle: There should never be more than one reason for a class to change.
+The Open–closed principle: Software entities should be open for extension, but closed for modification.
+The Liskov substitution principle: Objects in a program should be replaceable with instances oftheir subtypes without altering the correctness of the program.
+The Interface segregation principle: Many client-specific interfaces are better than one general-purpose interface.
+The Dependency inversion principle: High level modules should not depend upon low level modules. Both should depend upon abstractions.
+
 ***S - SINGLE RESPONSIBILITY PRINCIPLE***
 "A class should have one and only one responsibility".
 Each responsibility is an axis of change.

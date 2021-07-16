@@ -1,5 +1,6 @@
 # TESTING API
 
+download.page(api/testing/benchmarking_stress.md)
 download.page(api/testing/postman_api.md)
 
 

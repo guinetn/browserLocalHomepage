@@ -2,6 +2,39 @@
 
 dotnet CLI tooling comes with several built-in cmds such as build, run, test... but it turns out it’s possible to add your own verb to that list.
 
+To start building .NET apps, download and install the .NET SDK (Software Development Kit).
+NET SDK is a set of libraries and tools that allow developers to create . NET applications and libraries. It contains the following components that are used to build and run applications: ... NET libraries and runtime
+https://dotnet.microsoft.com/download
+
+
+dotnet [commande] --help
+dotnet watch --help
+
+dotnet --info
+dotnet --list-sdks
+3.1.405 [C:\Program Files\dotnet\sdk]
+5.0.102 [C:\Program Files\dotnet\sdk]
+dotnet  --list-runtimes
+Microsoft.AspNetCore.All 2.1.24 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.All]
+Microsoft.AspNetCore.App 2.1.24 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+Microsoft.AspNetCore.App 3.0.3 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+Microsoft.AspNetCore.App 3.1.11 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+Microsoft.AspNetCore.App 5.0.2 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+Microsoft.NETCore.App 2.0.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+Microsoft.NETCore.App 2.1.24 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+Microsoft.NETCore.App 3.0.3 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+Microsoft.NETCore.App 3.1.11 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+Microsoft.NETCore.App 5.0.2 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+Microsoft.WindowsDesktop.App 3.0.3 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+Microsoft.WindowsDesktop.App 3.1.11 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+Microsoft.WindowsDesktop.App 5.0.2 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+
+***dotnet [runtime-options] [path-to-application] [arguments]***
+***dotnet [sdk-options] [command] [command-options] [arguments]***
+
+
+
+
 [Commands](https://docs.microsoft.com/en-us/dotnet/core/tools/index)
 
 Your application can then be packaged up (using dotnet pack) and distributed through NuGet.
@@ -32,32 +65,6 @@ dotnet new webapi -o TodoApi     // https://docs.microsoft.com/fr-fr/aspnet/core
 cd TodoApi
 dotnet add package Microsoft.EntityFrameworkCore.InMemory
 code -r ../TodoApi
-
-## CLI
-dotnet [commande] --help
-dotnet watch --help
-
-dotnet --info
-dotnet --list-sdks
-3.1.405 [C:\Program Files\dotnet\sdk]
-5.0.102 [C:\Program Files\dotnet\sdk]
-dotnet  --list-runtimes
-Microsoft.AspNetCore.All 2.1.24 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.All]
-Microsoft.AspNetCore.App 2.1.24 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
-Microsoft.AspNetCore.App 3.0.3 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
-Microsoft.AspNetCore.App 3.1.11 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
-Microsoft.AspNetCore.App 5.0.2 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
-Microsoft.NETCore.App 2.0.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
-Microsoft.NETCore.App 2.1.24 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
-Microsoft.NETCore.App 3.0.3 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
-Microsoft.NETCore.App 3.1.11 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
-Microsoft.NETCore.App 5.0.2 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
-Microsoft.WindowsDesktop.App 3.0.3 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
-Microsoft.WindowsDesktop.App 3.1.11 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
-Microsoft.WindowsDesktop.App 5.0.2 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
-
-***dotnet [runtime-options] [path-to-application] [arguments]***
-***dotnet [sdk-options] [command] [command-options] [arguments]***
 
 ### Exécutez une application .NET
 

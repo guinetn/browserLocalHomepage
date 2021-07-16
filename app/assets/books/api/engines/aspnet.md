@@ -1,4 +1,15 @@
-# aspnet
+# asp.net
+
+Extends the .NET platform with tools and libraries specifically for building many types of web applications, including web pages, REST APIs, microservices, and hubs that push real-time content to connected clients.
+- Base framework for web requests processing in C# or F#
+- Razor: Web-page templating syntax for building C# dynamic web pages
+- Libraries for common web patterns, such as Model View Controller (MVC)
+- Authentication system that includes libraries, a database, and template pages for handling logins, including - multi-factor authentication and external authentication with Google, Twitter, and more.
+- Editor extensions to provide syntax highlighting, code completion, and other functionality specifically for developing web pages
+
+ASP.NET Core is the open-source and cross-platform version of ASP.NET
+You should use ASP.NET Core for all new applications
+Windows-only versions of ASP.NET, that existed before ASP.NET Core, is typically just referred to as ASP.NET. The majority of innovation occurs in ASP.NET Core, but other versions continue to receive minor updates and bug-fixes.
 
 ## Encrypt App.settings
 

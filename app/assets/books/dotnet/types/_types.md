@@ -115,3 +115,5 @@ download.page(dotnet/types/val/memory.md)
 download.page(dotnet/types/val/json.md)
 ::::
 download.page(dotnet/types/ref/null.md)
+::::
+download.page(dotnet/types/monads.md)

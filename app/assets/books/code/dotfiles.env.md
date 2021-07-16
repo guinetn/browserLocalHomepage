@@ -69,6 +69,11 @@ ASP.NET CORE reads configuration settings from a variety of sources. The configu
 - command line arguments
 Therefore, an environment variable will overwrite a setting in secrets.json that overwrites a setting in appsettings.json
 
+dotnet user-secrets init
+dotnet user-secrets set "Auth0:Domain" "some-domain.eu.auth0.com"
+dotnet user-secrets set "Auth0:ClientId" "ABC123someClientId"
+dotnet user-secrets set "Auth0:ClientSecret" "some_random_string_of_letters"
+
 * Enabled secret for your ASP.NET Core project
 >dotnet user-secrets init    
 - project file change: <UserSecretsId>5e6f813f-e0e5-435d-a201-8031565450a3</UserSecretsId>
@@ -79,6 +84,8 @@ Therefore, an environment variable will overwrite a setting in secrets.json that
 >dotnet user-secrets set "WebApiOptions:ApiKey" "12345"   → {  "WebApiOptions:ApiKey": "12345" }
   WebApiOptions: section's name
   ApiKey: variable's name
+
+
 
 Bind it to the app with the Options Pattern
 ```c#

@@ -33,6 +33,11 @@ IJSRuntime
 		}
 	}
 
+### BLAZOR COMPONENTS
+
+https://www.ezzylearning.net/tutorial/a-beginners-guide-to-blazor-components
+
+
 #### Articles
 - https://developer.okta.com/blog/2019/10/16/csharp-blazor-authentication
 - [Deploy Blazor WebAssembly to GitHub Pages](https://www.youtube.com/watch?v=nNxII6jvPvQ&feature=youtu.be)
@@ -41,4 +46,7 @@ IJSRuntime
 - https://medium.com/younited-tech-blog/localization-of-a-blazor-component-2178aa855ded
 - https://medium.com/@ankitsharmablog/how-to-perform-crud-operations-using-blazor-and-google-cloud-firestore-52890b06e2f8
 - https://andrewlock.net/using-source-generators-to-generate-a-nav-component-in-a-blazor-app/
+- https://andrewlock.net/adding-authentication-to-a-blazor-server-app-using-auth0
 - https://devblogs.microsoft.com/aspnet/building-contextual-experiences-w-blazor/
+- https://www.ezzylearning.net/tutorial/implementing-crud-operations-in-blazor-server-apps
+- https://www.ezzylearning.net/tutorial/a-beginners-guide-to-blazor-components

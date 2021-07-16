@@ -1,5 +1,6 @@
 # Svelte
 
+JavaScript compiler
 Rich Harris 2016 open source (MIT Licence) JavaScript library for building user interfaces.
 Declarative components → compiler → efficient JS that surgically updates the DOM
 Component-based: reusable code
@@ -18,6 +19,10 @@ Open up localhost:5000 in your browser
 src
 App.svelte is our main component 
 main.js
+
+* Svelte Kit
+https://kit.svelte.dev
+Extension of Svelte that adds routing
 
 ## More
 - https://kit.svelte.dev/

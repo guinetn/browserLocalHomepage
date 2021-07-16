@@ -19,7 +19,7 @@ https://github.com/thedaviddias/Front-End-Checklist
 https://roadmap.sh/frontend
 
 
-download.page(web/front/microfrontends.md)
+download.page(web/front/microfrontends/_microfrontends.md)
 ::::
 download.page(web/front/react.md)
 ::::
@@ -32,6 +32,8 @@ download.page(web/front/blazor.md)
 download.page(web/front/angular.md)
 ::::
 download.page(web/front/forgo.md)
+::::
+download.page(web/front/astro.md)
 ::::
 download.page(web/front/templating/_templating.md)
 

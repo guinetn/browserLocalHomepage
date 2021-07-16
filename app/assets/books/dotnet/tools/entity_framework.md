@@ -70,28 +70,14 @@ Every time you will add a new migration using the Add-Migration command, a new f
 
 On the database server, EF creates a ***__EFMigrationsHistory table*** to keep track of all the migrations already ran against the database.
 
+download.page(dotnet/tools/entity_framework_in_memory.md)
+
 ## SAMPLES
 
 - https://itnext.io/how-to-build-an-event-driven-asp-net-core-microservice-architecture-e0ef2976f33f
 - [Onion Architecture In .Net 5](https://github.com/JayKrishnareddy/OnionArchitecture)
 PM>Update-Database
 
-
-## A fake database in memory: Microsoft.EntityFrameworkCore.InMemory 
-
-Microsoft.EntityFrameworkCore.InMemory 
->dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 3.1.15
-startup.cs
-```c#
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddDbContext<BaseControllerDBContext>(options => options.UseInMemoryDatabase("BaseController"));
-    services.AddControllers();
-}
-```
-
-- [](https://itnext.io/how-to-use-database-sharding-and-scale-an-asp-net-core-microservice-architecture-22c24916590f)
-- https://docs.microsoft.com/fr-fr/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio-code
 
 ## CODE FIRST SAMPLE
 

@@ -6,6 +6,87 @@ Docker allows you to use $PWD as a placeholder for the current directory.
 
 >docker help run
 
+
+
+
+
+>mkdir -p /var/docker/ubuntu/apache
+>touch /var/docker/ubuntu/apache/Dockerfile
+>vi /var/docker/ubuntu/apache/Dockerfile
+
+📄 DOCKERFILE
+```yaml
+FROM ubuntu                            Take the 'latest' image from Docker Hub if no tag is submitted, say 14:10
+MAINTAINER  your_name  <user@domain.tld>
+RUN apt-get -y install apache2                                                  install Apache daemon 
+RUN echo “Hello Apache server on Ubuntu Docker” > /var/www/html/index.html      echo some text into
+EXPOSE 80                               Docker container will listen on port 80, but the port will be not available to outside
+CMD /usr/sbin/apache2ctl -D FOREGROUND
+```
+
+Creating the image
+>docker build -t ubuntu-apache /var/docker/ubuntu/apache/
+List all available images 
+> docker images
+
+Run the Container and Access Apache from LAN
+>docker run -d -p 81:80 ubuntu-apache
+-d option runs the ubuntu-apache container in background (as a daemon)
+-p option maps the container port 80 to your localhost port 81
+
+--name assign a descriptive name for the container: 
+>docker run --name my-www -d -p 81:80 ubuntu-apache
+Then
+>docker stats my-www
+>docker stats <name or ID of the container>
+
+[Netstat](https://www.tecmint.com/20-netstat-commands-for-linux-network-management/<7>) command will give you an idea about what ports the host is listening to.
+>netstat -tupln | grep :81
+
+Status of the running container
+>docker ps 
+>docker top <name or ID of the container>
+>docker stop <name or ID of the container>
+
+[IP](https://www.tecmint.com/ip-command-examples/) command line to show network interface IP addresses.
+>ip addr               [List nework interfaces]
+
+The webpage can be displayed on your host from the command line using curl utility against your machine IP Address, localhost, or docker net interface on port 81.
+>curl ip-address:81    [System Docker IP Address]
+>curl localhost:81     [Localhost]
+http://ip-address:81
+
+Create a System-wide Configuration File for Docker Container
+On CentOS/RHEL you can create a systemd configuration file and manage the container as you normally do for any other local service.
+>vi /etc/systemd/system/apache-docker.service
+📄 apache-docker.service 
+```yaml
+[Unit]
+Description=apache container
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a my-www
+ExecStop=/usr/bin/docker stop -t 2 my-www
+
+[Install]
+WantedBy=local.target
+```
+
+Reload the systemd daemon to reflect changes 
+>systemctl daemon-reload
+
+Start the container
+>systemctl start apache-docker.service
+>systemctl status apache-docker.service
+
+
+
+
+
+
 * FIND EXISTING IMAGES 
 - registry.hub.docker.com/
 - docker search redis

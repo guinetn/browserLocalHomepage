@@ -1,15 +1,34 @@
 # ASP NET CORE
 
-https://docs.microsoft.com/fr-fr/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio-code
+2016, re-design of earlier Windows-only versions of ASP.NET.
 
-## WEBAPI
+Extends the .NET platform with tools and libraries specifically for building many types of web applications, including web pages, REST APIs, microservices, and hubs that push real-time content to connected clients.
+- Base framework for web requests processing in C# or F#
+- Razor: Web-page templating syntax for building C# dynamic web pages
+- Libraries for common web patterns, such as Model View Controller (MVC)
+- Authentication system that includes libraries, a database, and template pages for handling logins, including - multi-factor authentication and external authentication with Google, Twitter, and more.
+- Editor extensions to provide syntax highlighting, code completion, and other functionality specifically for developing web pages
+
+ASP.NET Core is the open-source and cross-platform version of ASP.NET
+You should use ASP.NET Core for all new applications
+Windows-only versions of ASP.NET, that existed before ASP.NET Core, is typically just referred to as ASP.NET. The majority of innovation occurs in ASP.NET Core, but other versions continue to receive minor updates and bug-fixes.
+
+- https://github.com/dodyg/practical-aspnetcore ★★★
+- https://www.red-gate.com/simple-talk/dotnet/c-programming/build-a-rest-api-in-net-core/
+- https://docs.microsoft.com/fr-fr/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio-code
+
+## WEB API
 
 1. No HTTPS
-https://docs.microsoft.com/fr-fr/learn/modules/build-web-api-aspnet-core/3-exercise-create-web-api
+HTTPS disabled to make it easier for local development
+
+- https://docs.microsoft.com/fr-fr/learn/modules/build-web-api-aspnet-core/3-exercise-create-web-api
 
 dotnet new webapi --no-https
 dotnet new webapi -o api01 --no-https     → http://localhost:5000
 dotnet new webapi -o api01                → https://localhost:5001  
+
+
 
   Controllers/	classes with public methods = actions = exposed as HTTP endpoints
   Program.cs	Contient une méthode Main, qui est le point d’entrée managé de l’application.
@@ -18,22 +37,53 @@ dotnet new webapi -o api01                → https://localhost:5001
 
   then add models, services: https://docs.microsoft.com/fr-fr/learn/modules/build-web-api-aspnet-core/5-exercise-add-data-store
 
-dotnet build
-dotnet run
-http://localhost:5000/weatherforecast
-http://localhost:5000/swagger
+dotnet build 
+dotnet run  
+- http://localhost:5000/weatherforecast
+- http://localhost:5000/swagger
 
-  * REPL (Read-Eval-Print-Loop) HTTP .NET
-  >dotnet tool install -g Microsoft.dotnet-httprepl
-  >httprepl http://localhost:5000                         connect http://localhost:5000
-  >ls                                                     Explorez les points de terminaison disponibles
-  >cd WeatherForecast
-  >get
-  >get 3
-  >delete 3
-  >post -c "{"name":"Hawaii", "isGlutenFree":false}"
-  >put 3 -c  "{"id": 3, "name":"Hawaiian", "isGlutenFree":false}"
-  >exit   CTRL+C
+* Mini API ~ Node like
+https://github.com/dodyg/practical-aspnetcore/tree/net5.0/projects/net6/map-4
+
+```cs
+using System;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+string Plaintext() => "Hello, World!";
+app.MapGet("/hello", Plaintext);
+
+Greeting Json() => new Greeting("Hello, World!");
+app.MapGet("/json", Json);
+
+app.MapGet("/hello/{name}", (string name) => new Greeting($"Hello, {name}!"));
+
+app.Run();
+
+public record Greeting(string Message);
+```
+
+* REPL (Read-Eval-Print-Loop) HTTP .NET
+
+>dotnet tool install -g Microsoft.dotnet-httprepl
+>httprepl http://localhost:5000                         connect http://localhost:5000
+>ls                                                     Explorez les points de terminaison disponibles
+>cd WeatherForecast
+>get
+>get 3
+>delete 3
+>post -c "{"name":"Hawaii", "isGlutenFree":false}"
+>put 3 -c  "{"id": 3, "name":"Hawaiian", "isGlutenFree":false}"
+>exit   CTRL+C
 
 swagger origin:
     Startup.cs
@@ -61,6 +111,10 @@ swagger origin:
                 endpoints.MapControllers();
             });
 
+* IN-MEMORY DATABASE
+download.page(dotnet/tools/entity_framework_in_memory.md)
+
+
 2. HTTPS
 https://docs.microsoft.com/fr-fr/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio-code
 
@@ -70,7 +124,7 @@ Approuvez le certificat de développement HTTPS en exécutant la commande suivan
 https://docs.microsoft.com/fr-fr/aspnet/core/security/enforcing-ssl?view=aspnetcore-5.0#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos
 
 
-## WEPAPP (not api, no controller)
+## WEB APP (not api, no controller)
 >dotnet new webApp -o myWebApp --no-https
     webApp  = template to use when creating your app
     -o = creates a directory named myWebApp where your app is stored.
@@ -156,6 +210,33 @@ public class Program
 - https://www.ezzylearning.net/tutorial/a-developers-guide-for-creating-web-apis-with-asp-net-core-5
 
 download.page(web/back/servers/kestrel.md)
+
+## Enable CORS in ASP.NET Core Web API
+
+By default, browser security doesn’t allow a web page to make requests to a different domain other than the one from where the web page is served. This restriction is called the same-origin policy.
+
+```c#
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddCors(policy =>
+    {
+        policy.AddPolicy("CorsPolicy", opt => opt
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+    });
+ 
+    services.AddControllers();
+}
+
+// Also add the following line in the Configure method of Startup.cs file
+app.UseCors("CorsPolicy");
+```
+
+## Logging
+
+https://www.ezzylearning.net/tutorial/logging-in-asp-net-core-5-using-serilog
+
 ## Tutorial
 
 https://www.youtube.com/watch?v=BfEjDD8mWYg
@@ -193,3 +274,4 @@ download.page(api/engines/aspnetcore/razor.md)
 - https://www.ezzylearning.net/tutorial/a-developers-guide-for-creating-web-apis-with-asp-net-core-5
 - https://medium.com/swlh/consuming-wsdl-services-using-asp-net-core-141fbc77924f
 - https://www.ezzylearning.net/tutorial/display-live-sports-updates-using-asp-net-core-signalr
+- https://www.ezzylearning.net/tutorial/implementing-crud-operations-in-blazor-server-apps

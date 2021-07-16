@@ -41,11 +41,16 @@ https://ericleads.wordpress.com/2013/02/11/fluent-javascript-three-different-kin
 Gang of Four’s advice: “Favor object composition over class inheritance”
 
 #### Access modifiers
-public
-private 
-protected
-internal
-protected internal
+4 access modifiers to control which classes have access to properties and methods of another class:
+
+public      access is allowed by any code no matter what class or assembly it belongs to.
+internal    as public but restricted to code in the same assembly
+protected   access is allowed by code in the same class or a derived class
+private     as protected but restricted to code in the same class.
+
+combined modifier:
+protected internal  access is allowed to any code in the same assembly or by any derived class in another assembly.
+
     
 #### Sealed class
 Cannot be inherited

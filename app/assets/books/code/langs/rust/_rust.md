@@ -6,6 +6,8 @@
 - https://doc.rust-lang.org/book/title-page.html
 - https://cheats.rs/
 - https://github.com/microsoft/windows-rs/tree/master/examples
+- [Microsoft rust course](https://www.i-programmer.info/news/98/14704.html)
+- https://github.com/microsoft/beginners-series-rust
 
 Get the latest version of Rust: rustup update
 
@@ -225,3 +227,9 @@ IDE
 
 - https://github.com/saschagrunert/webapp.rs
 - https://medium.com/@saschagrunert/lessons-learned-on-writing-web-applications-completely-in-rust-2080d0990287
+
+## setuptools-rust
+https://pypi.org/project/setuptools-rust/
+Compile and distribute Python extensions written in Rust as easily as if they were written in C.
+setuptools-rust is a plugin for setuptools to build Rust Python extensions implemented with PyO3 or rust-cpython. Compile and distribute Python extensions written in Rust as easily as if they were written in C
+- [Rust with python](https://github.com/Lleyton-Ariton/oddity)
