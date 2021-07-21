@@ -19,7 +19,6 @@ python -m pip install --upgrade pip
 pip install 'flask==1.1.2'
 pip install -r requirements.txt
 
-
 July 2020: 235 000 Python packages 
 
 # PyPI - Python Package Index
@@ -68,15 +67,15 @@ See also I:\code_langs\python\@python\virtualenv.py
   show                        Show information about installed packages.                              
                                 >pip show pandas
                                 >pip show --verbose pandas            complete details
-                                >pip show  graphviz
-                                Name: graphviz
-                                Version: 0.13.2
-                                Summary: Simple Python interface for Graphviz
-                                Home-page: https://github.com/xflr6/graphviz
-                                Author: Sebastian Bank                                                            
-                                Location: c:\users\nguin\anaconda3\lib\site-packages
-                                Requires:
-                                Required-by: diagrams
+                                >pip show graphviz
+                                  Name: graphviz
+                                  Version: 0.13.2
+                                  Summary: Simple Python interface for Graphviz
+                                  Home-page: https://github.com/xflr6/graphviz
+                                  Author: Sebastian Bank                                                            
+                                  Location: c:\users\nguin\anaconda3\lib\site-packages
+                                  Requires:
+                                  Required-by: diagrams
   check                       Verify installed packages have compatible dependencies.
   config                      Manage local and global configuration.
   search                      Search PyPI for packages.

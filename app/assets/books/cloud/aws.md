@@ -34,7 +34,7 @@ https://static.coggle.it/diagram/XhbybXDSoKh9k_fr/t/amazon-web-services
  sécurité
  applications d'entreprise
 
-* AWS Origin: 2006 STORATE, GOMPUTE, MESSAGING
+* AWS Origin: 2006 STORAGE, COMPUTE, MESSAGING
 * RoboMaker: simulate robots
 * IoT Core: get data
 * Ground Station: connect to your satellites
@@ -307,6 +307,17 @@ Force Buddy to trigger the execution on every change to the development code
 
 Preparing environment
 
+
+## AWS Cloud9
+    
+https://aws.amazon.com/fr/cloud9/
+
+a cloud-based integrated development environment (IDE) that lets developers write, run and debug code with just a browser, providing a code editor, debugger and terminal. It comes with essential tools for popular programming languages such as JavaScript, Python, PHP and more, so devs don't need to install files or configure a development machine to start new projects.
+
+With AWS Cloud9, you start with an environment pre-packaged with essential tools for popular programming languages, coupled with the power of Amazon EC2
+
+advantage of AWS Cloud9's built-in auto-shutdown capability which powers off your instance when you're not actively connected to it.
+
 ##### ARTICLES
 
 - https://www.freecodecamp.org/news/author/david/
@@ -318,3 +329,5 @@ Preparing environment
 - https://www.scarydba.com/2020/08/10/my-first-hand-built-aws-codepipeline/
 - https://medium.com/@adhasmana/how-to-quickly-deploy-react-and-node-app-on-aws-80e5dfe7d86e
 https://dev.to/edwardmercado/build-a-modern-web-application-3o4f
+
+- [GitHub Codespaces Alternative: AWS Cloud9, SSH & VS Code](https://visualstudiomagazine.com/articles/2021/07/01/aws-vscode.aspx?oly_enc_id=3671F4217256E2X)

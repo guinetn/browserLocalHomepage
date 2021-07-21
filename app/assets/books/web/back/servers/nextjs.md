@@ -2,6 +2,7 @@
 
 React framework with hybrid static & server rendering (no config)
 Pre-rendering can result in better performance and SEO
+
 - https://nextjs.org/
 - https://www.youtube.com/watch?v=Sklc_fQBmcs&t=158s
 - https://github.com/fireship-io/nextjs-basics

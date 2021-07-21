@@ -58,3 +58,4 @@ TTL resource:lock => -1
 
 - https://github.com/davidfowl/A-sync-RedisClient
 - https://www.youtube.com/watch?v=UrQWii_kfIE&t=29s
+- https://itnext.io/how-to-use-redis-and-lua-scripts-in-a-c-asp-net-core-microservice-architecture-e12dc8846707

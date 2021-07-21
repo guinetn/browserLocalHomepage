@@ -1,6 +1,6 @@
 # WASM - Web Assembly
 
-A specification for a virtual machine that runs in the browser. Web Assembly is based on LLVM  (Low Level Virtual Machine), a stack based virtual machine that compilers can target
+A language specification for a virtual machine that runs in the browser (or out the browser: wasi). Web Assembly is based on LLVM  (Low Level Virtual Machine), a stack based virtual machine that compilers can target
 
 Runtime, with multi-language support, that provides near-native execution speeds within the browser,
 
@@ -22,10 +22,15 @@ Let’s use already existing useful code that has been written for other environ
 Performance benefits over JavaScript.
 
 - https://wasmweekly.news/
+- https://github.com/diekmann/wasm-fizzbuzz : WebAssembly from Scratch: From FizzBuzz to DooM
 
 # WASI - WebAssembly System Interface
 
 a specification, led by the [Bytecode Alliance](https://bytecodealliance.org/), that is adding various out-of-browser capabilities.
+The Wasi interface, initiated by Mozilla is an extension of WebAssembly based upon the idea of running WebAssembly programs outside of a browser. 
+
+# WABT
+https://github.com/WebAssembly/wabt
 
 ## Langs for wasm
 https://docs.wasmtime.dev/lang.html

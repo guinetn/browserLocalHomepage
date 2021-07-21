@@ -1,7 +1,8 @@
 ### RABBIT MQ
 
-https://www.rabbitmq.com/
-https://docs.nestjs.com/microservices/rabbitmq
+- https://www.rabbitmq.com/
+- https://docs.nestjs.com/microservices/rabbitmq
+- https://wanago.io/2020/11/23/api-nestjs-rabbitmq-microservices/
 
 Message broker: a Publish/Subscribe messaging system.
 channel

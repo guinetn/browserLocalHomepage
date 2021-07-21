@@ -53,6 +53,18 @@ dotnet test
 dotnet pack
 dotnet publish
 
+dotnet new razor -n frontend
+dotnet new webapi -n backend
+dotnet new sln
+dotnet sln add frontend backend
+https://github.com/dotnet/tye/blob/main/docs/tutorials/hello-tye/00_run_locally.md
+
+
+dotnet dev-certs
+  - https://stackoverflow.com/questions/55485511/how-to-run-dotnet-dev-certs-https-trust
+  dev-certs doesn't fully work on Linux so you need to generate and trust your own certificate.
+   https://github.com/dotnet/tye/blob/main/docs/tutorials/hello-tye/00_run_locally.md
+
 dotnet tool search ildasm
 dotnet tool install -g dotnet-ildasm
 

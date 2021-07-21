@@ -13,6 +13,21 @@ It hides internals complexity
 - Web APIs are 'Web Browser APIs': Chrome, Firefox, Safari, etc., have them built-in so that we can use them to add features to our sites, speech, audio, gamepad, events. https://developer.mozilla.org/en-US/docs/Web/API/Event
 
 
+```js
+var https = require("https");
+
+https.get({
+	hostname: "web-services.myapp.com™,
+	path: '/rates/api/v2/spot.json?base=EUR&quote=USDsdate_time=2017-03-02",
+	Headers: {
+		Authorization: "Bearer " + MY_API_KEY
+	}, 
+function(response) {
+	if (response.statusCode === 200) {
+	response.on('data', function(data) {
+	console.log(JSON.parse(data));
+}};
+```
 ## Web resources
 First defined as documents/files identified by their URLs
 Today definition is much more generic and abstract, and includes every thing, entity, or action that can be identified, named, addressed, handled, or performed in any way on the Web. 

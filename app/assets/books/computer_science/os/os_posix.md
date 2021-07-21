@@ -3,6 +3,8 @@
 Family of standards specified by the IEEE Computer Society for maintaining compatibility between operating systems.
 Defines API (application programming interface) along with command line shells and utility interfaces for software compatibility with variants of Unix and other operating systems.
 
+The POSIX standard, which Linux implements, was started in 1988
+
 Standard API for compatibility between operating systems. 
 
 Mostly implemented on unix systems, POSIX standard can be used on any os: Microsoft Windows NT 3/4 are POSIX.1:1990 compatible, enough for simple POSIX applications. More complex software need a larger compatibility afford by addons like 'Services for UNIX' or  Cygwin, these bring windows that level of compatibility.
@@ -16,6 +18,13 @@ Minimalistic GNU for Windows. A less POSIX-compliant fork of Cygwin. Toolsets: .
 
 
 Posix:
+
+POSIX standard is mainly composed of two parts: C APIs and the shell.
+
+Paths containing C-compatible libraries and C/C++ headers
+- /usr/lib 
+- /usr/include 
+
 * Asynch and Synch I/O
 * Bus Errors
 * C Library (Standard C)

@@ -72,3 +72,4 @@ The duplicate services ensure the application maintains a high availability for 
 ### more
 
 - https://betterprogramming.pub/top-5-distributed-system-design-patterns-ae9482f49128
+- https://visualstudiomagazine.com/articles/2021/06/08/tye-vs-code-tool.aspx

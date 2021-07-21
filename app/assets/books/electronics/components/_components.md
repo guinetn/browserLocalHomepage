@@ -11,3 +11,6 @@ download.page(electronics/components/capacitor.md)
 download.page(electronics/components/magnetometer.md)
 
 download.page(electronics/components/motors.md)
+
+## Proximity Sensors
+https://www.allaboutcircuits.com/industry-articles/proximity-sensors-reviewing-the-different-technologies/

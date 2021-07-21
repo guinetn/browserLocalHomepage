@@ -151,6 +151,7 @@ download.page(code/repos/git/_git_lfs.md)
 
 download.page(code/repos/git/_git_internals.md)
 download.page(code/repos/git/_git_ops_.md)
+download.page(code/repos/git/_git_github-copilot.md)
 
 ## TOOLS
 

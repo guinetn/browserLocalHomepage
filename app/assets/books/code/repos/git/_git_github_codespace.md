@@ -26,5 +26,4 @@ use VS Codespaces to create a remote development environment
 - https://docs.github.com/en/github/developing-online-with-codespaces
 - https://visualstudio.microsoft.com/fr/services/visual-studio-codespaces/
 
-
-
+- [GitHub Codespaces Alternative: AWS Cloud9, SSH & VS Code](https://visualstudiomagazine.com/articles/2021/07/01/aws-vscode.aspx?oly_enc_id=3671F4217256E2X)

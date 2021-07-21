@@ -1,6 +1,8 @@
 # MATTER
 
-add: https://www.youtube.com/watch?v=gkHmXhhAF2Y
+add: 
+- https://www.youtube.com/watch?v=gkHmXhhAF2Y
+- [Std model](https://www.youtube.com/watch?v=Unl1jXFnzgo)
 
 Particles are excitations in quantum fields
 
@@ -76,7 +78,8 @@ WIMPs?: exotic subatomic particles that scarcely intercat with ordinary mater.
 Even if dark matter deduced from observations is included, universe density is not sufficient to statify theories of its evolution. A dark energy must conteract gravity and causes universe to expand faster.
 
 # STANDARD MODEL OF PARTICLE PHYSICS
-https://theconversation.com/explainer-standard-model-of-particle-physics-2539
+- https://theconversation.com/explainer-standard-model-of-particle-physics-2539
+- [Std model](https://www.youtube.com/watch?v=Unl1jXFnzgo)
 
 Explain the properties of most of the particles except hypothetical graviton, tought to carry force of gravity.  
 General relativity is incompatible with aspects of the standard model

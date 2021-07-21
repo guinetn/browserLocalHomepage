@@ -1,5 +1,15 @@
 # API CREATION
 
+flask
+  from flask import Flask
+  app = Flask(__name__)
+
+  @app.route("/")
+
+  def hello():
+    return "Hello World!"
+
+
 https://auth0.com/docs/quickstart/spa/vanillajs
 npm init -y
 npm install express
@@ -43,6 +53,10 @@ code .
 asp.net
 https://docs.microsoft.com/fr-fr/learn/modules/build-web-api-aspnet-core/3-exercise-create-web-api
 https://www.red-gate.com/simple-talk/dotnet/c-programming/build-a-rest-api-in-net-core/
+
+
+nestjs
+https://wanago.io/2021/07/19/api-nestjs-verifying-phone-numbers-sending-sms-twilio/
 
 
 dotnet new webapi --no-https

@@ -49,6 +49,8 @@ Check if functions are loaded into memory: exist on the Function PSDrive?
 
 ### Parameters
 
+https://www.sqlservercentral.com/articles/powershell-day-by-day-customizing-scripts-with-parameters
+
 ```bash
 function Test-MyParameter {
     param ($ComputerName)
@@ -95,6 +97,85 @@ FetchGitHubRepos
 
 ```bash
 ```
+
+* The Simple Way To Use Parameters - $args[]
+
+$args[0] - first parameter passed in
+$args[1] - second parameter passed in
+$args[2] - second parameter passed in
+...
+
+$i = $args[3]
+if ($i.Length -eq 0) {write-host("Missing parameter") }
+else {write-host("Fourth parameter: $i")}
+$i = $args[3]
+if ($i -eq $null) {write-host("Missing parameter") }
+else {write-host("Fourth parameter: $i")}
+
+$filetype = $args[0]
+$prefix = $args[1]
+$a = Get-ChildItem .
+foreach ($i in $a) {
+ if ($i.extension -eq $filetype) {
+   $newname = $prefix + $i.Name
+   Rename-Item $i $newname
+ }
+}
+
+* Named Parameters
+
+param([Parameter(Mandatory)]$extension, $prefix )
+if ($extension -eq $null) {
+    write-host("Missing extension parameter") 
+  }
+  else {
+    write-host("Extension Parameter: $extension")
+  }
+if ($prefix -eq $null) {
+    write-host("Missing prefix parameter") 
+  }
+  else {
+    write-host("Prefix Parameter: $prefix")
+  }
+
+* Default Values for Parameters
+
+param( $FileExtension="csv"
+     , [Parameter(Mandatory)]$ArchivePrefix )
+if ($FileExtension.substring(1,1) -ne ".") {
+  $FileExtension = "." + $FileExtension
+}
+$a = Get-ChildItem .
+foreach ($i in $a) {
+ if ($i.extension -eq $FileExtension) {
+   $newname = $ArchivePrefix + $i.Name
+   Rename-Item $i $newname
+ }
+}
+
+* Adding Help
+
+<#
+.PARAMETER FileExtension
+    The extension of the files to be checked. This can include or exclude the period. The default here is CSV.
+.PARAMETER ArchivePrefix
+    A string value that is prepended to files matching the extension parameter.
+.EXAMPLE
+    .\prefix_filenames.ps1 -ArchivePrefix "202106_" 
+    This will add 202106_ to each file with the default csv extension.
+#>
+param( $FileExtension="csv"
+     , [Parameter(Mandatory)]$ArchivePrefix )
+if ($FileExtension.substring(1,1) -ne ".") {
+  $FileExtension = "." + $FileExtension
+}
+$a = Get-ChildItem .
+foreach ($i in $a) {
+ if ($i.extension -eq $FileExtension) {
+   $newname = $ArchivePrefix + $i.Name
+   Rename-Item $i $newname
+ }
+}
 
 ## more
 
