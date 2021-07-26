@@ -35,6 +35,7 @@ https://github.com/WebAssembly/wabt
 # SSVM - Web Assembly Virtual Machine
 -[web applications with Rust, WebAssembly, and Node js](https://www.youtube.com/watch?v=0MyCj17xaQQ)
 - [Get started with Rust functions in Node.js:](https://www.secondstate.io/articles/getting-started-with-rust-function/)
+
 ## Langs for wasm
 https://docs.wasmtime.dev/lang.html
 

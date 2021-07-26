@@ -72,6 +72,10 @@ Building and Launching Container
 Environment variables. Using -e option, you can set name/value  
 >docker run -d --name my-production-running-app -e NODE_ENV=production -p 3000:3000 my-nodejs-app
 
+### GO
+
+https://www.loginradius.com/blog/async/build-push-docker-images-golang/
+
 
 ### DOCKERIZING ASP.NET CORE
 https://www.katacoda.com/courses/dotnet-in-docker/deploying-aspnet-core-as-docker-container

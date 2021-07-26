@@ -1,6 +1,7 @@
 # KUBERNETES (K8s or "kube") 
 
-https://kubernetes.io/
+- https://kubernetes.io/
+- https://www.loginradius.com/blog/async/rest-api-kubernetes/  to add
 
 Help to deliver and manage containerized, legacy, and cloud-native apps
 Rapidly build new applications and services. Cloud-native development starts with microservices in containers, which enables faster development and makes it easier to transform and optimize existing applications. 

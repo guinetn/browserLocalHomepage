@@ -16,8 +16,8 @@ Brought by Auth0: a cloud service, APIs, tools that eliminate the friction of id
 
 ![](assets/books/security/assets/jwt01.png)
 
-https://auth0.com/docs/quickstart/spa/vanillajs/01-login
-
+- https://auth0.com/docs/quickstart/spa/vanillajs/01-login
+- https://www.loginradius.com/blog/async/invalidating-jwt/
 ## JWT structure: header.payload.signature
 
  	token = encodeBase64(header) + '.' + encodeBase64(payload) + '.' + encodeBase64(signature) 
@@ -109,6 +109,8 @@ The client
     - local storage: keep the user signed in until the token expires
     - session storage: keep the user logged in until the browser tab is closed
 
+### with Vue.js
+https://www.loginradius.com/blog/async/implementing-authentication-on-vuejs-using-jwt/
 ### with Node.js
 npm i express jsonwebtoken mongoose body-parser bcrypt
 root

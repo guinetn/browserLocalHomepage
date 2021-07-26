@@ -42,6 +42,11 @@ fn main() {
 # GO SAMPLES
 download.slideshow(assets/books/code/langs/go/code_samples/go01.md)
 
+# GO HTTPClient
+https://www.loginradius.com/blog/async/tune-the-go-http-client-for-high-performance/
+
+# GO + DOCKER
+https://www.loginradius.com/blog/async/build-push-docker-images-golang/ 
 ## PACKAGES - pkg
 
 Directories within your Go workspace that contain Go source files or other packages. 

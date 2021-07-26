@@ -50,6 +50,51 @@ code .
   > python manage.py runserver            → http://127.0.0.1:8000/  
   > python manage.py runserver 8080
 
+
+
+
+>mkdir my-backend-api && cd my-backend-api
+>touch server.js
+>npm init
+>npm i express --save
+
+// server.js
+```js
+const express = require("express");
+const app = express();
+
+app.get("/user/:id", (req, res) => {
+  const id = req.params.id;
+  res.json({
+    id,
+    name: `John Doe #${id}`
+  });
+});
+
+app.listen(80, () => {
+  console.log("Server running on port 80");
+});
+```
+>node server.js
+>curl http://localhost:80/user/123
+// response: {"id":"123","name":"John Doe #123"}
+
+// Dockerfile
+FROM node:12
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm i
+COPY . .
+EXPOSE 80
+CMD ["node", "server.js"]
+
+
+// .dockerignore
+node_modules
+
+>docker build -t <YOUR_DOCKER_ID>/my-backend-api .
+>docker push <YOUR_DOCKER_ID>/my-backend-api
+
 asp.net
 https://docs.microsoft.com/fr-fr/learn/modules/build-web-api-aspnet-core/3-exercise-create-web-api
 https://www.red-gate.com/simple-talk/dotnet/c-programming/build-a-rest-api-in-net-core/
